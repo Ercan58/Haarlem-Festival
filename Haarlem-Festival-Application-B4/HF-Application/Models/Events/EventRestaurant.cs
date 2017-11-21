@@ -6,7 +6,7 @@ using HF_Application.Models.Enum;
 
 namespace HF_Application.Models.Events
 {
-    public class EventRestaurant : Event
+    public class EventRestaurant : EventFestival
     {
         public int Session { get; set; }
         public string RestaurantName { get; set; }

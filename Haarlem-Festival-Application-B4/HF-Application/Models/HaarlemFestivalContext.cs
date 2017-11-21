@@ -25,5 +25,9 @@ namespace HF_Application.Models
 
         public System.Data.Entity.DbSet<HF_Application.Models.WishList> WishLists { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.PageEvent> PageEvents { get; set; }
+
+        public System.Data.Entity.DbSet<HF_Application.Models.EventFestival> Events { get; set; }
+
+        public System.Data.Entity.DbSet<HF_Application.Models.Location> Locations { get; set; }
     }
 }

@@ -146,30 +146,26 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211512034_InitialCreate.cs" />
-    <Compile Include="Migrations\201711211512034_InitialCreate.Designer.cs">
-      <DependentUpon>201711211512034_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201711211704097_init6.cs" />
+    <Compile Include="Migrations\201711211704097_init6.Designer.cs">
+      <DependentUpon>201711211704097_init6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211518407_initialcreate2.cs" />
-    <Compile Include="Migrations\201711211518407_initialcreate2.Designer.cs">
-      <DependentUpon>201711211518407_initialcreate2.cs</DependentUpon>
+    <Compile Include="Migrations\201711211710230_Inheritance.cs" />
+    <Compile Include="Migrations\201711211710230_Inheritance.Designer.cs">
+      <DependentUpon>201711211710230_Inheritance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211523536_initialcreate3.cs" />
-    <Compile Include="Migrations\201711211523536_initialcreate3.Designer.cs">
-      <DependentUpon>201711211523536_initialcreate3.cs</DependentUpon>
+    <Compile Include="Migrations\201711211718437_testtest.cs" />
+    <Compile Include="Migrations\201711211718437_testtest.Designer.cs">
+      <DependentUpon>201711211718437_testtest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211528276_initialcreate4.cs" />
-    <Compile Include="Migrations\201711211528276_initialcreate4.Designer.cs">
-      <DependentUpon>201711211528276_initialcreate4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211532107_initialcreate5.cs" />
-    <Compile Include="Migrations\201711211532107_initialcreate5.Designer.cs">
-      <DependentUpon>201711211532107_initialcreate5.cs</DependentUpon>
+    <Compile Include="Migrations\201711211722347_testestt.cs" />
+    <Compile Include="Migrations\201711211722347_testestt.Designer.cs">
+      <DependentUpon>201711211722347_testestt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
-    <Compile Include="Models\Events\Event.cs" />
+    <Compile Include="Models\Events\EventFestival.cs" />
     <Compile Include="Models\Events\EventHistoric.cs" />
     <Compile Include="Models\Events\EventJazz.cs" />
     <Compile Include="Models\Events\EventRestaurant.cs" />
@@ -246,6 +242,16 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\EventHistorics\Create.cshtml" />
+    <Content Include="Views\EventHistorics\Delete.cshtml" />
+    <Content Include="Views\EventHistorics\Details.cshtml" />
+    <Content Include="Views\EventHistorics\Edit.cshtml" />
+    <Content Include="Views\EventHistorics\Index.cshtml" />
+    <Content Include="Views\EventTalkings\Create.cshtml" />
+    <Content Include="Views\EventTalkings\Delete.cshtml" />
+    <Content Include="Views\EventTalkings\Details.cshtml" />
+    <Content Include="Views\EventTalkings\Edit.cshtml" />
+    <Content Include="Views\EventTalkings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,20 +265,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711211512034_InitialCreate.resx">
-      <DependentUpon>201711211512034_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711211704097_init6.resx">
+      <DependentUpon>201711211704097_init6.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211518407_initialcreate2.resx">
-      <DependentUpon>201711211518407_initialcreate2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711211710230_Inheritance.resx">
+      <DependentUpon>201711211710230_Inheritance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211523536_initialcreate3.resx">
-      <DependentUpon>201711211523536_initialcreate3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711211718437_testtest.resx">
+      <DependentUpon>201711211718437_testtest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211528276_initialcreate4.resx">
-      <DependentUpon>201711211528276_initialcreate4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211532107_initialcreate5.resx">
-      <DependentUpon>201711211532107_initialcreate5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711211722347_testestt.resx">
+      <DependentUpon>201711211722347_testestt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

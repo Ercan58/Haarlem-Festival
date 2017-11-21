@@ -10,6 +10,6 @@ namespace HF_Application.Models
         public int Id { get; set; }
         public int EventId { get; set; }
 
-        public Event Event { get; set; }
+        public EventFestival Event { get; set; }
     }
 }

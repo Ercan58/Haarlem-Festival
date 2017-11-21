@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HF_Application.Models.Events
 {
-    public class EventJazz : Event
+    public class EventJazz : EventFestival
     {
         public string Band { get; set; }
 

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HF_Application.Models.Events
 {
-    public class EventHistoric:Event
+    public class EventHistoric: EventFestival
     {
 
         public int FamilyPrice { get; set; }
