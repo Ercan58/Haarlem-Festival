@@ -6,6 +6,6 @@ using System.Web;
 namespace HF_Application.Models
 {
     public class OrderItem
-    {
+    { 
     }
 }
