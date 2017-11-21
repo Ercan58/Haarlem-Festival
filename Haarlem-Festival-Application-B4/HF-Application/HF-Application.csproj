@@ -137,6 +137,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
     <Compile Include="Models\Events\Event.cs" />
     <Compile Include="Models\Events\EventHistoric.cs" />
