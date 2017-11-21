@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Haarlem Festival Administration Panel</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/Admin.css")
+    @Styles.Render("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+<div class="container">
+    @Html.ActionLink("Haarlem Festival", "Index", "Home", new {area = ""}, new {@class = "brand"})
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            @Html.MvcSiteMap().SiteMapPath()
+        </ol>
+    </nav>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <footer>
+        <p>&copy; 2017 - Haarlem Festival B4</p>
+    </footer>
+</div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>
