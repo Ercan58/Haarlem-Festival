@@ -8,9 +8,12 @@ namespace HF_Application.Models
     public class Order
     {
         public int Id { get; set; }
+        public int ItemId { get; set; }
+        public string Remark { get; set; }
         public int Invoice { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime OrderPayed { get; set; }
 
+        public OrderItem Item { get; set; }
     }  
 }

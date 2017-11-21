@@ -7,5 +7,9 @@ namespace HF_Application.Models
 {
     public class WishList
     {
+        public int Id { get; set; }
+        public int CustomerId {get;set;}
+
+        public User Customer { get; set; }
     }
 }
