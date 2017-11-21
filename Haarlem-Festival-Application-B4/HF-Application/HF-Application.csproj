@@ -138,6 +138,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interface\IEvents.cs" />
+    <Compile Include="Models\Events\EventHistoric.cs" />
+    <Compile Include="Models\Events\EventJazz.cs" />
+    <Compile Include="Models\Events\EventRestaurant.cs" />
+    <Compile Include="Models\Events\EventTalking.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\PageEvent.cs" />
