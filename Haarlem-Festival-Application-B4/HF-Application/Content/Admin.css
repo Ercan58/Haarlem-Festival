@@ -4,7 +4,7 @@
     font-family: 'Roboto';
     color: #e0e0e0;
     /* gradient gaat over in transparant om een grafische bug te omzeilen*/
-    background: linear-gradient(#3f3f3f, transparent);
+    background: linear-gradient(#3f3f3f 0%, transparent 15rem);
     background-color: #5a5a5a;
     background-repeat: no-repeat;
 }
@@ -35,16 +35,16 @@ h1, h2, h3, h4, h5 {
     padding-bottom: 2rem;
 }
 
-.btn-admin {
+.menu-admin-btn {
     width: 100%;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
-.btn-admin:hover, .btn-admin-current {
+.menu-admin-btn:hover, .menu-admin-btn-current {
     margin-bottom: 0;
-    border-bottom: 10px solid #e0e0e0;
+    border-bottom: 1rem solid #e0e0e0;
 }
 
 .taste, .taste:hover {
@@ -67,13 +67,46 @@ h1, h2, h3, h4, h5 {
     background-color: #9d6a00;
 }
 
-.list-dark {
-    margin-left: 1rem;
+.admin-btn {
+    width: 100%;
+    margin-bottom: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: larger;
     color: #e0e0e0;
     background-color: #303030;
 }
 
-.list-light {
+.admin-btn:hover {
+    color: #e0e0e0;
+    background-color: #3f3f3f;
+}
+
+.event-list-header {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    font-size: larger;
+}
+.event-list-body {
+    background-color: #e0e0e0;
+    font-size: larger;
+}
+
+.event-item {
+    width: 100%;
+    height: 2rem;
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+}
+
+.item-dark {
+    text-align: center;
+    color: #e0e0e0;
+    background-color: #303030;
+}
+
+.item-light {
     color: #5a5a5a;
     background-color: #e0e0e0;
 }
