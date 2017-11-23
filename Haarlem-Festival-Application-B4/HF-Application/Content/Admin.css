@@ -67,6 +67,17 @@ h1, h2, h3, h4, h5 {
     background-color: #9d6a00;
 }
 
+.list-dark {
+    margin-left: 1rem;
+    color: #e0e0e0;
+    background-color: #303030;
+}
+
+.list-light {
+    color: #5a5a5a;
+    background-color: #e0e0e0;
+}
+
 footer {
     margin-top: 5rem;
 }
