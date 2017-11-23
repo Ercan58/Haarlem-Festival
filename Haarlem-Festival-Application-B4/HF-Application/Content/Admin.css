@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     font-family: 'Roboto';
     color: #e0e0e0;
+    /* gradient gaat over in transparant om een grafische bug te omzeilen*/
     background: linear-gradient(#3f3f3f, transparent);
     background-color: #5a5a5a;
     background-repeat: no-repeat;
@@ -10,26 +11,6 @@
 
 h1, h2, h3, h4, h5 {
     font-family: 'Roboto Slab';
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
 }
 
 .brand, .brand:hover{
@@ -47,4 +28,45 @@ textarea {
 
 .breadcrumb-item.active, .breadcrumb a{
     color: #e0e0e0;
+}
+
+.menu-admin {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.btn-admin {
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 10px;
+}
+
+.btn-admin:hover, .btn-admin-current {
+    margin-bottom: 0;
+    border-bottom: 10px solid #e0e0e0;
+}
+
+.taste, .taste:hover {
+    color: #e0e0e0;
+    background-color: #a00000;
+}
+
+.hear, .hear:hover {
+    color: #e0e0e0;
+    background-color: #008e00;
+}
+
+.see, .see:hover {
+    color: #e0e0e0;
+    background-color: #002590;
+}
+
+.talk, .talk:hover {
+    color: #e0e0e0;
+    background-color: #9d6a00;
+}
+
+footer {
+    margin-top: 5rem;
 }
