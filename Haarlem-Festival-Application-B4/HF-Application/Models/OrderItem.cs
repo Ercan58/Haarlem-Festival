@@ -9,7 +9,11 @@ namespace HF_Application.Models
     { 
         public int Id { get; set; }
         public int ItemId { get; set; }
-        
-        public Event Item { get; set; }
+        public int OrderId { get; set; }
+
+        public int Aantal { get; set; }
+        public int Prijs { get; set; }
+        public EventFestival Item { get; set; }
+        public Order Order { get; set; }
     }
 }
