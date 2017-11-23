@@ -17,7 +17,7 @@ namespace HF_Application.Controllers
         // GET: Orders
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Item);
+            var orders = db.Orders.Include(o => o.User);
             return View(orders.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace HF_Application.Controllers
         // GET: Orders/Create
         public ActionResult Create()
         {
-            ViewBag.ItemId = new SelectList(db.OrderItems, "Id", "Id");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace HF_Application.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
+        public ActionResult Create([Bind(Include = "Id,UserId,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace HF_Application.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ItemId = new SelectList(db.OrderItems, "Id", "Id", order.ItemId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 
@@ -73,7 +73,7 @@ namespace HF_Application.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ItemId = new SelectList(db.OrderItems, "Id", "Id", order.ItemId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 
@@ -82,7 +82,7 @@ namespace HF_Application.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,UserId,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace HF_Application.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ItemId = new SelectList(db.OrderItems, "Id", "Id", order.ItemId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", order.UserId);
             return View(order);
         }
 

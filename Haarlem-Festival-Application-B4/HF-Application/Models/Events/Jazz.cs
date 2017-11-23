@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HF_Application.Models.Events
 {
-    public class EventJazz : EventFestival
+    [Table("Jazz")]
+    public class Jazz : EventFestival
     {
         public string Band { get; set; }
 

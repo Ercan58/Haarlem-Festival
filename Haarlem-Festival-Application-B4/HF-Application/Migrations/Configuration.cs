@@ -10,7 +10,6 @@ namespace HF_Application.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "HF_Application.Models.HaarlemFestivalContext";
         }
 
         protected override void Seed(HF_Application.Models.HaarlemFestivalContext context)

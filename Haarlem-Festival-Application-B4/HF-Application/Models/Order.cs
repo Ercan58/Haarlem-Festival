@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using HF_Application.Models.Enum;
 
 namespace HF_Application.Models
 {
     public class Order
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public int ItemId { get; set; }
         public string Remark { get; set; }
         public int Invoice { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime OrderPayed { get; set; }
+        public User User { get; set; }
+        public Status status { get; set; }
 
-        public OrderItem Item { get; set; }
     }  
 }

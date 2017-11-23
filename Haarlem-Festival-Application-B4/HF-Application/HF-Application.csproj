@@ -146,38 +146,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711211704097_init6.cs" />
-    <Compile Include="Migrations\201711211704097_init6.Designer.cs">
-      <DependentUpon>201711211704097_init6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211710230_Inheritance.cs" />
-    <Compile Include="Migrations\201711211710230_Inheritance.Designer.cs">
-      <DependentUpon>201711211710230_Inheritance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211718437_testtest.cs" />
-    <Compile Include="Migrations\201711211718437_testtest.Designer.cs">
-      <DependentUpon>201711211718437_testtest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711211722347_testestt.cs" />
-    <Compile Include="Migrations\201711211722347_testestt.Designer.cs">
-      <DependentUpon>201711211722347_testestt.cs</DependentUpon>
+    <Compile Include="Migrations\201711231355298_init99.cs" />
+    <Compile Include="Migrations\201711231355298_init99.Designer.cs">
+      <DependentUpon>201711231355298_init99.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
-    <Compile Include="Models\Events\EventFestival.cs" />
-    <Compile Include="Models\Events\EventHistoric.cs" />
-    <Compile Include="Models\Events\EventJazz.cs" />
-    <Compile Include="Models\Events\EventRestaurant.cs" />
-    <Compile Include="Models\Events\EventTalking.cs" />
+    <Compile Include="Models\Enum\Status.cs" />
+    <Compile Include="Models\Events\Events.cs" />
+    <Compile Include="Models\Events\Historic.cs" />
+    <Compile Include="Models\Events\Jazz.cs" />
+    <Compile Include="Models\Events\Diner.cs" />
+    <Compile Include="Models\Events\Talk.cs" />
     <Compile Include="Models\HaarlemFestivalContext.cs" />
-    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\PageEvent.cs" />
-    <Compile Include="Models\PagePassPartout.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\WishList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -265,17 +251,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711211704097_init6.resx">
-      <DependentUpon>201711211704097_init6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211710230_Inheritance.resx">
-      <DependentUpon>201711211710230_Inheritance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211718437_testtest.resx">
-      <DependentUpon>201711211718437_testtest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711211722347_testestt.resx">
-      <DependentUpon>201711211722347_testestt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231355298_init99.resx">
+      <DependentUpon>201711231355298_init99.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
