@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    @Html.ActionLink("Haarlem Festival", "Index", "Home", new {area = ""}, new {@class = "brand"})
+    @Html.ActionLink("Haarlem Festival", "Index", "Admin", new {area = ""}, new {@class = "brand"})
     <nav aria-label="breadcrumb" role="navigation">
         <ol class="breadcrumb">
             @Html.MvcSiteMap().SiteMapPath()
@@ -19,6 +19,36 @@
     </nav>
 </div>
 <div class="container body-content">
+    <div class="row menu-admin">
+        <div class="col-sm">
+            <a class="btn btn-admin taste @(ViewContext.RouteData.Values["action"].ToString() == "Taste" ? "btn-admin-current" : "")"
+               href="@Url.Action("Taste", "Admin")">
+                <h1>Taste</h1>
+                <h4>Dinner in Haarlem</h4>
+            </a>
+        </div>
+        <div class="col-sm">
+            <a class="btn btn-admin hear @(ViewContext.RouteData.Values["action"].ToString() == "Hear" ? "btn-admin-current" : "")"
+               href="@Url.Action("Hear", "Admin")">
+                <h1>Hear</h1>
+                <h4>Jazz@Patronaat</h4>
+            </a>
+        </div>
+        <div class="col-sm">
+            <a class="btn btn-admin see @(ViewContext.RouteData.Values["action"].ToString() == "See" ? "btn-admin-current" : "")"
+               href="@Url.Action("See", "Admin")">
+                <h1>See</h1>
+                <h4>Historic Haarlem</h4>
+            </a>
+        </div>
+        <div class="col-sm">
+            <a class="btn btn-admin talk @(ViewContext.RouteData.Values["action"].ToString() == "Talk" ? "btn-admin-current" : "")"
+               href="@Url.Action("Talk", "Admin")">
+                <h1>Talk</h1>
+                <h4>Talking Haarlem</h4>
+            </a>
+        </div>
+    </div>
     @RenderBody()
     <footer>
         <p>&copy; 2017 - Haarlem Festival B4</p>

@@ -11,8 +11,27 @@ namespace HF_Application.Controllers
         // GET: Admin
         public ActionResult Index()
 		{
-			Console.WriteLine("Hoi Daniel!"); 
 			return View();
         }
-    }
+
+	    public ActionResult Taste()
+	    {
+		    return View();
+	    }
+
+	    public ActionResult Hear()
+	    {
+		    return View();
+	    }
+
+	    public ActionResult See()
+	    {
+		    return View();
+	    }
+
+	    public ActionResult Talk()
+	    {
+		    return View();
+	    }
+	}
 }
