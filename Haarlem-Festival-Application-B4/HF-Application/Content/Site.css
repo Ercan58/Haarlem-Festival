@@ -4,6 +4,26 @@ Jazz is #0D8C10
 Historic Haarlem #032A8C 
 Talking Haarlem #9C6910
 */
+body {
+
+}
+
+#Diner{
+    background-image: url();
+
+}
+
+#Jazz{
+    background-image: url(images/bg-music.png);
+
+}
+
+.box{
+    height:100%;
+    width:33.3%;
+
+}
+*/
 
 .nav{
     background:#0a0a0a;
