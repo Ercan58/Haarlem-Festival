@@ -11,12 +11,13 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            @Html.ActionLink("Haarlem Festival", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
             <div class="navbar-collapse collapse">
+                <div class="flag"><img src=""</div>
                 <ul class="nav navbar-nav">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item food"><img src="~/Content/images/" /> @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item jazz"><img src="~/Content/images/" /></li>
+                    <li class="nav-item history"><img src="~/Content/images/"/></li>
+                    <li class="nav-item talking"><img src="~/Content/images/" /></li>
                 </ul>
             </div>
         </div>
