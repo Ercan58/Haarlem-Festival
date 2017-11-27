@@ -5,7 +5,7 @@ using System.Web;
 using HF_Application.Models.Enum;
 namespace HF_Application.Models
 {
-    public abstract class EventFestival
+    public abstract class FestivalEvent
     {
         public int ID { get; set; }
         public string Location { get; set; }

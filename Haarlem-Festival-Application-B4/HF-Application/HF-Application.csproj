@@ -150,20 +150,12 @@
     <Compile Include="Migrations\201711231355298_init99.Designer.cs">
       <DependentUpon>201711231355298_init99.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711231711261_ini1.cs" />
-    <Compile Include="Migrations\201711231711261_ini1.Designer.cs">
-      <DependentUpon>201711231711261_ini1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231713086_ini2.cs" />
-    <Compile Include="Migrations\201711231713086_ini2.Designer.cs">
-      <DependentUpon>201711231713086_ini2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
     <Compile Include="Models\Enum\Status.cs" />
-    <Compile Include="Models\Events\Events.cs" />
+    <Compile Include="Models\Events\FestivalEvent.cs" />
     <Compile Include="Models\Events\Historic.cs" />
     <Compile Include="Models\Events\Jazz.cs" />
     <Compile Include="Models\Events\Diner.cs" />
@@ -241,12 +233,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711231355298_init99.resx">
       <DependentUpon>201711231355298_init99.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231711261_ini1.resx">
-      <DependentUpon>201711231711261_ini1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711231713086_ini2.resx">
-      <DependentUpon>201711231713086_ini2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

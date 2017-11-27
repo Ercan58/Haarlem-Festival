@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HF_Application.Models.Events
 {
     [Table("Historic")]
-    public class Historic: EventFestival
+    public class Historic: FestivalEvent
     {
 
         public int FamilyPrice { get; set; }

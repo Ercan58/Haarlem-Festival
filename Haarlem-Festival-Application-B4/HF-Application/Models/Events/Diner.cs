@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace HF_Application.Models.Events
 {
     [Table("Diner")]
-    public class Diner : EventFestival
+    public class Diner : FestivalEvent
     {
         public int Session { get; set; }
         public string RestaurantName { get; set; }
