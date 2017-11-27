@@ -7,5 +7,6 @@ namespace HF_Application.Models.Enum
 {
     public enum Status
     {
+        wishlist, besteeld
     }
 }

@@ -7,5 +7,6 @@ namespace HF_Application.Models.Enum
 {
     public enum FoodType
     {
+        asian, european, france, seaFood
     }
 }
