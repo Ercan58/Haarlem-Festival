@@ -11,6 +11,7 @@ namespace HF_Application.Models
         public int Id { get; set; }
         public int UserId { get; set; }
         public int ItemId { get; set; }
+        public int statusId { get; set;}
         public string Remark { get; set; }
         public int Invoice { get; set; }
         public DateTime OrderDate { get; set; }
