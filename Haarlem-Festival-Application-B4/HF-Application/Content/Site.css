@@ -23,12 +23,55 @@ body {
     width:33.3%;
 
 }
-*/
 
+.buttonRightNav{
+    float:left;
+    width:50%;
+}
 .nav{
     background:#0a0a0a;
 } 
 
 .flagdiv{
-    width:30%;
+    width:15%;
+    background:white;
+}
+
+.flag{
+    width:60%;
+    padding:1%;
+    margin-left:auto;
+    margin-right:auto;
+    display: block;
+}
+
+.navigationbar{
+    padding:0px;
+}
+
+.rightNavigationButton{
+    width:17%;
+}
+.food{
+    padding:2%;
+    margin-left:5px;
+    background:#910000;
+}
+
+.hear{
+    padding:2%;
+    margin-left:5px;
+    background:#0D8C10;
+}
+
+.see{
+    padding:2%;
+    margin-left:5px;
+    background:#032A8C;
+}
+
+.talking{
+    padding:2%;
+    margin-left:5px;
+    background:#9C6910;
 }

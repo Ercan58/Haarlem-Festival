@@ -172,6 +172,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\flag.png" />
     <Content Include="Content\images\bg-music.png" />
+    <Content Include="Content\images\HEAR.png" />
+    <Content Include="Content\images\home.png" />
+    <Content Include="Content\images\SEE.png" />
+    <Content Include="Content\images\TALK.png" />
+    <Content Include="Content\images\TASTE.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
