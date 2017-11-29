@@ -226,6 +226,10 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Content\images\btn-hear.png" />
+    <Content Include="Content\images\btn-see.png" />
+    <Content Include="Content\images\btn-talk.png" />
+    <Content Include="Content\images\btn-taste.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

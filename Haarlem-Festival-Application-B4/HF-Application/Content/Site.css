@@ -18,6 +18,29 @@ body {
 
 }
 
+.taste{
+    background-color: #910000;
+}
+
+.hear{
+    background-color: #0D8C10;
+}
+
+.see{
+    background-color: #032A8C;
+}
+
+.talk {
+    background-color: #9C6910;
+}
+
+@media only screen and (max-width : 992px) {
+    .taste a, .hear a, .see a, .talk a {
+        margin-left: 2rem;
+    }
+}
+
+/*
 .box{
     height:100%;
     width:33.3%;
@@ -51,27 +74,4 @@ body {
 
 .rightNavigationButton{
     width:17%;
-}
-.food{
-    padding:2%;
-    margin-left:5px;
-    background:#910000;
-}
-
-.hear{
-    padding:2%;
-    margin-left:5px;
-    background:#0D8C10;
-}
-
-.see{
-    padding:2%;
-    margin-left:5px;
-    background:#032A8C;
-}
-
-.talking{
-    padding:2%;
-    margin-left:5px;
-    background:#9C6910;
-}
+}*/
