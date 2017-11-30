@@ -8,6 +8,8 @@ namespace HF_Application.Controllers
 {
     public class AdminController : Controller
     {
+        private HF_Application.Models.HaarlemFestivalContext db = new Models.HaarlemFestivalContext();
+
         // GET: Admin
         public ActionResult Index()
 		{
@@ -21,7 +23,9 @@ namespace HF_Application.Controllers
 
 	    public ActionResult Hear()
 	    {
-		    return View();
+            var events = db.Events.ToList();
+
+            return View(events);
 	    }
 
 	    public ActionResult See()
