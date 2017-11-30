@@ -29,6 +29,10 @@ footer{
     padding:1% 1% 0.5% 1%;
 }
 
+.homepagesecondline{
+    padding-bottom:10px;
+}
+
 #Jazz{
     background-image: url(images/bg-music.png);
 

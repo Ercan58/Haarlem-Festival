@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title Haarlem festival Application</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     @Styles.Render("~/Content/bootstrap.css")
@@ -33,14 +33,17 @@
                             <a class="nav-link" href="#"><img src="/content/images/btn-talk.png" alt="Talk" /></a>
                         </li>
                     </ul>
+                    <div class="navrightbar">
+                        <a class="profileicon" href="#"><img src="~/Content/images/profile.png" /></a>
+                        <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
+                    </div>
                 </div>
             </div>
         </nav>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - www.haarlemfestivals.nl all rights reserved</p>
         </footer>
     </div>
 
