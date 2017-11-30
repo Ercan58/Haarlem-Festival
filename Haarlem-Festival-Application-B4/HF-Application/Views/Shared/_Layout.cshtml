@@ -1,28 +1,46 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><h1 style="color: red;"=>Hf</h1></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item food"><img src="~/Content/images/TASTE.png" /></li>
-                        <li class="nav-item hear"><img src="~/Content/images/HEAR.png" /></li>
-                        <li class="nav-item see"><img src="~/Content/images/SEE.png" /></li>
-                        <li class="nav-item talking"><img src="~/Content/images/TALK.png" /></li>
+                        <li class="nav-item taste">
+                            <a class="nav-link" href="#"><img src="/content/images/btn-taste.png" alt="Taste" /></a>
+                        </li>
+                        <li class="nav-item hear">
+                            <a class="nav-link" href="#"><img src="/content/images/btn-hear.png" alt="Hear" /></a>
+                        </li>
+                        <li class="nav-item see">
+                            <a class="nav-link" href="#"><img src="/content/images/btn-see.png" alt="See" /></a>
+                        </li>
+                        <li class="nav-item talk">
+                            <a class="nav-link" href="#"><img src="/content/images/btn-talk.png" alt="Talk" /></a>
+                        </li>
                     </ul>
                 </div>
-                <nav class="navbar navbar-light bg-faded">
-                    <a class="navbar-brand" href="#">
-                        <img src="~/Content/images/home.png" width="60" height="60" alt="">
-                    </a>
-                    <a class="navbar-brand" href="#">
-                        <img src="~/Content/images/profile.png" width="60" height="60" alt="">
-                    </a>
-                </nav>
-        </div>
-        </div>
-    </nav>
-    <div class="containerbody-content">
->>>>>>> 4331ed5c391f34f573b1fc34a95b5466253310bb
+            </div>
+        </nav>
+    <div class="container body-content">
         @RenderBody()
+        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Haarlemfestival.nl all rights reserverd</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
