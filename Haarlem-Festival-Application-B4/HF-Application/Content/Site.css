@@ -1,4 +1,4 @@
-/*
+﻿/*
 Kleurcode food en drink: #910000
 Jazz is #0D8C10  
 Historic Haarlem #032A8C 
@@ -56,7 +56,6 @@ footer{
     }
 }
 
-/*
 .box{
     height:100%;
     width:33.3%;
@@ -177,31 +176,4 @@ footer{
 
 .rightNavigationButton{
     width:17%;
-<<<<<<< HEAD
-}*/
-=======
 }
-.food{
-    padding:4px;
-    margin-left:5px;
-    background:#910000;
-}
-
-.hear{
-    padding:4px;
-    margin-left:5px;
-    background:#0D8C10;
-}
-
-.see{
-    padding:4px;
-    margin-left:5px;
-    background:#032A8C;
-}
-
-.talking{
-    padding:4px;
-    margin-left:5px;
-    background:#9C6910;
-}
->>>>>>> 4331ed5c391f34f573b1fc34a95b5466253310bb
