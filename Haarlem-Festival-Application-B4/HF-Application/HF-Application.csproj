@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201711231355298_init99.Designer.cs">
       <DependentUpon>201711231355298_init99.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301416258_init5.cs" />
+    <Compile Include="Migrations\201711301416258_init5.Designer.cs">
+      <DependentUpon>201711301416258_init5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -253,6 +257,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711231355298_init99.resx">
       <DependentUpon>201711231355298_init99.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301416258_init5.resx">
+      <DependentUpon>201711301416258_init5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
