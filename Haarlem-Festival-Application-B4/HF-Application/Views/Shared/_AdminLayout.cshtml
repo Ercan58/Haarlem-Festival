@@ -12,6 +12,7 @@
 <body>
 <div class="container">
     @Html.ActionLink("Haarlem Festival", "Index", "Admin", new {area = ""}, new {@class = "brand"})
+    <span class="float-right">Logged in as Daniël<br/><a href="#">Log out</a></span>
     <nav aria-label="breadcrumb" role="navigation">
         <ol class="breadcrumb">
             @Html.MvcSiteMap().SiteMapPath()
@@ -34,6 +35,7 @@
                 <h4>Jazz@Patronaat</h4>
             </a>
         </div>
+		<div class="w-100 d-lg-block d-xl-none"></div> <!-- Dit zorgt ervoor dat het menu bij kleinere schermen netjes in tweeën wordt gedeeld -->
         <div class="col-sm">
             <a class="btn menu-admin-btn see @(ViewContext.RouteData.Values["action"].ToString() == "See" ? "menu-admin-btn-current" : "")"
                href="@Url.Action("See", "Admin")">

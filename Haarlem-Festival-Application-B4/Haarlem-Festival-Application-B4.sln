@@ -25,4 +25,39 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = text/x-css
+		$0.CSSFormattingPolicy = $5
+		$5.AutomaticFormatting = True
+		$5.BracePositions = SemiExpanded
+		$5.FormatOnPaste = True
+		$5.HierarchicalIndentation = True
+		$5.scope = text/x-css
+		$0.TextStylePolicy = $6
+		$6.inheritsSet = null
+		$6.scope = text/x-html
+		$0.HTMLFormattingPolicy = $7
+		$7.FormatOnPaste = True
+		$7.XHTMLCodingStyle = True
+		$7.scope = text/x-html
+		$0.TextStylePolicy = $8
+		$8.inheritsSet = null
+		$8.scope = text/microsoft-resx
+		$0.XmlFormattingPolicy = $9
+		$9.DefaultFormat = $10
+		$10.AlignAttributes = True
+		$10.AlignAttributeValues = True
+		$9.scope = text/microsoft-resx
+		$0.VersionControlPolicy = $11
+	EndGlobalSection
 EndGlobal
