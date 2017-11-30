@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/Site.css")
 </head>
@@ -17,8 +17,14 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="flagdiv">
-                    <img class="flag" src="~/Content/images/flag.png"/>
+                <div class="lefheaderdiv">
+                    <div class="flagdiv">
+                        <img class="flag" src="~/Content/images/flag.png" />
+                        <text class="languageselecttext">NL</text>
+                    </div>
+                    <div class="logodiv">
+                        <img class="flag" src="~/Content/images/hflogo.png" />
+                    </div>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,20 +34,22 @@
                         <li class="nav-item see"><img src="~/Content/images/SEE.png" /></li>
                         <li class="nav-item talking"><img src="~/Content/images/TALK.png" /></li>
                     </ul>
-                    <nav class="navbar navbar-light bg-faded">
-                        <a class="navbar-brand" href="#">
-                            <img src="~/Content/images/home.png" width="60" height="60" alt="">
-                        </a>
-                    </nav>
                 </div>
+                <nav class="navbar navbar-light bg-faded">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/Content/images/home.png" width="60" height="60" alt="">
+                    </a>
+                    <a class="navbar-brand" href="#">
+                        <img src="~/Content/images/profile.png" width="60" height="60" alt="">
+                    </a>
+                </nav>
         </div>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="containerbody-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Haarlemfestival.nl all rights reserverd</p>
         </footer>
     </div>
 
