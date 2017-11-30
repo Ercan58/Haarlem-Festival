@@ -1,4 +1,5 @@
-﻿
+﻿@Model IEnumerable<HF-Application.Models.Events.FestivalEvent>
+	
 @{
     ViewBag.Title = "Hear";
 }
@@ -33,4 +34,13 @@
         <div class="col-sm-5"><span class="event-item item-light">Evolve</span></div>
         <div class="col-sm-1"><span class="event-item item-light">Edit</span></div>
     </div>
+		@foreach (var festivalEvent in Model)
+            {
+                <div class="row">
+                    <div class="col-sm-3"><span class="event-item item-dark">19.30 - 20.30</span></div>
+                    <div class="col-sm-3"><span class="event-item item-light">Main Hall</span></div>
+                    <div class="col-sm-5"><span class="event-item item-light">Evolve</span></div>
+                    <div class="col-sm-1"><span class="event-item item-light">Edit</span></div>
+                </div>
+            }
 </div>
