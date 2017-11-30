@@ -1,16 +1,32 @@
-﻿/*
+/*
 Kleurcode food en drink: #910000
 Jazz is #0D8C10  
 Historic Haarlem #032A8C 
 Talking Haarlem #9C6910
 */
-body {
-
+html, body, form {
+    height: 100%;
+    color:white;
+}
+h2{
+    font-size:20px;
+}
+p{
+    font-size:12px;
+}
+body{
+    background:#910000;
 }
 
 #Diner{
     background-image: url();
 
+}
+
+footer{
+    background:black;
+    color:white;
+    padding:1% 1% 0.5% 1%;
 }
 
 #Jazz{
@@ -51,21 +67,108 @@ body {
     float:left;
     width:50%;
 }
+
 .nav{
     background:#0a0a0a;
+    height:100%;
+    width: 100%;
 } 
 
+.jazzimage{
+    width:100%;
+}
+
+.mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv{
+    padding:5%;
+    border: 1px solid grey;
+    background:#0D8C10;
+    opacity:0.8;
+}
+
+.mainpagetalkdiv{
+    background:#9C6910;
+}
+
+.mainpagetastediv{
+    background:#910000;
+}
+
+.mainpagehistoricediv{
+    background:#032A8C;
+}
+
+.welcometext{
+    padding:0% 5%;
+}
+
+.homepagefirstline{
+    margin-bottom:10px;
+}
+
+.welcomediv{
+    color:white;
+    padding: 1%;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size:12px;
+    display:block;
+    background:#0a0a0a;
+}
+.lefheaderdiv{
+    width:120px;
+    background:#9c9c9c;
+    margin-right:8px;
+}
+
+.body-content{
+    padding:0%;
+}
+
+.mainpageimage{
+    width:100%;
+   background-image: url('./images/Haarlemcentrum.jpg');
+   display:block;
+   min-height:800px;
+   background-repeat:round;
+}
+
 .flagdiv{
-    width:15%;
-    background:white;
+    width:50%;
+    min-height:100%;
+    padding:3px;
+    float:left;
+}
+
+.logodiv{
+    width:50%;
+    min-height:100%;
+    padding:5px;
+    float:left;
 }
 
 .flag{
-    width:60%;
-    padding:1%;
+    width:80%;
+    padding:7%;
+    margin-top:6%;
+    float:right;
+}
+
+
+.languageselecttext{
+    text-align:center;
     margin-left:auto;
     margin-right:auto;
-    display: block;
+    width:10px;
+    display:block;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.logo{
+    width:50%;
+    padding-left:5%;
+    float:left;
 }
 
 .navigationbar{
@@ -74,4 +177,31 @@ body {
 
 .rightNavigationButton{
     width:17%;
+<<<<<<< HEAD
 }*/
+=======
+}
+.food{
+    padding:4px;
+    margin-left:5px;
+    background:#910000;
+}
+
+.hear{
+    padding:4px;
+    margin-left:5px;
+    background:#0D8C10;
+}
+
+.see{
+    padding:4px;
+    margin-left:5px;
+    background:#032A8C;
+}
+
+.talking{
+    padding:4px;
+    margin-left:5px;
+    background:#9C6910;
+}
+>>>>>>> 4331ed5c391f34f573b1fc34a95b5466253310bb

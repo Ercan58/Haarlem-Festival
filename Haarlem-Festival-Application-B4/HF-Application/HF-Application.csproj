@@ -29,7 +29,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>false</DebugSymbols>
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -172,8 +173,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\flag.png" />
     <Content Include="Content\images\bg-music.png" />
+    <Content Include="Content\images\Haarlemcentrum.jpg" />
     <Content Include="Content\images\HEAR.png" />
+    <Content Include="Content\images\hflogo.png" />
+    <Content Include="Content\images\historic_haarlem.jpg" />
     <Content Include="Content\images\home.png" />
+    <Content Include="Content\images\jazz.jpg" />
+    <Content Include="Content\images\profile.png" />
+    <Content Include="Content\images\restaurant_mr_en_mrs.jpg" />
     <Content Include="Content\images\SEE.png" />
     <Content Include="Content\images\TALK.png" />
     <Content Include="Content\images\TASTE.png" />
