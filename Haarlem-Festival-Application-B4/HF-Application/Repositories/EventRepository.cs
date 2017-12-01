@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace HF_Application.Models.Repositories
+namespace HF_Application.Models
 {
     public class EventRepository : IEventRepository
     {
@@ -11,7 +11,7 @@ namespace HF_Application.Models.Repositories
 
         public IEnumerable<FestivalEvent> GetAllEvents()
         {
-            IEnumerable<FestivalEvent> events = db.Events;
+            IEnumerable<FestivalEvent> events = db.FestivalEvent;
 
             return events;
         }

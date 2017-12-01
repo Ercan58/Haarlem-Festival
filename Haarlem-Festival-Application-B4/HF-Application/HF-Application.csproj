@@ -173,8 +173,8 @@
     <Compile Include="Models\HaarlemFestivalContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\Repositories\EventRepository.cs" />
-    <Compile Include="Models\Repositories\IEventRepository.cs" />
+    <Compile Include="Repositories\EventRepository.cs" />
+    <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
