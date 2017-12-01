@@ -160,6 +160,10 @@
     <Compile Include="Migrations\201711301416258_init5.Designer.cs">
       <DependentUpon>201711301416258_init5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712011317346_01121417.cs" />
+    <Compile Include="Migrations\201712011317346_01121417.Designer.cs">
+      <DependentUpon>201712011317346_01121417.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -173,8 +177,8 @@
     <Compile Include="Models\HaarlemFestivalContext.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\Repositories\EventRepository.cs" />
-    <Compile Include="Models\Repositories\IEventRepository.cs" />
+    <Compile Include="Repositories\EventRepository.cs" />
+    <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -270,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711301416258_init5.resx">
       <DependentUpon>201711301416258_init5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011317346_01121417.resx">
+      <DependentUpon>201712011317346_01121417.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
