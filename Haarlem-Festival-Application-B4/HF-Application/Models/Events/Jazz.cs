@@ -11,6 +11,7 @@ namespace HF_Application.Models.Events
     public class Jazz : FestivalEvent
 	{
         public string Band { get; set; }
+        public string imagePath { get; set; }
 
     }
 }

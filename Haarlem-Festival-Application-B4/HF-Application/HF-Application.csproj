@@ -151,6 +151,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DinersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JazzsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\TalkController.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,6 +172,10 @@
     <Compile Include="Migrations\201712041338030_sss.cs" />
     <Compile Include="Migrations\201712041338030_sss.Designer.cs">
       <DependentUpon>201712041338030_sss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041351330_dsd.cs" />
+    <Compile Include="Migrations\201712041351330_dsd.Designer.cs">
+      <DependentUpon>201712041351330_dsd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
@@ -273,6 +278,11 @@
     <Content Include="Views\Diners\Details.cshtml" />
     <Content Include="Views\Diners\Edit.cshtml" />
     <Content Include="Views\Diners\Index.cshtml" />
+    <Content Include="Views\Jazzs\Create.cshtml" />
+    <Content Include="Views\Jazzs\Delete.cshtml" />
+    <Content Include="Views\Jazzs\Details.cshtml" />
+    <Content Include="Views\Jazzs\Edit.cshtml" />
+    <Content Include="Views\Jazzs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -294,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041338030_sss.resx">
       <DependentUpon>201712041338030_sss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041351330_dsd.resx">
+      <DependentUpon>201712041351330_dsd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
