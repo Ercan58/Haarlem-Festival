@@ -14,6 +14,8 @@ namespace HF_Application.Models.Events
         public int Session { get; set; }
         public string RestaurantName { get; set; }
         public string imagePath { get; set; }
-        public FoodType FoodType { get; set; }
+        public FoodType FoodType1 { get; set; }
+        public FoodType FoodType2 { get; set; }
+        public FoodType FoodType3 { get; set; }
     }
 }
