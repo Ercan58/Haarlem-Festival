@@ -29,7 +29,9 @@ namespace HF_Application.Models
         public System.Data.Entity.DbSet<HF_Application.Models.Events.Diner> Diners { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.Events.Historic> Historics { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.User> Users { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.Location> Locations { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.Restaurant> Restaurants { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.RestaurantFoodtype> RestaurantFoodtypes { get; set; }
 
-        // ..
     }
 }

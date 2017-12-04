@@ -47,7 +47,7 @@ namespace HF_Application.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType")] Diner diner)
+        public ActionResult Create([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType1,FoodType2,FoodType3")] Diner diner)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace HF_Application.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType")] Diner diner)
+        public ActionResult Edit([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType1,FoodType2,FoodType3")] Diner diner)
         {
             if (ModelState.IsValid)
             {

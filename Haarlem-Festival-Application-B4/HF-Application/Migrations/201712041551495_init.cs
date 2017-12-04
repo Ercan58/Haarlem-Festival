@@ -3,24 +3,38 @@ namespace HF_Application.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init99 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Tickets",
+                "dbo.FestivalEvents",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Location = c.String(),
+                        LocationId = c.Int(nullable: false),
                         CartDescription = c.String(),
                         CartTitle = c.String(),
                         Price = c.Double(nullable: false),
                         Seats = c.Int(nullable: false),
+                        TicketType = c.Int(nullable: false),
                         EndDate = c.DateTime(nullable: false),
                         StartDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => t.ID);
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.Locations", t => t.LocationId, cascadeDelete: true)
+                .Index(t => t.LocationId);
+            
+            CreateTable(
+                "dbo.Locations",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Address = c.String(),
+                        Price = c.Double(nullable: false),
+                        Seats = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.OrderItems",
@@ -28,13 +42,15 @@ namespace HF_Application.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         ItemId = c.Int(nullable: false),
-                        OrderrId = c.Int(nullable: false),
+                        OrderId = c.Int(nullable: false),
+                        Aantal = c.Int(nullable: false),
+                        Prijs = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Tickets", t => t.ItemId, cascadeDelete: false)
-                .ForeignKey("dbo.Orders", t => t.OrderrId, cascadeDelete: false)
+                .ForeignKey("dbo.FestivalEvents", t => t.ItemId, cascadeDelete: true)
+                .ForeignKey("dbo.Orders", t => t.OrderId, cascadeDelete: true)
                 .Index(t => t.ItemId)
-                .Index(t => t.OrderrId);
+                .Index(t => t.OrderId);
             
             CreateTable(
                 "dbo.Orders",
@@ -43,13 +59,15 @@ namespace HF_Application.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.Int(nullable: false),
                         ItemId = c.Int(nullable: false),
+                        statusId = c.Int(nullable: false),
                         Remark = c.String(),
                         Invoice = c.Int(nullable: false),
                         OrderDate = c.DateTime(nullable: false),
                         OrderPayed = c.DateTime(nullable: false),
+                        status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: false)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -57,6 +75,7 @@ namespace HF_Application.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Admin = c.Boolean(nullable: false),
                         Email = c.String(),
                         Mail = c.String(),
                         Password = c.String(),
@@ -65,18 +84,13 @@ namespace HF_Application.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.WishLists",
+                "dbo.Restaurants",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        CustomerId = c.Int(nullable: false),
-                        ItemsId = c.Int(nullable: false),
+                        RestaurantName = c.String(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Users", t => t.CustomerId, cascadeDelete: false)
-                .ForeignKey("dbo.OrderItems", t => t.ItemsId, cascadeDelete: false)
-                .Index(t => t.CustomerId)
-                .Index(t => t.ItemsId);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Diner",
@@ -84,11 +98,10 @@ namespace HF_Application.Migrations
                     {
                         ID = c.Int(nullable: false),
                         Session = c.Int(nullable: false),
-                        RestaurantName = c.String(),
-                        FoodType = c.Int(nullable: false),
+                        imagePath = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Tickets", t => t.ID)
+                .ForeignKey("dbo.FestivalEvents", t => t.ID)
                 .Index(t => t.ID);
             
             CreateTable(
@@ -100,7 +113,7 @@ namespace HF_Application.Migrations
                         ReservationInfo = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Tickets", t => t.ID)
+                .ForeignKey("dbo.FestivalEvents", t => t.ID)
                 .Index(t => t.ID);
             
             CreateTable(
@@ -109,9 +122,10 @@ namespace HF_Application.Migrations
                     {
                         ID = c.Int(nullable: false),
                         Band = c.String(),
+                        imagePath = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Tickets", t => t.ID)
+                .ForeignKey("dbo.FestivalEvents", t => t.ID)
                 .Index(t => t.ID);
             
             CreateTable(
@@ -123,40 +137,39 @@ namespace HF_Application.Migrations
                         ReservationInfo = c.String(),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Tickets", t => t.ID)
+                .ForeignKey("dbo.FestivalEvents", t => t.ID)
                 .Index(t => t.ID);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Talk", "ID", "dbo.Tickets");
-            DropForeignKey("dbo.Jazz", "ID", "dbo.Tickets");
-            DropForeignKey("dbo.Historic", "ID", "dbo.Tickets");
-            DropForeignKey("dbo.Diner", "ID", "dbo.Tickets");
-            DropForeignKey("dbo.WishLists", "ItemsId", "dbo.OrderItems");
-            DropForeignKey("dbo.WishLists", "CustomerId", "dbo.Users");
-            DropForeignKey("dbo.OrderItems", "OrderrId", "dbo.Orders");
+            DropForeignKey("dbo.Talk", "ID", "dbo.FestivalEvents");
+            DropForeignKey("dbo.Jazz", "ID", "dbo.FestivalEvents");
+            DropForeignKey("dbo.Historic", "ID", "dbo.FestivalEvents");
+            DropForeignKey("dbo.Diner", "ID", "dbo.FestivalEvents");
+            DropForeignKey("dbo.OrderItems", "OrderId", "dbo.Orders");
             DropForeignKey("dbo.Orders", "UserId", "dbo.Users");
-            DropForeignKey("dbo.OrderItems", "ItemId", "dbo.Tickets");
+            DropForeignKey("dbo.OrderItems", "ItemId", "dbo.FestivalEvents");
+            DropForeignKey("dbo.FestivalEvents", "LocationId", "dbo.Locations");
             DropIndex("dbo.Talk", new[] { "ID" });
             DropIndex("dbo.Jazz", new[] { "ID" });
             DropIndex("dbo.Historic", new[] { "ID" });
             DropIndex("dbo.Diner", new[] { "ID" });
-            DropIndex("dbo.WishLists", new[] { "ItemsId" });
-            DropIndex("dbo.WishLists", new[] { "CustomerId" });
             DropIndex("dbo.Orders", new[] { "UserId" });
-            DropIndex("dbo.OrderItems", new[] { "OrderrId" });
+            DropIndex("dbo.OrderItems", new[] { "OrderId" });
             DropIndex("dbo.OrderItems", new[] { "ItemId" });
+            DropIndex("dbo.FestivalEvents", new[] { "LocationId" });
             DropTable("dbo.Talk");
             DropTable("dbo.Jazz");
             DropTable("dbo.Historic");
             DropTable("dbo.Diner");
-            DropTable("dbo.WishLists");
+            DropTable("dbo.Restaurants");
             DropTable("dbo.Users");
             DropTable("dbo.Orders");
             DropTable("dbo.OrderItems");
-            DropTable("dbo.Tickets");
+            DropTable("dbo.Locations");
+            DropTable("dbo.FestivalEvents");
         }
     }
 }

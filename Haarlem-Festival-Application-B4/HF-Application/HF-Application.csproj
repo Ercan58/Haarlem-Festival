@@ -152,32 +152,26 @@
     <Compile Include="Controllers\DinersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzsController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\TalkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711231355298_init99.cs" />
-    <Compile Include="Migrations\201711231355298_init99.Designer.cs">
-      <DependentUpon>201711231355298_init99.cs</DependentUpon>
+    <Compile Include="Migrations\201712041551495_init.cs" />
+    <Compile Include="Migrations\201712041551495_init.Designer.cs">
+      <DependentUpon>201712041551495_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711301416258_init5.cs" />
-    <Compile Include="Migrations\201711301416258_init5.Designer.cs">
-      <DependentUpon>201711301416258_init5.cs</DependentUpon>
+    <Compile Include="Migrations\201712041554495_init2.cs" />
+    <Compile Include="Migrations\201712041554495_init2.Designer.cs">
+      <DependentUpon>201712041554495_init2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712041323043_ini9.cs" />
-    <Compile Include="Migrations\201712041323043_ini9.Designer.cs">
-      <DependentUpon>201712041323043_ini9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712041338030_sss.cs" />
-    <Compile Include="Migrations\201712041338030_sss.Designer.cs">
-      <DependentUpon>201712041338030_sss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712041351330_dsd.cs" />
-    <Compile Include="Migrations\201712041351330_dsd.Designer.cs">
-      <DependentUpon>201712041351330_dsd.cs</DependentUpon>
+    <Compile Include="Migrations\201712041556228_init4.cs" />
+    <Compile Include="Migrations\201712041556228_init4.Designer.cs">
+      <DependentUpon>201712041556228_init4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\FoodType.cs" />
+    <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
@@ -188,8 +182,10 @@
     <Compile Include="Models\Events\Diner.cs" />
     <Compile Include="Models\Events\Talk.cs" />
     <Compile Include="Models\HaarlemFestivalContext.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
@@ -273,16 +269,21 @@
     <Content Include="Views\Admin\See.cshtml" />
     <Content Include="Views\Admin\Talk.cshtml" />
     <Content Include="Views\Admin\Taste.cshtml" />
-    <Content Include="Views\Diners\Create.cshtml" />
-    <Content Include="Views\Diners\Delete.cshtml" />
-    <Content Include="Views\Diners\Details.cshtml" />
-    <Content Include="Views\Diners\Edit.cshtml" />
-    <Content Include="Views\Diners\Index.cshtml" />
     <Content Include="Views\Jazzs\Create.cshtml" />
     <Content Include="Views\Jazzs\Delete.cshtml" />
     <Content Include="Views\Jazzs\Details.cshtml" />
     <Content Include="Views\Jazzs\Edit.cshtml" />
     <Content Include="Views\Jazzs\Index.cshtml" />
+    <Content Include="Views\Diners\Create.cshtml" />
+    <Content Include="Views\Diners\Delete.cshtml" />
+    <Content Include="Views\Diners\Details.cshtml" />
+    <Content Include="Views\Diners\Edit.cshtml" />
+    <Content Include="Views\Diners\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Edit.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,17 +297,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711231355298_init99.resx">
-      <DependentUpon>201711231355298_init99.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712041551495_init.resx">
+      <DependentUpon>201712041551495_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711301416258_init5.resx">
-      <DependentUpon>201711301416258_init5.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712041554495_init2.resx">
+      <DependentUpon>201712041554495_init2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712041338030_sss.resx">
-      <DependentUpon>201712041338030_sss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712041351330_dsd.resx">
-      <DependentUpon>201712041351330_dsd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712041556228_init4.resx">
+      <DependentUpon>201712041556228_init4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

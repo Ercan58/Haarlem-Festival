@@ -45,7 +45,13 @@
             @Html.DisplayNameFor(model => model.imagePath)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FoodType)
+            @Html.DisplayNameFor(model => model.FoodType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodType2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodType3)
         </th>
         <th></th>
     </tr>
@@ -86,7 +92,13 @@
             @Html.DisplayFor(modelItem => item.imagePath)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FoodType)
+            @Html.DisplayFor(modelItem => item.FoodType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodType2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodType3)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

@@ -10,18 +10,18 @@ using HF_Application.Models;
 
 namespace HF_Application.Controllers
 {
-    public class OrdersController : Controller
+    public class OrderController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        // GET: Orders
+        // GET: Order
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.User);
             return View(orders.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Order/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,19 +36,19 @@ namespace HF_Application.Controllers
             return View(order);
         }
 
-        // GET: Orders/Create
+        // GET: Order/Create
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: Orders/Create
+        // POST: Order/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
+        public ActionResult Create([Bind(Include = "Id,UserId,ItemId,statusId,Remark,Invoice,OrderDate,OrderPayed,status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace HF_Application.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
+        // GET: Order/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,12 +77,12 @@ namespace HF_Application.Controllers
             return View(order);
         }
 
-        // POST: Orders/Edit/5
+        // POST: Order/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserId,ItemId,Remark,Invoice,OrderDate,OrderPayed")] Order order)
+        public ActionResult Edit([Bind(Include = "Id,UserId,ItemId,statusId,Remark,Invoice,OrderDate,OrderPayed,status")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace HF_Application.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
+        // GET: Order/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,7 @@ namespace HF_Application.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
+        // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
