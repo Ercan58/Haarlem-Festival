@@ -23,7 +23,7 @@ namespace HF_Application.Models
 
         public System.Data.Entity.DbSet<HF_Application.Models.OrderItem> OrderItems { get; set; }
 
-        public System.Data.Entity.DbSet<HF_Application.Models.FestivalEvent> Events { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.FestivalEvent> FestivalEvent { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.Events.Jazz> Jazzs { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.Events.Talk> Talks { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.Events.Diner> Diners { get; set; }
