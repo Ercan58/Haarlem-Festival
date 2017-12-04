@@ -176,6 +176,7 @@
     <Compile Include="Models\Enum\Hall.cs" />
     <Compile Include="Models\Enum\FoodType.cs" />
     <Compile Include="Models\Enum\Status.cs" />
+    <Compile Include="Models\HearDateList.cs" />
     <Compile Include="Models\Events\FestivalEvent.cs" />
     <Compile Include="Models\Events\Historic.cs" />
     <Compile Include="Models\Events\Jazz.cs" />

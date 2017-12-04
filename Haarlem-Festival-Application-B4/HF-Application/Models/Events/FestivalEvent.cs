@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using HF_Application.Models.Enum;
+using System.ComponentModel.DataAnnotations;
+
 namespace HF_Application.Models
 {
     public abstract class FestivalEvent
