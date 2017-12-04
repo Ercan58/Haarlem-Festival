@@ -18,7 +18,7 @@ namespace HF_Application.Controllers
         // GET: Diners
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Diners.ToList());
         }
 
         // GET: Diners/Details/5
@@ -28,7 +28,7 @@ namespace HF_Application.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diner diner = (Diner)db.Events.Find(id);
+            Diner diner = (Diner)db.FestivalEvent.Find(id);
             if (diner == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace HF_Application.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(diner);
+                db.FestivalEvent.Add(diner);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace HF_Application.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diner diner = (Diner)db.Events.Find(id);
+            Diner diner = (Diner)db.FestivalEvent.Find(id);
             if (diner == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace HF_Application.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Diner diner = (Diner)db.Events.Find(id);
+            Diner diner = (Diner)db.FestivalEvent.Find(id);
             if (diner == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Diner diner = (Diner)db.Events.Find(id);
-            db.Events.Remove(diner);
+            Diner diner = (Diner)db.FestivalEvent.Find(id);
+            db.FestivalEvent.Remove(diner);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
