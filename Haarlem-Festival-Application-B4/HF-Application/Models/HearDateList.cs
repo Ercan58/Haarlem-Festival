@@ -8,9 +8,9 @@ namespace HF_Application.Models
     public class HearDateList
     {
         public string Date { get; set; }
-        public IEnumerable<Events.Jazz> EventList { get; set; }
+        public List<Events.Jazz> EventList { get; set; }
 
-        public HearDateList(string date, IEnumerable<Events.Jazz> eventList)
+        public HearDateList(string date, List<Events.Jazz> eventList)
         {
             Date = date;
             EventList = eventList;

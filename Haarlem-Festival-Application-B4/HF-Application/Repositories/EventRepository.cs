@@ -12,14 +12,14 @@ namespace HF_Application.Models
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        public IEnumerable<HearDateList> GetAllHearEvents()
+        public List<HearDateList> GetAllHearEvents()
         {
             List<HearDateList> events = new List<HearDateList>
             {
-                new HearDateList("26/07/2018", db.Jazzs.OrderBy(i => i.StartDate).Where(i => i.StartDate.Date == DateTime.Parse("26/07/2018"))),
-                new HearDateList("27/07/2018", db.Jazzs.OrderBy(i => i.StartDate).Where(i => i.StartDate.Date == DateTime.Parse("27/07/2018"))),
-                new HearDateList("28/07/2018", db.Jazzs.OrderBy(i => i.StartDate).Where(i => i.StartDate.Date == DateTime.Parse("28/07/2018"))),
-                new HearDateList("29/07/2018", db.Jazzs.OrderBy(i => i.StartDate).Where(i => i.StartDate.Date == DateTime.Parse("29/07/2018")))
+                new HearDateList("26/07", db.Jazzs.OrderBy(i => i.StartDate).Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date).ToList()),
+                new HearDateList("27/07", db.Jazzs.OrderBy(i => i.StartDate).Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date).ToList()),
+                new HearDateList("28/07", db.Jazzs.OrderBy(i => i.StartDate).Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date).ToList()),
+                new HearDateList("29/07", db.Jazzs.OrderBy(i => i.StartDate).Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date).ToList())
             };
             return events;
         }

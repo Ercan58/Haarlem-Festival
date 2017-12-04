@@ -4,7 +4,7 @@ namespace HF_Application.Models
 {
     public interface IEventRepository
     {
-        IEnumerable<HearDateList> GetAllHearEvents();
+        List<HearDateList> GetAllHearEvents();
         FestivalEvent GetEvent(int id);
     }
 }
