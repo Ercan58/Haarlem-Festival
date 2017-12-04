@@ -149,6 +149,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\TalkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,9 +186,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\achtergrond_talk.png" />
     <Content Include="Content\images\cart.png" />
+    <Content Include="Content\images\femke-halsema.jpg" />
     <Content Include="Content\images\flag.png" />
     <Content Include="Content\images\bg-music.png" />
+    <Content Include="Content\images\giel-beelen.jpg" />
     <Content Include="Content\images\Haarlemcentrum.jpg" />
     <Content Include="Content\images\HEAR.png" />
     <Content Include="Content\images\hflogo.png" />
@@ -199,6 +203,7 @@
     <Content Include="Content\images\SEE.png" />
     <Content Include="Content\images\TALK.png" />
     <Content Include="Content\images\TASTE.png" />
+    <Content Include="Content\Talk.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -256,6 +261,7 @@
     <Content Include="Views\Admin\See.cshtml" />
     <Content Include="Views\Admin\Talk.cshtml" />
     <Content Include="Views\Admin\Taste.cshtml" />
+    <Content Include="Views\Talk\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -24,9 +24,9 @@ namespace HF_Application.Controllers
 
 	    public ActionResult Hear()
 	    {
-            var festivalEvent = eventRepository.GetEvent(11);
+            var events = eventRepository.GetAllEvents();
 
-            return View(festivalEvent);
+            return View(events);
 	    }
 
 	    public ActionResult See()

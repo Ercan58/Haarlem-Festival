@@ -1,0 +1,98 @@
+﻿body {
+    background-image: url(images/achtergrond_talk.png);
+    background-size: 100%;
+}
+
+.talktext {
+    padding: 0% 5%;
+    opacity: 1;
+}
+
+.text-center {
+    color: #A56606;
+    opacity: 1;
+}
+
+
+.welcomediv {
+    background-color: rgba(0,0,0, 0.75);
+}
+
+.div123
+{
+    justify-content:space-between;
+    flex-direction:column;
+    display:flex;
+    width:90%;
+    padding: 10px 10px;
+    background-color: rgba(0,0,0, 0.75);
+    margin:auto;
+    display:block;
+    clear:both;
+    overflow:auto;
+    position:relative;
+}
+
+.div1_1 {
+    width: 50%;
+    float: left;
+    margin-left: 10px;
+    opacity: 1;
+}
+
+.div1_img {
+    width: 22%;
+    height: 90%;
+    margin-left: 30px;
+    float: left;
+    opacity: 1;
+    border-left: solid;
+    border-left-color: #A56606;
+    border-left-width:6px;
+}
+
+.text_2
+{
+    clear:both;
+}
+
+.text-h4 {
+    color: #A56606;
+}
+
+.text-center11 {
+    text-align:center;
+    color: #A56606;
+    opacity: 1;
+    border-bottom:solid;
+    border-bottom-color:white;
+    border-bottom-width:1px;
+}
+
+.bttns {
+    position: absolute;
+    font: bold;
+    bottom:20px;
+    right:20px;
+    
+}
+
+.inputt {
+    position: absolute;
+    font: bold;
+    bottom: 50px;
+    right: 20px;
+}
+
+.inputt1 {
+    position: absolute;
+    font: bold;
+    bottom: 120px;
+    right: 20px;
+    color: #A56606;
+    font-size:x-large;
+}
+
+/*
+    plus min 
+*/
