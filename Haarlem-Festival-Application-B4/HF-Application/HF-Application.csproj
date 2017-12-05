@@ -165,6 +165,10 @@
     <Compile Include="Migrations\201712051430240_init2.Designer.cs">
       <DependentUpon>201712051430240_init2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712051437424_init99.cs" />
+    <Compile Include="Migrations\201712051437424_init99.Designer.cs">
+      <DependentUpon>201712051437424_init99.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\Restaurant.cs" />
@@ -299,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051430240_init2.resx">
       <DependentUpon>201712051430240_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051437424_init99.resx">
+      <DependentUpon>201712051437424_init99.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
