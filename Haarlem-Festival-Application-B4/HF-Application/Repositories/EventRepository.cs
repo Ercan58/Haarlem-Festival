@@ -24,9 +24,9 @@ namespace HF_Application.Models
             return events;
         }
 
-        public FestivalEvent GetEvent(int id)
+        public Events.Jazz GetHearEvent(int id)
         {
-            FestivalEvent festivalEvent = db.FestivalEvent.Find(id);
+            Events.Jazz festivalEvent = db.Jazzs.Find(id);
 
             return festivalEvent;
         }
