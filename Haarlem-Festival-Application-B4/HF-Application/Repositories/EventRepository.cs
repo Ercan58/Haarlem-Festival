@@ -21,25 +21,21 @@ namespace HF_Application.Models
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
                     .Include(x => x.Location)
-                    .Include(x => x.Band)
                     .ToList()),
                 new HearDateList("27/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
                     .Include(x => x.Location)
-                    .Include(x => x.Band)
                     .ToList()),
                 new HearDateList("28/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
                     .Include(x => x.Location)
-                    .Include(x => x.Band)
                     .ToList()),
                 new HearDateList("29/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
                     .Include(x => x.Location)
-                    .Include(x => x.Band)
                     .ToList())
             };
             return events;

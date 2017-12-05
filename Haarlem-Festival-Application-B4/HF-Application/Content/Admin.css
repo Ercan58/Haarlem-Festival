@@ -89,13 +89,11 @@ h1, h2, h3, h4, h5 {
     font-size: larger;
 }
 
-    .event-list-header::before {
-        content: '\A';
-    }
-
-    .event-list-body {
+.event-list-body {
     background-color: #e0e0e0;
     font-size: larger;
+    border-top-right-radius: .25rem;
+    margin-bottom: 3rem;
 }
 
 .event-item {
@@ -106,6 +104,10 @@ h1, h2, h3, h4, h5 {
     padding-bottom: 2rem;
 }
 
+.col-sm-1 .event-item, .col-sm-12 .event-item {
+    border-top-right-radius: .25rem;
+}
+
 .item-dark {
     text-align: center;
     color: #e0e0e0;
@@ -113,6 +115,12 @@ h1, h2, h3, h4, h5 {
 }
 
 .item-light {
+    color: #5a5a5a;
+    background-color: #e0e0e0;
+}
+
+.item-none {
+    text-align: center;
     color: #5a5a5a;
     background-color: #e0e0e0;
 }
