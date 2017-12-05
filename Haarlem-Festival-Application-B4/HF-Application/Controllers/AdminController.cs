@@ -19,10 +19,31 @@ namespace HF_Application.Controllers
 
 	    public ActionResult Taste()
 	    {
-		    return View();
-	    }
+            var events = eventRepository.GetAllTasteEvents();
 
-	    public ActionResult Hear()
+            return View(events);
+        }
+
+        // Get
+        public ActionResult EditTaste(int id)
+        {
+            var festivalEvent = eventRepository.GetTasteEvent(id);
+            ViewBag.Locations = new SelectList(eventRepository.GetLocations(), "Id", "Address");
+
+            return View(festivalEvent);
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditTaste(Models.Events.Diner festivalEvent)
+        {
+            eventRepository.UpdateTasteEvent(festivalEvent);
+
+            return View(festivalEvent);
+        }
+
+        public ActionResult Hear()
 	    {
             var events = eventRepository.GetAllHearEvents();
 
@@ -37,6 +58,16 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditHear(Models.Events.Jazz festivalEvent)
+        {
+            eventRepository.UpdateHearEvent(festivalEvent);
+
+            return View(festivalEvent);
+        }
+
         public ActionResult See()
 	    {
 		    return View();
@@ -46,5 +77,5 @@ namespace HF_Application.Controllers
 	    {
 		    return View();
 	    }
-	}
+    }
 }

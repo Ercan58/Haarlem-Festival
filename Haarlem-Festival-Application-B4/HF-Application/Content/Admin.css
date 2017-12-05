@@ -75,6 +75,7 @@ h1, h2, h3, h4, h5 {
     font-size: larger;
     color: #e0e0e0;
     background-color: #303030;
+    cursor: pointer;
 }
 
 .admin-btn:hover {
@@ -83,11 +84,16 @@ h1, h2, h3, h4, h5 {
 }
 
 .event-list-header {
-    border-top-right-radius: 0.5rem;
-    border-top-left-radius: 0.5rem;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
     font-size: larger;
 }
-.event-list-body {
+
+    .event-list-header::before {
+        content: '\A';
+    }
+
+    .event-list-body {
     background-color: #e0e0e0;
     font-size: larger;
 }
@@ -109,6 +115,22 @@ h1, h2, h3, h4, h5 {
 .item-light {
     color: #5a5a5a;
     background-color: #e0e0e0;
+}
+
+label {
+    background-color: #303030;
+    width: 100%;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    font-size: larger;
+    text-align: right;
+}
+
+select {
+    width: 100%;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    padding-left: -10px;
 }
 
 footer {

@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
+    <Compile Include="Models\TasteDateList.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -269,7 +270,6 @@
     <Content Include="Views\Admin\Hear.cshtml" />
     <Content Include="Views\Admin\See.cshtml" />
     <Content Include="Views\Admin\Talk.cshtml" />
-    <Content Include="Views\Admin\Taste.cshtml" />
     <Content Include="Views\Jazzs\Create.cshtml" />
     <Content Include="Views\Jazzs\Delete.cshtml" />
     <Content Include="Views\Jazzs\Details.cshtml" />
@@ -286,6 +286,8 @@
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Admin\EditHear.cshtml" />
+    <Content Include="Views\Admin\Taste.cshtml" />
+    <Content Include="Views\Admin\EditTaste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
