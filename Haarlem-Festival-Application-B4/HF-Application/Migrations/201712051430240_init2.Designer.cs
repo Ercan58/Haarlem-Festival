@@ -13,7 +13,7 @@ namespace HF_Application.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712041554495_init2"; }
+            get { return "201712051430240_init2"; }
         }
         
         string IMigrationMetadata.Source
