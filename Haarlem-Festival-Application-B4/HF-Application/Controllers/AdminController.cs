@@ -29,7 +29,15 @@ namespace HF_Application.Controllers
             return View(events);
 	    }
 
-	    public ActionResult See()
+        // Get
+        public ActionResult EditHear(int id)
+        {
+            var festivalEvent = eventRepository.GetHearEvent(id);
+
+            return View(festivalEvent);
+        }
+
+        public ActionResult See()
 	    {
 		    return View();
 	    }

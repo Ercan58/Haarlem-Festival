@@ -5,6 +5,6 @@ namespace HF_Application.Models
     public interface IEventRepository
     {
         List<HearDateList> GetAllHearEvents();
-        FestivalEvent GetEvent(int id);
+        Events.Jazz GetHearEvent(int id);
     }
 }
