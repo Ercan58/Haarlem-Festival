@@ -18,5 +18,7 @@ namespace HF_Application.Models
         public DateTime StartDate { get; set; }
         public Location Location { get; set; }
 
+        public double Price { get; set; }
+
     }
 }

@@ -7,6 +7,6 @@ namespace HF_Application.Models.Enum
 {
     public enum TicketType
     {
-        Standard, DayPass, PassPourtou, Family, Free
+        Standard, DayPass, PassPourtout, Family, Free
     }
 }
