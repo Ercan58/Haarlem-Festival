@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201712070406349_weq.Designer.cs">
       <DependentUpon>201712070406349_weq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712072055018_asd.cs" />
+    <Compile Include="Migrations\201712072055018_asd.Designer.cs">
+      <DependentUpon>201712072055018_asd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\TasteDateList.cs" />
@@ -339,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070406349_weq.resx">
       <DependentUpon>201712070406349_weq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712072055018_asd.resx">
+      <DependentUpon>201712072055018_asd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
