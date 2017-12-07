@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201712072234282_ini9.Designer.cs">
       <DependentUpon>201712072234282_ini9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712072238158_ini00.cs" />
+    <Compile Include="Migrations\201712072238158_ini00.Designer.cs">
+      <DependentUpon>201712072238158_ini00.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\TasteDateList.cs" />
@@ -310,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712072234282_ini9.resx">
       <DependentUpon>201712072234282_ini9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712072238158_ini00.resx">
+      <DependentUpon>201712072238158_ini00.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
