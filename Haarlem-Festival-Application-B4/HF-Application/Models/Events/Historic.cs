@@ -13,8 +13,8 @@ namespace HF_Application.Models.Events
 
         public int FamilyPrice { get; set; }
         public string ReservationInfo { get; set; }
-        public string GuidName { get; set; }
-        public string TourLanguage { get; set; }
+        public TourGuid tourGuid { get; set; }
+
 
     }
 }
