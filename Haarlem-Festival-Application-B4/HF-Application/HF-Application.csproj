@@ -213,7 +213,6 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
-    <Compile Include="Models\TourGuideLang.cs" />
     <Compile Include="Models\TourLanguage.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
@@ -348,12 +347,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712070406349_weq.resx">
       <DependentUpon>201712070406349_weq.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071402034_init1.resx">
-      <DependentUpon>201712071402034_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712071435573_ini99.resx">
-      <DependentUpon>201712071435573_ini99.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
