@@ -14,11 +14,17 @@ namespace HF_Application.Controllers
     public class JazzsController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
+        //private List<Jazz> JazzEvents = new List<Jazz>();
 
         // GET: Jazzs
         public ActionResult Index()
         {
+            //foreach(Jazz J in db.Jazzs)
+            //{
+            //    JazzEvents.Add(J);
+            //}return View(JazzEvents);
             return View(db.Jazzs.ToList());
+            
         }
 
         // GET: Jazzs/Details/5

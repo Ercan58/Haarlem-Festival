@@ -169,6 +169,22 @@
     <Compile Include="Migrations\201712051437424_init99.Designer.cs">
       <DependentUpon>201712051437424_init99.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712070305310_bla.cs" />
+    <Compile Include="Migrations\201712070305310_bla.Designer.cs">
+      <DependentUpon>201712070305310_bla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712070314207_nn.cs" />
+    <Compile Include="Migrations\201712070314207_nn.Designer.cs">
+      <DependentUpon>201712070314207_nn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712070323374_sds.cs" />
+    <Compile Include="Migrations\201712070323374_sds.Designer.cs">
+      <DependentUpon>201712070323374_sds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712070406349_weq.cs" />
+    <Compile Include="Migrations\201712070406349_weq.Designer.cs">
+      <DependentUpon>201712070406349_weq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\TasteDateList.cs" />
@@ -188,6 +204,9 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
+    <Compile Include="Models\TourGuid.cs" />
+    <Compile Include="Models\TourGuideLang.cs" />
+    <Compile Include="Models\TourLanguage.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
@@ -309,6 +328,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051437424_init99.resx">
       <DependentUpon>201712051437424_init99.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712070305310_bla.resx">
+      <DependentUpon>201712070305310_bla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712070314207_nn.resx">
+      <DependentUpon>201712070314207_nn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712070323374_sds.resx">
+      <DependentUpon>201712070323374_sds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712070406349_weq.resx">
+      <DependentUpon>201712070406349_weq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
