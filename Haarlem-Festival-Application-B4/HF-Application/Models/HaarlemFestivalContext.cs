@@ -32,6 +32,8 @@ namespace HF_Application.Models
         public System.Data.Entity.DbSet<HF_Application.Models.Location> Locations { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.Restaurant> Restaurants { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.RestaurantFoodtype> RestaurantFoodtypes { get; set; }
-
+        public System.Data.Entity.DbSet<HF_Application.Models.TourGuid> TourGuid { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.TourLanguage> TourLanguage { get; set; }
+        public System.Data.Entity.DbSet<HF_Application.Models.TourGuideLang> TourGuideLang { get; set; }
     }
 }
