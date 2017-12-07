@@ -9,5 +9,7 @@ namespace HF_Application.Models
     {
         public int Id { get; set; }
         public string GuidName { get; set; }
+
+        public string Language { get; set; }
     }
 }

@@ -18,8 +18,6 @@ namespace HF_Application.Models.Events
         public int Language_ID { get; set; }
         public TourGuid tourGuid { get; set; }
 
-        public TourLanguage tourLanguage { get; set; }
-
 
     }
 }
