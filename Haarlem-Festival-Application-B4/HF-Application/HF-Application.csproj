@@ -205,7 +205,6 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
-    <Compile Include="Models\TourGuideLang.cs" />
     <Compile Include="Models\TourLanguage.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
