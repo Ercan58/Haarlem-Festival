@@ -193,3 +193,15 @@ border: 1px solid grey;
     margin-top:20px;
     margin-bottom 10px;
 }
+
+.restaurantImage{
+    width:100%;
+}
+
+.restaurantdiv{
+    background-color:black;
+    min-height:250px;
+    margin-top:10px;
+    margin-bottom:10px;
+    opacity:0.9;
+}

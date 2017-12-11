@@ -27,7 +27,13 @@
 <div class="container">
     @foreach(var restaurant in Model.Restaurants)
     {
-        
+        <div class="row restaurantdiv">
+            <div class="col-md-3">
+                <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-3"></div>
+        </div>
     }
 
 </div>
