@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
 using HF_Application.Models.Events;
+using HF_Application.Models.ViewModel;
 
 namespace HF_Application.Controllers
 {
@@ -15,114 +16,66 @@ namespace HF_Application.Controllers
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
+        private List<FoodType> AllFoodTypes;
+        private List<Restaurant> AllRestaurants;
+        private List<FoodType> FirstTillSixFoodtypes;
+        private List<FoodType> sevenTillNineFoodtypes;
+
+        public DinersController()
+        {
+            AllRestaurants = new List<Restaurant>();
+            FirstTillSixFoodtypes = new List<FoodType>();
+            sevenTillNineFoodtypes = new List<FoodType>();
+
+
+            this.AllRestaurants = GetAllRestaurants();
+            this.AllFoodTypes = GetAllFoodtypes();
+            this.FirstTillSixFoodtypes = selectFoodTypes(0, 5);
+            this.sevenTillNineFoodtypes = selectFoodTypes(6, 8);
+        }
+
+        public List<Restaurant> GetAllRestaurants()
+        {
+            List<Restaurant> Restaurants = new List<Restaurant>();
+            return Restaurants = db.Restaurants.ToList();
+        }
+
+        public List<FoodType> GetAllFoodtypes()
+        {
+            List<FoodType> FoodTypes = db.Foodtypes.ToList();
+            return FoodTypes;
+        }
+
+        public List<FoodType> selectFoodTypes(int start, int end)
+        {
+            List<FoodType> foodtypes=new List<FoodType>();
+
+            for(int a=start; a<=end; a++)
+            {
+                foodtypes.Add(AllFoodTypes[a]);
+            }
+            return foodtypes;
+        }
+
         // GET: Diners
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(db.Diners.ToList());
-        }
-
-        // GET: Diners/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            RestaurantModel restaurantmodel = null;
+            if (id== null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //Pakket samenvoegen zodat dit gebruiksklaar is...
+                restaurantmodel = new RestaurantModel();
+                restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
+                restaurantmodel.ListOfThreeFoodtypes = sevenTillNineFoodtypes;
+                restaurantmodel.Restaurants = AllRestaurants;
             }
-            Diner diner = (Diner)db.FestivalEvent.Find(id);
-            if (diner == null)
+            else
             {
-                return HttpNotFound();
-            }
-            return View(diner);
-        }
-
-        // GET: Diners/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Diners/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType1,FoodType2,FoodType3")] Diner diner)
-        {
-            if (ModelState.IsValid)
-            {
-                db.FestivalEvent.Add(diner);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                restaurantmodel = new RestaurantModel();
             }
 
-            return View(diner);
+            return View(restaurantmodel);   
         }
 
-        // GET: Diners/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Diner diner = (Diner)db.FestivalEvent.Find(id);
-            if (diner == null)
-            {
-                return HttpNotFound();
-            }
-            return View(diner);
-        }
-
-        // POST: Diners/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Location,CartDescription,CartTitle,Price,Seats,TicketType,EndDate,StartDate,Session,RestaurantName,imagePath,FoodType1,FoodType2,FoodType3")] Diner diner)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(diner).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(diner);
-        }
-
-        // GET: Diners/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Diner diner = (Diner)db.FestivalEvent.Find(id);
-            if (diner == null)
-            {
-                return HttpNotFound();
-            }
-            return View(diner);
-        }
-
-        // POST: Diners/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Diner diner = (Diner)db.FestivalEvent.Find(id);
-            db.FestivalEvent.Remove(diner);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

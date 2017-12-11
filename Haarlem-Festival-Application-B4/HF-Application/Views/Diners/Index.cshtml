@@ -1,111 +1,25 @@
-﻿@model IEnumerable<HF_Application.Models.Events.Diner>
+﻿@model HF_Application.Models.ViewModel.RestaurantModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Diner";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-12 text-center">
+            @foreach (var foodtype in Model.ListOfSixFoodtypes)
+            {
+                <button class="DinerNavigationButton">@Html.ActionLink(foodtype.Naam, "Diners", 1)</button>
+            }
+           </div>
+      </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Session)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RestaurantName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imagePath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodType1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodType2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodType3)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CartDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CartTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Session)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RestaurantName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imagePath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodType1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodType2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodType3)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+    <div class="row">
+        <div class="col-md-12 col-12 text-center">
+            @foreach (var foodtype in Model.ListOfThreeFoodtypes)
+            {
+                <button class="DinerNavigationButton">@Html.ActionLink(foodtype.Naam, "Index", foodtype.Id)</button>
+            }
+        </div>
+    </div>
+</div>
