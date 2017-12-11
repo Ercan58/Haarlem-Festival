@@ -61,6 +61,7 @@ namespace HF_Application.Controllers
         public ActionResult Index(int? id)
         {
             RestaurantModel restaurantmodel = null;
+
             if (id== null)
             {
                 //Pakket samenvoegen zodat dit gebruiksklaar is...
@@ -72,6 +73,7 @@ namespace HF_Application.Controllers
             else
             {
                 restaurantmodel = new RestaurantModel();
+                
             }
 
             return View(restaurantmodel);   

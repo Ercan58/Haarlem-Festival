@@ -183,5 +183,13 @@ footer{
 }
 
 .DinerNavigationButton{
+background-color:black;
+padding:10px;
+border: 1px solid grey;
+}
 
+.restaurantnavigation{
+    min-height:40px;
+    margin-top:20px;
+    margin-bottom 10px;
 }

@@ -5,21 +5,29 @@
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row restaurantnavigation">
         <div class="col-md-12 col-12 text-center">
             @foreach (var foodtype in Model.ListOfSixFoodtypes)
             {
-                <button class="DinerNavigationButton">@Html.ActionLink(foodtype.Naam, "Diners", 1)</button>
+                @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
             }
            </div>
       </div>
 
-    <div class="row">
+    <div class="row restaurantnavigation">
         <div class="col-md-12 col-12 text-center">
             @foreach (var foodtype in Model.ListOfThreeFoodtypes)
             {
-                <button class="DinerNavigationButton">@Html.ActionLink(foodtype.Naam, "Index", foodtype.Id)</button>
+                @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
             }
         </div>
     </div>
+</div>
+
+<div class="container">
+    @foreach(var restaurant in Model.Restaurants)
+    {
+        
+    }
+
 </div>

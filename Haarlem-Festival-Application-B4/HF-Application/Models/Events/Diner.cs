@@ -13,7 +13,6 @@ namespace HF_Application.Models.Events
     {
         public int RestaurantId { get; set; }
         public int Session { get; set; }
-        public string imagePath { get; set; }
 
         public double ReducedPrice { get; set; }
 
