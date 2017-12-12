@@ -16,6 +16,8 @@ namespace HF_Application.Models.Events
 
         public TourGuid tourGuid { get; set; }
 
+        public Location Location { get; set; }
+
 
     }
 }

@@ -157,29 +157,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712072135306_ini1.cs" />
-    <Compile Include="Migrations\201712072135306_ini1.Designer.cs">
-      <DependentUpon>201712072135306_ini1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072230495_ini5.cs" />
-    <Compile Include="Migrations\201712072230495_ini5.Designer.cs">
-      <DependentUpon>201712072230495_ini5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072234282_ini9.cs" />
-    <Compile Include="Migrations\201712072234282_ini9.Designer.cs">
-      <DependentUpon>201712072234282_ini9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072238158_ini00.cs" />
-    <Compile Include="Migrations\201712072238158_ini00.Designer.cs">
-      <DependentUpon>201712072238158_ini00.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072242285_init55.cs" />
-    <Compile Include="Migrations\201712072242285_init55.Designer.cs">
-      <DependentUpon>201712072242285_init55.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712111616182_restaurantmodelupdate.cs" />
-    <Compile Include="Migrations\201712111616182_restaurantmodelupdate.Designer.cs">
-      <DependentUpon>201712111616182_restaurantmodelupdate.cs</DependentUpon>
+    <Compile Include="Migrations\201712121718479_ini1.cs" />
+    <Compile Include="Migrations\201712121718479_ini1.Designer.cs">
+      <DependentUpon>201712121718479_ini1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
@@ -323,23 +303,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712072135306_ini1.resx">
-      <DependentUpon>201712072135306_ini1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072230495_ini5.resx">
-      <DependentUpon>201712072230495_ini5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072234282_ini9.resx">
-      <DependentUpon>201712072234282_ini9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072238158_ini00.resx">
-      <DependentUpon>201712072238158_ini00.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072242285_init55.resx">
-      <DependentUpon>201712072242285_init55.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712111616182_restaurantmodelupdate.resx">
-      <DependentUpon>201712111616182_restaurantmodelupdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712121718479_ini1.resx">
+      <DependentUpon>201712121718479_ini1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

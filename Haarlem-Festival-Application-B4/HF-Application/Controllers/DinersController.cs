@@ -37,7 +37,7 @@ namespace HF_Application.Controllers
         public List<Restaurant> GetAllRestaurants()
         {
             List<Restaurant> Restaurants = new List<Restaurant>();
-            return Restaurants = db.Restaurants.ToList();
+            return Restaurants = db.Restaurants.Include(a=>a.FoodTypes).Include(b=>b.Location).ToList();
         }
 
         public List<FoodType> GetAllFoodtypes()
@@ -48,7 +48,7 @@ namespace HF_Application.Controllers
 
         public List<FoodType> selectFoodTypes(int start, int end)
         {
-            List<FoodType> foodtypes=new List<FoodType>();
+            List<FoodType> foodtypes = new List<FoodType>();
 
             for(int a=start; a<=end; a++)
             {
@@ -57,25 +57,39 @@ namespace HF_Application.Controllers
             return foodtypes;
         }
 
+        public List<Restaurant> GetRestaurants(int id)
+        {
+            List<Restaurant> restaurants = new List<Restaurant>();
+
+            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r=>r.Restaurant).Include(f=>f.Foodtype).ToList();
+
+            foreach(RestaurantFoodtype restaurantfoodtype in foodtypes)
+            {
+                restaurants.Add(restaurantfoodtype.Restaurant);
+            }
+
+            return restaurants;
+        }
+
         // GET: Diners
         public ActionResult Index(int? id)
         {
-            RestaurantModel restaurantmodel = null;
+            RestaurantModel restaurantmodel = new RestaurantModel();
+            restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
+            restaurantmodel.ListOfThreeFoodtypes = sevenTillNineFoodtypes;
+
 
             if (id== null)
             {
                 //Pakket samenvoegen zodat dit gebruiksklaar is...
-                restaurantmodel = new RestaurantModel();
-                restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
-                restaurantmodel.ListOfThreeFoodtypes = sevenTillNineFoodtypes;
                 restaurantmodel.Restaurants = AllRestaurants;
             }
             else
             {
-                restaurantmodel = new RestaurantModel();
+                int categorieId = id.GetValueOrDefault();   
+                restaurantmodel.Restaurants = GetRestaurants(categorieId);
                 
             }
-
             return View(restaurantmodel);   
         }
 

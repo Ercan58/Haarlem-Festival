@@ -7,6 +7,7 @@
 <div class="container">
     <div class="row restaurantnavigation">
         <div class="col-md-12 col-12 text-center">
+
             @foreach (var foodtype in Model.ListOfSixFoodtypes)
             {
                 @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
@@ -27,12 +28,27 @@
 <div class="container">
     @foreach(var restaurant in Model.Restaurants)
     {
+        
         <div class="row restaurantdiv">
+            <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
             <div class="col-md-3">
                 <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
             </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-3"></div>
+            <div class="col-md-6 col-12 text-center">
+                @foreach(var foodtypes in restaurant.FoodTypes)
+                {
+                    IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</text>");
+                    @Html.Raw(tekst)
+                }
+                <br/>
+                Adres: @restaurant.Location.Address
+            </div>
+            <div class="col-md-3 col-12 text-center">
+                @using (Html.BeginForm())
+                {
+                    <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
+                }
+            </div>
         </div>
     }
 

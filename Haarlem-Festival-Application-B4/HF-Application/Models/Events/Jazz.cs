@@ -13,5 +13,7 @@ namespace HF_Application.Models.Events
         public string Band { get; set; }
         public string imagePath { get; set; }
 
+        public Location Location { get; set; }
+
     }
 }

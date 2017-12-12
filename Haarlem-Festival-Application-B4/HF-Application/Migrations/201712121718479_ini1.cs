@@ -3,16 +3,16 @@ namespace HF_Application.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init55 : DbMigration
+    public partial class ini1 : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.FestivalEvents", "Price");
+            AddColumn("dbo.Talk", "ImagePath", c => c.String());
         }
         
         public override void Down()
         {
-            AddColumn("dbo.FestivalEvents", "Price", c => c.Double(nullable: false));
+            DropColumn("dbo.Talk", "ImagePath");
         }
     }
 }
