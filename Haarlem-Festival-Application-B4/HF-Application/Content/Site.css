@@ -196,6 +196,7 @@ border: 1px solid grey;
 
 .restaurantImage{
     width:100%;
+
 }
 
 .restaurantdiv{
@@ -204,4 +205,10 @@ border: 1px solid grey;
     margin-top:10px;
     margin-bottom:10px;
     opacity:0.9;
+}
+
+.RestaurantName{
+    border-bottom:2px solid black;
+    border-radius:25px;
+    border-color:gold;
 }
