@@ -8,14 +8,34 @@ using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
 using HF_Application.Models.Events;
+using HF_Application.Models.ViewModel;
 
 namespace HF_Application.Controllers
 {
     public class JazzsController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
-        //private List<Jazz> JazzEvents = new List<Jazz>();
+        private List<Jazz> JazzEvents;
+        private List<StartDate> StartDate;
 
+        public JazzsController()
+        {
+            JazzEvents = new List<Jazz>();
+            StartDate = new List<StartDate>();
+
+            this.JazzEvents = GetAllJazzEvents(JazzEvents);
+            this.SartDate = GetAllStartDate(StartDate);
+        }
+
+        public List<Jazz> GetAllJazzEvents(List<JazzEvent> a)
+        {
+            return a = db.Jazzs.ToList();
+        }
+
+        public List<StartDate> GetAllStartDate(List<StartDate> a)
+        {
+            return a = db.
+        }
         // GET: Jazzs
         public ActionResult Index()
         {
