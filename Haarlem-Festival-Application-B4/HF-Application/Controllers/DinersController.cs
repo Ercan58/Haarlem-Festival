@@ -48,7 +48,7 @@ namespace HF_Application.Controllers
 
         public List<FoodType> selectFoodTypes(int start, int end)
         {
-            List<FoodType> foodtypes=new List<FoodType>();
+            List<FoodType> foodtypes = new List<FoodType>();
 
             for(int a=start; a<=end; a++)
             {
@@ -59,8 +59,7 @@ namespace HF_Application.Controllers
 
         public List<Restaurant> GetRestaurants(int id)
         {
-            List<Restaurant> restaurants = null;
-            restaurants = new List<Restaurant>();
+            List<Restaurant> restaurants = new List<Restaurant>();
 
             var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r=>r.Restaurant).Include(f=>f.Foodtype).ToList();
 
@@ -75,8 +74,7 @@ namespace HF_Application.Controllers
         // GET: Diners
         public ActionResult Index(int? id)
         {
-            RestaurantModel restaurantmodel = null;
-            restaurantmodel = new RestaurantModel();
+            RestaurantModel restaurantmodel = new RestaurantModel();
             restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
             restaurantmodel.ListOfThreeFoodtypes = sevenTillNineFoodtypes;
 
@@ -92,10 +90,6 @@ namespace HF_Application.Controllers
                 restaurantmodel.Restaurants = GetRestaurants(categorieId);
                 
             }
-
-
-
-
             return View(restaurantmodel);   
         }
 

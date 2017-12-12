@@ -7,6 +7,7 @@
 <div class="container">
     <div class="row restaurantnavigation">
         <div class="col-md-12 col-12 text-center">
+
             @foreach (var foodtype in Model.ListOfSixFoodtypes)
             {
                 @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
