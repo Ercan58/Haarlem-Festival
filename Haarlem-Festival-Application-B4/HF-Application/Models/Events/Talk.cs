@@ -12,6 +12,7 @@ namespace HF_Application.Models.Events
 	{
         public string Interview { get; set; }
         public string ReservationInfo { get; set; }
+        public string ImagePath { get; set; }
 
         public Location Location { get; set; }
     }

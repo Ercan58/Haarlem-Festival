@@ -196,6 +196,7 @@ border: 1px solid grey;
 
 .restaurantImage{
     width:100%;
+    border-left: 5px solid #910000;
 
 }
 
@@ -217,4 +218,17 @@ border: 1px solid grey;
     font-size:20px;
     padding:10px;
     padding-top:50px;
+}
+
+.MoreInformationButton{
+  bottom: 5%;
+  padding:3%;
+  width: 70%;
+  font-size:18px;
+  border:1px solid black;
+  color:white;
+  background-color:#9C6910;
+}
+.MoreInformationButton:hover {
+text-decoration:underline;
 }
