@@ -17,5 +17,7 @@ namespace HF_Application.Models.Events
         public double ReducedPrice { get; set; }
 
         public Restaurant Restaurant { get; set; }
+
+
     }
 }

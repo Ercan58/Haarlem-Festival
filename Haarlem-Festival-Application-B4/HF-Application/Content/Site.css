@@ -212,3 +212,9 @@ border: 1px solid grey;
     border-radius:25px;
     border-color:gold;
 }
+
+.foodtypesretaurant{
+    font-size:20px;
+    padding:10px;
+    padding-top:50px;
+}

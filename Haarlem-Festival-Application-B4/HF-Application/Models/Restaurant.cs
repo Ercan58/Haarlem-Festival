@@ -12,6 +12,8 @@ namespace HF_Application.Models
 
         public string imagePath { get; set; }
 
+        public Location Location { get; set; }
+
         public virtual ICollection<RestaurantFoodtype> FoodTypes { get; set; }
 
     }

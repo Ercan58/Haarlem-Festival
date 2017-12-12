@@ -27,13 +27,27 @@
 <div class="container">
     @foreach(var restaurant in Model.Restaurants)
     {
+        
         <div class="row restaurantdiv">
             <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
             <div class="col-md-3">
                 <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
             </div>
-            <div class="col-md-6"></div>
-            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+                @foreach(var foodtypes in restaurant.FoodTypes)
+                {
+                    IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</text>");
+                    @Html.Raw(tekst)
+                }
+                <br />
+                @restaurant.Location.Address
+            </div>
+            <div class="col-md-3">
+                @using (Html.BeginForm())
+                {
+                    <input type="button" name="button" class="button1" value="Meer informatie" />
+                }
+            </div>
         </div>
     }
 

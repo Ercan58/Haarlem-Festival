@@ -20,22 +20,18 @@ namespace HF_Application.Models
                 new HearDateList("26/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
-                    .Include(x => x.Location)
                     .ToList()),
                 new HearDateList("27/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
-                    .Include(x => x.Location)
                     .ToList()),
                 new HearDateList("28/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
-                    .Include(x => x.Location)
                     .ToList()),
                 new HearDateList("29/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
-                    .Include(x => x.Location)
                     .ToList())
             };
             return events;
@@ -61,25 +57,21 @@ namespace HF_Application.Models
                 new TasteDateList("26/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
-                    .Include(x => x.Location)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new TasteDateList("27/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
-                    .Include(x => x.Location)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new TasteDateList("28/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
-                    .Include(x => x.Location)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new TasteDateList("29/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
-                    .Include(x => x.Location)
                     .Include(x => x.Restaurant)
                     .ToList())
             };
@@ -88,9 +80,9 @@ namespace HF_Application.Models
 
         public Diner GetTasteEvent(int id)
         {
-            Diner festivalEvent = db.Diners.Include(x => x.Location).SingleOrDefault(x => x.ID == id);
 
-            return festivalEvent;
+
+            return new Diner();
         }
 
         public void UpdateTasteEvent(Diner festivalEvent)
