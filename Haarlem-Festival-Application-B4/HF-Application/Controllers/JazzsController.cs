@@ -24,17 +24,11 @@ namespace HF_Application.Controllers
             StartDate = new List<StartDate>();
 
             this.JazzEvents = GetAllJazzEvents(JazzEvents);
-            this.SartDate = GetAllStartDate(StartDate);
         }
 
         public List<Jazz> GetAllJazzEvents(List<JazzEvent> a)
         {
             return a = db.Jazzs.ToList();
-        }
-
-        public List<StartDate> GetAllStartDate(List<StartDate> a)
-        {
-            return a = db.
         }
         // GET: Jazzs
         public ActionResult Index()
