@@ -153,7 +153,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JazzsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\TalkController.cs" />
+    <Compile Include="Controllers\TalksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +183,7 @@
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
+    <Compile Include="Models\ViewModel\TalksModel.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
@@ -194,9 +195,11 @@
     <Content Include="Content\images\achtergrond_talk.png" />
     <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\femke-halsema.jpg" />
+    <Content Include="Content\images\Femke_Jop.png" />
     <Content Include="Content\images\flag.png" />
     <Content Include="Content\images\bg-music.png" />
     <Content Include="Content\images\giel-beelen.jpg" />
+    <Content Include="Content\images\Giel_Rop.png" />
     <Content Include="Content\images\grand_cafe_brinkmann.jpg" />
     <Content Include="Content\images\GumboKings.jpg" />
     <Content Include="Content\images\Haarlemcentrum.jpg" />
@@ -207,6 +210,7 @@
     <Content Include="Content\images\jazz.jpg" />
     <Content Include="Content\images\JonnaFraser.jpg" />
     <Content Include="Content\images\NTjamRose.jpg" />
+    <Content Include="Content\images\Paul_Brig.png" />
     <Content Include="Content\images\profile.png" />
     <Content Include="Content\images\Ratatouille.jpg" />
     <Content Include="Content\images\restaurant-ml-restaurant.jpg" />
@@ -295,6 +299,11 @@
     <Content Include="Views\Admin\EditHear.cshtml" />
     <Content Include="Views\Admin\Taste.cshtml" />
     <Content Include="Views\Admin\EditTaste.cshtml" />
+    <Content Include="Views\Talks\Create.cshtml" />
+    <Content Include="Views\Talks\Delete.cshtml" />
+    <Content Include="Views\Talks\Details.cshtml" />
+    <Content Include="Views\Talks\Edit.cshtml" />
+    <Content Include="Views\Talks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

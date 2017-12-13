@@ -1,0 +1,91 @@
+﻿@model HF_Application.Models.Events.Talk
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Talk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CartDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CartDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CartTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CartTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReservationInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

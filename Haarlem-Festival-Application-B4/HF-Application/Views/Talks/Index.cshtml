@@ -1,0 +1,38 @@
+﻿@model HF_Application.Models.ViewModel.TalksModel
+
+@{
+    ViewBag.Title = "Talking Haarlem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body id="Talk">
+
+    <div class="container">
+        @foreach (var talkEvent in Model.AllTalkEvents)
+        {
+
+            <div class="row restaurantdiv">
+                <div class="col-md-12 text-center"><h1 class="interviewName">@talkEvent.Interview</h1></div>
+                <div class="col-md-3">
+                    <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                </div>
+                <div class="col-md-6 col-12 text-center">
+                    <strong> @talkEvent.StartDate</strong><br />
+                    <p> <Strong> Adres: </Strong> @talkEvent.Location.Address </p>
+
+                    <p> @talkEvent.ReservationInfo </p>
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    @using (Html.BeginForm())
+                {
+                        <input type="button" name="button" class="MoreInformationButton" value="Make Reservation" />
+                        <input type="button" name="button" class="MoreInformationButton" value="Add To WishList" />
+                        <input type="button" name="button" class="MoreInformationButton" value="Ask Question" />
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+
+</body>
