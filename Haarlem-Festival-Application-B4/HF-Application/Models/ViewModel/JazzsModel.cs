@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using HF_Application.Models;
+using HF_Application.Models.Events;
 
 namespace HF_Application.Models.ViewModel
 {
     public class JazzsModel
     {
-        // public List<Jazz> 
-        public IEnumerable<StartDate> {get; set;}
+        
+        public List<Jazz> AllJazzEvents {get; set;}
+        //public IEnumerable<StartDate> {get; set;}
     }
 }

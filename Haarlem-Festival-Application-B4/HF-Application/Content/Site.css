@@ -33,9 +33,9 @@ footer{
     padding-bottom:10px;
 }
 
-#Jazz{
-    background-image: url(images/bg-music.png);
-
+#Jazz {
+    background-color: #0D8C10;
+    background-image: url(images/bg-music.png) repeating-linear-gradient();
 }
 
 .taste{
@@ -209,7 +209,7 @@ border: 1px solid grey;
 }
 
 .RestaurantName{
-    border-bottom:2px solid black;
+    border-bottom:3px solid black;
     border-radius:25px;
     border-color:gold;
 }
@@ -233,3 +233,21 @@ border: 1px solid grey;
 text-decoration:underline;
 }
 
+.jazzImage {
+    width: 100%;
+    border-left: 5px solid #0D8C10;
+}
+
+.jazzDiv {
+    background-color: black;
+    min-height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.RestaurantName {
+    border-bottom: 10px solid black;
+    border-radius: 25px;
+    border-color: white;
+}

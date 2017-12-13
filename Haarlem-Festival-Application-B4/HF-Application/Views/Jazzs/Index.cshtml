@@ -1,87 +1,46 @@
-﻿@model IEnumerable<HF_Application.Models.Events.Jazz>
+﻿@model HF_Application.Models.ViewModel.JazzsModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Jazz at Patronaat";
 }
 
-<h2>Index</h2>
+<body id="Jazz">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CartTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Seats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TicketType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Band)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imagePath)
-        </th>
-        <th></th>
-    </tr>
+    <div class="container">
+        <div class="row restaurantnavigation">
+            <div class="col-md-12 col-12 text-center">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CartDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CartTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Seats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Band)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imagePath)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+                @foreach (var jazz in Model.AllJazzEvents)
+            {
+                    @Html.ActionLink(jazz.StartDate.ToString(), "index", new { date = jazz.StartDate }, new { @class = "DinerNavigationButton" })
+                }
+            </div>
+        </div>
+    </div>
 
-</table>
+    <div class="container">
+        @foreach (var jazzEvent in Model.AllJazzEvents)
+        {
+
+            <div class="row restaurantdiv">
+                <div class="col-md-12 text-center"><h1 class="RestaurantName">@jazzEvent.Band</h1></div>
+                <div class="col-md-3">
+                    <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
+                </div>
+                <div class="col-md-6 col-12 text-center">
+                    <strong>Date:</strong> @jazzEvent.StartDate<br />
+                    <strong>Adress:</strong> @jazzEvent.Location.Address
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    @using (Html.BeginForm())
+                {
+                        <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+
+</body>
+

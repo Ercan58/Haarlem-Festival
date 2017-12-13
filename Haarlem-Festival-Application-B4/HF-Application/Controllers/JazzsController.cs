@@ -15,30 +15,49 @@ namespace HF_Application.Controllers
     public class JazzsController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
-        private List<Jazz> JazzEvents;
-        private List<StartDate> StartDate;
+        private List<Jazz> AllJazzEvents;
 
         public JazzsController()
         {
-            JazzEvents = new List<Jazz>();
-            StartDate = new List<StartDate>();
+            AllJazzEvents = new List<Jazz>();
 
-            this.JazzEvents = GetAllJazzEvents(JazzEvents);
+            this.AllJazzEvents = GetAllJazzEvents();
         }
 
-        public List<Jazz> GetAllJazzEvents(List<JazzEvent> a)
+        public List<Jazz> GetAllJazzEvents()
         {
-            return a = db.Jazzs.ToList();
+            List<Jazz> JazzEvents = new List<Jazz>();
+            return JazzEvents = db.Jazzs.Include(a=>a.Location).ToList();
+        }
+
+        public List<Jazz> GetJazzEvents(DateTime date)
+        {
+            List<Jazz> jazzEvents = new List<Jazz>();
+
+            var selectionByStartDate = db.Jazzs.Where(d => d.StartDate == date).Include(l=>l.Location).ToList();
+            foreach (Jazz jazzEvent in selectionByStartDate)
+            {
+                jazzEvents.Add(jazzEvent);
+            }
+            return jazzEvents;
+
         }
         // GET: Jazzs
-        public ActionResult Index()
+        public ActionResult Index(DateTime? startDate)
         {
-            //foreach(Jazz J in db.Jazzs)
-            //{
-            //    JazzEvents.Add(J);
-            //}return View(JazzEvents);
-            return View(db.Jazzs.ToList());
-            
+            JazzsModel jazzsModel = new JazzsModel();
+            if (startDate== null)
+            {
+                jazzsModel.AllJazzEvents = AllJazzEvents;
+            }
+            else
+            {
+                DateTime selectieStartDate = startDate.GetValueOrDefault();
+                jazzsModel.AllJazzEvents = GetJazzEvents(selectieStartDate);
+
+            }
+            return View(jazzsModel);
+
         }
 
         // GET: Jazzs/Details/5

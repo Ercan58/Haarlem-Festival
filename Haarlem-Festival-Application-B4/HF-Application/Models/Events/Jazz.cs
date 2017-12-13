@@ -10,6 +10,7 @@ namespace HF_Application.Models.Events
     [Table("Jazz")]
     public class Jazz : FestivalEvent
 	{
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public string Band { get; set; }
         public string imagePath { get; set; }
 
