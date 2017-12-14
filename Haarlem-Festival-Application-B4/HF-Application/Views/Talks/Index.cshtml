@@ -7,11 +7,19 @@
 
 <body id="Talk">
 
+
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Talk Haarlem!</h1>
+        <p class="welcometext">
+            Haarlem, of course, has and had some famous citizens. In a three night special the Toneelschuur will bring several of them together to talk about their relation with Haarlem and the impact it had/has on their careers. Admittance is free but reservation is mandatory.
+        </p>
+    </div>
+
     <div class="container">
         @foreach (var talkEvent in Model.AllTalkEvents)
         {
 
-            <div class="row restaurantdiv">
+            <div class="row Talkdiv">
                 <div class="col-md-12 text-center"><h1 class="interviewName">@talkEvent.Interview</h1></div>
                 <div class="col-md-3">
                     <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />

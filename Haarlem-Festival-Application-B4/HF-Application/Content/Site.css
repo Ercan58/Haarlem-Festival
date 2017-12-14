@@ -265,9 +265,19 @@ text-decoration:underline;
     border-color: white;
 }
 
+
+
+.Talkdiv {
+    background-color:#9C6910;
+    min-height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.95;
+}
+
 .interviewName 
 {
-    color: #9C6910;
+    color: white;
     border-bottom: 3px solid black;
     border-radius: 25px;
     border-bottom-color: white;
