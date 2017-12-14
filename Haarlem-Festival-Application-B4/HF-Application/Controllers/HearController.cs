@@ -12,12 +12,12 @@ using HF_Application.Models.ViewModel;
 
 namespace HF_Application.Controllers
 {
-    public class JazzsController : Controller
+    public class HearController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
         private List<Jazz> AllJazzEvents;
 
-        public JazzsController()
+        public HearController()
         {
             AllJazzEvents = new List<Jazz>();
 

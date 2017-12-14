@@ -49,22 +49,22 @@ h1, h2, h3, h4, h5 {
 
 .taste, .taste:hover {
     color: #e0e0e0;
-    background-color: #a00000;
+    background-color: #CC2828;
 }
 
 .hear, .hear:hover {
     color: #e0e0e0;
-    background-color: #008e00;
+    background-color: #23B223;
 }
 
 .see, .see:hover {
     color: #e0e0e0;
-    background-color: #002590;
+    background-color: #2851CC;
 }
 
 .talk, .talk:hover {
     color: #e0e0e0;
-    background-color: #9d6a00;
+    background-color: #CC9828;
 }
 
 .admin-btn {
