@@ -1,0 +1,62 @@
+﻿@model HF_Application.Models.ViewModel.RestaurantModel
+
+@{
+    ViewBag.Title = "Diner";
+}
+<body id="Diner">
+    <div class="container">
+        <div class="col-md-8 offset-md-2 col-12 welcomediv">
+            <h1 class="text-center">Taste Haarlem!</h1>
+            <p class="welcometext">
+                Reservation is mandatory.  A reservation fee of €10,- per person wil be charged when a reservation is made on the Haarlem Festival site. This fee will be deducted from the final check on visiting the restaurant.
+            </p>
+        </div>
+        <div class="row restaurantnavigation">
+            <div class="col-md-12 col-12 text-center">
+
+                @foreach (var foodtype in Model.ListOfSixFoodtypes)
+            {
+                    @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
+                }
+            </div>
+        </div>
+
+        <div class="row restaurantnavigation">
+            <div class="col-md-12 col-12 text-center">
+                @foreach (var foodtype in Model.ListOfThreeFoodtypes)
+                {
+                    @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @foreach (var restaurant in Model.Restaurants)
+        {
+
+            <div class="row restaurantdiv">
+                <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
+                <div class="col-md-3">
+                    <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
+                </div>
+                <div class="col-md-6 col-12 text-center">
+                    @foreach (var foodtypes in restaurant.FoodTypes)
+                    {
+                        IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</text>");
+                        @Html.Raw(tekst)
+                    }
+                    <br />
+                    Adres: @restaurant.Location.Address
+                </div>
+                <div class="col-md-3 col-12 text-center">
+                    @using (Html.BeginForm())
+                {
+                        <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+</body>
