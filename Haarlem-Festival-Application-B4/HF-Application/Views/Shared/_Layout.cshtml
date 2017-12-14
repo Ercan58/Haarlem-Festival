@@ -1,57 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title Haarlem festival Application</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    @Styles.Render("~/Content/bootstrap.css")
-    @Styles.Render("~/Content/Site.css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\" async>", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")
+    @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async>", "~/Content/Site.css")
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="#"><h1 style="color: red;"=>Hf</h1></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item taste">
-                            <a class="nav-link" href="diners"><img src="/content/images/btn-taste.png" alt="Taste" /></a>
-                        </li>
-                        <li class="nav-item hear">
-                            <a class="nav-link" href="#"><img src="/content/images/btn-hear.png" alt="Hear" /></a>
-                        </li>
-                        <li class="nav-item see">
-                            <a class="nav-link" href="#"><img src="/content/images/btn-see.png" alt="See" /></a>
-                        </li>
-                        <li class="nav-item talk">
-                            <a class="nav-link" href="/Talks"><img src="/content/images/btn-talk.png" alt="Talk" /></a>
-                        </li>
-						<li class="nav-item">
-                            <a class="nav-link" href="/Admin">Admin</a>
-                        </li>
-                    </ul>
-                    <div class="navrightbar">
-                        <a class="profileicon" href="#"><img src="~/Content/images/profile.png" /></a>
-                        <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
-                    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><h1 style="color: red;" =>Hf</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item taste">
+                        <a class="nav-link" href="diners"><img src="/content/images/btn-taste.png" alt="Taste" /></a>
+                    </li>
+                    <li class="nav-item hear">
+                        <a class="nav-link" href="#"><img src="/content/images/btn-hear.png" alt="Hear" /></a>
+                    </li>
+                    <li class="nav-item see">
+                        <a class="nav-link" href="#"><img src="/content/images/btn-see.png" alt="See" /></a>
+                    </li>
+                    <li class="nav-item talk">
+                        <a class="nav-link" href="/Talks"><img src="/content/images/btn-talk.png" alt="Talk" /></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Admin">Admin</a>
+                    </li>
+                </ul>
+                <div class="navrightbar">
+                    <a class="profileicon" href="#"><img src="~/Content/images/profile.png" /></a>
+                    <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     <div class="container-fluid body-content">
         @RenderBody()
         <footer>
             <p>&copy; @DateTime.Now.Year - www.haarlemfestivals.nl all rights reserved</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>", "https://code.jquery.com/jquery-3.2.1.slim.min.js")
+    @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh\" crossorigin=\"anonymous\"></script>", "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js")
+    @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\" crossorigin=\"anonymous\"></script>", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js")
 </body>
 </html>

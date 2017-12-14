@@ -1,63 +1,63 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en-gb">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#303030">
     <title>@ViewBag.Title - Haarlem Festival Administration Panel</title>
-    @Styles.Render("~/Content/bootstrap.min.css")
-    @Styles.Render("~/Content/Admin.css")
-    @Styles.Render("https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\" async>", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css")
+    @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async>", "~/Content/Site.css")
+    @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async />", "https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab")
 </head>
 <body>
-<div class="container">
-    @Html.ActionLink("Haarlem Festival", "Index", "Admin", new {area = ""}, new {@class = "brand"})
-    <span class="float-right">Logged in as Daniël<br/><a href="#">Log out</a></span>
-    <nav aria-label="breadcrumb" role="navigation">
-        <ol class="breadcrumb">
-            @Html.MvcSiteMap().SiteMapPath()
-        </ol>
-    </nav>
-</div>
-<div class="container">
-    <div class="row menu-admin">
-        <div class="col-sm">
-            <a class="btn menu-admin-btn taste @(ViewContext.RouteData.Values["action"].ToString() == "Taste" ? "menu-admin-btn-current" : "")"
-               href="@Url.Action("Taste", "Admin")">
-                <h1>Taste</h1>
-                <h4>Dinner in Haarlem</h4>
-            </a>
-        </div>
-        <div class="col-sm">
-            <a class="btn menu-admin-btn hear @(ViewContext.RouteData.Values["action"].ToString() == "Hear" ? "menu-admin-btn-current" : "")"
-               href="@Url.Action("Hear", "Admin")">
-                <h1>Hear</h1>
-                <h4>Jazz@Patronaat</h4>
-            </a>
-        </div>
-		<div class="w-100 d-lg-block d-xl-none"></div> <!-- Dit zorgt ervoor dat het menu bij kleinere schermen netjes in tweeën wordt gedeeld -->
-        <div class="col-sm">
-            <a class="btn menu-admin-btn see @(ViewContext.RouteData.Values["action"].ToString() == "See" ? "menu-admin-btn-current" : "")"
-               href="@Url.Action("See", "Admin")">
-                <h1>See</h1>
-                <h4>Historic Haarlem</h4>
-            </a>
-        </div>
-        <div class="col-sm">
-            <a class="btn menu-admin-btn talk @(ViewContext.RouteData.Values["action"].ToString() == "Talk" ? "menu-admin-btn-current" : "")"
-               href="@Url.Action("Talk", "Admin")">
-                <h1>Talk</h1>
-                <h4>Talking Haarlem</h4>
-            </a>
-        </div>
+    <div class="container">
+        @Html.ActionLink("Haarlem Festival", "Index", "Admin", new { area = "" }, new { @class = "brand" })
+        <span class="float-right">Logged in as Daniël<br /><a href="#">Log out</a></span>
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                @Html.MvcSiteMap().SiteMapPath()
+            </ol>
+        </nav>
     </div>
-    @RenderBody()
-    <footer>
-        <p>&copy; 2017 - Haarlem Festival B4</p>
-    </footer>
-</div>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    <div class="container">
+        <div class="row menu-admin">
+            <div class="col-sm">
+                <a class="btn menu-admin-btn taste @(ViewContext.RouteData.Values["action"].ToString() == "Taste" ? "menu-admin-btn-current" : "")"
+                   href="@Url.Action("Taste", "Admin")">
+                    <h1>Taste</h1>
+                    <h4>Dinner in Haarlem</h4>
+                </a>
+            </div>
+            <div class="col-sm">
+                <a class="btn menu-admin-btn hear @(ViewContext.RouteData.Values["action"].ToString() == "Hear" ? "menu-admin-btn-current" : "")"
+                   href="@Url.Action("Hear", "Admin")">
+                    <h1>Hear</h1>
+                    <h4>Jazz@Patronaat</h4>
+                </a>
+            </div>
+            <div class="w-100 d-lg-block d-xl-none"></div> <!-- Dit zorgt ervoor dat het menu bij kleinere schermen netjes in tweeën wordt gedeeld -->
+            <div class="col-sm">
+                <a class="btn menu-admin-btn see @(ViewContext.RouteData.Values["action"].ToString() == "See" ? "menu-admin-btn-current" : "")"
+                   href="@Url.Action("See", "Admin")">
+                    <h1>See</h1>
+                    <h4>Historic Haarlem</h4>
+                </a>
+            </div>
+            <div class="col-sm">
+                <a class="btn menu-admin-btn talk @(ViewContext.RouteData.Values["action"].ToString() == "Talk" ? "menu-admin-btn-current" : "")"
+                   href="@Url.Action("Talk", "Admin")">
+                    <h1>Talk</h1>
+                    <h4>Talking Haarlem</h4>
+                </a>
+            </div>
+        </div>
+        @RenderBody()
+        <footer>
+            <p>&copy; 2017 - Haarlem Festival B4</p>
+        </footer>
+    </div>
+    @Scripts.RenderFormat("<script src=\"{0}\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>", "https://code.jquery.com/jquery-3.2.1.slim.min.js")
+    @Scripts.RenderFormat("<script src=\"{0}\" integrity=\"sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh\" crossorigin=\"anonymous\"></script>", "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js")
+    @Scripts.RenderFormat("<script src=\"{0}\" integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\" crossorigin=\"anonymous\"></script>", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js")
 </body>
 </html>
