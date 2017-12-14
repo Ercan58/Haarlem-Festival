@@ -246,9 +246,9 @@ text-decoration:underline;
     opacity: 0.9;
 }
 
-.RestaurantName
+.jazzName
 {
-    border-bottom: 10px solid black;
+    border-bottom: 3px solid black;
     border-radius: 25px;
     border-color: white;
 }
