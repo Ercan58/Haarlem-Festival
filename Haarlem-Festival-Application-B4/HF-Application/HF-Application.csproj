@@ -159,6 +159,10 @@
     <Compile Include="Migrations\201712121718479_ini1.Designer.cs">
       <DependentUpon>201712121718479_ini1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712141234407_aq.cs" />
+    <Compile Include="Migrations\201712141234407_aq.Designer.cs">
+      <DependentUpon>201712141234407_aq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\TasteDateList.cs" />
@@ -191,6 +195,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\achtergrond_talk.png" />
+    <Content Include="Content\images\bg-jazz.jpg" />
     <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\femke-halsema.jpg" />
     <Content Include="Content\images\Femke_Jop.png" />
@@ -201,6 +206,7 @@
     <Content Include="Content\images\grand_cafe_brinkmann.jpg" />
     <Content Include="Content\images\GumboKings.jpg" />
     <Content Include="Content\images\Haarlemcentrum.jpg" />
+    <Content Include="Content\images\Haarlem_diner_Background.jpg" />
     <Content Include="Content\images\HEAR.png" />
     <Content Include="Content\images\hflogo.png" />
     <Content Include="Content\images\historic_haarlem.jpg" />
@@ -322,6 +328,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712121718479_ini1.resx">
       <DependentUpon>201712121718479_ini1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141234407_aq.resx">
+      <DependentUpon>201712141234407_aq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

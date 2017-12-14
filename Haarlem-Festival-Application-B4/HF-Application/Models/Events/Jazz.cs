@@ -13,6 +13,7 @@ namespace HF_Application.Models.Events
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public string Band { get; set; }
         public string imagePath { get; set; }
+        public int eventDayID { get; set; }
 
         public Location Location { get; set; }
 
