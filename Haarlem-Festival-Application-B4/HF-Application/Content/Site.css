@@ -19,7 +19,7 @@ body{
 }
 
 #Diner{
-    background-image: url();
+    background-image: url(images/Haarlem_diner_Background.jpg);
 
 }
 
@@ -186,6 +186,10 @@ footer{
 background-color:black;
 padding:10px;
 border: 1px solid grey;
+}
+
+.DinerNavigationButton:active{
+    color:green;
 }
 
 .restaurantnavigation{
