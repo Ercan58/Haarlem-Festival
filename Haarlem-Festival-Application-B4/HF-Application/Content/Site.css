@@ -231,11 +231,13 @@ text-decoration:underline;
 /*Jazz CSS*/
 
 #Jazz {
-    background-image: url('images/bg-jazz.jpg');
+    /*image: url('images/bg-jazz3.jpg');*/
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
+    background-color: #0D8C10;
+    width: 100%;
 }
 
 .jazzImage {
