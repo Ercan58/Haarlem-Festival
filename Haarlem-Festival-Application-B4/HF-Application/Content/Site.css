@@ -20,6 +20,10 @@ body{
 
 #Diner{
     background-image: url(images/Haarlem_diner_Background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 
 }
 
@@ -181,10 +185,7 @@ footer{
 background-color:black;
 padding:10px;
 border: 1px solid grey;
-}
 
-.DinerNavigationButton:active{
-    color:green;
 }
 
 .restaurantnavigation{
@@ -200,17 +201,17 @@ border: 1px solid grey;
 }
 
 .restaurantdiv{
-    background-color:black;
+    background-color:#910000;
     min-height:250px;
     margin-top:10px;
     margin-bottom:10px;
-    opacity:0.9;
+    opacity:0.95;
 }
 
 .RestaurantName{
-    border-bottom:3px solid black;
+    border-bottom:1px solid black;
     border-radius:25px;
-    border-color:gold;
+    border-color:white;
 }
 
 .foodtypesretaurant{
@@ -224,9 +225,10 @@ border: 1px solid grey;
   padding:3%;
   width: 70%;
   font-size:18px;
+  font-weight:bold;
   border:1px solid black;
-  color:white;
-  background-color:#9C6910;
+  color:black;
+  background-color:white;
 }
 .MoreInformationButton:hover {
 text-decoration:underline;
