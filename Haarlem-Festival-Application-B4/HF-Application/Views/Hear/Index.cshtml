@@ -5,49 +5,44 @@
 }
 
 <body id="Jazz">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 col-12 welcomediv">
-            <h1 class="text-center">Jazz at Patronaat. Haarlem Festivals!</h1>
+    <div class="container">
+        <div class="col-md-8 offset-md-2 col-12 welcomediv">
+            <h1 class="text-center">Taste Haarlem!</h1>
             <p class="welcometext">
-                The Haarlem Festival is a new to be held festival to promote the rich history and culture of this unique city. The Haarlem Festival has a wider palette to inspire an even more diverse audience. The Haarlem Festival will be summer festival, held in july/august (dates to be announced) and especially targeted
-                (although not exclusively) towards an international audience (tourists coming over for Holiday in the Netherlands).
+                Reservation is mandatory.  A reservation fee of €10,- per person wil be charged when a reservation is made on the Haarlem Festival site. This fee will be deducted from the final check on visiting the restaurant.
             </p>
+        </div>
+        <div class="row restaurantnavigation">
+            <div class="col-md-12 col-12 text-center">
+                @foreach (var jazz in Model.AllJazzEvents)
+            {
+                    @Html.ActionLink((jazz.eventDayID+25.ToString()+ - 7), "index", new { id = jazz.eventDayID }, new { @class = "DinerNavigationButton" })
+                }
+            </div>
         </div>
     </div>
 
-    @*<div class="container">
-            <div class="row restaurantnavigation">
-                <div class="col-md-12 col-12 text-center">
+        <div class="container">
+            @foreach (var jazzEvent in Model.AllJazzEvents)
+            {
 
-                    @foreach (var jazz in Model.AllJazzEvents)
+                <div class="row jazzDiv">
+                    <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
+                    <div class="col-md-3">
+                        <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
+                    </div>
+                    <div class="col-md-6 col-12 text-center">
+                        <strong>Date:</strong> @jazzEvent.StartDate<br />
+                        <strong>Adress:</strong> @jazzEvent.Location.Address
+                    </div>
+                    <div class="col-md-3 col-12 text-center">
+                        @using (Html.BeginForm())
                 {
-                        @Html.ActionLink(jazz.StartDate.ToString(), "index", new { date = jazz.StartDate }, new { @class = "DinerNavigationButton" })
-                    }
+                            <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
+                        }
+                    </div>
                 </div>
-            </div>
-        </div>*@
+            }
 
-    <div class="container">
-        @foreach (var jazzEvent in Model.AllJazzEvents)
-        {
-
-            <div class="row restaurantdiv">
-                <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
-                <div class="col-md-3">
-                    <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
-                </div>
-                <div class="col-md-6 col-12 text-center">
-                    <strong>Date:</strong> @jazzEvent.StartDate<br />
-                    <strong>Adress:</strong> @jazzEvent.Location.Address
-                </div>
-                <div class="col-md-3 col-12 text-center">
-                    @using (Html.BeginForm())
-                {
-                        <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
-                    }
-                </div>
-            </div>
-        }
-
-    </div>
+        </div>
 </body>

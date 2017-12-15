@@ -236,12 +236,11 @@ text-decoration:underline;
 
 #Jazz {
     /*image: url('images/bg-jazz3.jpg');*/
-    background-size: cover;
+    /*background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed;*/
     background-color: #0D8C10;
-    width: 100%;
 }
 
 .jazzImage {
@@ -264,9 +263,19 @@ text-decoration:underline;
     border-color: white;
 }
 
+
+
+.Talkdiv {
+    background-color:#9C6910;
+    min-height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.95;
+}
+
 .interviewName 
 {
-    color: #9C6910;
+    color: white;
     border-bottom: 3px solid black;
     border-radius: 25px;
     border-bottom-color: white;
