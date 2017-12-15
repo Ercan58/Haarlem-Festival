@@ -37,20 +37,20 @@ footer{
     padding-bottom:10px;
 }
 
-.taste{
-    background-color: #910000;
+.taste {
+    background-color: #CC2828;
 }
 
-.hear{
-    background-color: #0D8C10;
+.hear {
+    background-color: #23B223;
 }
 
-.see{
-    background-color: #032A8C;
+.see {
+    background-color: #002699;
 }
 
 .talk {
-    background-color: #9C6910;
+    background-color: #B28523;
 }
 
 @media only screen and (max-width : 992px) {
@@ -80,19 +80,18 @@ footer{
     width:100%;
 }
 
-.mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv{
-    padding:5%;
+.mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv {
+    padding: 5%;
     border: 1px solid grey;
-    background:#0D8C10;
-    opacity:0.8;
+    background: #CC2828;
 }
 
 .mainpagetalkdiv{
     background:#9C6910;
 }
 
-.mainpagetastediv{
-    background:#910000;
+.mainpagetastediv {
+    background: #CC2828;
 }
 
 .mainpagehistoricediv{
@@ -100,7 +99,7 @@ footer{
 }
 
 .welcometext{
-    padding:0% 5%;
+    padding:0 5%;
 }
 
 .homepagefirstline{
@@ -127,7 +126,7 @@ footer{
 }
 
 .mainpageimage{
-    width:100%;
+   width:100%;
    background-image: url('./images/Haarlemcentrum.jpg');
    display:block;
    min-height:800px;
@@ -174,7 +173,7 @@ footer{
 }
 
 .navigationbar{
-    padding:0px;
+    padding:0;
 }
 
 .rightNavigationButton{
@@ -191,7 +190,7 @@ border: 1px solid grey;
 .restaurantnavigation{
     min-height:40px;
     margin-top:20px;
-    margin-bottom 10px;
+    margin-bottom: 10px;
 }
 
 .restaurantImage{
@@ -200,12 +199,11 @@ border: 1px solid grey;
 
 }
 
-.restaurantdiv{
-    background-color:#910000;
-    min-height:250px;
-    margin-top:10px;
-    margin-bottom:10px;
-    opacity:0.95;
+.restaurantdiv {
+    background-color: #CC2828;
+    min-height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .RestaurantName{

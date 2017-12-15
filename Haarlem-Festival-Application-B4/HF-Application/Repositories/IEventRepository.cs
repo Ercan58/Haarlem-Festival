@@ -4,13 +4,13 @@ namespace HF_Application.Models
 {
     public interface IEventRepository
     {
-        List<HearDateList> GetAllHearEvents();
+        List<DateList> GetAllHearEvents();
         Events.Jazz GetHearEvent(int id);
         void UpdateHearEvent(Events.Jazz festivalEvent);
-        List<TasteDateList> GetAllTasteEvents();
+        List<DateList> GetAllTasteEvents();
         Events.Diner GetTasteEvent(int id);
         void UpdateTasteEvent(Events.Diner festivalEvent);
 
-        List<Location> GetLocations();
+        List<Location> GetHearLocations();
     }
 }
