@@ -13,23 +13,23 @@ namespace HF_Application.Models
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        public List<HearDateList> GetAllHearEvents()
+        public List<DateList> GetAllHearEvents()
         {
-            List<HearDateList> events = new List<HearDateList>
+            List<DateList> events = new List<DateList>
             {
-                new HearDateList("26/07",
+                new DateList("26/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
                     .ToList()),
-                new HearDateList("27/07",
+                new DateList("27/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
                     .ToList()),
-                new HearDateList("28/07",
+                new DateList("28/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
                     .ToList()),
-                new HearDateList("29/07",
+                new DateList("29/07",
                     db.Jazzs.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
                     .ToList())
@@ -50,26 +50,26 @@ namespace HF_Application.Models
             db.SaveChanges();
         }
 
-        public List<TasteDateList> GetAllTasteEvents()
+        public List<DateList> GetAllTasteEvents()
         {
-            List<TasteDateList> events = new List<TasteDateList>
+            List<DateList> events = new List<DateList>
             {
-                new TasteDateList("26/07",
+                new DateList("26/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
-                new TasteDateList("27/07",
+                new DateList("27/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
-                new TasteDateList("28/07",
+                new DateList("28/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
-                new TasteDateList("29/07",
+                new DateList("29/07",
                     db.Diners.OrderBy(i => i.StartDate)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
                     .Include(x => x.Restaurant)
@@ -91,9 +91,13 @@ namespace HF_Application.Models
             db.SaveChanges();
         }
 
-        public List<Location> GetLocations()
+        public List<Location> GetHearLocations()
         {
-            List<Location> locations = db.Locations.ToList();
+            List<Location> locations = new List<Location>();
+            foreach (var item in db.Jazzs)
+            {
+                locations.Add(item.Location);
+            }
 
             return locations;
 

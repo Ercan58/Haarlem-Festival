@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HF_Application.Models.TasteDateList>
+﻿@model List<HF_Application.Models.DateList>
 
 @{
     ViewBag.Title = "Taste";
@@ -16,9 +16,9 @@
         <div class="col-sm-3"><span class="event-item item-dark event-list-header">@Convert.ToString(list.Date)</span></div>
     </div>
     <div class="event-list-body">
-        @if (list.EventList.Any())
+        @if (list.TasteList.Any())
         {
-            foreach (var item in list.EventList)
+            foreach (var item in list.TasteList)
             {
                 <div class="row">
                     <div class="col-sm-3"><span class="event-item item-dark">@Convert.ToString(item.StartDate.ToShortTimeString()) - @Convert.ToString(item.EndDate.ToShortTimeString())</span></div>
