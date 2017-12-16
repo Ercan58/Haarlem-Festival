@@ -15,8 +15,8 @@
         <div class="row restaurantnavigation">
             <div class="col-md-12 col-12 text-center">
                 @foreach (var jazz in Model.AllJazzEvents)
-            {
-                    @Html.ActionLink((jazz.eventDayID+25.ToString()+ - 7), "index", new { id = jazz.eventDayID }, new { @class = "DinerNavigationButton" })
+                {
+                    @Html.ActionLink(jazz.eventDayID.ToString(), "index", new { id = jazz.eventDayID }, new { @class = "DinerNavigationButton" })
                 }
             </div>
         </div>

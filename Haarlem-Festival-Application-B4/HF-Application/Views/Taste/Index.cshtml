@@ -15,7 +15,7 @@
             <div class="col-md-12 col-12 text-center">
 
                 @foreach (var foodtype in Model.ListOfSixFoodtypes)
-            {
+                {
                     @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
                 }
             </div>
@@ -31,32 +31,40 @@
         </div>
     </div>
 
-    <div class="container">
-        @foreach (var restaurant in Model.Restaurants)
-        {
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var restaurant in Model.Restaurants)
+            {
 
-            <div class="row restaurantdiv">
-                <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
-                <div class="col-md-3">
-                    <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="restaurantdiv">
+                        <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
+                        <div class="col-md-12">
+                            <img class="restaurantImage" src="@Url.Content("~/Content/images/"+restaurant.imagePath)" alt="IMAGES" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    @foreach (var foodtypes in restaurant.FoodTypes)
+                                    {
+                                        IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
+                                        @Html.Raw(tekst)
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                Adres: @restaurant.Location.Address
+                            </div>
+                            <div class="col-md-12 col-12 text-center">
+                                @using (Html.BeginForm())
+                                {
+                                    <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-12 text-center">
-                    @foreach (var foodtypes in restaurant.FoodTypes)
-                    {
-                        IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</text>");
-                        @Html.Raw(tekst)
-                    }
-                    <br />
-                    Adres: @restaurant.Location.Address
-                </div>
-                <div class="col-md-3 col-12 text-center">
-                    @using (Html.BeginForm())
-                {
-                        <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
-                    }
-                </div>
-            </div>
-        }
-
+            }
+        </div>
     </div>
 </body>
