@@ -28,7 +28,6 @@ namespace HF_Application.Controllers
         public ActionResult EditTaste(int id)
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
-            ViewBag.Locations = new SelectList(eventRepository.GetLocations(), "Id", "Address");
 
             return View(festivalEvent);
         }
@@ -54,6 +53,7 @@ namespace HF_Application.Controllers
         public ActionResult EditHear(int id)
         {
             var festivalEvent = eventRepository.GetHearEvent(id);
+            ViewBag.Locations = eventRepository.GetHearLocations();
 
             return View(festivalEvent);
         }
@@ -61,11 +61,16 @@ namespace HF_Application.Controllers
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditHear(Models.Events.Jazz festivalEvent)
+        public ActionResult EditHear()
         {
-            eventRepository.UpdateHearEvent(festivalEvent);
+            //if (ModelState.IsValid)
+            //{
+            //    Models.Events.Jazz festivalEvent = new Models.Events.Jazz(festivalEventModel);
+            //    eventRepository.UpdateHearEvent(festivalEvent);
+            //    return RedirectToAction("Index");
+            //}
 
-            return View(festivalEvent);
+            return View();
         }
 
         public ActionResult See()

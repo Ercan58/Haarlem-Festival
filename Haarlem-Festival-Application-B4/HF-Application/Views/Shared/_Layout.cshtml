@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><h1 style="color: red;" =>Hf</h1></a>
+            <a class="navbar-brand" href="#"><h1 style="color: red;">Hf</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,12 +29,9 @@
                     <li class="nav-item talk">
                         <a class="nav-link" href="@Url.Action("Index", "Talks")"><img src="/content/images/btn-talk.png" alt="Talk" /></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Index")">Admin</a>
-                    </li>
                 </ul>
                 <div class="navrightbar">
-                    <a class="profileicon" href="#"><img src="~/Content/images/profile.png" /></a>
+                    <a class="profileicon" href="@Url.Action("Index", "Admin")"><img src="~/Content/images/profile.png" /></a>
                     <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
                 </div>
             </div>
@@ -49,5 +46,6 @@
     @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>", "https://code.jquery.com/jquery-3.2.1.slim.min.js")
     @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh\" crossorigin=\"anonymous\"></script>", "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js")
     @Scripts.RenderFormat("<script type=\"text/javascript\" src=\"{0}\" integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\" crossorigin=\"anonymous\"></script>", "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
