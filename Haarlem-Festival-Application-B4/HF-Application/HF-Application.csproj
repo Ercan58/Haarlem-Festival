@@ -163,8 +163,11 @@
     <Compile Include="Migrations\201712141234407_aq.Designer.cs">
       <DependentUpon>201712141234407_aq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712161839253_ini11.cs" />
+    <Compile Include="Migrations\201712161839253_ini11.Designer.cs">
+      <DependentUpon>201712161839253_ini11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
     <Compile Include="Models\Restaurant.cs" />
@@ -333,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712141234407_aq.resx">
       <DependentUpon>201712141234407_aq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161839253_ini11.resx">
+      <DependentUpon>201712161839253_ini11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

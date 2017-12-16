@@ -46,7 +46,7 @@ namespace HF_Application.Controllers
         public ActionResult Index(DateTime? startDate)
         {
             JazzsModel jazzsModel = new JazzsModel();
-            if (id == null)
+            if (startDate == null)
             {
                 jazzsModel.AllJazzEvents = AllJazzEvents;
             }

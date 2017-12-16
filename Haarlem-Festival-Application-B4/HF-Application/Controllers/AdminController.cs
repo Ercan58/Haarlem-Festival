@@ -61,7 +61,7 @@ namespace HF_Application.Controllers
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditHear(Models.Events.JazzModel festivalEventModel)
+        public ActionResult EditHear()
         {
             //if (ModelState.IsValid)
             //{
@@ -70,7 +70,7 @@ namespace HF_Application.Controllers
             //    return RedirectToAction("Index");
             //}
 
-            return View(festivalEventModel);
+            return View();
         }
 
         public ActionResult See()
