@@ -296,3 +296,20 @@ text-decoration:underline;
    width:100%;
    height:100%;
 }
+
+
+.TalkButton {
+    bottom: 5%;
+    padding: 3%;
+    width: 70%;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    margin-top:2px;
+}
+
+.TalkButton:hover {
+        text-decoration: underline;
+    }
