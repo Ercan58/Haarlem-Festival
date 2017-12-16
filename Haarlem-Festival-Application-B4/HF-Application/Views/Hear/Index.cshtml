@@ -7,16 +7,13 @@
 <body id="Jazz">
     <div class="container">
         <div class="col-md-8 offset-md-2 col-12 welcomediv">
-            <h1 class="text-center">Taste Haarlem!</h1>
-            <p class="welcometext">
-                Reservation is mandatory.  A reservation fee of €10,- per person wil be charged when a reservation is made on the Haarlem Festival site. This fee will be deducted from the final check on visiting the restaurant.
-            </p>
+            <h1 class="text-center">Jazz at Patronaat!</h1>
         </div>
         <div class="row restaurantnavigation">
             <div class="col-md-12 col-12 text-center">
                 @foreach (var jazz in Model.AllJazzEvents)
-                {
-                    @Html.ActionLink(jazz.eventDayID.ToString(), "index", new { id = jazz.eventDayID }, new { @class = "DinerNavigationButton" })
+            {
+                    @Html.ActionLink(jazz.StartDate.ToShortDateString(), "index", new { startDate = jazz.StartDate.ToShortDateString() }, new { @class = "DinerNavigationButton" })
                 }
             </div>
         </div>

@@ -5,7 +5,7 @@
     color: #e0e0e0;
     /* gradient gaat over in transparant om een grafische bug te omzeilen*/
     background: linear-gradient(#3f3f3f 0%, transparent 15rem);
-    background-color: #5a5a5a;
+    background-color: #565656;
     background-repeat: no-repeat;
 }
 
@@ -59,12 +59,12 @@ h1, h2, h3, h4, h5 {
 
 .see, .see:hover {
     color: #e0e0e0;
-    background-color: #2851CC;
+    background-color: #002699;
 }
 
 .talk, .talk:hover {
     color: #e0e0e0;
-    background-color: #CC9828;
+    background-color: #B28523;
 }
 
 .admin-btn {
@@ -115,13 +115,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .item-light {
-    color: #5a5a5a;
+    color: #565656;
     background-color: #e0e0e0;
 }
 
 .item-none {
     text-align: center;
-    color: #5a5a5a;
+    color: #565656;
     background-color: #e0e0e0;
 }
 

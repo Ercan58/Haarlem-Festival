@@ -30,11 +30,11 @@ namespace HF_Application.Controllers
             return JazzEvents = db.Jazzs.Include(a=>a.Location).ToList();
         }
 
-        public List<Jazz> GetJazzEvents(int id)
+        public List<Jazz> GetJazzEvents(DateTime eventDate)
         {
             List<Jazz> jazzEvents = new List<Jazz>();
 
-            var selectionByStartDate = db.Jazzs.Where(d => d.eventDayID == id).Include(l=>l.Location);
+            var selectionByStartDate = db.Jazzs.Where(d => DbFunctions.TruncateTime(d.StartDate) == eventDate).Include(l=>l.Location).ToList();
             foreach (Jazz jazzEvent in selectionByStartDate)
             {
                 jazzEvents.Add(jazzEvent);
@@ -43,7 +43,7 @@ namespace HF_Application.Controllers
 
         }
         // GET: Jazzs
-        public ActionResult Index(int? id)
+        public ActionResult Index(DateTime? startDate)
         {
             JazzsModel jazzsModel = new JazzsModel();
             if (id == null)
@@ -52,8 +52,8 @@ namespace HF_Application.Controllers
             }
             else
             {
-                int Id = id.GetValueOrDefault();
-                jazzsModel.AllJazzEvents = GetJazzEvents(Id);
+                DateTime selectieStartDate = startDate.GetValueOrDefault();
+                jazzsModel.AllJazzEvents = GetJazzEvents(selectieStartDate);
 
             }
             return View(jazzsModel);
