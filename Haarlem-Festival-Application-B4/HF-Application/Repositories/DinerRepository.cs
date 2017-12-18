@@ -30,7 +30,7 @@ namespace HF_Application.Repositories
         {
             List<Restaurant> restaurants = new List<Restaurant>();
 
-            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r => r.Restaurant).Include(f => f.Foodtype).ToList();
+            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r => r.Restaurant).Include(f => f.Foodtype).Include(b=>b.Restaurant.Location).ToList();
 
             foreach (RestaurantFoodtype restaurantfoodtype in foodtypes)
             {

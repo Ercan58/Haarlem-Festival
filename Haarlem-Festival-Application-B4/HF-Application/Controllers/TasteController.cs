@@ -18,17 +18,14 @@ namespace HF_Application.Controllers
     {
         IDinerRepository dinerrp = new DinerRepository();
         private List<FoodType> AllFoodTypes;
-        private List<FoodType> FirstTillSixFoodtypes;
-        private List<FoodType> sevenTillEndFoodtypes;
+
 
         public TasteController()
         {
-            FirstTillSixFoodtypes = new List<FoodType>();
-            sevenTillEndFoodtypes = new List<FoodType>();
+            AllFoodTypes = new List<FoodType>();
 
             this.AllFoodTypes = dinerrp.GetAllFoodtypes();
-            this.FirstTillSixFoodtypes = selectFoodTypes(0, 5);
-            this.sevenTillEndFoodtypes = selectFoodTypes(6, AllFoodTypes.Count-1);
+            this.AllFoodTypes = selectFoodTypes(0, AllFoodTypes.Count-1);
         }
 
         public List<FoodType> selectFoodTypes(int start, int end)
@@ -47,8 +44,7 @@ namespace HF_Application.Controllers
         public ActionResult Index(int? id)
         {
             RestaurantModel restaurantmodel = new RestaurantModel();
-            restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
-            restaurantmodel.ListOfThreeFoodtypes = sevenTillEndFoodtypes;
+            restaurantmodel.ListOfFoodtypes = AllFoodTypes;
 
 
             if (id== null)
