@@ -155,6 +155,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\IDinerRepository.cs" />
     <Compile Include="Migrations\201712121718479_ini1.cs" />
     <Compile Include="Migrations\201712121718479_ini1.Designer.cs">
       <DependentUpon>201712121718479_ini1.cs</DependentUpon>
@@ -189,6 +190,7 @@
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
+    <Compile Include="Repositories\DinerRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Repositories\IEventRepository.cs" />
     <Compile Include="Models\User.cs" />
@@ -297,10 +299,6 @@
     <Content Include="Views\Hear\Details.cshtml" />
     <Content Include="Views\Hear\Edit.cshtml" />
     <Content Include="Views\Hear\Index.cshtml" />
-    <Content Include="Views\Taste\Create.cshtml" />
-    <Content Include="Views\Taste\Delete.cshtml" />
-    <Content Include="Views\Taste\Details.cshtml" />
-    <Content Include="Views\Taste\Edit.cshtml" />
     <Content Include="Views\Taste\Index.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Order\Delete.cshtml" />

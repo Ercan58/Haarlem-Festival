@@ -31,7 +31,7 @@ namespace HF_Application.Controllers
             this.AllRestaurants = GetAllRestaurants();
             this.AllFoodTypes = GetAllFoodtypes();
             this.FirstTillSixFoodtypes = selectFoodTypes(0, 5);
-            this.sevenTillNineFoodtypes = selectFoodTypes(6, 8);
+            this.sevenTillNineFoodtypes = selectFoodTypes(6, AllFoodTypes.Count-1);
         }
 
         public List<Restaurant> GetAllRestaurants()
