@@ -10,7 +10,6 @@ namespace HF_Application.Models.ViewModel
     public class JazzsModel
     {
             public List<Jazz> AllJazzEvents { get; set; }
-            public List<Jazz> DaySelectFilter { get; set; }
 
     }
 }

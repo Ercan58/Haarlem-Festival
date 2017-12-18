@@ -9,56 +9,36 @@ using System.Web.Mvc;
 using HF_Application.Models;
 using HF_Application.Models.Events;
 using HF_Application.Models.ViewModel;
+using HF_Application.Repositories;
+
+
 
 namespace HF_Application.Controllers
 {
     public class HearController : Controller
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
+        private IJazzRepository IJazzRepository = new JazzRepository();
         private List<Jazz> AllJazzEvents;
-        private List<Jazz> selectDayFilter;
-
         public HearController()
         {
             AllJazzEvents = new List<Jazz>();
-            selectDayFilter = new List<Jazz>();
 
-            this.AllJazzEvents = GetAllJazzEvents();
-            this.selectDayFilter = GetAllJazzEvents();
+            this.AllJazzEvents = IJazzRepository.GetAllJazzEvents();
         }
 
-        public List<Jazz> GetAllJazzEvents()
-        {
-            List<Jazz> JazzEvents = new List<Jazz>();
-            return JazzEvents = db.Jazzs.Include(a=>a.Location).ToList();
-        }
-
-        public List<Jazz> GetJazzEvents(DateTime eventStartDate)
-        {
-            List<Jazz> jazzEventsSelection = new List<Jazz>();
-
-            var selectionByStartDate = db.Jazzs.Where(d => DbFunctions.TruncateTime(d.StartDate) == eventStartDate).Include(l=>l.Location).ToList();
-            foreach (Jazz jazzEvent in selectionByStartDate)
-            {
-                jazzEventsSelection.Add(jazzEvent);
-            }
-            return jazzEventsSelection;
-
-        }
         // GET: Jazzs
-        public ActionResult Index(DateTime? startDate)
+        public ActionResult Index(int? startDate)
         {
             JazzsModel jazzsModel = new JazzsModel();
-            jazzsModel.DaySelectFilter = selectDayFilter;
 
             if (startDate == null)
             {
-                jazzsModel.AllJazzEvents = AllJazzEvents;
+                jazzsModel.AllJazzEvents = IJazzRepository.GetAllJazzEvents();
                 
             }
             else
             {
-                DateTime selectStartDate = startDate.GetValueOrDefault();
+                int selectStartDate = startDate.GetValueOrDefault();
                 jazzsModel.AllJazzEvents = GetJazzEvents(selectStartDate);
 
             }
