@@ -8,8 +8,7 @@ namespace HF_Application.Models.ViewModel
 {
     public class RestaurantModel
     {
-        public IEnumerable<FoodType> ListOfSixFoodtypes { get; set; }
-        public IEnumerable<FoodType> ListOfThreeFoodtypes { get; set; }
+        public IEnumerable<FoodType> ListOfFoodtypes { get; set; }
         public List<Restaurant> Restaurants { get; set; }
     }
 }

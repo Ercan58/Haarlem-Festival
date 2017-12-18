@@ -11,7 +11,7 @@ namespace HF_Application.Models
 {
     public class EventRepository : IEventRepository
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
+        private HaarlemFestivalContext db = new HaarlemFestivalContext(); 
 
         public List<DateList> GetAllHearEvents()
         {

@@ -195,13 +195,14 @@ border: 1px solid grey;
 
 .restaurantImage{
     width:100%;
+    padding-top:4%;
     border-left: 5px solid #910000;
 
 }
 
 .restaurantdiv{
     background-color:#910000;
-    min-height:300px;
+    min-height:500px;
     margin-top:10px;
     margin-bottom:10px;
     opacity:0.95;
@@ -212,6 +213,7 @@ border: 1px solid grey;
     border-bottom:1px solid black;
     border-radius:25px;
     border-color:white;
+    font-size:25px;
 }
 
 .foodtypesretaurant{
@@ -220,8 +222,8 @@ border: 1px solid grey;
 
 .MoreInformationButton{
   bottom: 5%;
-  padding:3%;
-  width: 70%;
+  padding:2%;
+  width: 50%;
   font-size:18px;
   font-weight:bold;
   border:1px solid black;
@@ -295,6 +297,10 @@ text-decoration:underline;
 }
 
 
+.tastebuttoncol{
+    padding:5%;
+}
+
 .TalkButton {
     bottom: 5%;
     padding: 3%;
@@ -310,3 +316,4 @@ text-decoration:underline;
 .TalkButton:hover {
         text-decoration: underline;
     }
+

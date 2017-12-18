@@ -13,26 +13,26 @@
             </p>*@
         </div>
         <div class="row restaurantnavigation">
-            <div class="col-md-12 col-12 text-center">
-                @foreach (var jazz in Model.DaySelectFilter)
+            @*<div class="col-md-12 col-12 text-center">
+                @foreach (var jazz in Model.DayFilterJazzEvents)
                 {
-                    @Html.ActionLink(jazz.StartDate.ToShortDateString(), "index", new { id = jazz.StartDate.ToShortDateString() }, new { @class = "DinerNavigationButton" })
+                    @Html.ActionLink(jazz.Insert, "index", new { id = jazz.IsDateTime().ToString() }, new { @class = "DinerNavigationButton" })
                 }
-            </div>
+            </div>*@
         </div>
     </div>
 
         <div class="container">
             @foreach (var jazzEvent in Model.AllJazzEvents)
             {
-
                 <div class="row jazzDiv">
                     <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
                     <div class="col-md-3">
                         <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
                     </div>
                     <div class="col-md-6 col-12 text-center">
-                        <strong>Date:</strong> @jazzEvent.StartDate<br />
+                        <strong>Date:</strong> @jazzEvent.StartDate.ToShortDateString()<br />
+                        <strong>Time:</strong> @jazzEvent.StartDate.ToShortTimeString() - @jazzEvent.EndDate.ToShortTimeString()<br />
                         <strong>Adress:</strong> @jazzEvent.Location.Address
                     </div>
                     <div class="col-md-3 col-12 text-center">
