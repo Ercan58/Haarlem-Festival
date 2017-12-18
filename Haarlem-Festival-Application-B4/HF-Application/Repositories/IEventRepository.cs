@@ -12,5 +12,6 @@ namespace HF_Application.Models
         void UpdateTasteEvent(Events.Diner festivalEvent);
 
         List<Location> GetHearLocations();
+        List<Location> GetTasteLocations();
     }
 }
