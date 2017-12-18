@@ -10,6 +10,7 @@ namespace HF_Application.Models.ViewModel
     public class JazzsModel
     {
             public List<Jazz> AllJazzEvents { get; set; }
+            // public IEnumerable<string> DayFilterJazzEvents { get; set; }
 
     }
 }

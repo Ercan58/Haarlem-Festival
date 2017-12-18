@@ -25,16 +25,7 @@ namespace HF_Application.Repositories
         //public List<Jazz> GetSelectionFilter()
         //{
         //    List<Jazz> JazzEventsDate = new List<Jazz>();
-        //    //List<DateTime> JazzEventsStartDate = new List<DateTime>();
-        //    foreach (Jazz j in db.Jazzs)
-        //        if (JazzEventsStartDate.Contains(j.StartDate))
-        //        { }
-        //        else
-        //        {
-        //            JazzEventsStartDate.Add(j.StartDate);
-        //        }
-
-        //    return JazzEventsDate;
+        //    return JazzEventsDate = db.Jazzs.Select(a => a.StartDate).Distinct();
         //}
     }
 }

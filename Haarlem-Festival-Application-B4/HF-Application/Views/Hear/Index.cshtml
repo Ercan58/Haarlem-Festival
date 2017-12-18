@@ -12,14 +12,14 @@
                 Reservation is mandatory.  A reservation fee of €10,- per person wil be charged when a reservation is made on the Haarlem Festival site. This fee will be deducted from the final check on visiting the restaurant.
             </p>*@
         </div>
-        @*<div class="row restaurantnavigation">
-            <div class="col-md-12 col-12 text-center">
-                @foreach (var jazz in Model.DaySelectFilter)
+        <div class="row restaurantnavigation">
+            @*<div class="col-md-12 col-12 text-center">
+                @foreach (var jazz in Model.DayFilterJazzEvents)
                 {
-                    @Html.ActionLink(jazz.StartDate.ToShortDateString(), "index", new { id = jazz.StartDate.ToShortDateString() }, new { @class = "DinerNavigationButton" })
+                    @Html.ActionLink(jazz.Insert, "index", new { id = jazz.IsDateTime().ToString() }, new { @class = "DinerNavigationButton" })
                 }
-            </div>
-        </div>*@
+            </div>*@
+        </div>
     </div>
 
         <div class="container">
