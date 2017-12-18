@@ -11,8 +11,11 @@
 </head>
 <body>
     <div class="container">
-        @Html.ActionLink("Haarlem Festival", "Index", "Admin", new { area = "" }, new { @class = "brand" })
-        <span class="float-right">Logged in as Daniël<br /><a href="#">Log out</a></span>
+        <div class="float-right">Logged in as Daniël<br /><a href="#">Log out</a></div>
+        <div class="w-100 d-lg-block d-xl-none"></div>
+        <div class="header">
+            @Html.ActionLink("Haarlem Festival", "Index", "Admin", new { area = "" }, new { @class = "brand" })
+        </div>
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
                 @Html.MvcSiteMap().SiteMapPath()

@@ -131,7 +131,12 @@ label {
     padding: .375rem .75rem;
     border-radius: .25rem;
     font-size: larger;
-    text-align: right;
+}
+
+@media (min-width: 1200px) {
+    label{
+        text-align: right;
+    }
 }
 
 select {
