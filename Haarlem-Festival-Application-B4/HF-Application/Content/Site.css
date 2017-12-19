@@ -267,7 +267,6 @@ text-decoration:underline;
 
 .Talkdiv {
     background-color:#9C6910;
-    min-height: 250px;
     margin-top: 10px;
     margin-bottom: 10px;
     opacity: 0.95;
@@ -279,12 +278,15 @@ text-decoration:underline;
     border-bottom: 3px solid black;
     border-radius: 25px;
     border-bottom-color: white;
+   
 }
 
 .talkImage 
 {
-    width: 100%;
+    width: 75%;
     border-left: 5px solid #9C6910;
+    height: 10%;
+  
 }
 
 #Talk 
@@ -304,7 +306,6 @@ text-decoration:underline;
     border: 1px solid black;
     color: black;
     background-color: white;
-    margin-top:2px;
 }
 
 .TalkButton:hover {

@@ -9,38 +9,37 @@
 
 
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
-        <h1 class="text-center">Talk Haarlem!</h1>
-        <p class="welcometext">
-            Haarlem, of course, has and had some famous citizens. In a three night special the Toneelschuur will bring several of them together to talk about their relation with Haarlem and the impact it had/has on their careers. Admittance is free but reservation is mandatory.
-        </p>
+        <h1 class="text-center">Talking Haarlem!</h1>
     </div>
 
-    <div class="container">
-        @foreach (var talkEvent in Model.AllTalkEvents)
-        {
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var talkEvent in Model.AllTalkEvents)
+            {
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xl-4" >
+                    <div class="Talkdiv">
+                        <div class="text-center"><h5 class="interviewName">@talkEvent.Interview</h5></div>
+                        <div class="col-md-12">
+                            <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                        </div>
+                        <div class="text-center">
+                            <strong> @talkEvent.StartDate</strong><br />
+                            <p class="text-center"> <Strong> Adres: </Strong> @talkEvent.Location.Address </p>
 
-            <div class="row Talkdiv">
-                <div class="col-md-12 text-center"><h1 class="interviewName">@talkEvent.Interview</h1></div>
-                <div class="col-md-3">
-                    <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-                </div>
-                <div class="col-md-6 col-12 text-center">
-                    <strong> @talkEvent.StartDate</strong><br />
-                    <p> <Strong> Adres: </Strong> @talkEvent.Location.Address </p>
-
-                    <p> @talkEvent.ReservationInfo </p>
-                </div>
-                <div class="col-md-3 col-12 text-center">
-                    @using (Html.BeginForm())
+                            <p class="text-center" > @talkEvent.ReservationInfo </p>
+                        </div>
+                        <div class="col-md-12 col-12 text-center">
+                            @using (Html.BeginForm())
                 {
-                        <input type="button" name="button" class="TalkButton" value="Make Reservation" />
-                        <input type="button" name="button" class="TalkButton" value="Add To WishList" />
-                        <input type="button" name="button" class="TalkButton" value="Ask Question" />
-                    }
+                                <input type="button" name="button" class="TalkButton" value="Make Reservation" />
+                                <input type="button" name="button" class="TalkButton" value="Add To WishList" />
+                                <input type="button" name="button" class="TalkButton" value="Ask Question" />
+                            }
+                        </div>
+                    </div>
                 </div>
-            </div>
-        }
-
+            }
+        </div>
     </div>
 
 </body>
