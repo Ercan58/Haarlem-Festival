@@ -9,41 +9,23 @@ using System.Web.Mvc;
 using HF_Application.Models;
 using HF_Application.Models.Events;
 using HF_Application.Models.ViewModel;
+using HF_Application.Interface;
+using HF_Application.Repositories;
 
 namespace HF_Application.Controllers
 {
     public class TasteController : Controller
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
-
+        IDinerRepository dinerrp = new DinerRepository();
         private List<FoodType> AllFoodTypes;
-        private List<Restaurant> AllRestaurants;
-        private List<FoodType> FirstTillSixFoodtypes;
-        private List<FoodType> sevenTillNineFoodtypes;
+
 
         public TasteController()
         {
-            AllRestaurants = new List<Restaurant>();
-            FirstTillSixFoodtypes = new List<FoodType>();
-            sevenTillNineFoodtypes = new List<FoodType>();
+            AllFoodTypes = new List<FoodType>();
 
-
-            this.AllRestaurants = GetAllRestaurants();
-            this.AllFoodTypes = GetAllFoodtypes();
-            this.FirstTillSixFoodtypes = selectFoodTypes(0, 5);
-            this.sevenTillNineFoodtypes = selectFoodTypes(6, 8);
-        }
-
-        public List<Restaurant> GetAllRestaurants()
-        {
-            List<Restaurant> Restaurants = new List<Restaurant>();
-            return Restaurants = db.Restaurants.Include(a=>a.FoodTypes).Include(b=>b.Location).ToList();
-        }
-
-        public List<FoodType> GetAllFoodtypes()
-        {
-            List<FoodType> FoodTypes = db.Foodtypes.ToList();
-            return FoodTypes;
+            this.AllFoodTypes = dinerrp.GetAllFoodtypes();
+            this.AllFoodTypes = selectFoodTypes(0, AllFoodTypes.Count-1);
         }
 
         public List<FoodType> selectFoodTypes(int start, int end)
@@ -57,38 +39,24 @@ namespace HF_Application.Controllers
             return foodtypes;
         }
 
-        public List<Restaurant> GetRestaurants(int id)
-        {
-            List<Restaurant> restaurants = new List<Restaurant>();
-
-            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r=>r.Restaurant).Include(f=>f.Foodtype).ToList();
-
-            foreach(RestaurantFoodtype restaurantfoodtype in foodtypes)
-            {
-                restaurants.Add(restaurantfoodtype.Restaurant);
-            }
-
-            return restaurants;
-        }
 
         // GET: Diners
         public ActionResult Index(int? id)
         {
             RestaurantModel restaurantmodel = new RestaurantModel();
-            restaurantmodel.ListOfSixFoodtypes = FirstTillSixFoodtypes;
-            restaurantmodel.ListOfThreeFoodtypes = sevenTillNineFoodtypes;
+            restaurantmodel.ListOfFoodtypes = AllFoodTypes;
 
 
             if (id== null)
             {
                 //Pakket samenvoegen zodat dit gebruiksklaar is...
-                restaurantmodel.Restaurants = AllRestaurants;
+                restaurantmodel.Restaurants = dinerrp.GetAllRestaurants();
             }
             else
             {
                 int categorieId = id.GetValueOrDefault();   
-                restaurantmodel.Restaurants = GetRestaurants(categorieId);
-                
+                restaurantmodel.Restaurants = dinerrp.GetRestaurants(categorieId);
+
             }
             return View(restaurantmodel);   
         }

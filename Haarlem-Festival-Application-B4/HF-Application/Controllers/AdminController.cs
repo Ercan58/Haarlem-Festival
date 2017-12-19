@@ -28,6 +28,7 @@ namespace HF_Application.Controllers
         public ActionResult EditTaste(int id)
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
+            ViewBag.Locations = eventRepository.GetTasteLocations();
 
             return View(festivalEvent);
         }

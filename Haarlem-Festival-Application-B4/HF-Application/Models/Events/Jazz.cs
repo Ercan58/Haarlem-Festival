@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,12 +10,14 @@ namespace HF_Application.Models.Events
 {
     [Table("Jazz")]
     public class Jazz : FestivalEvent
-	{
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+    {
+        [DisplayName("Band Name")]
         public string Band { get; set; }
+        [DisplayName("Event Image")]
         public string imagePath { get; set; }
         public int eventDayID { get; set; }
 
+        [DisplayName("Event Location")]
         public Location Location { get; set; }
 
     }
