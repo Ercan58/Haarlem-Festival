@@ -43,7 +43,7 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.DropDownListFor(model => model.Location
+            @Html.DropDownListFor(model => model.Location.Id
                 , new SelectList(ViewBag.Locations, "Id", "Address")
                 , new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
@@ -55,7 +55,10 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", @id = "datetimepicker1", @Value = Model.StartDate } })
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new
+                { @class = "form-control"
+                , @id = "datetimepicker1"
+                , @Value = Model.StartDate } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -65,7 +68,10 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control", @id = "datetimepicker2", @Value = Model.EndDate} })
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new
+                { @class = "form-control"
+                , @id = "datetimepicker2"
+                , @Value = Model.EndDate} })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -100,8 +106,6 @@
     </div>
 }
 @section Scripts {
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/datetimepicker")
     @Scripts.Render("~/bundles/datetimepicker")
 
     <script type="text/javascript">

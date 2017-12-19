@@ -28,6 +28,10 @@ namespace HF_Application.Controllers
         public ActionResult EditTaste(int id)
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
+            if (festivalEvent == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.Locations = eventRepository.GetTasteLocations();
 
             return View(festivalEvent);
@@ -38,7 +42,13 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditTaste(Models.Events.Diner festivalEvent)
         {
-            eventRepository.UpdateTasteEvent(festivalEvent);
+            ViewBag.Locations = eventRepository.GetTasteLocations();
+
+            if (ModelState.IsValid)
+            {
+                eventRepository.UpdateTasteEvent(festivalEvent);
+                return RedirectToAction("Index");
+            }
 
             return View(festivalEvent);
         }
@@ -54,6 +64,10 @@ namespace HF_Application.Controllers
         public ActionResult EditHear(int id)
         {
             var festivalEvent = eventRepository.GetHearEvent(id);
+            if (festivalEvent == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.Locations = eventRepository.GetHearLocations();
 
             return View(festivalEvent);
@@ -62,16 +76,17 @@ namespace HF_Application.Controllers
         // Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditHear()
+        public ActionResult EditHear(Models.Events.Jazz festivalEvent)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    Models.Events.Jazz festivalEvent = new Models.Events.Jazz(festivalEventModel);
-            //    eventRepository.UpdateHearEvent(festivalEvent);
-            //    return RedirectToAction("Index");
-            //}
+            ViewBag.Locations = eventRepository.GetHearLocations();
 
-            return View();
+            if (ModelState.IsValid)
+            {
+                eventRepository.UpdateHearEvent(festivalEvent);
+                return RedirectToAction("Index");
+            }
+
+            return View(festivalEvent);
         }
 
         public ActionResult See()

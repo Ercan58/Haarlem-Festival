@@ -168,6 +168,7 @@
       <DependentUpon>201712161839253_ini11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
     <Compile Include="Models\Restaurant.cs" />
