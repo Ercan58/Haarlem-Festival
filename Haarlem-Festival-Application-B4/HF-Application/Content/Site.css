@@ -195,13 +195,14 @@ border: 1px solid grey;
 
 .restaurantImage{
     width:100%;
+    padding-top:4%;
     border-left: 5px solid #910000;
 
 }
 
 .restaurantdiv{
     background-color:#910000;
-    min-height:300px;
+    min-height:500px;
     margin-top:10px;
     margin-bottom:10px;
     opacity:0.95;
@@ -212,6 +213,7 @@ border: 1px solid grey;
     border-bottom:1px solid black;
     border-radius:25px;
     border-color:white;
+    font-size:25px;
 }
 
 .foodtypesretaurant{
@@ -220,8 +222,8 @@ border: 1px solid grey;
 
 .MoreInformationButton{
   bottom: 5%;
-  padding:3%;
-  width: 70%;
+  padding:2%;
+  width: 50%;
   font-size:18px;
   font-weight:bold;
   border:1px solid black;
@@ -267,7 +269,6 @@ text-decoration:underline;
 
 .Talkdiv {
     background-color:#9C6910;
-    min-height: 250px;
     margin-top: 10px;
     margin-bottom: 10px;
     opacity: 0.95;
@@ -279,12 +280,15 @@ text-decoration:underline;
     border-bottom: 3px solid black;
     border-radius: 25px;
     border-bottom-color: white;
+   
 }
 
 .talkImage 
 {
-    width: 100%;
+    width: 75%;
     border-left: 5px solid #9C6910;
+    height: 10%;
+  
 }
 
 #Talk 
@@ -295,6 +299,10 @@ text-decoration:underline;
 }
 
 
+.tastebuttoncol{
+    padding:5%;
+}
+
 .TalkButton {
     bottom: 5%;
     padding: 3%;
@@ -304,9 +312,9 @@ text-decoration:underline;
     border: 1px solid black;
     color: black;
     background-color: white;
-    margin-top:2px;
 }
 
 .TalkButton:hover {
         text-decoration: underline;
     }
+

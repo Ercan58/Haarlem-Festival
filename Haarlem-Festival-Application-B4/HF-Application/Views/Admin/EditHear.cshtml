@@ -4,6 +4,8 @@
     ViewBag.Title = "EditHear";
 }
 
+@Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async>", "~/Content/bootstrap-datetimepicker-build.min.css")
+
 <h2>Edit event "@Html.DisplayFor(model => model.CartTitle)"</h2>
 <br />
 
@@ -41,7 +43,9 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.DropDownListFor(model => model.Location, new SelectList(ViewBag.Locations, "Id", "Address"), new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.Location.Id
+                , new SelectList(ViewBag.Locations, "Id", "Address")
+                , new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -51,7 +55,10 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control", type = "datetime-local" } })
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new
+                { @class = "form-control"
+                , @id = "datetimepicker1"
+                , @Value = Model.StartDate } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -61,7 +68,10 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new
+                { @class = "form-control"
+                , @id = "datetimepicker2"
+                , @Value = Model.EndDate} })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -79,9 +89,9 @@
         <div class="col-xl-3">
             @Html.LabelFor(model => model.CartDescription)
         </div>
-        <div class="w-100 d-lg-block d-xl-none"></div>
-        <div class="col-xl-9">
-            @Html.EditorFor(model => model.CartDescription, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="w-100 d-lg-block"></div>
+        <div class="col-xl-12">
+            @Html.TextAreaFor(model => model.CartDescription, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.CartDescription, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -96,5 +106,16 @@
     </div>
 }
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datetimepicker")
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                sideBySide: true
+            });
+            $('#datetimepicker2').datetimepicker({
+                sideBySide: true
+            });
+        });
+</script>
 }
