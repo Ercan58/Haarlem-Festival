@@ -22,10 +22,24 @@ namespace HF_Application.Repositories
             return JazzEvents = db.Jazzs.Include(a => a.Location).ToList();
         }
 
-        //public List<Jazz> GetSelectionFilter()
+        //public List<string> DaySelectionFilter()
         //{
-        //    List<Jazz> JazzEventsDate = new List<Jazz>();
-        //    return JazzEventsDate = db.Jazzs.Select(a => a.StartDate).Distinct();
+        //    List<string> DaySelectionFilter = new List<string>();
+        //    //return DaySelectionFilter = db.Jazzs.Select(s => s.StartDate.ToShortDateString().ToString()).Distinct().ToList();
+        //    return DaySelectionFilter = db.Jazzs.Select(s => DbFunctions.TruncateTime(s.StartDate).ToString()).Distinct().ToList();
         //}
+
+        public List<Jazz> GetJazzEvents(string DayFilter)
+        {
+            List<Jazz> JazzEventByDate = new List<Jazz>();
+
+                return JazzEventByDate = (db.Jazzs
+                .Where(s=>DbFunctions.TruncateTime(s.StartDate).ToString() == DayFilter)
+                .Include(a=>a.Location)
+                .ToList());
+            
+            //return JazzEventByDate = db.Jazzs.Where(a => a.StartDate.ToShortDateString() == DayFilter).Include(l => l.Location).ToList();
+            
+        }
     }
 }
