@@ -19,13 +19,13 @@ namespace HF_Application.Controllers
     {
         private IJazzRepository IJazzRepository = new JazzRepository();
         private List<Jazz> AllJazzEvents;
-        private List<string> DaySelectionFilter;
+        //private List<string> DaySelectionFilter;
 
         public HearController()
         {
 
             this.AllJazzEvents = IJazzRepository.GetAllJazzEvents();
-            this.DaySelectionFilter = IJazzRepository.DaySelectionFilter();
+            //this.DaySelectionFilter = IJazzRepository.DaySelectionFilter();
         }
 
 
