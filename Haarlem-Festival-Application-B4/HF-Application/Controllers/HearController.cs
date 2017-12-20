@@ -30,19 +30,20 @@ namespace HF_Application.Controllers
 
 
         // GET: Jazzs
-        public ActionResult Index(int? startDate)
+        public ActionResult Index(string date)
         {
+      
             JazzsModel jazzsModel = new JazzsModel();
 
-            if (startDate.Equals(null))
+            if (date == null)
             {
                 jazzsModel.AllJazzEvents = IJazzRepository.GetAllJazzEvents();
                 
             }
             else
             {
-                string selectStartDate = startDate.GetValueOrDefault().ToString();
-                jazzsModel.AllJazzEvents = IJazzRepository.GetJazzEvents(selectStartDate);
+                DateTime datetime = Convert.ToDateTime(date);
+                jazzsModel.AllJazzEvents = IJazzRepository.GetJazzEvents(datetime);     
 
             }
             return View(jazzsModel);

@@ -22,24 +22,22 @@ namespace HF_Application.Repositories
             return JazzEvents = db.Jazzs.Include(a => a.Location).ToList();
         }
 
-        //public List<string> DaySelectionFilter()
-        //{
-        //    List<string> DaySelectionFilter = new List<string>();
-        //    //return DaySelectionFilter = db.Jazzs.Select(s => s.StartDate.ToShortDateString().ToString()).Distinct().ToList();
-        //    return DaySelectionFilter = db.Jazzs.Select(s => DbFunctions.TruncateTime(s.StartDate).ToString()).Distinct().ToList();
-        //}
+        public List<string> DaySelectionFilter()
+        {
+            List<string> DaySelectionFilter = new List<string>();
+            //return DaySelectionFilter = db.Jazzs.Select(s => s.StartDate.ToShortDateString().ToString()).Distinct().ToList();
+            return DaySelectionFilter = db.Jazzs.Select(s => DbFunctions.TruncateTime(s.StartDate).ToString()).Distinct().ToList();
+        }
 
-        public List<Jazz> GetJazzEvents(string DayFilter)
+        public List<Jazz> GetJazzEvents(DateTime datetime)
         {
             List<Jazz> JazzEventByDate = new List<Jazz>();
 
                 return JazzEventByDate = (db.Jazzs
-                .Where(s=>DbFunctions.TruncateTime(s.StartDate).ToString() == DayFilter)
+                .Where(s=> s.StartDate.Year == datetime.Year && s.StartDate.Day==datetime.Day && s.StartDate.Month == datetime.Month)
                 .Include(a=>a.Location)
                 .ToList());
-            
-            //return JazzEventByDate = db.Jazzs.Where(a => a.StartDate.ToShortDateString() == DayFilter).Include(l => l.Location).ToList();
-            
+
         }
     }
 }

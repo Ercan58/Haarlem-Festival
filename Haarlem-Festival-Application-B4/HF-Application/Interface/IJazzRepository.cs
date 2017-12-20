@@ -9,7 +9,7 @@ namespace HF_Application.Repositories
     public interface IJazzRepository
     {
         List<Jazz> GetAllJazzEvents();
-        List<Jazz> GetJazzEvents(string date);
-        // List<string> DaySelectionFilter();
+        List<Jazz> GetJazzEvents(DateTime date);
+        List<string> DaySelectionFilter();
     }
 }
