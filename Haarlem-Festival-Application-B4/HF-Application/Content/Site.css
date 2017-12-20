@@ -76,10 +76,6 @@ footer{
     width: 100%;
 } 
 
-.jazzimage{
-    width:100%;
-}
-
 .mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv {
     padding: 5%;
     border: 1px solid grey;
@@ -193,6 +189,10 @@ border: 1px solid grey;
     margin-bottom: 10px;
 }
 
+a:hover{
+    background-color: grey;
+    color: antiquewhite;
+}
 .restaurantImage{
     width:100%;
     padding-top:4%;
@@ -201,7 +201,7 @@ border: 1px solid grey;
 }
 
 .restaurantdiv{
-    background-color:#910000;
+    background-color:rgba(145,0,0,0.85);
     min-height:500px;
     margin-top:10px;
     margin-bottom:10px;
@@ -237,32 +237,31 @@ text-decoration:underline;
 /*Jazz CSS*/
 
 #Jazz {
-    /*image: url('images/bg-jazz3.jpg');*/
-    /*background-size: cover;
+    background-image: url(images/bg-music.png);
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;*/
-    background-color: #0D8C10;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .jazzImage {
     width: 100%;
-    border-left: 5px solid #5dd55d;
+    /*border-left: 5px solid #5dd55d;*/
 }
 
 .jazzDiv {
-    background-color: black;
-    min-height: 250px;
+    background-color: rgba(13, 140, 16, 0.85);
+    min-height: 350px;
     margin-top: 10px;
     margin-bottom: 10px;
-    opacity: 0.9;
+    margin-right: 2px;
 }
 
-.jazzName
-{
-    border-bottom: 3px solid black;
+.jazzName {
+    border-bottom: 1px solid black;
     border-radius: 25px;
     border-color: white;
+    font-size: 25px;
 }
 
 
