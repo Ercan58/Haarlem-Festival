@@ -25,7 +25,7 @@ namespace HF_Application.Controllers
         }
 
         // Get
-        public ActionResult EditTaste(int id)
+        public ActionResult EditTaste(int? id)
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
             if (festivalEvent == null)
@@ -61,7 +61,7 @@ namespace HF_Application.Controllers
 	    }
 
         // Get
-        public ActionResult EditHear(int id)
+        public ActionResult EditHear(int? id)
         {
             var festivalEvent = eventRepository.GetHearEvent(id);
             if (festivalEvent == null)
@@ -91,12 +91,16 @@ namespace HF_Application.Controllers
 
         public ActionResult See()
 	    {
-		    return View();
-	    }
+            var events = eventRepository.GetAllSeeEvents();
+
+            return View(events);
+        }
 
 	    public ActionResult Talk()
 	    {
-		    return View();
-	    }
+            var events = eventRepository.GetAllTalkEvents();
+
+            return View(events);
+        }
     }
 }

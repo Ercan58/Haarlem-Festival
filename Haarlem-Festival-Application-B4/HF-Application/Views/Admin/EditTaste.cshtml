@@ -27,14 +27,14 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-3">
-            @Html.LabelFor(model => model.Restaurant.Location)
+            @Html.LabelFor(model => model.Restaurant.RestaurantName)
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
-        <div class="col-sm-9">
-            @Html.DropDownListFor(model => model.Restaurant.Location
-                , new SelectList(ViewBag.Locations, "Id", "Address")
+        <div class="col-xl-9">
+            @Html.DropDownListFor(model => model.RestaurantId
+                , new SelectList(ViewBag.Locations, "Id", "RestaurantName")
                 , new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Restaurant.Location, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Restaurant, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group row">
