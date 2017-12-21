@@ -1,7 +1,7 @@
-﻿@model HF_Application.Models.Events.Diner
+﻿@model HF_Application.Models.Events.Historic
 
 @{
-    ViewBag.Title = "Edit Taste Event";
+    ViewBag.Title = "Edit See Event";
 }
 
 <h2>Edit event "@Html.DisplayFor(model => model.CartTitle)"</h2>
@@ -27,14 +27,23 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-3">
-            @Html.LabelFor(model => model.Restaurant.RestaurantName)
+            @Html.LabelFor(model => model.Location)
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
-            @Html.DropDownListFor(model => model.RestaurantId
-                , new SelectList(ViewBag.Locations, "Id", "RestaurantName")
+            @Html.DropDownListFor(model => model.Location.Id
+                , new SelectList(ViewBag.Locations, "Id", "Address")
                 , new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Restaurant, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">
+            @Html.LabelFor(model => model.tourGuid)
+        </div>
+        <div class="w-100 d-lg-block d-xl-none"></div>
+        <div class="col-xl-9">
+            
         </div>
     </div>
     <div class="form-group row">
@@ -69,22 +78,12 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-3">
-            @Html.LabelFor(model => model.ReducedPrice)
+            @Html.LabelFor(model => model.FamilyPrice)
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-sm-9">
-            @Html.EditorFor(model => model.ReducedPrice, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.ReducedPrice, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-3">
-            @Html.LabelFor(model => model.Restaurant.imagePath)
-        </div>
-        <div class="w-100 d-lg-block d-xl-none"></div>
-        <div class="col-sm-9">
-            @Html.EditorFor(model => model.Restaurant.imagePath, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Restaurant.imagePath, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.FamilyPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FamilyPrice, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group row">

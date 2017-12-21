@@ -96,11 +96,68 @@ namespace HF_Application.Controllers
             return View(events);
         }
 
-	    public ActionResult Talk()
+        // Get
+        public ActionResult EditSee(int? id)
+        {
+            var festivalEvent = eventRepository.GetSeeEvent(id);
+            if (festivalEvent == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Locations = eventRepository.GetSeeLocations();
+
+            return View(festivalEvent);
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult See(Models.Events.Historic festivalEvent)
+        {
+            ViewBag.Locations = eventRepository.GetSeeLocations();
+
+            if (ModelState.IsValid)
+            {
+                eventRepository.UpdateSeeEvent(festivalEvent);
+                return RedirectToAction("Index");
+            }
+
+            return View(festivalEvent);
+        }
+        public ActionResult Talk()
 	    {
             var events = eventRepository.GetAllTalkEvents();
 
             return View(events);
+        }
+
+        // Get
+        public ActionResult EditTalk(int? id)
+        {
+            var festivalEvent = eventRepository.GetTalkEvent(id);
+            if (festivalEvent == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Locations = eventRepository.GetTalkLocations();
+
+            return View(festivalEvent);
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditTalk(Models.Events.Talk festivalEvent)
+        {
+            ViewBag.Locations = eventRepository.GetTalkLocations();
+
+            if (ModelState.IsValid)
+            {
+                eventRepository.UpdateTalkEvent(festivalEvent);
+                return RedirectToAction("Index");
+            }
+
+            return View(festivalEvent);
         }
     }
 }
