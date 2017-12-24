@@ -22,6 +22,7 @@
 
             <div class="col-md-12 col-12 text-center">
 
+                @Html.ActionLink("All", "Index", new { date = "" }, new { @class = "DinerNavigationButton" })
                 @Html.ActionLink("26-07-2018", "Index", new { date = "2018-07-26"}, new { @class = "DinerNavigationButton" })
                 @Html.ActionLink("27-07-2018", "Index", new { date = "2018-07-27" }, new { @class = "DinerNavigationButton" })
                 @Html.ActionLink("28-07-2018", "Index", new { date = "2018-07-28" }, new { @class = "DinerNavigationButton" })
@@ -31,7 +32,7 @@
         </div>
     </div>
 
-        <div class="container">
+        @*<div class="container">
             @foreach (var jazzEvent in Model.AllJazzEvents)
             {
                 <div class="row jazzDiv">
@@ -53,5 +54,47 @@
                 </div>
             }
 
+        </div>*@
+
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var jazzEvent in Model.AllJazzEvents)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="jazzDiv">
+
+                        <div class="col-md-12">
+                            <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
+                        </div>
+
+                        <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
+
+                        <div class="row">
+                            <div class="col-sm-6 text-center">
+                                <div>
+                                    <h2>Date</h2>
+                                </div>
+                                @jazzEvent.StartDate.ToShortDateString()
+                            </div>
+
+                            <div class="col-sm-6 text-center">
+                                <div>
+                                    <h2>Time</h2>
+                                </div>
+                                @jazzEvent.StartDate.ToShortTimeString() - @jazzEvent.EndDate.ToShortTimeString()
+                            </div>
+
+                            <div class="col-md-12 col-12 text-center tastebuttoncol">
+                                @using (Html.BeginForm())
+                                {
+                                    <input type="button" name="button" class="MoreInformationButton" value="More Information" />
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
+    </div>
 </body>

@@ -1,0 +1,40 @@
+﻿@model HF_Application.Models.ViewModel.TalksModel
+
+@{
+    ViewBag.Title = "Talk1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center" > Detail Page </h1>
+<div class="row" style="margin-left:10px;">
+    @foreach (var talkEvent in Model.AllTalkEvents)
+    {
+
+        <div class="text-center col-md-8"><h5 class="interviewName">@talkEvent.Interview</h5></div>
+
+        <br/>
+        <br />
+
+        <div class="text-center col-md-8" style="clear:both;">
+            <strong>Date: @talkEvent.StartDate</strong><br />
+            
+            <strong class="text-center col-md-8">Adres: @talkEvent.Location.Address </strong>
+
+        </div>
+
+        <br />
+        <br />
+        <div class="col-md-8">
+            <img  src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+        </div>
+       
+      
+        <strong class="col-md-8"> @talkEvent.ReservationInfo </strong>
+
+        <hr />
+        <br />
+        <br />
+        <hr />
+
+    }
+</div>

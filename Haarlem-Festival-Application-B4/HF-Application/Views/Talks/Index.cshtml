@@ -13,33 +13,44 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            @foreach (var talkEvent in Model.AllTalkEvents)
-            {
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xl-4" >
-                    <div class="Talkdiv">
-                        <div class="text-center"><h5 class="interviewName">@talkEvent.Interview</h5></div>
-                        <div class="col-md-12">
-                            <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-                        </div>
-                        <div class="text-center">
-                            <strong> @talkEvent.StartDate</strong><br />
-                            <p class="text-center"> <Strong> Adres: </Strong> @talkEvent.Location.Address </p>
 
-                            <p class="text-center" > @talkEvent.ReservationInfo </p>
-                        </div>
-                        <div class="col-md-12 col-12 text-center">
-                            @using (Html.BeginForm())
-                {
-                                <input type="button" name="button" class="TalkButton" value="Make Reservation" />
-                                <input type="button" name="button" class="TalkButton" value="Add To WishList" />
-                                <input type="button" name="button" class="TalkButton" value="Ask Question" />
-                            }
-                        </div>
+        <div class="row">
+
+           
+
+                @foreach (var talkEvent in Model.AllTalkEvents)
+                { <div class="col-md-4">
+                <div class="Talkdiv">
+
+                    <div class="text-center"><h5 class="interviewName">@talkEvent.Interview</h5></div>
+
+                    <div>
+                        <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Date: @talkEvent.StartDate</strong><br />
+                        <strong class="text-center">Adres: @talkEvent.Location.Address </strong>
+
+                        <p class="MoreInformationButton">@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID })</p>
+
+                        @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
+              
+                     
+             
+
+                        @*@using (Html.BeginForm())
+                        {
+                            <input type="button" name="button" class="MoreInformationButton" value="More Information" />
+                          
+                        }*@
+
+
                     </div>
                 </div>
-            }
+            </div>
+                }
+                   
+            </div>
         </div>
-    </div>
 
-</body>
+    </body>
