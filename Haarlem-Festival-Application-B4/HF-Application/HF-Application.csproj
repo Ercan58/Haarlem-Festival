@@ -413,10 +413,6 @@
     <Content Include="Views\Admin\EditHear.cshtml" />
     <Content Include="Views\Admin\Taste.cshtml" />
     <Content Include="Views\Admin\EditTaste.cshtml" />
-    <Content Include="Views\Talks\Create.cshtml" />
-    <Content Include="Views\Talks\Delete.cshtml" />
-    <Content Include="Views\Talks\Details.cshtml" />
-    <Content Include="Views\Talks\Edit.cshtml" />
     <Content Include="Views\Talks\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -426,6 +422,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Admin\EditTalk.cshtml" />
     <Content Include="Views\Admin\EditSee.cshtml" />
+    <Content Include="Views\Talks\Talk1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
