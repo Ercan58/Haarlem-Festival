@@ -52,10 +52,9 @@
                                 @restaurant.Location.Address
                             </div>
                             <div class="col-md-12 col-12 text-center tastebuttoncol">
-                                @using (Html.BeginForm())
-                                {
-                                    <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
-                                }
+  
+                                    @Html.ActionLink("Meer informatie", "Details", new { id = restaurant.Id }, new { @class = "MoreInformationButton" })
+
                             </div>
                         </div>
                     </div>

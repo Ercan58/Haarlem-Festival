@@ -18,27 +18,20 @@ namespace HF_Application.Controllers
     {
         IDinerRepository dinerrp = new DinerRepository();
         private List<FoodType> AllFoodTypes;
-
+        HaarlemFestivalContext db = new HaarlemFestivalContext();
 
         public TasteController()
         {
             AllFoodTypes = new List<FoodType>();
 
             this.AllFoodTypes = dinerrp.GetAllFoodtypes();
-            this.AllFoodTypes = selectFoodTypes(0, AllFoodTypes.Count-1);
         }
 
-        public List<FoodType> selectFoodTypes(int start, int end)
+        public ActionResult Details(int id)
         {
-            List<FoodType> foodtypes = new List<FoodType>();
-
-            for(int a=start; a<=end; a++)
-            {
-                foodtypes.Add(AllFoodTypes[a]);
-            }
-            return foodtypes;
+            Restaurant restaurant = db.Restaurants.Where(a => a.Id == id).Include(n => n.Location).Include(b=>b.FoodTypes).SingleOrDefault();
+            return View(restaurant);
         }
-
 
         // GET: Diners
         public ActionResult Index(int? id)
