@@ -41,10 +41,10 @@ namespace HF_Application.Repositories
             return restaurants;
         }
 
-        public List<Restaurant> GetCurrentRestaurants(int id)
+        public Restaurant GetRestaurant(int id)
         {
-            List<Restaurant> Restaurants = new List<Restaurant>();
-            return Restaurants = db.Restaurants.Where(f => f.Id == id).Include(a => a.FoodTypes).Include(b => b.Location).ToList();
+           Restaurant restaurant = db.Restaurants.Where(a => a.Id == id).Include(n => n.Location).Include(b => b.FoodTypes).SingleOrDefault();
+           return restaurant;
         }
 
     }
