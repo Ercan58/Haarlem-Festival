@@ -29,8 +29,13 @@ namespace HF_Application.Controllers
 
         public ActionResult Details(int id)
         {
-            Restaurant restaurant = db.Restaurants.Include(a => a.FoodTypes).FirstOrDefault(b=>b.Id==id);
-            return View(restaurant);
+            RestaurantModel restaurantmodel = new RestaurantModel();
+            restaurantmodel.Restaurants = dinerrp.GetCurrentRestaurants(id);
+
+            return View(restaurantmodel);
+
+            //Restaurant restaurant = db.Restaurants.Where(a => a.Id == id).Include(n => n.Location).Include(b => b.FoodTypes).SingleOrDefault();
+            //return View(restaurant);
         }
 
         // GET: Diners
