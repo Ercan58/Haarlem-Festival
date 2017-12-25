@@ -229,7 +229,7 @@ a:hover{
   bottom: 5%;
   padding:2%;
   width: 50%;
-  font-size:16px;
+  font-size:18px;
   font-weight:bold;
   border:1px solid black;
   color:black;
@@ -273,11 +273,10 @@ text-decoration:underline;
 
 
 .Talkdiv {
-    background-color: rgba(156, 105, 16, 0.85);
+    background-color:#9C6910;
+    margin-top: 10px;
     margin-bottom: 10px;
-    padding: 16px;
-    text-align: left;
-
+    opacity: 0.95;
 }
 
 .interviewName 
@@ -289,37 +288,48 @@ text-decoration:underline;
    
 }
 
-.talkImage 
+.talkImage1
 {
-    /*border-left: 5px solid #9C6910;*/
+    width: 75%;
+    border-left: 5px solid #9C6910;
     height: 10%;
   
 }
 
+
 #Talk 
 {
    background-image: url('images/achtergrond_talk.png');
-   width:100%;
-   height:100%;
+  background-size:cover;
+}
+
+#Talk1 {
+    background-color: #9C6910;
+    opacity: 0.95;
+}
+
+.form_reservering 
+{
+background-color:rgba(72,72,72,0.7);
+padding: 10px 20px 30px 20px;
+max-width:95%;
+margin-top:30px;
+border-radius:7px;
+
+}
+
+.cross-talk {
+    background-color: rgba(72,72,72,0.7);
+    padding: 10px 20px 10px 20px;
+    max-width: 95%;
+    margin-top: 30px;
+    border-radius: 7px;
+    margin-bottom:30px;
 }
 
 
-.tastebuttoncol{
-    padding:5%;
+.tastebuttoncol {
+    padding: 5%;
 }
 
-.TalkButton {
-    bottom: 5%;
-    padding: 3%;
-    width: 70%;
-    font-size: 18px;
-    font-weight: bold;
-    border: 1px solid black;
-    color: black;
-    background-color: white;
-}
-
-.TalkButton:hover {
-        text-decoration: underline;
-    }
 

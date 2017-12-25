@@ -10,35 +10,50 @@
 
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
         <h1 class="text-center">Talking Haarlem!</h1>
+        <h6 class="text-center" >Free Tickets - You can only book two tickets & These talks will be in dutch! </h6>
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            @foreach (var talkEvent in Model.AllTalkEvents)
-            {
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xl-4" >
-                    <div class="Talkdiv">
-                        <div class="text-center"><h5 class="interviewName">@talkEvent.Interview</h5></div>
-                        <div class="col-md-12">
-                            <img class="talkImage" src="@Url.Content("~/Content/images/"+talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-                        </div>
-                        <div class="text-center">
-                            <strong> @talkEvent.StartDate</strong><br />
-                            <p class="text-center"> <Strong> Adres: </Strong> @talkEvent.Location.Address </p>
 
-                            <p class="text-center" > @talkEvent.ReservationInfo </p>
-                        </div>
-                        <div class="col-md-12 col-12 text-center">
-                            @using (Html.BeginForm())
-                {
-                                <input type="button" name="button" class="TalkButton" value="Make Reservation" />
-                                <input type="button" name="button" class="TalkButton" value="Add To WishList" />
-                                <input type="button" name="button" class="TalkButton" value="Ask Question" />
-                            }
-                        </div>
+        <div class="row">
+
+            @foreach (var talkEvent in Model.AllTalkEvents)
+            { <div class="col-lg-4 ">
+
+                <div class="Talkdiv">
+
+                    <h5 class="text-center interviewName">@talkEvent.Interview</h5>
+
+                    <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+                    <div class="text-center">
+                        <strong> Date: @talkEvent.StartDate</strong><br />
+                        <strong>Adres: @talkEvent.Location.Address </strong>
                     </div>
+
+                    <div class="text-center">
+                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" } )</a>
+                    </div>
+
+                    @*<div class="text-center">
+                            <input type="button" class="btn btn-info" value="More Information" onclick="@Html.Action("", "Talk1", new { id = talkEvent.ID })'" />
+                        </div>*@
+
+                    @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
+
+
+
+
+                    @*@using (Html.BeginForm())
+                        {
+                            <input type="button" name="button" class="MoreInformationButton" value="More Information" />
+
+                        }*@
+
                 </div>
+            </div>
             }
+
         </div>
     </div>
 
