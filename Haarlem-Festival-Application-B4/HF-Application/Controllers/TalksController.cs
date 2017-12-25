@@ -68,6 +68,7 @@ namespace HF_Application.Controllers
         
                 
                 talksModel.AllTalkEvents = GetCurrentTalkEvent(id);
+            talksModel.CrossTalkEvents = GetCrossEvents(id);
 
             return View(talksModel);
         }
@@ -77,6 +78,17 @@ namespace HF_Application.Controllers
         {
             List<Talk> talkEvent = new List<Talk>();
             var selectionById = db.Talks.Where(d => d.ID == id).Include(l => l.Location).ToList();
+            foreach (Talk TalkEvent in selectionById)
+            {
+                talkEvent.Add(TalkEvent);
+            }
+            return talkEvent;
+        }
+
+        public List<Talk> GetCrossEvents(int id)
+        {
+            List<Talk> talkEvent = new List<Talk>();
+            var selectionById = db.Talks.Where(d => d.ID != id).Include(l => l.Location).ToList();
             foreach (Talk TalkEvent in selectionById)
             {
                 talkEvent.Add(TalkEvent);

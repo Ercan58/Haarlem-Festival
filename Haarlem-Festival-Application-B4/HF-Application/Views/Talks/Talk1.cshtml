@@ -1,40 +1,108 @@
 ﻿@model HF_Application.Models.ViewModel.TalksModel
 
+
 @{
     ViewBag.Title = "Talk1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center" > Detail Page </h1>
-<div class="row" style="margin-left:10px;">
-    @foreach (var talkEvent in Model.AllTalkEvents)
-    {
+<body id="Talk1">
+    <h1 class="text-center"> Detail Page </h1>
 
-        <div class="text-center col-md-8"><h5 class="interviewName">@talkEvent.Interview</h5></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
 
-        <br/>
-        <br />
+                @foreach (var talkEvent in Model.AllTalkEvents)
+            {
+                    <div class="text-center">
+                        <h5 class="interviewName">@talkEvent.Interview</h5>
+                    </div>
 
-        <div class="text-center col-md-8" style="clear:both;">
-            <strong>Date: @talkEvent.StartDate</strong><br />
-            
-            <strong class="text-center col-md-8">Adres: @talkEvent.Location.Address </strong>
+                    <div class="co-md-4" style="float:left;">
+                        <img src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                    </div>
+
+
+
+
+                    @*<div class="co-md-4 text-center" style="float:left;">
+                            <strong>Date: @talkEvent.StartDate</strong><br />
+                            <strong>Adres: @talkEvent.Location.Address </strong>
+
+                        </div>*@
+
+
+                    <strong style="clear:left; color:black; display:block;"> @talkEvent.ReservationInfo </strong>
+
+
+
+
+                }
+
+            </div>
+
+
+            <div class="col-md-4 form_reservering">
+                <form>
+                    <div class="form-group">
+                        <div class="text-center"><h3> Make a reservation!</h3></div>
+                       
+                        @foreach (var talkEvent in Model.AllTalkEvents)
+                        {
+                            <h5 style="color:black">@talkEvent.Interview</h5>
+
+                            <label><strong style="color:black">Date and Time:</strong> @talkEvent.StartDate </label>
+                            <label class="control-label"> <strong style="color:black">Where:</strong>@talkEvent.Location.Address </label>
+
+                            <hr />
+                            <Strong style="color:black" >Aantal: </Strong><br />
+                            
+                                <input type="radio" name="1" checked /><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>1 Teckit</span>
+                                <input type="radio" name="1" checked /><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>2 Teckits</span>
+                            <hr />
+                            <Strong style="color:black">You can ask our guests questions here: </Strong><br />
+                            <input type="text" name="Ask" class="form-control form-control-md" placeholder="Type Your Question Here" />
+
+                            <hr />
+                        }
+
+                    </div>
+                </form>
+
+            </div>
 
         </div>
 
-        <br />
-        <br />
-        <div class="col-md-8">
-            <img  src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+        <div class="row cross-talk">
+            <div class="text-center">
+                <h3> Take a look at our other Talks!</h3>
+            </div>
+            <hr />
+
+            @foreach (var talkEvent in Model.CrossTalkEvents)
+            { <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+
+                <div class="Talkdiv" style="background-color:mistyrose">
+
+                    <h5 class="text-center interviewName" style="color:black">@talkEvent.Interview</h5>
+
+                    <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+
+                    <div class="text-center">
+                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" })</a>
+                    </div>
+
+
+                </div>
+            </div>
+            }
+
         </div>
-       
-      
-        <strong class="col-md-8"> @talkEvent.ReservationInfo </strong>
 
-        <hr />
-        <br />
-        <br />
-        <hr />
+    </div>
 
-    }
-</div>
+
+</body>

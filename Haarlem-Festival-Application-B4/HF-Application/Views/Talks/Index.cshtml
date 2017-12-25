@@ -10,47 +10,51 @@
 
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
         <h1 class="text-center">Talking Haarlem!</h1>
+        <h6 class="text-center" >Free Tickets - You can only book two tickets & These talks will be in dutch! </h6>
     </div>
 
     <div class="container-fluid">
 
         <div class="row">
 
-           
+            @foreach (var talkEvent in Model.AllTalkEvents)
+            { <div class="col-lg-4 ">
 
-                @foreach (var talkEvent in Model.AllTalkEvents)
-                { <div class="col-md-4">
                 <div class="Talkdiv">
 
-                    <div class="text-center"><h5 class="interviewName">@talkEvent.Interview</h5></div>
+                    <h5 class="text-center interviewName">@talkEvent.Interview</h5>
 
-                    <div>
-                        <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-                    </div>
+                    <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
                     <div class="text-center">
-                        <strong>Date: @talkEvent.StartDate</strong><br />
-                        <strong class="text-center">Adres: @talkEvent.Location.Address </strong>
+                        <strong> Date: @talkEvent.StartDate</strong><br />
+                        <strong>Adres: @talkEvent.Location.Address </strong>
+                    </div>
 
-                        <p class="MoreInformationButton">@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID })</p>
+                    <div class="text-center">
+                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" } )</a>
+                    </div>
 
-                        @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
-              
-                     
-             
+                    @*<div class="text-center">
+                            <input type="button" class="btn btn-info" value="More Information" onclick="@Html.Action("", "Talk1", new { id = talkEvent.ID })'" />
+                        </div>*@
 
-                        @*@using (Html.BeginForm())
+                    @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
+
+
+
+
+                    @*@using (Html.BeginForm())
                         {
                             <input type="button" name="button" class="MoreInformationButton" value="More Information" />
-                          
+
                         }*@
 
-
-                    </div>
                 </div>
             </div>
-                }
-                   
-            </div>
-        </div>
+            }
 
-    </body>
+        </div>
+    </div>
+
+</body>
