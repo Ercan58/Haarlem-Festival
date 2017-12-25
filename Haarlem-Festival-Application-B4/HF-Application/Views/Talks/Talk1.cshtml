@@ -65,6 +65,14 @@
                             <input type="text" name="Ask" class="form-control form-control-md" placeholder="Type Your Question Here" />
 
                             <hr />
+                            <p>Price: 0 Euro</p>
+
+                            <hr />
+                            <div class="text-center">
+                                <a>@Html.ActionLink("Buy", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
+                                <a>@Html.ActionLink("Add to WishList", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
+                            </div>
+
                         }
 
                     </div>
@@ -92,7 +100,7 @@
 
 
                     <div class="text-center">
-                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" })</a>
+                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
                     </div>
 
 

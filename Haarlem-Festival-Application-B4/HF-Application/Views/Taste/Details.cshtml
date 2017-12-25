@@ -1,38 +1,131 @@
-﻿@model HF_Application.Models.Restaurant
+﻿@model HF_Application.Models.ViewModel.RestaurantModel
 
-<h2>Details</h2>
+<body id="Diner1">
+    <h1 class="text-center"> Detail Page </h1>
 
-<div class="container-fluid">
-    <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-                <div class="restaurantdiv">
-                    <div class="col-md-12">
-                        <img class="restaurantImage" src="@Url.Content("~/Content/images/"+Model.imagePath)" alt="IMAGES" />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+                @foreach (var restaurant in Model.Restaurants)
+            {
+                    <div class="text-center">
+                        <h5 class="interviewName">@restaurant.RestaurantName</h5>
                     </div>
-                    <div class="col-md-12 text-center"><h1 class="RestaurantName">Model.RestaurantName</h1></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="col-md-12 text-center">
-                                <h2>Foodtypes</h2>
-                            </div>
-                            <ul>
-                                @foreach (var foodtypes in Model.FoodTypes)
-                                {
-                                    IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
-                                    @Html.Raw(tekst)
-                                }
-                            </ul>
+
+                    <div style="width:100px; height:100px; display:block;">
+                        <img src="@Url.Content("~/Content/images/" + restaurant.imagePath)" alt="Image of @restaurant.RestaurantName" />
+                    </div>
+
+
+
+                    <h2>Foodtypes</h2>
+                                <div>
+                                    <ul>
+                                        @foreach (var foodtypes in restaurant.FoodTypes)
+                                        {
+                                            IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
+                                            @Html.Raw(tekst)
+                                        }
+                                    </ul>
+
+                                </div>
+
+
+
+
+                }
+
+            </div>
+
+
+            <div class="col-md-4 form_reservering">
+                <form>
+                    <div class="form-group">
+                        <div class="text-center"><h3> Make a reservation!</h3></div>
+
+                        @foreach (var retaurant in Model.Restaurants)
+                        {
+                            <h5 style="color:black">@retaurant.RestaurantName</h5>
+
+                            <hr />
+                            <Strong style="color:black">Aantal: </Strong><br />
+
+                                <hr />
+                                <Strong style="color:black">Type your comment: </Strong><br />
+                                <input type="text" name="Ask" class="form-control form-control-md" placeholder="Type Your comment Here" />
+
+                                <hr />
+                                <p>Price: 0 Euro</p>
+
+                                <hr />
+                                <div class="text-center">
+                                    <a>@Html.ActionLink("Buy", "#", new { @class = "btn btn-info" })</a>
+                                    <a>@Html.ActionLink("Add to WishList", "#", new { @class = "btn btn-info" })</a>
+                                </div>
+
+                        }
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="row cross-talk">
+            <div class="text-center">
+                <h3> Take a look at our other Restaurants!</h3>
+            </div>
+            <hr />
+
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+
+
+@*<div class="container-fluid">
+        <div class="row">
+
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="restaurantdiv">
+                        <div class="col-md-12">
+                            <img class="restaurantImage" src="@Url.Content("~/Content/images/"+Model.imagePath)" alt="IMAGES" />
                         </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12 text-center">
-                                <h2>Address</h2>
+                        <div class="col-md-12 text-center"><h1 class="RestaurantName">Model.RestaurantName</h1></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12 text-center">
+                                    <h2>Foodtypes</h2>
+                                </div>
+                                <ul>
+                                    @foreach (var foodtypes in Model.FoodTypes)
+                                    {
+                                        IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
+                                        @Html.Raw(tekst)
+                                    }
+                                </ul>
                             </div>
-                            Model.Location.Address
+                            <div class="col-md-6">
+                                <div class="col-md-12 text-center">
+                                    <h2>Address</h2>
+                                </div>
+                                Model.Location.Address
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        
-    </div>
-</div>
+
+        </div>
+    </div>*@
+
+
 
