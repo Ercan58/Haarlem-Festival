@@ -8,6 +8,8 @@ namespace HF_Application.Models.ViewModel
 {
     public class RestaurantDetailModel
     {
-        
+        public Restaurant restaurant { get; set; }
+        public List<FestivalEvent> SuggestionEvents { get; set; }
+
     }
 }

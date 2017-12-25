@@ -7,9 +7,9 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
                 <div class="restaurantdiv">
                     <div class="col-md-12">
-                        <img class="restaurantImage" src="@Url.Content("~/Content/images/" + Model.imagePath)" alt="IMAGES" />
+                        <img class="restaurantImage" src="@Url.Content("~/Content/images/" + @Model.imagePath)" alt="IMAGES" />
                     </div>
-                    <div class="col-md-12 text-center"><h1 class="RestaurantName">Model.RestaurantName</h1></div>
+                    <div class="col-md-12 text-center"><h1 class="RestaurantName">@Model.RestaurantName</h1></div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-md-12 text-center">
