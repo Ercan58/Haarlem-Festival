@@ -176,11 +176,16 @@ footer{
     width:17%;
 }
 
-.DinerNavigationButton{
-background-color:black;
-padding:10px;
-border: 1px solid grey;
+.profileicon {
+    text-align: left;
+    width: 20%;
+    height: 20%;
+}
 
+.DinerNavigationButton {
+    background-color: black;
+    padding: 10px;
+    border: 1px solid grey;
 }
 
 .restaurantnavigation{
@@ -196,7 +201,7 @@ a:hover{
 .restaurantImage{
     width:100%;
     padding-top:4%;
-    border-left: 5px solid #910000;
+    /*border-left: 5px solid #910000;*/
 
 }
 
@@ -220,16 +225,15 @@ a:hover{
     font-size:20px;
 }
 
-.MoreInformationButton {
-    bottom: 5%;
-    padding: 2%;
-    width: 50%;
-    font-size: 18px;
-    font-weight: bold;
-    border: 1px solid black;
-    color: black;
-    background-color: white;
-    position: center;
+.MoreInformationButton{
+  bottom: 5%;
+  padding:2%;
+  width: 50%;
+  font-size:18px;
+  font-weight:bold;
+  border:1px solid black;
+  color:black;
+  background-color:white;
 }
 .MoreInformationButton:hover {
 text-decoration:underline;
@@ -247,6 +251,7 @@ text-decoration:underline;
 
 .jazzImage {
     width: 100%;
+    padding-top: 4%;
     /*border-left: 5px solid #5dd55d;*/
 }
 
@@ -269,9 +274,9 @@ text-decoration:underline;
 
 .Talkdiv {
     background-color:#9C6910;
+    margin-top: 10px;
+    margin-bottom: 10px;
     opacity: 0.95;
-  margin-bottom: 20px;
-
 }
 
 .interviewName 
@@ -285,9 +290,10 @@ text-decoration:underline;
 
 .talkImage1
 {
-  display:block;
-  margin-left:10px;
-  width:90%;
+    width: 75%;
+    border-left: 5px solid #9C6910;
+    height: 10%;
+  
 }
 
 
