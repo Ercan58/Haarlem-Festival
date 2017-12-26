@@ -23,9 +23,9 @@
                 <div class="Talkdiv">
 
                     <h5 class="text-center interviewName">@talkEvent.Interview</h5>
-
-                    <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-
+                    <div class="text-center">
+                        <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                    </div>
                     <div class="text-center">
                         <strong> Date: @talkEvent.StartDate</strong><br />
                         <strong>Adres: @talkEvent.Location.Address </strong>

@@ -33,10 +33,10 @@
                 <div class="navrightbar">
                     <a class="profileicon" href="@Url.Action("Index", "Admin")"><img src="~/Content/images/profile.png" /></a>
                   
-                    <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
+                    <a class="profileicon"  href="#Cartbasket1" data-toggle="overlay"><img src="~/Content/images/cart.png"/></a>
 
-                    <div id="Cartbasket">
-
+                    <div  id="Cartbasket1" class="overlay">
+                        <a class="close" href="#">&times;</a>
                         @Html.ActionLink("Cart", "", "", null, new { @id = "CartHeader" })
                         <div id="Cartbasket-inner-style">
                             <div id="Cartbasket-inner"></div>

@@ -277,30 +277,35 @@ text-decoration:underline;
     margin-top: 10px;
     margin-bottom: 10px;
     opacity: 0.95;
+    padding:2% 1% 2% 1%;
 }
 
 .interviewName 
 {
-    color: white;
+    color: black;
     border-bottom: 3px solid black;
     border-radius: 25px;
     border-bottom-color: white;
+    font:bold;
    
 }
 
 .talkImage1
 {
-    width: 75%;
-    border-left: 5px solid #9C6910;
+    width: 95%;
+    border-left: 5px solid #f79f06;
     height: 10%;
-  
+    margin-bottom:1%;
+    
 }
 
 
-#Talk 
-{
-   background-image: url('images/achtergrond_talk.png');
-  background-size:cover;
+#Talk {
+    background-image: url('images/achtergrond_talk.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 #Talk1 {
@@ -321,10 +326,22 @@ border-radius:7px;
 .cross-talk {
     background-color: rgba(72,72,72,0.7);
     padding: 10px 20px 10px 20px;
-    max-width: 95%;
+    max-width: 110%;
     margin-top: 30px;
     border-radius: 7px;
     margin-bottom:30px;
+}
+
+.text_form
+{
+color:black;
+
+}
+
+.text_HF 
+{
+    color: black;
+    font:bold;
 }
 
 
@@ -343,17 +360,18 @@ border-radius:7px;
 
 /*Cart design voor ee popup*/
 
-#Cartbasket {
+
+#Cartbasket1 {
     position: absolute;
     float: left;
-    left: 1110px;
+    left: 870px;
     z-index: 100;
     background-color: #ff0000;
     width: 390px;
     height: 616px;
     background-color: #413F4B;
     opacity: 0.9;
-    display:none;
+    display:block;
 }
 
 #Cartbasket-inner-style {
@@ -366,11 +384,11 @@ border-radius:7px;
     opacity: 1.0;
     overflow-y: auto; /* does nothing */
     /*height: calc(100% - 100px);*/
-    display:none;
+   
 }
 
 #Cartbasket-button {
-    display: none;
+    display: block;
     width: 125px;
     font-size: 18px;
     font-family: Arial;
@@ -401,7 +419,8 @@ border-radius:7px;
     font-weight: bold;
     font-family: Verdana;
     color: white;
-    display:none;
+    width:50%;
+   
 }
 
 #CartHeader:hover {
@@ -413,7 +432,7 @@ border-radius:7px;
     padding: 5px 5px 5px 5px;
     background-color: #fff;
     border: 1px #797979 solid;
-    display:none;
+ 
 }
 
 
@@ -422,7 +441,8 @@ border-radius:7px;
     margin-top: 12px;
     margin-left: 24px;
     float: left;
-    display:none;
+    width:50%;
+  
 }
 
 #Cartlink a {
@@ -431,5 +451,39 @@ border-radius:7px;
         color: white;
         font-weight: bold;
         text-decoration: none;
-        display:none;
+        width:50%;
+       
     }
+
+.overlay {
+    position: fixed;
+    top: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+        visibility: visible;
+        opacity: 1.5;
+    }
+
+.Cartbasket1 .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 70px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.Cartbasket1 .close:hover {
+        color: #06D85F;
+    }
+
