@@ -241,7 +241,7 @@ text-decoration:underline;
 
 /*Jazz CSS*/
 
-#Jazz {
+.JazzBody {
     background-image: url(images/bg-music.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -332,4 +332,14 @@ border-radius:7px;
     padding: 5%;
 }
 
+/*DETAIL PAGE*/
 
+.detail-page-jazz {
+    background-color: rgba(13, 140, 16, 0.85); /*eigen kleurcode hier*/
+    min-height: 500px;
+    min-width: 780px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 0.95;
+    margin-right: 2px;
+}
