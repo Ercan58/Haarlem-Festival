@@ -69,6 +69,7 @@ namespace HF_Application.Controllers
                 
             talksModel.AllTalkEvents = GetCurrentTalkEvent(id);
             talksModel.CrossTalkEvents = GetCrossEvents(id);
+            talksModel.RestaurantsCross = GetRestaurants();
 
             return View(talksModel);
         }
@@ -92,6 +93,17 @@ namespace HF_Application.Controllers
             foreach (Talk TalkEvent in selectionById)
             {
                 talkEvent.Add(TalkEvent);
+            }
+            return talkEvent;
+        }
+
+       public List<Restaurant> GetRestaurants()
+        {
+            List<Restaurant> talkEvent = new List<Restaurant>();
+            var selectionById = db.Restaurants.Include(a => a.FoodTypes).Include(b => b.Location).ToList();
+            foreach (Restaurant TalkEvent_Rest in selectionById)
+            {
+                talkEvent.Add(TalkEvent_Rest);
             }
             return talkEvent;
         }

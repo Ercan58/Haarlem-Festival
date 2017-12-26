@@ -15,20 +15,21 @@
 
     <div class="container-fluid">
 
-        <div class="row">
+        <div class="row" style="margin-left:3%; margin-right:3%;">
 
             @foreach (var talkEvent in Model.AllTalkEvents)
             { <div class="col-lg-4 ">
 
                 <div class="Talkdiv">
 
-                    <h5 class="text-center interviewName">@talkEvent.Interview</h5>
+                    
                     <div class="text-center">
                         <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
                     </div>
+                    <h6 class="text-center interviewName">@talkEvent.Interview</h6>
                     <div class="text-center">
-                        <strong> Date: @talkEvent.StartDate</strong><br />
-                        <strong>Adres: @talkEvent.Location.Address </strong>
+                        <h6> Date: @talkEvent.StartDate</h6>
+                        <h6>Adres: @talkEvent.Location.Address </h6>
                     </div>
 
                     <div class="text-center">

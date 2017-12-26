@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><h1 style="color: red;">Hf</h1></a>
+            <a class="navbar-brand" href="@Url.Action("Index","Home")"><h1 style="color: red;">Hf</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,9 +31,9 @@
                     </li>
                 </ul>
                 <div class="navrightbar">
-                    <a class="profileicon" href="@Url.Action("Index", "Admin")"><img src="~/Content/images/profile.png" /></a>
+                    <a href="@Url.Action("Index", "Admin")"><img class="profileicon" src="~/Content/images/profile.png" /></a>
                   
-                    <a class="profileicon"  href="#Cartbasket1" data-toggle="overlay"><img src="~/Content/images/cart.png"/></a>
+                    <a  href="#Cartbasket1" data-toggle="overlay"><img class="profileicon" src="~/Content/images/cart.png"/></a>
 
                     <div  id="Cartbasket1" class="overlay">
                         <a class="close" href="#">&times;</a>
