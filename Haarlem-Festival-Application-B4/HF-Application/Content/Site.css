@@ -269,6 +269,40 @@ text-decoration:underline;
     font-size: 25px;
 }
 
+.jazzDetailDiv {
+    background-color: rgba(13, 140, 16, 0.85);
+    margin-top: 2%;
+}
+
+.detailTitelText {
+    font-weight: bolder;
+    margin-top: 2%;
+    padding: 0.5% 0.5%;
+    position: absolute center;
+    max-width: 90%;
+    min-width: 90%;
+    margin-left: 5%;
+}
+
+.titelText{
+    margin-left:3%;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.lblText {
+    color: black;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.lblBodyText {
+    font-size: large;
+    color: azure;
+}
+
+/*END Jazz*/
+
 
 
 .Talkdiv {
@@ -317,6 +351,7 @@ text-decoration:underline;
 background-color:rgba(72,72,72,0.7);
 padding: 10px 20px 30px 20px;
 max-width:95%;
+min-width:200px;
 margin-top:30px;
 border-radius:7px;
 
@@ -324,11 +359,14 @@ border-radius:7px;
 
 .cross-talk {
     background-color: rgba(72,72,72,0.7);
-    padding: 10px 20px 10px 20px;
-    max-width: 110%;
-    margin-top: 30px;
+    padding: 20px 20px 20px 10px;
+    min-width:90%;
+    max-width:90%;
+    margin-top: 2%;
     border-radius: 7px;
-    margin-bottom:30px;
+    margin-bottom:2%;
+    margin-left:5%;
+    position:absolute center;
 }
 
 .text_form
@@ -340,7 +378,9 @@ color:black;
 .text_HF 
 {
     color: black;
+    font-size: larger;
     font:bold;
+    margin-top:50px;
 }
 
 
