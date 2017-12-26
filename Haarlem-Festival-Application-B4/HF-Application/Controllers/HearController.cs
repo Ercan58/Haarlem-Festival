@@ -18,6 +18,7 @@ namespace HF_Application.Controllers
     public class HearController : Controller
     {
         private IJazzRepository IJazzRepository = new JazzRepository();
+
         private List<Jazz> AllJazzEvents;
         //private List<string> DaySelectionFilter;
 
@@ -48,6 +49,12 @@ namespace HF_Application.Controllers
             }
             return View(jazzsModel);
 
+        }
+
+        public ActionResult Details(int id)
+        {
+            Jazz JazzEvent = IJazzRepository.Details(id);
+            return View(JazzEvent);
         }
     }
 }

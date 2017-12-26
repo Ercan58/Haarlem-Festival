@@ -10,6 +10,7 @@ namespace HF_Application.Repositories
     {
         List<Jazz> GetAllJazzEvents();
         List<Jazz> GetJazzEvents(DateTime date);
-        List<string> DaySelectionFilter();
+        Jazz Details(int id);
+        //List<string> DaySelectionFilter();
     }
 }

@@ -85,10 +85,9 @@
                             </div>
 
                             <div class="col-md-12 col-12 text-center tastebuttoncol">
-                                @using (Html.BeginForm())
-                                {
-                                    <input type="button" name="button" class="MoreInformationButton" value="More Information" />
-                                }
+
+                                @Html.ActionLink("More information", "Details", new { id = jazzEvent.ID}, new { @class = "MoreInformationButton" })
+
                             </div>
 
                         </div>

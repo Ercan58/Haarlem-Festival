@@ -173,6 +173,7 @@
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
+    <Compile Include="Models\JazzDetail.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
+    <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
     <Compile Include="Repositories\DinerRepository.cs" />
@@ -401,10 +403,6 @@
     <Content Include="Views\Admin\Hear.cshtml" />
     <Content Include="Views\Admin\See.cshtml" />
     <Content Include="Views\Admin\Talk.cshtml" />
-    <Content Include="Views\Hear\Create.cshtml" />
-    <Content Include="Views\Hear\Delete.cshtml" />
-    <Content Include="Views\Hear\Details.cshtml" />
-    <Content Include="Views\Hear\Edit.cshtml" />
     <Content Include="Views\Hear\Index.cshtml" />
     <Content Include="Views\Taste\Index.cshtml" />
     <Content Include="Views\Order\Create.cshtml" />
@@ -424,6 +422,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Taste\Details.cshtml" />
     <Content Include="Views\Talks\Talk1.cshtml" />
+    <Content Include="Views\Hear\Details.cshtml" />
     <Content Include="Views\Home\Login_Form.cshtml" />
   </ItemGroup>
   <ItemGroup>

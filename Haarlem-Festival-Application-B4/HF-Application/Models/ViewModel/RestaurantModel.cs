@@ -10,5 +10,6 @@ namespace HF_Application.Models.ViewModel
     {
         public IEnumerable<FoodType> ListOfFoodtypes { get; set; }
         public List<Restaurant> Restaurants { get; set; }
+        
     }
 }

@@ -67,7 +67,7 @@ namespace HF_Application.Controllers
             TalksModel talksModel = new TalksModel();
         
                 
-                talksModel.AllTalkEvents = GetCurrentTalkEvent(id);
+            talksModel.AllTalkEvents = GetCurrentTalkEvent(id);
             talksModel.CrossTalkEvents = GetCrossEvents(id);
 
             return View(talksModel);

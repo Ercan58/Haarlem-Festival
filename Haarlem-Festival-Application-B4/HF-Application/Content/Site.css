@@ -216,7 +216,6 @@ a:hover{
 
 .RestaurantName{
     border-bottom:1px solid black;
-    border-radius:25px;
     border-color:white;
     font-size:25px;
 }
@@ -241,7 +240,7 @@ text-decoration:underline;
 
 /*Jazz CSS*/
 
-#Jazz {
+.JazzBody {
     background-image: url(images/bg-music.png);
     background-size: cover;
     background-repeat: no-repeat;
