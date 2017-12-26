@@ -29,8 +29,23 @@ namespace HF_Application.Controllers
 
         public ActionResult Details(int id)
         {
-            Restaurant restaurant = db.Restaurants.Where(a => a.Id == id).Include(n => n.Location).Include(b=>b.FoodTypes).SingleOrDefault();
-            return View(restaurant);
+            RestaurantDetailModel restaurantDetailModel = new RestaurantDetailModel();
+            restaurantDetailModel.restaurant = dinerrp.GetRestaurant(id);
+            restaurantDetailModel.DinerEvents = db.Diners.Where(d => d.RestaurantId == id).ToList();
+
+            List<SelectListItem> days = new List<SelectListItem>();
+            foreach(Diner diner in restaurantDetailModel.DinerEvents)
+            {
+                days.Add(new SelectListItem
+                {
+                    Text = diner.StartDate.ToString("dd"),
+                    Value = diner.StartDate.ToString("dd"),
+                });
+            }
+            ViewBag.days = days;
+
+
+            return View(restaurantDetailModel);
         }
 
         // GET: Diners

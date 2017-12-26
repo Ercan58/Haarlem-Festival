@@ -191,6 +191,7 @@
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
+    <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
     <Compile Include="Repositories\DinerRepository.cs" />
@@ -422,9 +423,11 @@
     <Content Include="Views\Taste\Details.cshtml" />
     <Content Include="Views\Talks\Talk1.cshtml" />
     <Content Include="Views\Hear\Details.cshtml" />
+    <Content Include="Views\Home\Login_Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

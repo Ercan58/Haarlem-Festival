@@ -28,9 +28,10 @@ namespace HF_Application.Repositories
 
         public List<Restaurant> GetRestaurants(int id)
         {
+
             List<Restaurant> restaurants = new List<Restaurant>();
 
-            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r => r.Restaurant).Include(f => f.Foodtype).Include(b=>b.Restaurant.Location).ToList();
+            var foodtypes = db.RestaurantFoodtypes.Where(f => f.Foodtype.Id == id).Include(r => r.Restaurant).Include(f => f.Foodtype).Include(b => b.Restaurant.Location).ToList();
 
             foreach (RestaurantFoodtype restaurantfoodtype in foodtypes)
             {
@@ -40,6 +41,11 @@ namespace HF_Application.Repositories
             return restaurants;
         }
 
+        public Restaurant GetRestaurant(int id)
+        {
+           Restaurant restaurant = db.Restaurants.Where(a => a.Id == id).Include(n => n.Location).Include(b => b.FoodTypes).SingleOrDefault();
+           return restaurant;
+        }
 
     }
 }

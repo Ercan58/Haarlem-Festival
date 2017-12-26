@@ -32,7 +32,21 @@
                 </ul>
                 <div class="navrightbar">
                     <a class="profileicon" href="@Url.Action("Index", "Admin")"><img src="~/Content/images/profile.png" /></a>
+                  
                     <a class="profileicon" href="#"><img src="~/Content/images/cart.png" /></a>
+
+                    <div id="Cartbasket">
+
+                        @Html.ActionLink("Cart", "", "", null, new { @id = "CartHeader" })
+                        <div id="Cartbasket-inner-style">
+                            <div id="Cartbasket-inner"></div>
+                        </div>
+
+                        @Html.ActionLink("Cart", "", "", null, new { @id = "Cartbasket-button" })
+
+
+                    </div>
+                  
                 </div>
             </div>
         </div>

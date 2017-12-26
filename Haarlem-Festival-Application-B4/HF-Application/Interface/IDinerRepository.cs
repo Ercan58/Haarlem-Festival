@@ -11,5 +11,7 @@ namespace HF_Application.Interface
         List<FoodType> GetAllFoodtypes();
         List<Restaurant> GetAllRestaurants();
         List<Restaurant> GetRestaurants(int id);
+
+        Restaurant GetRestaurant(int id);
     }
 }

@@ -1,38 +1,57 @@
-﻿@model HF_Application.Models.Restaurant
+﻿@model HF_Application.Models.ViewModel.RestaurantDetailModel
 
-<h2>Details</h2>
 
-<div class="container-fluid">
-    <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-                <div class="restaurantdiv">
-                    <div class="col-md-12">
-                        <img class="restaurantImage" src="@Url.Content("~/Content/images/"+Model.imagePath)" alt="IMAGES" />
-                    </div>
-                    <div class="col-md-12 text-center"><h1 class="RestaurantName">Model.RestaurantName</h1></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="col-md-12 text-center">
-                                <h2>Foodtypes</h2>
-                            </div>
-                            <ul>
-                                @foreach (var foodtypes in Model.FoodTypes)
-                                {
-                                    IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
-                                    @Html.Raw(tekst)
-                                }
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-12 text-center">
-                                <h2>Address</h2>
-                            </div>
-                            Model.Location.Address
-                        </div>
-                    </div>
+@{
+    ViewBag.Title = "Talk1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="DinerDetail">
+    <h1 class="text-center"> Detail Page </h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="co-md-8">
+                    <img src="@Url.Content("~/Content/images/" + @Model.restaurant.imagePath)" alt="Image of   />
+                </div>
+                <div class="text-center">
+                    <h5>@Model.restaurant.RestaurantName.ToString()</h5>
+                </div>
+                <div class="text-center">
+                    <h5></h5>
                 </div>
             </div>
-        
+
+
+            <div class="col-md-4 form_reservering">
+                <div class="form-group">
+                    <h3> Choose Datetime!</h3>
+                    <div class="custom-controls-stacked">
+                    </div>
+                    <div class="text-center">
+                        <a>@Html.ActionLink("Buy", "Talk1", 0, new { @class = "btn btn-info" })</a>
+                        <a>@Html.ActionLink("Add to WishList", "Talk1", 0, new { @class = "btn btn-info" })</a>
+                    </div>
+                </div>
+
+                </div>
+
+        </div>
+
+
+        <div class="row cross-talk">
+            <div class="text-center">
+                <h3> Take a look to other events</h3>
+            </div>
+            <hr />
+
+        </div>
+
     </div>
-</div>
+
+
+</body>
+
+
 

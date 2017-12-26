@@ -216,7 +216,6 @@ a:hover{
 
 .RestaurantName{
     border-bottom:1px solid black;
-    border-radius:25px;
     border-color:white;
     font-size:25px;
 }
@@ -332,14 +331,104 @@ border-radius:7px;
     padding: 5%;
 }
 
-/*DETAIL PAGE*/
+#Diner1 {
+    background-color: #910000;
+    opacity: 0.95;
+}
 
-.detail-page-jazz {
-    background-color: rgba(13, 140, 16, 0.85); /*eigen kleurcode hier*/
-    min-height: 500px;
-    min-width: 780px;
+
+
+
+
+/*Cart design voor ee popup*/
+
+#Cartbasket {
+    position: absolute;
+    float: left;
+    left: 1110px;
+    z-index: 100;
+    background-color: #ff0000;
+    width: 390px;
+    height: 616px;
+    background-color: #413F4B;
+    opacity: 0.9;
+    display:none;
+}
+
+#Cartbasket-inner-style {
+    width: 350px;
+    height: 467px;
+    max-height: 467px;
+    margin-left: 15px;
+    border: 1px #808080 solid;
+    background-color: #E3E2E3;
+    opacity: 1.0;
+    overflow-y: auto; /* does nothing */
+    /*height: calc(100% - 100px);*/
+    display:none;
+}
+
+#Cartbasket-button {
+    display: none;
+    width: 125px;
+    font-size: 18px;
+    font-family: Arial;
+    margin-top: 15px;
+    margin-left: 202px;
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    color: #ffffff;
+    background-color: #3283BC;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 1.0;
+}
+
+#Cartbasket-button:hover {
+        opacity: 0.9;
+    }
+
+#CartHeader {
+    text-decoration: none;
+    display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    opacity: 0.95;
-    margin-right: 2px;
+    margin-left: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Verdana;
+    color: white;
+    display:none;
 }
+
+#CartHeader:hover {
+        text-decoration: underline;
+    }
+
+#CartArea {
+    margin: 5px 15px 5px 15px;
+    padding: 5px 5px 5px 5px;
+    background-color: #fff;
+    border: 1px #797979 solid;
+    display:none;
+}
+
+
+#Cartlink {
+    display: block;
+    margin-top: 12px;
+    margin-left: 24px;
+    float: left;
+    display:none;
+}
+
+#Cartlink a {
+        font-size: 20px;
+        font-family: Arial;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        display:none;
+    }
