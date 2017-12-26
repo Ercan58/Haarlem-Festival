@@ -11,5 +11,6 @@ namespace HF_Application.Models.ViewModel
     {
         public List<Talk> AllTalkEvents { get; set; }
         public List<Talk> CrossTalkEvents { get; set; }
+        public List<Restaurant> RestaurantsCross { get; set; }
     }
 }
