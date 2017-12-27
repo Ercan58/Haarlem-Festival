@@ -4,6 +4,7 @@ Jazz is #0D8C10
 Historic Haarlem #032A8C 
 Talking Haarlem #9C6910
 */
+
 html, body, form {
     height: 100%;
     color:white;
@@ -313,7 +314,7 @@ text-decoration:underline;
 
 
 #Talk {
-    background-image: url('images/achtergrond_talk.png');
+    background-image: url('images/achtergrond_talk3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
