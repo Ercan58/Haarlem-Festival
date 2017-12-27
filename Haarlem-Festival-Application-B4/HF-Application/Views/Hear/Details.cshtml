@@ -1,23 +1,75 @@
-﻿@model HF_Application.Models.Events.Jazz
+﻿@model HF_Application.Models.JazzDetail
+
+
+@{
+    ViewBag.Title = "Talk1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <body class="JazzBody">
-    <div class="container">
+    <div class="container jazzDetailDiv">
+        <div class="col-md-10 detailTitelText">
+            <h1 class="text-center detailTitelText"> @Model.JazzEvent.Band.ToString() </h1>
+        </div>
         <div class="row">
-                <div class="detail-page-jazz">
-                    <div class="col-md-12 text-center"><h1 class="RestaurantName">@Model.Band</h1></div>
-                    <div class="col-md-8">
-                        <img class="jazzImage" src="@Url.Content("~/Content/images/"+Model.imagePath)" alt="IMAGES" />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="col-md-12 text-center">
-                                <h2>Address</h2>
-                            </div>
-                            @Model.Location
-                        </div>
-                    </div>
+            <div class="col-md-8">
+                <div class="co-md-8">
+                    <img src="@Url.Content("~/Content/images/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()"/>
+                </div>
+                <div class="text-left titelText">
+                    @Model.JazzEvent.Band.ToString() at Patronaat
+
+                    <div class="text-left lblText" style="margin-left:2%;">
+                        Date: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortDateString()</p>
+                        Time: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortTimeString() - @Model.JazzEvent.EndDate.ToShortTimeString()</p>
+                        Location: <p class="lblBodyText">@Model.JazzEvent.Location.Address.ToString()</p>
+</div>
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <div class="form_reservering">
+                    <div class="form-group">
+                        <h3> Choose Datetime!</h3>
+                        <div class="custom-controls-stacked">
+                        </div>
+                        <div class="text-center">
+                            <a>@Html.ActionLink("Buy", "Talk1", 0, new { @class = "btn btn-info" })</a>
+                            <a>@Html.ActionLink("Add to WishList", "Talk1", 0, new { @class = "btn btn-info" })</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-10 cross-talk">
+                <div class="text-center">
+                    <h3> Take a look to other events</h3>
+                    
+                    
+                        @foreach (var diner in Model.DinerEventsList)
+                        {
+                    <div class="col-md-4">
+                        <div class="lblText">
+                            <img src="@Url.Content("~/Content/images/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
+                            @diner.Restaurant.RestaurantName.ToString();
+                        </div>
+                    </div>
+                        }
+                    
+
+                </div>
+                <hr />
+
+            </div>
+
         </div>
+        </div>
+
+
 </body>
+
+
 

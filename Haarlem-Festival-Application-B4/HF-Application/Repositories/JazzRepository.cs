@@ -22,13 +22,6 @@ namespace HF_Application.Repositories
             return JazzEvents = db.Jazzs.Include(a => a.Location).ToList();
         }
 
-        //public List<string> DaySelectionFilter()
-        //{
-        //    List<string> DaySelectionFilter = new List<string>();
-        //    //return DaySelectionFilter = db.Jazzs.Select(s => s.StartDate.ToShortDateString().ToString()).Distinct().ToList();
-        //    return DaySelectionFilter = db.Jazzs.Select(s => DbFunctions.TruncateTime(s.StartDate).ToString()).Distinct().ToList();
-        //}
-
         public List<Jazz> GetJazzEvents(DateTime datetime)
         {
             List<Jazz> JazzEventByDate = new List<Jazz>();
@@ -40,10 +33,30 @@ namespace HF_Application.Repositories
 
         }
 
-        public Jazz Details(int id)
+        public Jazz GetJazzEventById(int id)
         {
             Jazz JazzEvent = db.Jazzs.Where(a => a.ID == id).Include(n => n.Location).SingleOrDefault();
             return JazzEvent;
+        }
+
+        public List<Diner> GetSuggestions(DateTime date)
+        {
+            List<Diner> AllDinersByDate = new List<Diner>();
+            List<Diner> SelctionForDisplay = new List<Diner>();
+            AllDinersByDate = db.Diners.Where(s => s.StartDate.Year == date.Year && s.StartDate.Day == date.Day && s.StartDate.Month == date.Month).ToList();
+
+            Random rnd = new Random();
+
+            for (int i = 0; i > 2; i++)
+            {
+                int random = rnd.Next(0, AllDinersByDate.Count());
+                SelctionForDisplay.Add(AllDinersByDate[random]);
+
+
+            }
+            
+
+            return SelctionForDisplay;
         }
     }
 }
