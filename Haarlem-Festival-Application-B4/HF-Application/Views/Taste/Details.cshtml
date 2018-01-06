@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="co-md-8">
-                    <img src="@Url.Content("~/Content/images/" + @Model.restaurant.imagePath)" alt="Image of   />
+                    <img src="@Url.Content("~/Content/images/" + @Model.restaurant.imagePath)" alt="Image of"/>
                 </div>
                 <div class="text-center">
                     <h5>@Model.restaurant.RestaurantName.ToString()</h5>
@@ -27,11 +27,16 @@
             <div class="col-md-4 form_reservering">
                 <div class="form-group">
                     <h3> Choose Datetime!</h3>
+                    @using (Html.BeginForm("Reservation", "Taste", FormMethod.Post))
+                    {
+                    foreach (var events in Model.DinerEvents)
+                    {
+                            <input type="radio" style="color:white;padding:10px; background:black;" name="gender" value="male">
+                            <label><text style="background:white; color:black; padding:1%;">Date: @events.StartDate.ToString("dd/MM")</text> Time @events.StartDate.ToString("HH:mm") - @events.EndDate.ToString("HH:mm")   Seats: @events.Seats</label><br /> 
+                            <hr style="margin:3px;" />
+                    }
+                     }
                     <div class="custom-controls-stacked">
-                    </div>
-                    <div class="text-center">
-                        <a>@Html.ActionLink("Buy", "Talk1", 0, new { @class = "btn btn-info" })</a>
-                        <a>@Html.ActionLink("Add to WishList", "Talk1", 0, new { @class = "btn btn-info" })</a>
                     </div>
                 </div>
 

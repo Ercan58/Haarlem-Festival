@@ -170,6 +170,14 @@
     <Compile Include="Migrations\201712161839253_ini11.Designer.cs">
       <DependentUpon>201712161839253_ini11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801062110186_seats.cs" />
+    <Compile Include="Migrations\201801062110186_seats.Designer.cs">
+      <DependentUpon>201801062110186_seats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801062124555_deleteseats.cs" />
+    <Compile Include="Migrations\201801062124555_deleteseats.Designer.cs">
+      <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
@@ -450,6 +458,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161839253_ini11.resx">
       <DependentUpon>201712161839253_ini11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062110186_seats.resx">
+      <DependentUpon>201801062110186_seats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062124555_deleteseats.resx">
+      <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
