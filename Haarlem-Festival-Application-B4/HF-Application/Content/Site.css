@@ -230,15 +230,25 @@ a:hover{
     font-size:20px;
 }
 
-.MoreInformationButton{
-  bottom: 5%;
-  padding:2%;
-  width: 50%;
-  font-size:18px;
-  font-weight:bold;
-  border:1px solid black;
-  color:black;
-  background-color:white;
+.textareataste {
+    width:100%;
+}
+
+.dropdownrest{
+    width:100%;
+}
+
+
+
+.MoreInformationButton {
+    bottom: 5%;
+    padding: 2%;
+    width: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
 }
 .MoreInformationButton:hover {
 text-decoration:underline;

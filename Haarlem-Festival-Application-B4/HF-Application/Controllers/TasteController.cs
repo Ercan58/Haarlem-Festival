@@ -29,10 +29,44 @@ namespace HF_Application.Controllers
 
         public ActionResult Details(int id)
         {
+            List<SelectListItem> dinergroup = new List<SelectListItem>();
+            List<SelectListItem> aantalpersonen = new List<SelectListItem>();
+
+            List<Diner> dinersevenements = new List<Diner>();
+            
+
             RestaurantDetailModel restaurantDetailModel = new RestaurantDetailModel();
             restaurantDetailModel.restaurant = dinerrp.GetRestaurant(id);
-            restaurantDetailModel.DinerEvents = db.Diners.Where(d => d.RestaurantId == id).ToList();
+            dinersevenements = db.Diners.Where(d => d.RestaurantId == id).ToList();
+            restaurantDetailModel.diner = db.Diners.FirstOrDefault(d => d.RestaurantId == id);
 
+            foreach (Diner diner in dinersevenements)
+            {
+                dinergroup.Add(
+
+
+                    new SelectListItem
+                    {
+                        Value = diner.ID.ToString(),
+                        Text = "Date: " + diner.StartDate.ToString("dd/MM") + " Time" + diner.StartDate.ToString("HH:mm") + "-" + diner.EndDate.ToString("HH:mm"),
+
+                    });
+                
+            
+            }
+            for(int a=1; a<10; a++)
+            {
+                aantalpersonen.Add(
+                new SelectListItem
+                {
+                    Value = a.ToString(),
+                    Text = a.ToString(),
+
+                });
+            }
+
+            restaurantDetailModel.DinerEvents = dinergroup;
+            restaurantDetailModel.NumberPersons = aantalpersonen;
 
             return View(restaurantDetailModel);
         }
