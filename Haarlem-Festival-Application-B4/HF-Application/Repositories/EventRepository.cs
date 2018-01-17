@@ -99,6 +99,21 @@ namespace HF_Application.Models
             return events;
         }
 
+        public List<Restaurant> GetTasteLocations()
+        {
+            List<Restaurant> restaurants = new List<Restaurant>();
+            foreach (var item in db.Diners
+                    .Include(x => x.Restaurant))
+            {
+                if (!restaurants.Contains(item.Restaurant))
+                {
+                    restaurants.Add(item.Restaurant);
+                }
+            }
+
+            return restaurants;
+        }
+
         public Diner GetTasteEvent(int? id)
         {
             Diner festivalEvent = db.Diners
@@ -113,21 +128,6 @@ namespace HF_Application.Models
         {
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
-        }
-
-        public List<Restaurant> GetTasteLocations()
-        {
-            List<Restaurant> restaurants = new List<Restaurant>();
-            foreach (var item in db.Diners
-                    .Include(x => x.Restaurant))
-            {
-                if (!restaurants.Contains(item.Restaurant))
-                {
-                    restaurants.Add(item.Restaurant);
-                }
-            }
-
-            return restaurants;
         }
 
         // See events

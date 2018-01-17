@@ -2,6 +2,23 @@
 
 @{
     ViewBag.Title = "EditHear";
+
+    WebImage photo = null;
+    var newFileName = "";
+    var imagePath = "";
+
+    if (IsPost)
+    {
+        photo = WebImage.GetImageFromRequest();
+        if (photo != null)
+        {
+            newFileName = Guid.NewGuid().ToString() + "_" +
+                Path.GetFileName(photo.FileName);
+            imagePath = @"images\" + newFileName;
+
+            photo.Save(@"~\" + imagePath);
+        }
+    }
 }
 
 @Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async>", "~/Content/bootstrap-datetimepicker-build.min.css")
@@ -89,6 +106,23 @@
         </div>
         <div class="w-100 d-lg-block d-xl-none"></div>
         <div class="col-xl-9">
+            <form action="" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend> Upload Image </legend>
+                    <label for="Image">Image</label>
+                    <input type="file" name="Image" />
+                    <br />
+                    <input type="submit" value="Upload" />
+                </fieldset>
+            </form>
+            <h1>Uploaded Image</h1>
+            @if (imagePath != "")
+    {
+        <div class="result">
+            <img src="@imagePath" alt="image" />
+
+        </div>
+}
             @Html.EditorFor(model => model.imagePath, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.imagePath, "", new { @class = "text-danger" })
         </div>
