@@ -76,22 +76,22 @@ namespace HF_Application.Models
             List<DateList> events = new List<DateList>
             {
                 new DateList("26/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("27/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("28/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("29/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
                     .Include(x => x.Restaurant)
                     .ToList())
@@ -243,6 +243,17 @@ namespace HF_Application.Models
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
         }
+        
+        //implementeren als er een db tabel is aangemaakt
 
+        //public List<TalkQuestion> GetAllTalkQuestions() {
+        //    List<TalkQuestion> questions = new List<TalkQuestion>();
+        //    foreach (var item in db.TalkQuestions)
+        //    {
+        //        questions.Add(item);
+        //    }
+
+        //    return questions;
+        //}
     }
 }

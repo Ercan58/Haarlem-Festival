@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
+using System.IO;
 
 namespace HF_Application.Controllers
 {
@@ -150,6 +151,18 @@ namespace HF_Application.Controllers
             }
 
             return View(festivalEvent);
+        }
+
+        public ActionResult Photos()
+        {
+            string directory = Server.MapPath("~/Content/images/");
+            List <string> imageList = new List<string>();
+            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
+            {
+                imageList.Add(item);
+            }
+
+            return View(imageList);
         }
     }
 }

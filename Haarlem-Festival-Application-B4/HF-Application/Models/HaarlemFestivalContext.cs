@@ -33,9 +33,6 @@ namespace HF_Application.Models
         public System.Data.Entity.DbSet<HF_Application.Models.Restaurant> Restaurants { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.RestaurantFoodtype> RestaurantFoodtypes { get; set; }
         public System.Data.Entity.DbSet<HF_Application.Models.TourGuid> TourGuids { get; set; }
-
         public System.Data.Entity.DbSet<HF_Application.Models.FoodType> Foodtypes { get; set; }
-
-
     }
 }

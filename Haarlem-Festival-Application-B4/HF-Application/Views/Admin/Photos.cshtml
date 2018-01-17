@@ -1,0 +1,10 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Manage Photos";
+}
+
+<h2>Manage Photos</h2>
+@foreach (var item in Model)
+{
+    <img src="@Url.Content("~/Content/images/" + item)" style="width: 10rem; height: auto;"><br><br />
+}
