@@ -1,4 +1,6 @@
 ﻿body {
+    width: calc(100vw - 34px);
+    padding-left: 34px;
     padding-top: 50px;
     padding-bottom: 20px;
     font-family: 'Roboto';
@@ -146,6 +148,13 @@ select {
     padding: .375rem .75rem;
     border-radius: .25rem;
     padding-left: -10px;
+}
+
+.card {
+    color: #565656;
+    background-color: #e0e0e0;
+    border: none;
+    margin-bottom: 2rem;
 }
 
 footer {

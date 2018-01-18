@@ -5,12 +5,12 @@
 @Html.Partial("_AdminMenu")
 <div class="row">
     <div class="col-sm-6">
-        <a class="btn admin-btn" href="">
+        <a class="btn admin-btn" href="@Url.Action("Dashboard", "Admin")">
             <h3>Sales Dashboard</h3>
         </a>
     </div>
     <div class="col-sm-6">
-        <a class="btn admin-btn" href="">
+        <a class="btn admin-btn" href="@Url.Action("Photos", "Admin")">
             <h3>Manage Photos</h3>
         </a>
     </div>

@@ -155,7 +155,7 @@ namespace HF_Application.Controllers
 
         public ActionResult Photos()
         {
-            string directory = Server.MapPath("~/Content/images/");
+            string directory = Server.MapPath("~/Content/images/events/");
             List <string> imageList = new List<string>();
             foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
             {
