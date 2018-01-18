@@ -1,12 +1,12 @@
-﻿@model List<string>
+﻿@model List<HF_Application.Models.Photo>
 @{
     ViewBag.Title = "Manage Photos";
     int count = 1;
 }
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6 offset-md-3">
         <a class="btn admin-btn" href="">
-            <h3>Add New Image</h3>
+            <h3>Add New Photo</h3>
         </a>
     </div>
 </div>
@@ -14,11 +14,15 @@
     @foreach (var item in Model)
     {
         <div class="col-sm">
-            <div class="card">
-                <img src="@Url.Content("~/Content/images/events/" + item)" class="card-img-top" alt="Image @Html.Encode(item)">
+            <div class="card card-list">
+                <div class="card-img-wrapper">
+                    <a href="@Url.Content(item.URL)">
+                        <img src="@Url.Content(item.URL)" class="card-img-top" alt="Image @item.FileName">
+                    </a>
+                </div>
                 <div class="card-body">
-                    <div class="card-title">@Html.Encode(item)</div>
-                    <a href="#" class="btn btn-danger">Delete image</a>
+                    <div class="card-title">@item.FileName</div>
+                    @Html.ActionLink("Delete photo", "DeletePhoto", new { fileName = item.FileName })
                 </div>
             </div>
         </div>
@@ -28,7 +32,7 @@
         if (count % 3 == 0)
         {
             //Via html.raw omdat razor anders problemen geeft
-            @Html.Raw("<div class=\"w-100 d-lg-block d-xl-none\"></div>")
+            @Html.Raw("<div class=\"w-100 d-sm-block d-xl-none\"></div>")
         }
 
         //Hiermee wordt de lijst opgedeeld in rijen van vier.

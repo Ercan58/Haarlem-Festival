@@ -17,6 +17,8 @@
       <mvcSiteMapNode title="Edit Event" action="EditTalk" preservedRouteParameters="id"></mvcSiteMapNode>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Sales Dashboard" action="Sales"></mvcSiteMapNode>
-    <mvcSiteMapNode title="Photo Manager" action="Photos"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Photo Manager" action="Photos">
+      <mvcSiteMapNode title="Delete Photo" action="DeletePhoto" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
   </mvcSiteMapNode>
 </mvcSiteMap>

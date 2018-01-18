@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
-using System.IO;
 
 namespace HF_Application.Controllers
 {
@@ -155,14 +154,22 @@ namespace HF_Application.Controllers
 
         public ActionResult Photos()
         {
+            //controller haalt directory adres op
             string directory = Server.MapPath("~/Content/images/events/");
-            List <string> imageList = new List<string>();
-            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
-            {
-                imageList.Add(item);
-            }
+
+            List<Photo> imageList = eventRepository.GetAllPhotos(directory);
 
             return View(imageList);
+        }
+
+        public ActionResult DeletePhoto(string fileName)
+        {
+            if (fileName == null)
+                return HttpNotFound();
+
+            Photo photo = eventRepository.GetPhoto(fileName);
+            ViewBag.fileName = fileName;
+            return View(photo);
         }
     }
 }

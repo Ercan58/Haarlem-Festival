@@ -5,7 +5,9 @@ using System.Web;
 using System.Data.Entity;
 using System.Data;
 using System.Collections;
+using System.Web.Mvc;
 using HF_Application.Models.Events;
+using System.IO;
 
 namespace HF_Application.Models
 {
@@ -255,5 +257,24 @@ namespace HF_Application.Models
 
         //    return questions;
         //}
+
+        public List<Photo> GetAllPhotos(string directory)
+        {
+            List<Photo> imageList = new List<Photo>();
+            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
+            {
+                Photo photo = new Photo(item, "~/Content/images/events/" + item);
+                imageList.Add(photo);
+            }
+
+            return imageList;
+        }
+
+        public Photo GetPhoto(string fileName)
+        {
+            Photo photo = new Photo(fileName, "~/Content/images/events/" + fileName);
+
+            return photo;
+        }
     }
 }

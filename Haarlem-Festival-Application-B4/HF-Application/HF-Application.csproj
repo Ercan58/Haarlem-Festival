@@ -184,6 +184,7 @@
     <Compile Include="Models\DateList.cs" />
     <Compile Include="Models\HearDateList.cs" />
     <Compile Include="Models\JazzDetail.cs" />
+    <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -467,6 +468,7 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Admin\DeletePhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
