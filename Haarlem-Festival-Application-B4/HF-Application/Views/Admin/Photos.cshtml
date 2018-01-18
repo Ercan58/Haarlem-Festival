@@ -4,7 +4,14 @@
 }
 
 <h2>Manage Photos</h2>
-@foreach (var item in Model)
-{
-    <img src="@Url.Content("~/Content/images/" + item)" style="width: 10rem; height: auto;"><br><br />
-}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-title">Image @Html.Encode(item)</div>
+                <img src="@Url.Content("~/Content/images/events" + item)" class="card-img">
+            </div>
+        </div>
+    }
+</div>
