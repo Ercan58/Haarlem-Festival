@@ -153,6 +153,7 @@
     <Compile Include="Controllers\HearController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\TalksController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +178,10 @@
     <Compile Include="Migrations\201801062124555_deleteseats.cs" />
     <Compile Include="Migrations\201801062124555_deleteseats.Designer.cs">
       <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190238460_UserAangepast.cs" />
+    <Compile Include="Migrations\201801190238460_UserAangepast.Designer.cs">
+      <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
@@ -435,10 +440,13 @@
     <Content Include="Views\Talks\Talk1.cshtml" />
     <Content Include="Views\Hear\Details.cshtml" />
     <Content Include="Views\Home\Login_Form.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\login.cshtml" />
+    <Content Include="Views\User\LoggedIn.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -464,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801062124555_deleteseats.resx">
       <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190238460_UserAangepast.resx">
+      <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
