@@ -185,6 +185,10 @@ select {
         font-weight: 300;
     }
 
+    .card-big p {
+        margin-bottom: 1rem;
+    }
+
     .card-big form .row .col-lg-6 .admin-btn {
         margin-bottom: 0rem;
     }
@@ -198,7 +202,6 @@ select {
         margin-bottom: 0rem !important;
     }
 }
-
 
 .card-img-wrapper {
     position: relative;
