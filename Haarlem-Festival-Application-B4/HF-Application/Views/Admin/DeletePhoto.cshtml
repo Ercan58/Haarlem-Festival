@@ -1,0 +1,30 @@
+﻿@model HF_Application.Models.Photo
+
+@{
+    ViewBag.Title = "Delete Photo";
+}
+
+<div class="row">
+    <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
+        <div class="card card-big">
+            <h4 class="card-title text-center">Are you sure you want to delete this photo?</h4>
+            <p class="card-subtitle text-center">"@Model.FileName"</p>
+            <a href="@Url.Content(Model.URL)"><img class="card-img-top" src="@Url.Content(Model.URL)" alt="Image @Model.FileName"></a>
+            <div class="card-body card-big">
+                @using (Html.BeginForm())
+            {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input class="btn admin-btn admin-btn-light" type="submit" value="Delete Photo" />
+                        </div>
+                        <div class="col-lg-6">
+                            <a class="btn admin-btn admin-btn-light" href="javascript:history.back()">Cancel and Return</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

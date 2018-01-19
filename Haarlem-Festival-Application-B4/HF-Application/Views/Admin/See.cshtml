@@ -3,10 +3,16 @@
 @{
     ViewBag.Title = "See";
 }
+@Html.Partial("_AdminMenu")
 <div class="row">
     <div class="col-sm-6">
         <a class="btn admin-btn" href="">
-            <h3>Edit General Information</h3>
+            <h3>Add New Event</h3>
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <a class="btn admin-btn" href="">
+            <h3>Manage Tourguides (??)</h3>
         </a>
     </div>
 </div>
@@ -23,7 +29,7 @@
                 <div class="row">
                     <div class="col-sm-3"><span class="event-item item-dark">@Convert.ToString(item.StartDate.ToShortTimeString()) - @Convert.ToString(item.EndDate.ToShortTimeString())</span></div>
                     <div class="col-sm-3"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartTitle)</span></div>
-                    <div class="col-sm-5"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartDescription)</span></div>
+                    <div class="col-sm-5"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.tourGuid.GuidName)</span></div>
                     <div class="col-sm-1"><span class="event-item item-light">@Html.ActionLink("Edit", "EditSee", new { id = item.ID })</span></div>
                 </div>
             }

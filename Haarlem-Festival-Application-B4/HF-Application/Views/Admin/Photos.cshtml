@@ -1,0 +1,46 @@
+﻿@model List<HF_Application.Models.Photo>
+@{
+    ViewBag.Title = "Manage Photos";
+    int count = 1;
+}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <a class="btn admin-btn" href="">
+            <h3>Add New Photo</h3>
+        </a>
+    </div>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm">
+            <div class="card card-list">
+                <div class="card-img-wrapper">
+                    <a href="@Url.Content(item.URL)">
+                        <img src="@Url.Content(item.URL)" class="card-img-top" alt="Image @item.FileName">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">@item.FileName</div>
+                    @Html.ActionLink("Delete photo", "DeletePhoto", new { fileName = item.FileName })
+                </div>
+            </div>
+        </div>
+        count++;
+
+        //Zorgt voor een nettere verdeling bij kleinere schermen
+        if (count % 3 == 0)
+        {
+            //Via html.raw omdat razor anders problemen geeft
+            @Html.Raw("<div class=\"w-100 d-sm-block d-xl-none\"></div>")
+        }
+
+        //Hiermee wordt de lijst opgedeeld in rijen van vier.
+        if (count % 5 == 0)
+        {
+            //Via html.raw omdat razor anders problemen geeft
+            @Html.Raw("</div><div class=\"row\">")
+            count = 1;
+        }
+    }
+</div>

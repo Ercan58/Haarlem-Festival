@@ -4,9 +4,21 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
   <mvcSiteMapNode title="Home" controller="Admin" action="Index">
-    <mvcSiteMapNode title="Taste" controller="Admin" action="Taste"></mvcSiteMapNode>
-    <mvcSiteMapNode title="Hear" controller="Admin" action="Hear"></mvcSiteMapNode>
-    <mvcSiteMapNode title="See" controller="Admin" action="See"></mvcSiteMapNode>
-    <mvcSiteMapNode title="Talk" controller="Admin" action="Talk"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Taste Events" action="Taste">
+      <mvcSiteMapNode title="Edit Event" action="EditTaste" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Hear Events" action="Hear">
+      <mvcSiteMapNode title="Edit Event" action="EditHear" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="See Events" action="See">
+      <mvcSiteMapNode title="Edit Event" action="EditSee" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Talk Events" action="Talk">
+      <mvcSiteMapNode title="Edit Event" action="EditTalk" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Sales Dashboard" action="Sales"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Photo Manager" action="Photos">
+      <mvcSiteMapNode title="Delete Photo" action="DeletePhoto" preservedRouteParameters="id"></mvcSiteMapNode>
+    </mvcSiteMapNode>
   </mvcSiteMapNode>
 </mvcSiteMap>
