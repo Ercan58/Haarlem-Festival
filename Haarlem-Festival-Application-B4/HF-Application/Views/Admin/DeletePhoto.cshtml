@@ -14,9 +14,14 @@
             {
                     @Html.AntiForgeryToken()
 
-                    <input class="btn admin-btn admin-btn-light" type="submit" value="Delete Photo" />
-                    <a class="btn admin-btn admin-btn-light" href="@Url.Action("Photos", "Admin")">Cancel and Return</a>
-
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input class="btn admin-btn admin-btn-light" type="submit" value="Delete Photo" />
+                        </div>
+                        <div class="col-lg-6">
+                            <a class="btn admin-btn admin-btn-light" href="@Url.Action("Photos", "Admin")">Cancel and Return</a>
+                        </div>
+                    </div>
                 }
             </div>
         </div>

@@ -185,13 +185,20 @@ select {
         font-weight: 300;
     }
 
-    .card-big form .admin-btn {
-        margin-bottom: 0;
+    .card-big form .row .col-lg-6 .admin-btn {
+        margin-bottom: 0rem;
     }
 
-        .card-big form .admin-btn:first-of-type {
-            margin-top: 3rem;
-        }
+    .card-big form .row .col-lg-6:first-child {
+        margin-bottom: 1rem;
+    }
+
+@media (min-width: 992px) {
+    .card-big form .row .col-lg-6:first-child {
+        margin-bottom: 0rem !important;
+    }
+}
+
 
 .card-img-wrapper {
     position: relative;
@@ -207,8 +214,4 @@ select {
 
 .card-img img {
     position: absolute;
-}
-
-footer {
-    margin-top: 5rem;
 }
