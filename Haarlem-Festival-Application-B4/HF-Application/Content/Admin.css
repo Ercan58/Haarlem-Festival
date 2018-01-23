@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5 {
     font-family: 'Roboto Slab';
 }
 
+a {
+    color: #2c9eea;
+}
+
 .brand, .brand:hover {
     font-family: 'Roboto Slab';
     font-size: 3rem;
@@ -91,8 +95,8 @@ h1, h2, h3, h4, h5 {
     }
 
 .admin-btn-light {
-    color: #fff;
-    background-color: #424242;
+    color: #424242;
+    background-color: #fff;
 }
 
     .admin-btn-light:hover {
@@ -164,13 +168,17 @@ select {
 }
 
 .card-list {
-    color: #565656;
-    background-color: #e0e0e0;
+    color: #e0e0e0;
+    background-color: #303030;
     border: none;
     margin-bottom: 2rem;
     height: 15rem;
     word-break: break-word;
 }
+
+    .card-list a {
+        color: #CC2828;
+    }
 
 .card-big, .card-big form {
     color: #fff;
