@@ -47,17 +47,27 @@ namespace HF_Application.Controllers
             return View(talksModel);
         }
 
-        public ActionResult Talk1 (int id)
+        public ActionResult Talk1(int id)
         {
             TalksModel talksModel = new TalksModel();
-        
-                
-            talksModel.AllTalkEvents = talkRepository.GetCurrentTalkEvent(id);
-            talksModel.CrossTalkEvents =talkRepository.GetCrossTalkEvents(id);
+
+
+            talksModel.CurrentTalk = talkRepository.GetCurrentTalkEvent(id);
+
+            talksModel.CrossTalkEvents = talkRepository.GetCrossTalkEvents(id);
             talksModel.RestaurantsCross = dinerRepository.GetAllRestaurants();
 
             return View(talksModel);
         }
+
+        public ActionResult BuyDirect(int eventid, int userid, string question, int aantal)
+        {
+            TalksModel talksModel = new TalksModel();
+
+            return View(talksModel);
+        }
+
+
 
     }
 }

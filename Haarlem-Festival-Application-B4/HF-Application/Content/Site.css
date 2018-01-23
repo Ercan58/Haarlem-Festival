@@ -20,7 +20,7 @@ body{
 }
 
 #Diner{
-    background-image: url(images/Haarlem_diner_Background.jpg);
+    background-image: url('images/events/Haarlem_diner_Background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -124,7 +124,7 @@ footer{
 
 .mainpageimage{
    width:100%;
-   background-image: url('./images/Haarlemcentrum.jpg');
+   background-image: url(images/events/Haarlemcentrum.jpg);
    display:block;
    min-height:800px;
    background-repeat:round;
@@ -257,7 +257,7 @@ text-decoration:underline;
 /*Jazz CSS*/
 
 .JazzBody {
-    background-image: url(images/bg-music.png);
+    background-image: url(images/events/bg-music.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -358,7 +358,7 @@ text-decoration:underline;
 
 
 #Talk {
-    background-image: url('images/achtergrond_talk3.jpg');
+    background-image: url(images/events/achtergrond_talk3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

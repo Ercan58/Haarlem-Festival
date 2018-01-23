@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\TasteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HearController.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICartRepository.cs" />
     <Compile Include="Interface\IDinerRepository.cs" />
     <Compile Include="Interface\ITalkRepository.cs" />
     <Compile Include="Migrations\201712121718479_ini1.cs" />
@@ -183,6 +185,10 @@
     <Compile Include="Migrations\201801190238460_UserAangepast.Designer.cs">
       <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801221705188_OrderItemaangepast.cs" />
+    <Compile Include="Migrations\201801221705188_OrderItemaangepast.Designer.cs">
+      <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
@@ -206,10 +212,12 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
+    <Compile Include="Models\ViewModel\CartModel.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
+    <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DinerRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Interface\IEventRepository.cs" />
@@ -238,9 +246,11 @@
     <Content Include="Content\images\events\femke-halsema.jpg" />
     <Content Include="Content\images\events\Femke_Jop.png" />
     <Content Include="Content\images\events\grandcafebrinkmann.jpg" />
+    <Content Include="Content\images\events\hometalk1.jpg" />
     <Content Include="Content\images\events\restaurantfrishaarlem.jpg" />
     <Content Include="Content\images\events\restaurantmlhaarlem.jpg" />
     <Content Include="Content\images\events\specktakel.jpg" />
+    <Content Include="Content\images\events\talkhome2.jpg" />
     <Content Include="Content\images\events\TheGoldenBull.jpg" />
     <Content Include="Content\images\events\UrbanFrenchyBistroToujours.jpg" />
     <Content Include="Content\images\flag.png" />
@@ -448,11 +458,11 @@
     <Content Include="Views\Talks\Talk1.cshtml" />
     <Content Include="Views\Hear\Details.cshtml" />
     <Content Include="Views\Home\Login_Form.cshtml" />
-	    <Content Include="Views\User\Registration.cshtml" />
-    <Content Include="Views\User\login.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\LoggedIn.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-	 <Content Include="Views\Admin\_AdminMenu.cshtml" />
+    <Content Include="Views\Admin\_AdminMenu.cshtml" />
     <Content Include="Views\Admin\Photos.cshtml" />
     <Content Include="Views\Admin\EditSee.cshtml" />
     <Content Include="Views\Admin\EditTalk.cshtml" />
@@ -471,13 +481,15 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Talk\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Admin\DeletePhoto.cshtml" />
+    <Content Include="Views\Cart\AddToCart.cshtml" />
+    <Content Include="Views\Cart\DeleteItem.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -509,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801190238460_UserAangepast.resx">
       <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221705188_OrderItemaangepast.resx">
+      <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

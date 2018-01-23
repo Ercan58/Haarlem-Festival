@@ -1,0 +1,59 @@
+﻿@model HF_Application.Models.ViewModel.CartModel
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddToCart</h2>
+
+
+<h2>Your cart</h2>
+<table id="cartTable" class="table">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <th>Event</th>
+            <th>Question</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
+        {
+            <tr>
+                <td class="text-center">@item.Aantal</td>
+                <td class="text-left">@item.Item.CartDescription</td>
+                <td>@item.Item.CartTitle</td>
+                <td>@item.Opmerking</td>
+                <td class="text-right">
+                    @item.Prijs.ToString("c")
+                </td>
+                <td class="text-right">
+                    @((item.Aantal * item.Prijs).ToString("c"))
+                </td>
+                <td>
+                    @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                0:00 euro
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div class="text-center">
+    <a class = "btn btn-primary" href="@Url.Action("Index","Home")">Continue shopping</a>
+
+    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Checkout now</a>
+
+</div>
+
+
+

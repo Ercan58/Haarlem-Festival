@@ -34,14 +34,10 @@ namespace HF_Application.Repositories
             return talkEvent;
         }
 
-        public List<Talk> GetCurrentTalkEvent(int id)
+        public Talk GetCurrentTalkEvent(int id)
         {
-            List<Talk> talkEvent = new List<Talk>();
-            var selectionById = db.Talks.Where(d => d.ID == id).Include(l => l.Location).ToList();
-            foreach (Talk TalkEvent in selectionById)
-            {
-                talkEvent.Add(TalkEvent);
-            }
+            Talk talkEvent = db.Talks.Where(a => a.ID == id).Include(n => n.Location).SingleOrDefault();
+
             return talkEvent;
         }
 
@@ -56,5 +52,6 @@ namespace HF_Application.Repositories
             }
             return talkEvents;
         }
+
     }
 }

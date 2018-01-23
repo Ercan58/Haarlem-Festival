@@ -41,13 +41,13 @@ namespace HF_Application.Controllers
         }
 
         //login 
-        public ActionResult login()
+        public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult login(User user)
+        public ActionResult Login(User user)
         {
             using (HaarlemFestivalContext db = new HaarlemFestivalContext())
             {
