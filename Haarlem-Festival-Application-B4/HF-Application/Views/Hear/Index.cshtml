@@ -6,20 +6,12 @@
 
 <body id="Jazz">
     <div class="container">
+
         <div class="col-md-8 offset-md-2 col-12 welcomediv">
             <h1 class="text-center">Jazz at Patronaat!</h1>
-            @*<p class="welcometext">
-                    Reservation is mandatory.  A reservation fee of €10,- per person wil be charged when a reservation is made on the Haarlem Festival site. This fee will be deducted from the final check on visiting the restaurant.
-                </p>*@
         </div>
-        <div class="row restaurantnavigation">
-            @*<div class="col-md-12 col-12 text-center">
-                    @foreach (var jazz in Model.DaySelectionFilter)
-                    {
-                        @Html.ActionLink(jazz, "index", new { id = jazz }, new { @class = "DinerNavigationButton" })
-                    }
-                </div>*@
 
+        <div class="row restaurantnavigation">
             <div class="col-sm-12 align-content-sm-center text-center">
 
                 @Html.ActionLink("All", "Index", new { date = "" }, new { @class = "DinerNavigationButton" })
@@ -31,30 +23,6 @@
             </div>
         </div>
     </div>
-
-    @*<div class="container">
-            @foreach (var jazzEvent in Model.AllJazzEvents)
-            {
-                <div class="row jazzDiv">
-                    <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
-                    <div class="col-md-3">
-                        <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
-                    </div>
-                    <div class="col-md-6 col-12 text-center">
-                        <strong>Date:</strong> @jazzEvent.StartDate.ToShortDateString()<br />
-                        <strong>Time:</strong> @jazzEvent.StartDate.ToShortTimeString() - @jazzEvent.EndDate.ToShortTimeString()<br />
-                        <strong>Adress:</strong> @jazzEvent.Location.Address
-                    </div>
-                    <div class="col-md-3 col-12 text-center">
-                        @using (Html.BeginForm())
-                        {
-                            <input type="button" name="button" class="MoreInformationButton" value="Meer informatie" />
-                        }
-                    </div>
-                </div>
-            }
-
-        </div>*@
 
     <div class="container-fluid">
         <div class="row">

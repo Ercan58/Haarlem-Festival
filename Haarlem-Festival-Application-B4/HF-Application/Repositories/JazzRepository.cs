@@ -47,7 +47,7 @@ namespace HF_Application.Repositories
 
             Random rnd = new Random();
 
-            for (int i = 0; i > 2; i++)
+            for (int i = 0; i > 3; i++)
             {
                 int random = rnd.Next(0, AllDinersByDate.Count());
                 SelctionForDisplay.Add(AllDinersByDate[random]);

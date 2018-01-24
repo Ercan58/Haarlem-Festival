@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="co-md-8">
-                    <img src="@Url.Content("~/Content/images/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()"/>
+                    <img src="@Url.Content("~/Content/images/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
                 </div>
                 <div class="text-left titelText">
                     @Model.JazzEvent.Band.ToString() at Patronaat
@@ -23,19 +23,35 @@
                         Date: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortDateString()</p>
                         Time: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortTimeString() - @Model.JazzEvent.EndDate.ToShortTimeString()</p>
                         Location: <p class="lblBodyText">@Model.JazzEvent.Location.Address.ToString()</p>
-</div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="form_reservering">
                     <div class="form-group">
-                        <h3> Choose Datetime!</h3>
+                        <h3 class="lblTocketPrice">Ticket price: @string.Format("{0,00:C}", @Model.JazzEvent.TicketPrice.ToString()) euro</h3>
+                        <div class="col-sm-auto">
+
+                            Amount: <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-sm-4">
+                            Total: @ToString();
+                        </div>
+
                         <div class="custom-controls-stacked">
                         </div>
+
                         <div class="text-center">
-                            <a>@Html.ActionLink("Buy", "Talk1", 0, new { @class = "btn btn-info" })</a>
-                            <a>@Html.ActionLink("Add to WishList", "Talk1", 0, new { @class = "btn btn-info" })</a>
+                            <a>@Html.ActionLink("Buy", "Details", 0, new { @class = "btn btn-info" })</a>
+                            <a>@Html.ActionLink("Add to WishList", "Details", 0, new { @class = "btn btn-info" })</a>
                         </div>
                     </div>
 
@@ -47,29 +63,33 @@
             <div class="col-md-10 cross-talk">
                 <div class="text-center">
                     <h3> Take a look to other events</h3>
-                    
-                    
-                        @foreach (var diner in Model.DinerEventsList)
-                        {
-                    <div class="col-md-4">
-                        <div class="lblText">
-                            <img src="@Url.Content("~/Content/images/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
-                            @diner.Restaurant.RestaurantName.ToString();
+
+
+                    @foreach (var diner in Model.DinerEventsList)
+                    {
+                        <div class="col-md-4">
+                            <div class="lblText">
+                                <img src="@Url.Content("~/Content/images/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
+                                @diner.Restaurant.RestaurantName.ToString();
+                            </div>
                         </div>
-                    </div>
-                        }
-                    
+                    }
+
 
                 </div>
-                <hr />
 
             </div>
 
         </div>
-        </div>
+    </div>
 
 
 </body>
+<script>
+    function myFunction() {
+        var x = document.getElementById("value");
+        var y = document.getElementById("value");
+        document.getElementById("demo").innerHTML = x;
 
 
-
+</script>

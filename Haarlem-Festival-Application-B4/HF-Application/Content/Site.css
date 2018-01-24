@@ -305,17 +305,16 @@ text-decoration:underline;
     font-size: large;
     color: azure;
 }
+.lblTocketPrice{
 
+}
 /*END Jazz*/
-
-
-
 .Talkdiv {
-    background-color:#9C6910;
+    background-color: #9C6910;
     margin-top: 10px;
     margin-bottom: 10px;
     opacity: 0.95;
-    padding:2% 1% 2% 1%;
+    padding: 2% 1% 2% 1%;
 }
 
 .interviewName 
