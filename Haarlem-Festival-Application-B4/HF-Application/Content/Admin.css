@@ -20,6 +20,10 @@ a {
     color: #2c9eea;
 }
 
+.alert {
+    margin-bottom: 2.5rem;
+}
+
 .brand, .brand:hover {
     font-family: 'Roboto Slab';
     font-size: 3rem;
@@ -182,7 +186,7 @@ select {
 
 .card-big, .card-big form {
     color: #fff;
-    background-color: #ff3d3d;
+    background-color: #303030;
     height: auto;
     border: none;
 }
@@ -204,6 +208,10 @@ select {
     .card-big form .row .col-lg-6:first-child {
         margin-bottom: 1rem;
     }
+
+.card-warning, .card-warning form {
+    background-color: #ff3d3d;
+}
 
 @media (min-width: 992px) {
     .card-big form .row .col-lg-6:first-child {

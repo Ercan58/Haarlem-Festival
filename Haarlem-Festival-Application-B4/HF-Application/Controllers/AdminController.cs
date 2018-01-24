@@ -187,7 +187,7 @@ namespace HF_Application.Controllers
                     string path = Path.Combine(Server.MapPath("~/Content/images/events/"),
                                                Path.GetFileName(file.FileName));
                     file.SaveAs(path);
-                    TempData["message"] = "Image uploaded successfully";
+                    TempData["message"] = String.Format("Photo '{0}' uploaded successfully", file.FileName);
                     return RedirectToAction("Photos");
                 }
                 catch (Exception ex)
@@ -196,7 +196,7 @@ namespace HF_Application.Controllers
                 }
             else
             {
-                ViewBag.Message = "You have not specified a file.";
+                ViewBag.Message = "You have not specified a file";
             }
             return View();
         }
@@ -218,7 +218,7 @@ namespace HF_Application.Controllers
             try
             {
                 System.IO.File.Delete(Server.MapPath("~/Content/images/events/") + fileName);
-                TempData["message"] = "Image deleted successfully";
+                TempData["message"] = String.Format("Photo '{0}' deleted successfully", fileName);
                 return RedirectToAction("Photos");
             }
             catch (Exception ex)
