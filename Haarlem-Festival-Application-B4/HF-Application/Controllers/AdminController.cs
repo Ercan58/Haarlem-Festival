@@ -29,9 +29,7 @@ namespace HF_Application.Controllers
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
             if (festivalEvent == null)
-            {
                 return HttpNotFound();
-            }
             ViewBag.Locations = eventRepository.GetTasteLocations();
 
             return View(festivalEvent);
@@ -65,9 +63,7 @@ namespace HF_Application.Controllers
         {
             var festivalEvent = eventRepository.GetHearEvent(id);
             if (festivalEvent == null)
-            {
                 return HttpNotFound();
-            }
             ViewBag.Locations = eventRepository.GetHearLocations();
 
             return View(festivalEvent);
@@ -101,9 +97,7 @@ namespace HF_Application.Controllers
         {
             var festivalEvent = eventRepository.GetSeeEvent(id);
             if (festivalEvent == null)
-            {
                 return HttpNotFound();
-            }
             ViewBag.Locations = eventRepository.GetSeeLocations();
 
             return View(festivalEvent);
@@ -136,9 +130,7 @@ namespace HF_Application.Controllers
         {
             var festivalEvent = eventRepository.GetTalkEvent(id);
             if (festivalEvent == null)
-            {
                 return HttpNotFound();
-            }
             ViewBag.Locations = eventRepository.GetTalkLocations();
 
             return View(festivalEvent);
@@ -158,6 +150,26 @@ namespace HF_Application.Controllers
             }
 
             return View(festivalEvent);
+        }
+
+        public ActionResult Photos()
+        {
+            //controller haalt directory adres op
+            string directory = Server.MapPath("~/Content/images/events/");
+
+            List<Photo> imageList = eventRepository.GetAllPhotos(directory);
+
+            return View(imageList);
+        }
+
+        public ActionResult DeletePhoto(string fileName)
+        {
+            if (fileName == null)
+                return HttpNotFound();
+
+            Photo photo = eventRepository.GetPhoto(fileName);
+            ViewBag.fileName = fileName;
+            return View(photo);
         }
     }
 }

@@ -12,11 +12,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="co-md-8">
-                    <img src="@Url.Content("~/Content/images/" + @Model.restaurant.imagePath)" alt="Image of   />
+                <div class="co-md-3">
+                    <img src="@Url.Content("~/Content/images/" + @Model.restaurant.imagePath)" alt="Image of"/>
                 </div>
                 <div class="text-center">
                     <h5>@Model.restaurant.RestaurantName.ToString()</h5>
+                    <hr />
                 </div>
                 <div class="text-center">
                     <h5></h5>
@@ -26,12 +27,45 @@
 
             <div class="col-md-4 form_reservering">
                 <div class="form-group">
-                    <h3> Choose Datetime!</h3>
+                    <h3>@Model.restaurant.Location.Address.ToString()</h3>
+                    <hr />
+                    @using (Html.BeginForm("Reservation", "Taste", FormMethod.Post))
+                    {
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h2>Choose date</h2>
+                        @Html.DropDownListFor(b => b.selectDinerId, Model.DinerEvents, new { @class = "dropdownrest" })
+                        <hr />
+                        </div>
+                      </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h2>Persons</h2>
+                                @Html.DropDownListFor(b => b.selectPersons, Model.NumberPersons)
+                            </div>
+
+                            <div class="col-md-9">
+                                <h2>Comments</h2>
+                                @Html.TextAreaFor(b => b.comments,new { @class = "textareataste" })
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    Price p.p. @Model.diner.ReducedPrice.ToString() euro
+                                </div>
+                                <div class="col-md-6">
+                                    Pay here 10 euro
+                                </div>
+                            <div class="col-md-12">
+                                Example: Event price €22,50 - €10 reservationpayment= €12,50 payment in the restaurant
+                            </div>
+                            </div>
+
+                         <input style="background:black; color:white; border:0px; width: 100%; margin-top:15px;" type="submit"  name="action:addShoppingBag" value="Add to Shoppingbag" />
+                          <input style="background:black; color:white; border:0px; width: 100%; margin-top:15px;" type="submit"  name="action:addWhishList" value="Add to Wishlist" />
+
+                    }
                     <div class="custom-controls-stacked">
-                    </div>
-                    <div class="text-center">
-                        <a>@Html.ActionLink("Buy", "Talk1", 0, new { @class = "btn btn-info" })</a>
-                        <a>@Html.ActionLink("Add to WishList", "Talk1", 0, new { @class = "btn btn-info" })</a>
                     </div>
                 </div>
 

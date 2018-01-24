@@ -148,15 +148,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\TasteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HearController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\TalksController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICartRepository.cs" />
     <Compile Include="Interface\IDinerRepository.cs" />
+    <Compile Include="Interface\ITalkRepository.cs" />
     <Compile Include="Migrations\201712121718479_ini1.cs" />
     <Compile Include="Migrations\201712121718479_ini1.Designer.cs">
       <DependentUpon>201712121718479_ini1.cs</DependentUpon>
@@ -169,11 +173,29 @@
     <Compile Include="Migrations\201712161839253_ini11.Designer.cs">
       <DependentUpon>201712161839253_ini11.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801062110186_seats.cs" />
+    <Compile Include="Migrations\201801062110186_seats.Designer.cs">
+      <DependentUpon>201801062110186_seats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801062124555_deleteseats.cs" />
+    <Compile Include="Migrations\201801062124555_deleteseats.Designer.cs">
+      <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190238460_UserAangepast.cs" />
+    <Compile Include="Migrations\201801190238460_UserAangepast.Designer.cs">
+      <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801221705188_OrderItemaangepast.cs" />
+    <Compile Include="Migrations\201801221705188_OrderItemaangepast.Designer.cs">
+      <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
+    <Compile Include="Models\HearDateList.cs" />
     <Compile Include="Models\JazzDetail.cs" />
+    <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
     <Compile Include="Models\Enum\Hall.cs" />
@@ -190,10 +212,12 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\TourGuid.cs" />
+    <Compile Include="Models\ViewModel\CartModel.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
+    <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DinerRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
     <Compile Include="Interface\IEventRepository.cs" />
@@ -201,6 +225,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interface\IJazzRepository.cs" />
     <Compile Include="Repositories\JazzRepository.cs" />
+    <Compile Include="Repositories\TalkRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker-build.css">
@@ -212,52 +237,61 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\images\achtergrond_talk.png" />
+    <Content Include="Content\images\events\achtergrond_talk.png" />
+    <Content Include="Content\images\events\achtergrond_talk3.jpg" />
     <Content Include="Content\images\cart.png" />
-    <Content Include="Content\images\Chris Allen.jpg" />
-    <Content Include="Content\images\Envolve.jpg" />
-    <Content Include="Content\images\FamilyXL.jpg" />
-    <Content Include="Content\images\femke-halsema.jpg" />
-    <Content Include="Content\images\Femke_Jop.png" />
+    <Content Include="Content\images\events\Chris Allen.jpg" />
+    <Content Include="Content\images\events\Envolve.jpg" />
+    <Content Include="Content\images\events\FamilyXL.jpg" />
+    <Content Include="Content\images\events\femke-halsema.jpg" />
+    <Content Include="Content\images\events\Femke_Jop.png" />
+    <Content Include="Content\images\events\grandcafebrinkmann.jpg" />
+    <Content Include="Content\images\events\hometalk1.jpg" />
+    <Content Include="Content\images\events\restaurantfrishaarlem.jpg" />
+    <Content Include="Content\images\events\restaurantmlhaarlem.jpg" />
+    <Content Include="Content\images\events\specktakel.jpg" />
+    <Content Include="Content\images\events\talkhome2.jpg" />
+    <Content Include="Content\images\events\TheGoldenBull.jpg" />
+    <Content Include="Content\images\events\UrbanFrenchyBistroToujours.jpg" />
     <Content Include="Content\images\flag.png" />
-    <Content Include="Content\images\bg-music.png" />
-    <Content Include="Content\images\FoxTheMayors.jpg" />
-    <Content Include="Content\images\GareDuNord.jpg" />
-    <Content Include="Content\images\giel-beelen.jpg" />
-    <Content Include="Content\images\Giel_Rop.png" />
-    <Content Include="Content\images\grand_cafe_brinkmann.jpg" />
-    <Content Include="Content\images\GumboKings.jpg" />
-    <Content Include="Content\images\Haarlemcentrum.jpg" />
-    <Content Include="Content\images\Haarlem_diner_Background.jpg" />
-    <Content Include="Content\images\HanBennik.jpg" />
+    <Content Include="Content\images\events\bg-music.png" />
+    <Content Include="Content\images\events\FoxTheMayors.jpg" />
+    <Content Include="Content\images\events\GareDuNord.jpg" />
+    <Content Include="Content\images\events\giel-beelen.jpg" />
+    <Content Include="Content\images\events\Giel_Rop.png" />
+    <Content Include="Content\images\events\grand_cafe_brinkmann.jpg" />
+    <Content Include="Content\images\events\GumboKings.jpg" />
+    <Content Include="Content\images\events\Haarlemcentrum.jpg" />
+    <Content Include="Content\images\events\Haarlem_diner_Background.jpg" />
+    <Content Include="Content\images\events\HanBennik.jpg" />
     <Content Include="Content\images\HEAR.png" />
     <Content Include="Content\images\hflogo.png" />
-    <Content Include="Content\images\historic_haarlem.jpg" />
+    <Content Include="Content\images\events\historic_haarlem.jpg" />
     <Content Include="Content\images\home.png" />
-    <Content Include="Content\images\jazz.jpg" />
-    <Content Include="Content\images\JonnaFraser.jpg" />
-    <Content Include="Content\images\Lillith.jpg" />
-    <Content Include="Content\images\NTjamRose.jpg" />
-    <Content Include="Content\images\Paul_Brig.png" />
+    <Content Include="Content\images\events\jazz.jpg" />
+    <Content Include="Content\images\events\JonnaFraser.jpg" />
+    <Content Include="Content\images\events\Lillith.jpg" />
+    <Content Include="Content\images\events\NTjamRose.jpg" />
+    <Content Include="Content\images\events\Paul_Brig.png" />
     <Content Include="Content\images\profile.png" />
-    <Content Include="Content\images\Ratatouille.jpg" />
-    <Content Include="Content\images\restaurant-ml-restaurant.jpg" />
-    <Content Include="Content\images\restaurant_fris.jpg" />
-    <Content Include="Content\images\restaurant_mr_en_mrs.jpg" />
-    <Content Include="Content\images\restaurant_specktakel.jpg" />
-    <Content Include="Content\images\RilanTheBombardiers.jpg" />
-    <Content Include="Content\images\RuisSoundSystems.jpg" />
-    <Content Include="Content\images\Sanko.jpg" />
+    <Content Include="Content\images\events\Ratatouille.jpg" />
+    <Content Include="Content\images\events\restaurant-ml-restaurant.jpg" />
+    <Content Include="Content\images\events\restaurant_fris.jpg" />
+    <Content Include="Content\images\events\restaurant_mr_en_mrs.jpg" />
+    <Content Include="Content\images\events\restaurant_specktakel.jpg" />
+    <Content Include="Content\images\events\RilanTheBombardiers.jpg" />
+    <Content Include="Content\images\events\RuisSoundSystems.jpg" />
+    <Content Include="Content\images\events\Sanko.jpg" />
     <Content Include="Content\images\SEE.png" />
-    <Content Include="Content\images\SoulSix.jpg" />
+    <Content Include="Content\images\events\SoulSix.jpg" />
     <Content Include="Content\images\TALK.png" />
     <Content Include="Content\images\TASTE.png" />
-    <Content Include="Content\images\TheNordians.jpg" />
-    <Content Include="Content\images\the_golden_bull.jpg" />
-    <Content Include="Content\images\tomThomsenA.jpg" />
-    <Content Include="Content\images\Uncle Sue.jpg" />
-    <Content Include="Content\images\Urban_Frenchy_Bistro_Toujours.jpg" />
-    <Content Include="Content\images\WickedJazzSounds.jpg" />
+    <Content Include="Content\images\events\TheNordians.jpg" />
+    <Content Include="Content\images\events\the_golden_bull.jpg" />
+    <Content Include="Content\images\events\tomThomsenA.jpg" />
+    <Content Include="Content\images\events\Uncle Sue.jpg" />
+    <Content Include="Content\images\events\Urban_Frenchy_Bistro_Toujours.jpg" />
+    <Content Include="Content\images\events\WickedJazzSounds.jpg" />
     <Content Include="Content\Talk.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -424,10 +458,41 @@
     <Content Include="Views\Talks\Talk1.cshtml" />
     <Content Include="Views\Hear\Details.cshtml" />
     <Content Include="Views\Home\Login_Form.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\LoggedIn.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Admin\_AdminMenu.cshtml" />
+    <Content Include="Views\Admin\Photos.cshtml" />
+    <Content Include="Views\Admin\EditSee.cshtml" />
+    <Content Include="Views\Admin\EditTalk.cshtml" />
+    <Content Include="Views\EventHistorics\Create.cshtml" />
+    <Content Include="Views\EventHistorics\Delete.cshtml" />
+    <Content Include="Views\EventHistorics\Details.cshtml" />
+    <Content Include="Views\EventHistorics\Edit.cshtml" />
+    <Content Include="Views\EventHistorics\Index.cshtml" />
+    <Content Include="Views\EventTalkings\Create.cshtml" />
+    <Content Include="Views\EventTalkings\Delete.cshtml" />
+    <Content Include="Views\EventTalkings\Details.cshtml" />
+    <Content Include="Views\EventTalkings\Edit.cshtml" />
+    <Content Include="Views\EventTalkings\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Admin\DeletePhoto.cshtml" />
+    <Content Include="Views\Cart\AddToCart.cshtml" />
+    <Content Include="Views\Cart\DeleteItem.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -447,6 +512,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161839253_ini11.resx">
       <DependentUpon>201712161839253_ini11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062110186_seats.resx">
+      <DependentUpon>201801062110186_seats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801062124555_deleteseats.resx">
+      <DependentUpon>201801062124555_deleteseats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190238460_UserAangepast.resx">
+      <DependentUpon>201801190238460_UserAangepast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801221705188_OrderItemaangepast.resx">
+      <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

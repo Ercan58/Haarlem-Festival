@@ -24,11 +24,12 @@
 
                     
                     <div class="text-center">
-                        <img class="talkImage1" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                        <img class="talkImage1" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
                     </div>
                     <h6 class="text-center interviewName">@talkEvent.Interview</h6>
                     <div class="text-center">
-                        <h6> Date: @talkEvent.StartDate</h6>
+                        <h6> Date: @talkEvent.StartDate.ToShortDateString()  Time: @talkEvent.StartDate.ToShortTimeString()</h6>
+
                         <h6>Adres: @talkEvent.Location.Address </h6>
                     </div>
 

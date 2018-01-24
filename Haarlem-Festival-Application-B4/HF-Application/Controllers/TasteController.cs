@@ -29,21 +29,44 @@ namespace HF_Application.Controllers
 
         public ActionResult Details(int id)
         {
+            List<SelectListItem> dinergroup = new List<SelectListItem>();
+            List<SelectListItem> aantalpersonen = new List<SelectListItem>();
+
+            List<Diner> dinersevenements = new List<Diner>();
+            
+
             RestaurantDetailModel restaurantDetailModel = new RestaurantDetailModel();
             restaurantDetailModel.restaurant = dinerrp.GetRestaurant(id);
-            restaurantDetailModel.DinerEvents = db.Diners.Where(d => d.RestaurantId == id).ToList();
+            dinersevenements = db.Diners.Where(d => d.RestaurantId == id).ToList();
+            restaurantDetailModel.diner = db.Diners.FirstOrDefault(d => d.RestaurantId == id);
 
-            List<SelectListItem> days = new List<SelectListItem>();
-            foreach(Diner diner in restaurantDetailModel.DinerEvents)
+            foreach (Diner diner in dinersevenements)
             {
-                days.Add(new SelectListItem
+                dinergroup.Add(
+
+
+                    new SelectListItem
+                    {
+                        Value = diner.ID.ToString(),
+                        Text = "Date: " + diner.StartDate.ToString("dd/MM") + " Time" + diner.StartDate.ToString("HH:mm") + "-" + diner.EndDate.ToString("HH:mm"),
+
+                    });
+                
+            
+            }
+            for(int a=1; a<10; a++)
+            {
+                aantalpersonen.Add(
+                new SelectListItem
                 {
-                    Text = diner.StartDate.ToString("dd"),
-                    Value = diner.StartDate.ToString("dd"),
+                    Value = a.ToString(),
+                    Text = a.ToString(),
+
                 });
             }
-            ViewBag.days = days;
 
+            restaurantDetailModel.DinerEvents = dinergroup;
+            restaurantDetailModel.NumberPersons = aantalpersonen;
 
             return View(restaurantDetailModel);
         }

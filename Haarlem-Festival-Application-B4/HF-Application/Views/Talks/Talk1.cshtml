@@ -6,61 +6,70 @@
 }
 
 <body id="Talk1">
+
     <div class="container">
         <div class="row">
             <div class="col-md-8">
 
-                @foreach (var talkEvent in Model.AllTalkEvents)
+           
             {
                     <div class="text-center" style="margin-top:10px;">
-                        <h5 class="interviewName" style="border-bottom:none;">@talkEvent.Interview</h5>
+                        <h5 class="interviewName" style="border-bottom:none;">@Model.CurrentTalk.Interview</h5>
                     </div>
 
                     <div class="co-md-4">
-                        <img class="img-rounded" style="border:1px solid black" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                        <img class="img-rounded" style="border:1px solid black" src="@Url.Content("~/Content/images/events/" + Model.CurrentTalk.ImagePath)" alt="Image of @Model.CurrentTalk.Interview" />
 
                     </div>
 
-                    <strong class="text_form " style="white-space:pre-line;"> @talkEvent.ReservationInfo </strong>
-                }
+                    <strong class="text_form " style="white-space:pre-line;"> @Model.CurrentTalk.ReservationInfo </strong>
+             
 
             </div>
 
 
             <div class="col-md-4 form_reservering">
-                <form>
+         
+
                     <div class="form-group">
                         <div class="text-center text_form"><h3> Make a reservation!</h3></div>
 
-                        @foreach (var talkEvent in Model.AllTalkEvents)
-                        {
-                            <h5>@talkEvent.Interview</h5>
+                            @using (Html.BeginForm("AddToCart","Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]) }))
+                            {
+                            <h5>@Model.CurrentTalk.Interview</h5>
+                          
+                                <label><strong class="text_form">Date:</strong> @Model.CurrentTalk.StartDate.ToShortDateString()</label>
+                                <label><strong class="text_form">Date:</strong> @Model.CurrentTalk.StartDate.ToShortTimeString()</label>
+                                        <label class="control-label"> <strong style="color:black">Where:</strong>@Model.CurrentTalk.Location.Address </label>
 
-                            <label><strong class="text_form">Date and Time:</strong> @talkEvent.StartDate </label>
-                            <label class="control-label"> <strong style="color:black">Where:</strong>@talkEvent.Location.Address </label>
+                                        <hr />
+                                        <Strong class="text_form">Aantal Tickets: </Strong><br />
+                                        <select name="aantal">
+                                            <option value="1">1 Ticket</option>
+                                            <option value="2">2 Tickets</option>
+                                        </select>
 
-                            <hr />
-                            <Strong class="text_form">Aantal: </Strong><br />
+                                        <hr />
+                                        <Strong class="text_form">You can ask our guests questions here: </Strong><br />
+                                        <input class="form-control" type="text" name="Question" placeholder="Please Type Your Question Here!" />
 
-                            <input type="radio" name="1" checked /><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>1 Teckit</span>
-                            <input type="radio" name="1" checked /><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-check-circle-o fa-2x"></i><span>2 Teckits</span>
-                            <hr />
-                                <Strong class="text_form">You can ask our guests questions here: </Strong><br />
-                                <input type="text" name="Ask" class="form-control form-control-md" placeholder="Type Your Question Here" />
+                                        <p class="text_form"> Price: @Model.CurrentTalk.TicketPrice Euro</p>
 
-                                <hr />
-                                <p class="text_form">Price: 0 Euro</p>
-
-                                <hr />
+                                        <hr />
                                 <div class="text-center">
-                                    <a>@Html.ActionLink("Buy", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
-                                    <a>@Html.ActionLink("Add to WishList", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
+
+                                    <a>@Html.ActionLink("Buy", "Talk1", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>
+                                    <input type="submit" value="Add to Cart" class = "btn btn-info">
+
                                 </div>
+
+                            }
+
 
                         }
 
                     </div>
-                </form>
+                
 
             </div>
 
@@ -76,11 +85,11 @@
                 @foreach (var talkEvent in Model.CrossTalkEvents)
             { <div class="col-lg-6 " style="float:left; width:100%">
 
-                    <div class="Talkdiv" style=" background-color:rgba(145,0,0,0.85);">
+                    <div class="Talkdiv">
 
                         <h5 class="text-center interviewName">@talkEvent.Interview</h5>
 
-                        <img class="talkImage2" src="@Url.Content("~/Content/images/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                        <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
 
 
                         <div class="text-center">
@@ -102,11 +111,11 @@
                 @foreach (var talkEvent in Model.RestaurantsCross.Take(2))
             { <div class="col-lg-6 " style="float:left; width:100%; height:110%">
 
-                    <div class="Talkdiv" style=" background-color:rgba(145,0,0,0.85);">
+                    <div class="Talkdiv" style="background-color: rgba(189, 23, 23, 0.91)">
 
                         <h5 class="text-center interviewName">@talkEvent.RestaurantName Haarlem City</h5>
 
-                        <img class="talkImage2" src="@Url.Content("~/Content/images/" + talkEvent.imagePath)" alt="Image of @talkEvent.RestaurantName" />
+                        <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.imagePath)" alt="Image of @talkEvent.RestaurantName" />
 
 
                         <div class="text-center">

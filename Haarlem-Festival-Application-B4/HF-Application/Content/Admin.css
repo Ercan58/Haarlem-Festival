@@ -1,4 +1,7 @@
 ﻿body {
+    /*Dit is om te voorkomen dat de layout verschuift als er een scrollbar verschijnt*/
+    width: calc(100vw - 34px);
+    padding-left: 34px;
     padding-top: 50px;
     padding-bottom: 20px;
     font-family: 'Roboto';
@@ -13,7 +16,11 @@ h1, h2, h3, h4, h5 {
     font-family: 'Roboto Slab';
 }
 
-.brand, .brand:hover{
+a {
+    color: #2c9eea;
+}
+
+.brand, .brand:hover {
     font-family: 'Roboto Slab';
     font-size: 3rem;
     color: #e0e0e0;
@@ -24,11 +31,12 @@ h1, h2, h3, h4, h5 {
     font-size: 1.5rem;
     background-color: transparent;
     padding: 0;
+    padding-bottom: 1rem;
 }
 
-.breadcrumb-item.active, .breadcrumb a{
-    color: #e0e0e0;
-}
+    .breadcrumb-item.active, .breadcrumb a {
+        color: #e0e0e0;
+    }
 
 .menu-admin {
     padding-top: 2rem;
@@ -42,10 +50,10 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 1rem;
 }
 
-.menu-admin-btn:hover, .menu-admin-btn-current {
-    margin-bottom: 0;
-    border-bottom: 1rem solid #e0e0e0;
-}
+    .menu-admin-btn:hover, .menu-admin-btn-current {
+        margin-bottom: 0;
+        border-bottom: 1rem solid #e0e0e0;
+    }
 
 .taste, .taste:hover {
     color: #e0e0e0;
@@ -69,6 +77,7 @@ h1, h2, h3, h4, h5 {
 
 .admin-btn {
     width: 100%;
+    height: auto;
     margin-bottom: 3rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -76,12 +85,24 @@ h1, h2, h3, h4, h5 {
     color: #e0e0e0;
     background-color: #303030;
     cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
-.admin-btn:hover {
-    color: #e0e0e0;
-    background-color: #3f3f3f;
+    .admin-btn:hover {
+        color: #e0e0e0;
+        background-color: #3f3f3f;
+    }
+
+.admin-btn-light {
+    color: #424242;
+    background-color: #fff;
 }
+
+    .admin-btn-light:hover {
+        color: #fff;
+        background-color: #595959;
+    }
 
 .event-list-header {
     border-top-right-radius: .25rem;
@@ -134,7 +155,7 @@ label {
 }
 
 @media (min-width: 1200px) {
-    label{
+    label {
         text-align: right;
     }
 }
@@ -146,6 +167,62 @@ select {
     padding-left: -10px;
 }
 
-footer {
-    margin-top: 5rem;
+.card-list {
+    color: #e0e0e0;
+    background-color: #303030;
+    border: none;
+    margin-bottom: 2rem;
+    height: 15rem;
+    word-break: break-word;
+}
+
+    .card-list a {
+        color: #CC2828;
+    }
+
+.card-big, .card-big form {
+    color: #fff;
+    background-color: #ff3d3d;
+    height: auto;
+    border: none;
+}
+
+    .card-big h4 {
+        margin: 1.5rem;
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    .card-big p {
+        margin-bottom: 1rem;
+    }
+
+    .card-big form .row .col-lg-6 .admin-btn {
+        margin-bottom: 0rem;
+    }
+
+    .card-big form .row .col-lg-6:first-child {
+        margin-bottom: 1rem;
+    }
+
+@media (min-width: 992px) {
+    .card-big form .row .col-lg-6:first-child {
+        margin-bottom: 0rem !important;
+    }
+}
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 10rem;
+}
+
+    .card-img-wrapper:hover {
+        transform: scale(1.5);
+        transition: ease-in-out 0.1s;
+        z-index: 10;
+    }
+
+.card-img img {
+    position: absolute;
 }

@@ -1,0 +1,31 @@
+﻿<div class="row menu-admin">
+    <div class="col-sm">
+        <a class="btn menu-admin-btn taste @(ViewContext.RouteData.Values["action"].ToString() == "Taste" ? "menu-admin-btn-current" : "")"
+           href="@Url.Action("Taste", "Admin")">
+            <h1>Taste</h1>
+            <h4>Dinner in Haarlem</h4>
+        </a>
+    </div>
+    <div class="col-sm">
+        <a class="btn menu-admin-btn hear @(ViewContext.RouteData.Values["action"].ToString() == "Hear" ? "menu-admin-btn-current" : "")"
+           href="@Url.Action("Hear", "Admin")">
+            <h1>Hear</h1>
+            <h4>Jazz@Patronaat</h4>
+        </a>
+    </div>
+    <div class="w-100 d-lg-block d-xl-none"></div> <!-- Dit zorgt ervoor dat het menu bij kleinere schermen netjes in tweeën wordt gedeeld -->
+    <div class="col-sm">
+        <a class="btn menu-admin-btn see @(ViewContext.RouteData.Values["action"].ToString() == "See" ? "menu-admin-btn-current" : "")"
+           href="@Url.Action("See", "Admin")">
+            <h1>See</h1>
+            <h4>Historic Haarlem</h4>
+        </a>
+    </div>
+    <div class="col-sm">
+        <a class="btn menu-admin-btn talk @(ViewContext.RouteData.Values["action"].ToString() == "Talk" ? "menu-admin-btn-current" : "")"
+           href="@Url.Action("Talk", "Admin")">
+            <h1>Talk</h1>
+            <h4>Talking Haarlem</h4>
+        </a>
+    </div>
+</div>

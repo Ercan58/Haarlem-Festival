@@ -5,7 +5,9 @@ using System.Web;
 using System.Data.Entity;
 using System.Data;
 using System.Collections;
+using System.Web.Mvc;
 using HF_Application.Models.Events;
+using System.IO;
 
 namespace HF_Application.Models
 {
@@ -76,27 +78,42 @@ namespace HF_Application.Models
             List<DateList> events = new List<DateList>
             {
                 new DateList("26/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 26).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("27/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 27).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("28/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 28).Date)
                     .Include(x => x.Restaurant)
                     .ToList()),
                 new DateList("29/07",
-                    db.Diners.OrderBy(i => i.StartDate)
+                    db.Diners.OrderBy(i => i.RestaurantId)
                     .Where(x => DbFunctions.TruncateTime(x.StartDate) == new DateTime(2018, 07, 29).Date)
                     .Include(x => x.Restaurant)
                     .ToList())
             };
             return events;
+        }
+
+        public List<Restaurant> GetTasteLocations()
+        {
+            List<Restaurant> restaurants = new List<Restaurant>();
+            foreach (var item in db.Diners
+                    .Include(x => x.Restaurant))
+            {
+                if (!restaurants.Contains(item.Restaurant))
+                {
+                    restaurants.Add(item.Restaurant);
+                }
+            }
+
+            return restaurants;
         }
 
         public Diner GetTasteEvent(int? id)
@@ -113,21 +130,6 @@ namespace HF_Application.Models
         {
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
-        }
-
-        public List<Restaurant> GetTasteLocations()
-        {
-            List<Restaurant> restaurants = new List<Restaurant>();
-            foreach (var item in db.Diners
-                    .Include(x => x.Restaurant))
-            {
-                if (!restaurants.Contains(item.Restaurant))
-                {
-                    restaurants.Add(item.Restaurant);
-                }
-            }
-
-            return restaurants;
         }
 
         // See events
@@ -243,6 +245,36 @@ namespace HF_Application.Models
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
         }
+        
+        //implementeren als er een db tabel is aangemaakt
 
+        //public List<TalkQuestion> GetAllTalkQuestions() {
+        //    List<TalkQuestion> questions = new List<TalkQuestion>();
+        //    foreach (var item in db.TalkQuestions)
+        //    {
+        //        questions.Add(item);
+        //    }
+
+        //    return questions;
+        //}
+
+        public List<Photo> GetAllPhotos(string directory)
+        {
+            List<Photo> imageList = new List<Photo>();
+            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
+            {
+                Photo photo = new Photo(item, "~/Content/images/events/" + item);
+                imageList.Add(photo);
+            }
+
+            return imageList;
+        }
+
+        public Photo GetPhoto(string fileName)
+        {
+            Photo photo = new Photo(fileName, "~/Content/images/events/" + fileName);
+
+            return photo;
+        }
     }
 }
