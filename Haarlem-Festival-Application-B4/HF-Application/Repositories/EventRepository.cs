@@ -257,37 +257,5 @@ namespace HF_Application.Models
 
         //    return questions;
         //}
-
-        public List<Photo> GetAllPhotos(string directory)
-        {
-            List<Photo> imageList = new List<Photo>();
-            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
-            {
-                Photo photo = new Photo(item, "~/Content/images/events/" + item);
-                imageList.Add(photo);
-            }
-
-            return imageList;
-        }
-
-        public Photo GetPhoto(string fileName)
-        {
-            Photo photo = new Photo(fileName, "~/Content/images/events/" + fileName);
-
-            return photo;
-        }
-
-        public bool DeletePhoto(string directory, string fileName)
-        {
-            try
-            {
-                File.Delete(directory + fileName);
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

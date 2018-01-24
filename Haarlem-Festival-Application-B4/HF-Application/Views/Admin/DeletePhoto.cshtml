@@ -12,7 +12,7 @@
             <a href="@Url.Content(Model.URL)"><img class="card-img-top" src="@Url.Content(Model.URL)" alt="Image @Model.FileName"></a>
             <div class="card-body card-big">
                 @using (Html.BeginForm())
-            {
+                {
                     @Html.AntiForgeryToken()
 
                     <div class="row">
@@ -26,5 +26,11 @@
                 }
             </div>
         </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="alert col-sm-12">
+        @ViewBag.Message
     </div>
 </div>

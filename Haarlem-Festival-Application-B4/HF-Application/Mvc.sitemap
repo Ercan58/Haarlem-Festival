@@ -18,6 +18,7 @@
     </mvcSiteMapNode>
     <mvcSiteMapNode title="Sales Dashboard" action="Sales"></mvcSiteMapNode>
     <mvcSiteMapNode title="Photo Manager" action="Photos">
+      <mvcSiteMapNode title="Add Photo" action="AddPhoto" preservedRouteParameters="id"></mvcSiteMapNode>
       <mvcSiteMapNode title="Delete Photo" action="DeletePhoto" preservedRouteParameters="id"></mvcSiteMapNode>
     </mvcSiteMapNode>
   </mvcSiteMapNode>

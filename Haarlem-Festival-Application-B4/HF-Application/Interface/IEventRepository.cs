@@ -23,9 +23,5 @@ namespace HF_Application.Models
         Events.Talk GetTalkEvent(int? id);
         void UpdateTalkEvent(Events.Talk festivalEvent);
         List<Location> GetTalkLocations();
-
-        List<Photo> GetAllPhotos(string directory);
-        Photo GetPhoto(string fileName);
-        bool DeletePhoto(string directory, string fileName);
     }
 }

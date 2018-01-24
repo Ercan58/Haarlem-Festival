@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,12 +14,12 @@ namespace HF_Application.Controllers
 
         // GET: Admin
         public ActionResult Index()
-		{
-			return View();
+        {
+            return View();
         }
 
-	    public ActionResult Taste()
-	    {
+        public ActionResult Taste()
+        {
             var events = eventRepository.GetAllTasteEvents();
 
             return View(events);
@@ -52,11 +53,11 @@ namespace HF_Application.Controllers
         }
 
         public ActionResult Hear()
-	    {
+        {
             var events = eventRepository.GetAllHearEvents();
 
             return View(events);
-	    }
+        }
 
         // Get
         public ActionResult EditHear(int? id)
@@ -86,7 +87,7 @@ namespace HF_Application.Controllers
         }
 
         public ActionResult See()
-	    {
+        {
             var events = eventRepository.GetAllSeeEvents();
 
             return View(events);
@@ -119,7 +120,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
         public ActionResult Talk()
-	    {
+        {
             var events = eventRepository.GetAllTalkEvents();
 
             return View(events);
@@ -154,12 +155,50 @@ namespace HF_Application.Controllers
 
         public ActionResult Photos()
         {
-            //controller haalt directory adres op
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             string directory = Server.MapPath("~/Content/images/events/");
 
-            List<Photo> imageList = eventRepository.GetAllPhotos(directory);
+            List<Photo> imageList = new List<Photo>();
+            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
+            {
+                Photo photo = new Photo(item, "~/Content/images/events/" + item);
+                imageList.Add(photo);
+            }
 
             return View(imageList);
+        }
+
+        public ActionResult AddPhoto()
+        {
+            return View();
+        }
+
+        // Post
+        [HttpPost]
+        public ActionResult AddPhoto(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/images/events/"),
+                                               Path.GetFileName(file.FileName));
+                    file.SaveAs(path);
+                    TempData["message"] = "Image uploaded successfully";
+                    return RedirectToAction("Photos");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            return View();
         }
 
         public ActionResult DeletePhoto(string fileName)
@@ -167,7 +206,7 @@ namespace HF_Application.Controllers
             if (fileName == null)
                 return HttpNotFound();
 
-            Photo photo = eventRepository.GetPhoto(fileName);
+            Photo photo = new Photo(fileName, "~/Content/images/events/" + fileName);
             return View(photo);
         }
 
@@ -176,17 +215,17 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePhotoConfirmed(string fileName)
         {
-            string directory = Server.MapPath("~/Content/images/events/");
-
-            if (ModelState.IsValid)
+            try
             {
-                eventRepository.DeletePhoto(directory, fileName);
+                System.IO.File.Delete(Server.MapPath("~/Content/images/events/") + fileName);
+                TempData["message"] = "Image deleted successfully";
                 return RedirectToAction("Photos");
             }
-            else
+            catch (Exception ex)
             {
-                return Content("Something went wrong while trying to delete the photo.");
+                ViewBag.Message = "ERROR:" + ex.Message.ToString();
             }
+            return View(fileName);
         }
     }
 }
