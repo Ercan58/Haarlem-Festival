@@ -67,6 +67,8 @@ namespace HF_Application.Controllers
 
             restaurantDetailModel.DinerEvents = dinergroup;
             restaurantDetailModel.NumberPersons = aantalpersonen;
+            restaurantDetailModel.CrossTalkEvents = db.Talks.OrderBy(r => Guid.NewGuid()).Take(2).ToList();
+            restaurantDetailModel.HearCrossEvents = db.Jazzs.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
 
             return View(restaurantDetailModel);
         }
