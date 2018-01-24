@@ -276,5 +276,18 @@ namespace HF_Application.Models
 
             return photo;
         }
+
+        public bool DeletePhoto(string directory, string fileName)
+        {
+            try
+            {
+                File.Delete(directory + fileName);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

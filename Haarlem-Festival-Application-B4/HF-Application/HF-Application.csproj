@@ -237,6 +237,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\events\aa_testplaatje.jpg" />
     <Content Include="Content\images\events\achtergrond_talk.png" />
     <Content Include="Content\images\events\achtergrond_talk3.jpg" />
     <Content Include="Content\images\cart.png" />

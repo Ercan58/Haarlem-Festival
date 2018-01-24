@@ -168,8 +168,25 @@ namespace HF_Application.Controllers
                 return HttpNotFound();
 
             Photo photo = eventRepository.GetPhoto(fileName);
-            ViewBag.fileName = fileName;
             return View(photo);
+        }
+
+        // Post
+        [HttpPost, ActionName("DeletePhoto")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePhotoConfirmed(string fileName)
+        {
+            string directory = Server.MapPath("~/Content/images/events/");
+
+            if (ModelState.IsValid)
+            {
+                eventRepository.DeletePhoto(directory, fileName);
+                return RedirectToAction("Photos");
+            }
+            else
+            {
+                return Content("Something went wrong while trying to delete the photo.");
+            }
         }
     }
 }

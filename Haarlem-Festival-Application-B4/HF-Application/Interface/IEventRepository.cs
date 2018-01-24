@@ -26,5 +26,6 @@ namespace HF_Application.Models
 
         List<Photo> GetAllPhotos(string directory);
         Photo GetPhoto(string fileName);
+        bool DeletePhoto(string directory, string fileName);
     }
 }
