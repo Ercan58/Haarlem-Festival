@@ -9,6 +9,7 @@
 
 @if (Session["CurrentWishlist"] == null)
 {
+    
     <h2>Your cart</h2>
 
 
@@ -17,6 +18,8 @@
 
 else
 {
+    HF_Application.Models.ViewModel.CartModel cart = new HF_Application.Models.ViewModel.CartModel();
+    cart = Session["CurrentWishlist"] as HF_Application.Models.ViewModel.CartModel;
 
     <h2>Your cart</h2>
     <table id="cartTable" class="table">
@@ -31,12 +34,13 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
+
+            @foreach (var item in cart.AllOrderitems)
             {
                 <tr>
                     <td class="text-center">@item.Aantal</td>
-                    <td class="text-left">@item.Item.CartDescription</td>
-                    <td>@item.Item.CartTitle</td>
+                    <td class="text-left">@item.Item.CartTitle</td>
+                    <td>@item.Item.CartDescription</td>
                     <td>@item.Opmerking</td>
                     <td class="text-right">
                         @item.Prijs.ToString("c")
@@ -62,7 +66,7 @@ else
     <div class="text-center">
         <a class="btn btn-primary" href="@Url.Action("Index","Home")">Continue shopping</a>
 
-        <a class="btn btn-primary" href="@Url.Action("Index","Home")">Checkout now</a>
+        <a class="btn btn-primary" href="@Url.Action("PlaceOrder","Cart")">Checkout now</a>
     </div>
 
 }

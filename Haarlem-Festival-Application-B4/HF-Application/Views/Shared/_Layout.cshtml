@@ -62,6 +62,9 @@
 
                                 @if (Session["CurrentWishlist"] != null)
                                 {
+                                    HF_Application.Models.ViewModel.CartModel cart = new HF_Application.Models.ViewModel.CartModel();
+                                 //   List<HF_Application.Models.OrderItem> list = new List<HF_Application.Models.OrderItem>();
+                                    cart = Session["CurrentWishlist"] as HF_Application.Models.ViewModel.CartModel;
 
                                     <table id="cartTable" class="table" style="color:black">
                                         <thead>
@@ -73,7 +76,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
+                                            @foreach (var item in cart.AllOrderitems)
                                             {
                                                 <tr>
                                                     <td class="text-center">@item.Aantal</td>

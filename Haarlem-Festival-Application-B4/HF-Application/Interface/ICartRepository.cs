@@ -10,7 +10,13 @@ namespace HF_Application.Interface
 {
     interface ICartRepository
     {
-        List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent orderitem);
+        List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent);
+        List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question);
+
         FestivalEvent GetbesteldEvent(int eventid);
+
+        int PlaceOrder(int userid);
+
+        void Additemsdb(OrderItem item);
     }
 }

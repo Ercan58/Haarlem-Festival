@@ -20,12 +20,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
+        @foreach (var item in Model.AllOrderitems)
         {
             <tr>
                 <td class="text-center">@item.Aantal</td>
-                <td class="text-left">@item.Item.CartDescription</td>
-                <td>@item.Item.CartTitle</td>
+                <td class="text-left">@item.Item.CartTitle</td>
+                <td>@item.Item.CartDescription</td>
                 <td>@item.Opmerking</td>
                 <td class="text-right">
                     @item.Prijs.ToString("c")
@@ -51,7 +51,7 @@
 <div class="text-center">
     <a class = "btn btn-primary" href="@Url.Action("Index","Home")">Continue shopping</a>
 
-    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Checkout now</a>
+    <a class="btn btn-primary" href="@Url.Action("PlaceOrder","Cart")">Checkout now</a>
 
 </div>
 
