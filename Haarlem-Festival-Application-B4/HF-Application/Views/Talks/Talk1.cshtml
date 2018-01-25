@@ -5,130 +5,210 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body id="Talk1">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-
-           
-            {
-                    <div class="text-center" style="margin-top:10px;">
-                        <h5 class="interviewName" style="border-bottom:none;">@Model.CurrentTalk.Interview</h5>
-                    </div>
-
-                    <div class="co-md-4">
-                        <img class="img-rounded" style="border:1px solid black" src="@Url.Content("~/Content/images/events/" + Model.CurrentTalk.ImagePath)" alt="Image of @Model.CurrentTalk.Interview" />
-
-                    </div>
-
-                    <strong class="text_form " style="white-space:pre-line;"> @Model.CurrentTalk.ReservationInfo </strong>
-             
-
-            </div>
+<body>
+    <div class="text-center">
+        <h1 style="color:black"><strong>@Model.CurrentTalk.Interview</strong></h1>
+    </div>
+    @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]) }))
+    {
 
 
-            <div class="col-md-4 form_reservering">
-         
+        <div class="container">
 
-                    <div class="form-group">
-                        <div class="text-center text_form"><h3> Make a reservation!</h3></div>
+            <div class="card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.CurrentTalk.ImagePath)" alt="Image of @Model.CurrentTalk.Interview" /></div>
 
-                            @using (Html.BeginForm("AddToCart","Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]) }))
-                            {
-                            <h5>@Model.CurrentTalk.Interview</h5>
-                          
-                                <label><strong class="text_form">Date:</strong> @Model.CurrentTalk.StartDate.ToShortDateString()</label>
-                                <label><strong class="text_form">Date:</strong> @Model.CurrentTalk.StartDate.ToShortTimeString()</label>
-                                        <label class="control-label"> <strong style="color:black">Where:</strong>@Model.CurrentTalk.Location.Address </label>
-
-                                        <hr />
-                                        <Strong class="text_form">Aantal Tickets: </Strong><br />
-                                        <select name="aantal">
-                                            <option value="1">1 Ticket</option>
-                                            <option value="2">2 Tickets</option>
-                                        </select>
-
-                                        <hr />
-                                        <Strong class="text_form">You can ask our guests questions here: </Strong><br />
-                                        <input class="form-control" type="text" name="Question" placeholder="Please Type Your Question Here!" />
-
-                                        <p class="text_form"> Price: @Model.CurrentTalk.TicketPrice Euro</p>
-
-                                        <hr />
-                                <div class="text-center">
-
-                                    <a>@Html.ActionLink("Buy", "Talk1", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>
-                                    <input type="submit" value="Add to Cart" class = "btn btn-info">
-
+                                <Strong class="text_form" style="color:#808080">You can ask our guests questions here: </Strong><br />
+                                <input style="height:100px; color:#808080" class="form-control" type="text" name="Question" placeholder="Please Type Your Question Here And It Will Be Saved With Your Order....." />
+                            </div>
+                        </div>
+                        <div class="details col-md-6">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Name</div>
+                                <hr>
+                                <h4 style="color:black">@Model.CurrentTalk.Interview</h4>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div class="rating">
+                                    <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>  Category</div>
+                                    <hr>
+                                    <h4 style="color:black">@Model.CurrentTalk.CartTitle</h4>
                                 </div>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div>
+                                <hr>
+                                <h6 class="text-left" style="color:black ; white-space:pre-line">@Model.CurrentTalk.ReservationInfo</h6>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Money</div>
+                                <hr>
+                                <font color="purple"> @Model.CurrentTalk.TicketPrice Euro </font>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Aantal Teckits:</div>
+                                <hr>
+                                <span style="color:#808080" class="input-group-addon">
+                                    <select id="beden" class="form-control" name="aantal">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
 
-                            }
-
-
-                        }
-
+                                    </select>
+                                </span>
+                                <br>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
+                                <a href="#popup1" class="btn btn-info btn-block login">Buy Direct</a>
+                                @*<a>@Html.ActionLink("Buy Direct", "PlaceOrder", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>*@
+                            </div>
+                        </div>
                     </div>
-                
-
+                </div>
             </div>
 
         </div>
+    }
 
 
-        <div class="row cross-talk">
-            <div class="cross1 col-lg-6">
-                <h3 class="text_form"> Take a look at our other Talks!</h3>
-
-                <hr />
-
-                @foreach (var talkEvent in Model.CrossTalkEvents)
-            { <div class="col-lg-6 " style="float:left; width:100%">
-
-                    <div class="Talkdiv">
-
-                        <h5 class="text-center interviewName">@talkEvent.Interview</h5>
-
-                        <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+    @*//popup voor direct bestellen*@
 
 
-                        <div class="text-center">
-                            <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info" })</a>
+    <div id="popup1" class="overlay">
+        <div class="popup2">
+            <h2>Almost Done!</h2>
+            <a class="close" href="#">&times;</a>
+
+            <div class="container text-center" style="background-color:#808080; width:60%;">
+                <div class="row">
+                    <div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    Payment Details
+                                </h3>
+                                <div class="checkbox pull-right">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Remember
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="cardNumber">
+                                            CARD NUMBER
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                                   required autofocus />
+                                            <input type="text" class="form-control" id="cardNumber" placeholder="Enter your Email Adress"
+                                                   required autofocus />
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-7 col-md-7">
+                                            <div class="form-group">
+                                                <label for="expityMonth">
+                                                    EXPIRY DATE
+                                                </label>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                                </div>
+                                                <div class="col-xs-6 col-lg-6 pl-ziro">
+                                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-5 col-md-5 pull-right">
+                                            <div class="form-group">
+                                                <label for="cvCode">
+                                                    CV CODE
+                                                </label>
+                                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
 
-
+                        <br />
+                        <a href="#" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
                     </div>
                 </div>
-                }
-
-            </div>
-
-
-            <div class="cross2 col-lg-6">
-                <h3 class="text_form"> Or visit our restaurants!</h3>
-                <hr />
-
-                @foreach (var talkEvent in Model.RestaurantsCross.Take(2))
-            { <div class="col-lg-6 " style="float:left; width:100%; height:110%">
-
-                    <div class="Talkdiv" style="background-color: rgba(189, 23, 23, 0.91)">
-
-                        <h5 class="text-center interviewName">@talkEvent.RestaurantName Haarlem City</h5>
-
-                        <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.imagePath)" alt="Image of @talkEvent.RestaurantName" />
-
-
-                        <div class="text-center">
-                            <a>@Html.ActionLink("More Information","Details","Taste", new { id = talkEvent.Id }, new { @class = "btn btn-info" })</a>
-                        </div>
-
-
-                    </div>
-                </div>
-                }
-
             </div>
 
         </div>
     </div>
+
+
+
+    <br>
+    <br>
+    @*cross selling van hier!*@
+    <div class="container">
+        <div class="text-center" style="color:black"> <h3>Take A Look To Our Other Events!</h3></div>
+        <div class="card">
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    @foreach (var talkEvent in Model.CrossTalkEvents)
+                    {<div class="col-lg-6 " style="float:left; width:100%">
+
+                            <div style="background-color:#9C6910">
+
+
+                                <div class="text-center">  <h5>@talkEvent.Interview</h5></div>
+
+                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+
+                                <div class="text-center" style="margin-bottom:5px;">  <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
+
+
+
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="col-md-6">
+
+                    @foreach (var talkEvent in Model.RestaurantsCross.Take(2))
+                    {<div class="col-lg-6 " style="float:left; width:100%; height:110%">
+
+                            <div style="background-color: rgba(189, 23, 23, 0.91)">
+                                <div class="text-center">  <h5 class="text-center">@talkEvent.RestaurantName In Haarlem City</h5>  </div>
+
+
+                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.imagePath)" alt="Image of @talkEvent.RestaurantName" />
+
+
+                                <div class="text-center" style="margin-bottom:5px;">
+                                    <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = talkEvent.Id }, new { @class = "btn btn-info login" })</a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
 </body>
