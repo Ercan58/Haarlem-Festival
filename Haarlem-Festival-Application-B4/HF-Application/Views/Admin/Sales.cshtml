@@ -1,0 +1,42 @@
+﻿@model List<HF_Application.Models.SalesItem>
+@{
+    ViewBag.Title = "Total Sales";
+}
+@Html.Partial("_SalesMenu")
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Tickets Sold: @ViewBag.TotalSold</h1>
+        <h1>Total Revenue: €@ViewBag.TotalRevenue</h1><br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"><span class="event-item item-dark event-list-header">Date</span></div>
+    <div class="col-sm-2 offset-5"><span class="event-item item-dark event-list-header">Tickets Sold</span></div>
+    <div class="col-sm-1"><span class="event-item item-dark event-list-header">Left</span></div>
+    <div class="col-sm-2"><span class="event-item item-dark event-list-header">Revenue</span></div>
+</div>
+<div class="event-list-body">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-sm-2"><span class="event-item item-dark">@item.StartDate.ToShortDateString()</span></div>
+            <div class="col-sm-2"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartTitle)</span></div>
+            <div class="col-sm-3"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartDescription)</span></div>
+            <div class="col-sm-2" align="center"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.SeatsSold)/@Html.DisplayFor(modelItem => item.Seats)</span></div>
+            <div class="col-sm-1" align="center">
+                <span class="event-item item-light">
+                    @if (item.FreeSeats == 0)
+                {
+                        @Html.Raw("<span style=\"color: #CC2828\">none</span>");
+                }
+                else
+                {
+                        @Html.DisplayFor(modelItem => item.FreeSeats)
+                    }
+                </span>
+            </div>
+            <div class="col-sm-2" align="center"><span class="event-item item-light">€@Html.DisplayFor(modelItem => item.Revenue)</span></div>
+        </div>
+    }
+</div>

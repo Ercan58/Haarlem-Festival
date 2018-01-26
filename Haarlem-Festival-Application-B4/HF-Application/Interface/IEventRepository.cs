@@ -23,5 +23,9 @@ namespace HF_Application.Models
         Events.Talk GetTalkEvent(int? id);
         void UpdateTalkEvent(Events.Talk festivalEvent);
         List<Location> GetTalkLocations();
+
+        List<SalesItem> GetAllEvents();
+        int GetTotalSales();
+        double GetTotalRevenue();
     }
 }

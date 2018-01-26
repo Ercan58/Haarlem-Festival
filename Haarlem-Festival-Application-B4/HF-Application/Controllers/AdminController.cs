@@ -153,6 +153,22 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+        public ActionResult Sales()
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents();
+            ViewBag.TotalSold = eventRepository.GetTotalSales();
+            ViewBag.TotalRevenue = eventRepository.GetTotalRevenue();
+
+            return View(salesList);
+        }
+
+        public ActionResult DaySales()
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents();
+
+            return View(salesList);
+        }
+
         public ActionResult Photos()
         {
             if (TempData["message"] != null)

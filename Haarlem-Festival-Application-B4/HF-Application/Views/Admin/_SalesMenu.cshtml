@@ -1,0 +1,8 @@
+﻿<div class="row">
+    <div class="col-lg-3">
+        <a class="btn admin-btn @(ViewContext.RouteData.Values["action"].ToString() == "Sales" ? "admin-btn-current" : "")" href="@Url.Action("Sales", "Admin")">Total Sales</a>
+    </div>
+    <div class="col-lg-3">
+        <a class="btn admin-btn @(ViewContext.RouteData.Values["action"].ToString() == "DaySales" ? "admin-btn-current" : "")" href="@Url.Action("DaySales", "Admin")">Sales per Day</a>
+    </div>
+</div>
