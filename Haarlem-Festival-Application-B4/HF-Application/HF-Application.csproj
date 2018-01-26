@@ -29,14 +29,14 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>
-    </DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -155,7 +155,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\PhotoModel.cs" />
     <Compile Include="Controllers\TasteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HearController.cs" />
@@ -503,6 +502,10 @@
     <Content Include="Views\Admin\Sales.cshtml" />
     <Content Include="Views\Admin\_SalesMenu.cshtml" />
     <Content Include="Views\Admin\DaySales.cshtml" />
+    <Content Include="Views\Admin\AddHear.cshtml" />
+    <Content Include="Views\Admin\AddSee.cshtml" />
+    <Content Include="Views\Admin\AddTalk.cshtml" />
+    <Content Include="Views\Admin\AddTaste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

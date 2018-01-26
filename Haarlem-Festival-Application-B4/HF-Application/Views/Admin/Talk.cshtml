@@ -5,15 +5,20 @@
 }
 
 @Html.Partial("_AdminMenu")
-<div class="row">
-    <div class="col-sm-6">
-        <a class="btn admin-btn" href="">
-            <h3>Add New Event</h3>
-        </a>
+@if (ViewBag.Message != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert">
+                @ViewBag.Message
+            </div>
+        </div>
     </div>
-    <div class="col-sm-6">
-        <a class="btn admin-btn" href="">
-            <h3>Manage Attendee Questions</h3>
+}
+<div class="row">
+    <div class="col-sm-6 offset-3">
+        <a class="btn admin-btn" href="@Url.Action("AddTalk", "Admin")">
+            <h3>Add New Event</h3>
         </a>
     </div>
 </div>
