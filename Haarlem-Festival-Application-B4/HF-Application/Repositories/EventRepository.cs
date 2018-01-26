@@ -45,6 +45,16 @@ namespace HF_Application.Models
             return events;
         }
 
+        public List<Jazz> festivalEvents()
+        {
+            List<Jazz> festivalEvents = db.Jazzs
+                .OrderBy(i => i.Location)
+                .Include(i => i.Location)
+                .ToList();
+
+            return festivalEvents;
+        }
+
         public List<Location> GetHearLocations()
         {
             List<Location> locations = new List<Location>();
@@ -65,6 +75,11 @@ namespace HF_Application.Models
             Jazz festivalEvent = db.Jazzs.Find(id);
 
             return festivalEvent;
+        }
+
+        public void AddHearEvent(Jazz festivalEvent)
+        {
+            //add
         }
 
         public void UpdateHearEvent(Jazz festivalEvent)
@@ -127,6 +142,10 @@ namespace HF_Application.Models
             return festivalEvent;
         }
 
+        public void AddTasteEvent(Diner festivalEvent)
+        {
+            // add
+        }
         public void UpdateTasteEvent(Diner festivalEvent)
         {
             db.Entry(festivalEvent).State = EntityState.Modified;
@@ -184,6 +203,10 @@ namespace HF_Application.Models
             return festivalEvent;
         }
 
+        public void AddSeeEvent(Historic festivalEvent)
+        {
+            // add
+        }
         public void UpdateSeeEvent(Historic festivalEvent)
         {
             db.Entry(festivalEvent).State = EntityState.Modified;
@@ -241,6 +264,10 @@ namespace HF_Application.Models
             return festivalEvent;
         }
 
+        public void AddTalkEvent(Talk festivalEvent)
+        {
+            // add
+        }
         public void UpdateTalkEvent(Talk festivalEvent)
         {
             db.Entry(festivalEvent).State = EntityState.Modified;

@@ -20,9 +20,19 @@ namespace HF_Application.Controllers
 
         public ActionResult Taste()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllTasteEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddTaste()
+        {
+            return View();
         }
 
         // Get
@@ -44,6 +54,11 @@ namespace HF_Application.Controllers
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTasteEvent(festivalEvent);
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
                 return RedirectToAction("Taste");
             }
 
@@ -53,9 +68,19 @@ namespace HF_Application.Controllers
 
         public ActionResult Hear()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllHearEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddHear()
+        {
+            return View();
         }
 
         // Get
@@ -77,6 +102,11 @@ namespace HF_Application.Controllers
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateHearEvent(festivalEvent);
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
                 return RedirectToAction("Hear");
             }
 
@@ -86,9 +116,19 @@ namespace HF_Application.Controllers
 
         public ActionResult See()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllSeeEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddSee()
+        {
+            return View();
         }
 
         // Get
@@ -110,6 +150,11 @@ namespace HF_Application.Controllers
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateSeeEvent(festivalEvent);
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
                 return RedirectToAction("See");
             }
 
@@ -118,9 +163,19 @@ namespace HF_Application.Controllers
         }
         public ActionResult Talk()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllTalkEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddTalk()
+        {
+            return View();
         }
 
         // Get
@@ -142,6 +197,11 @@ namespace HF_Application.Controllers
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTalkEvent(festivalEvent);
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
                 return RedirectToAction("Talk");
             }
 
