@@ -21,6 +21,7 @@ namespace HF_Application.Controllers
         private List<Jazz> AllJazzEvents;
 
 
+
         public HearController()
         {
             AllJazzEvents = new List<Jazz>();

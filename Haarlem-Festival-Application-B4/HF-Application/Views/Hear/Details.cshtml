@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body class="JazzBody">
+<body id="JazzBody">
     <div class="container jazzDetailDiv">
         <div class="col-md-10 detailTitelText">
             <h1 class="text-center detailTitelText"> @Model.JazzEvent.Band.ToString() </h1>
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="co-md-8">
-                    <img src="@Url.Content("~/Content/images/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
+                    <img src="@Url.Content("~/Content/images/events/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
                 </div>
                 <div class="text-left titelText">
                     @Model.JazzEvent.Band.ToString() at Patronaat
@@ -69,7 +69,7 @@
                     {
                         <div class="col-md-4">
                             <div class="lblText">
-                                <img src="@Url.Content("~/Content/images/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
+                                <img src="@Url.Content("~/Content/images/events/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
                                 @diner.Restaurant.RestaurantName.ToString();
                             </div>
                         </div>

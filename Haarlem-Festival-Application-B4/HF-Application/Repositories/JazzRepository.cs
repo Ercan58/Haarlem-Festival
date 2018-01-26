@@ -43,14 +43,25 @@ namespace HF_Application.Repositories
         {
             List<Diner> AllDinersByDate = new List<Diner>();
             List<Diner> SelctionForDisplay = new List<Diner>();
-            AllDinersByDate = db.Diners.Where(s => s.StartDate.Year == date.Year && s.StartDate.Day == date.Day && s.StartDate.Month == date.Month).ToList();
+            AllDinersByDate = (db.Diners
+                .Where(s => s.StartDate.Year == date.Year && s.StartDate.Day == date.Day && s.StartDate.Month == date.Month)
+                .Include(a=>a.Restaurant.Location)
+                .ToList());
 
             Random rnd = new Random();
 
             for (int i = 0; i > 3; i++)
             {
                 int random = rnd.Next(0, AllDinersByDate.Count());
+
+                // hier nog een if statement om dubbelle rest te voorkomen
+
                 SelctionForDisplay.Add(AllDinersByDate[random]);
+
+                if (SelctionForDisplay.Count() == 2)
+                { }
+
+                else { }
 
 
             }

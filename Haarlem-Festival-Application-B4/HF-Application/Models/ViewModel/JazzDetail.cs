@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using HF_Application.Models.Events;
+using HF_Application.Models;
 
 namespace HF_Application.Models
 {

@@ -12,6 +12,5 @@ namespace HF_Application.Repositories
         List<Jazz> GetJazzEvents(DateTime date);
         Jazz GetJazzEventById(int id);
         List<Diner> GetSuggestions(DateTime date);
-        //List<string> DaySelectionFilter();
     }
 }
