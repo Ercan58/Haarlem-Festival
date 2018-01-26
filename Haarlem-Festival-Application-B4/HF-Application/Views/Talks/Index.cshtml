@@ -10,7 +10,7 @@
 
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
         <h1 class="text-center">Talking Haarlem!</h1>
-        <h6 class="text-center" >Free Tickets - You can only book two tickets & These talks will be in dutch! </h6>
+        <h6 class="text-center">Free Tickets - You can only book two tickets & These talks will be in dutch! </h6>
     </div>
 
     <div class="container-fluid">
@@ -18,45 +18,79 @@
         <div class="row" style="margin-left:3%; margin-right:3%;">
 
             @foreach (var talkEvent in Model.AllTalkEvents)
-            { <div class="col-lg-4 ">
+            {<div class="col-lg-4 ">
 
-                <div class="Talkdiv">
+                    <div class="Talkdiv">
 
-                    
-                    <div class="text-center">
-                        <img class="talkImage1" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+                        <div class="text-center">
+                            <img class="talkImage1" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                        </div>
+                        <h6 class="text-center interviewName">@talkEvent.Interview</h6>
+                        <div class="text-center">
+                            <h6> Date: @talkEvent.StartDate.ToShortDateString()  Time: @talkEvent.StartDate.ToShortTimeString()</h6>
+
+                            <h6>Adres: @talkEvent.Location.Address</h6>
+                        </div>
+
+                        <div class="text-center">
+                            <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info btn-block login" })</a>
+                        </div>
+
+                        @*<div class="text-center">
+                                <input type="button" class="btn btn-info" value="More Information" onclick="@Html.Action("", "Talk1", new { id = talkEvent.ID })'" />
+                            </div>*@
+
+                        @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
+
+
+
+
+                        @*@using (Html.BeginForm())
+                            {
+                                <input type="button" name="button" class="MoreInformationButton" value="More Information" />
+
+                            }*@
+
                     </div>
-                    <h6 class="text-center interviewName">@talkEvent.Interview</h6>
-                    <div class="text-center">
-                        <h6> Date: @talkEvent.StartDate.ToShortDateString()  Time: @talkEvent.StartDate.ToShortTimeString()</h6>
-
-                        <h6>Adres: @talkEvent.Location.Address</h6>
-                    </div>
-
-                    <div class="text-center">
-                        <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" } )</a>
-                    </div>
-
-                    @*<div class="text-center">
-                            <input type="button" class="btn btn-info" value="More Information" onclick="@Html.Action("", "Talk1", new { id = talkEvent.ID })'" />
-                        </div>*@
-
-                    @*<p class="Para" > @talkEvent.ReservationInfo </p>*@
-
-
-
-
-                    @*@using (Html.BeginForm())
-                        {
-                            <input type="button" name="button" class="MoreInformationButton" value="More Information" />
-
-                        }*@
-
                 </div>
-            </div>
             }
 
         </div>
     </div>
+
+    @*<div class="row">
+                @foreach (var talkEvent in Model.AllTalkEvents)
+            {
+
+
+                <div class="col-lg-4 portfolio-item">
+
+                    <div class="card h-100">
+
+                        <a href="#"><img class="card-img-top" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview"></a>
+
+                        <div class="card-body">
+
+                            <h4 class="card-title">
+
+                                <a href="#">@talkEvent.Interview</a>
+
+                            </h4>
+
+                            <p class="card-text"> @talkEvent.StartDate.ToShortDateString()  Time: @talkEvent.StartDate.ToShortTimeString()   Adres: @talkEvent.Location.Address  </p>
+
+                            <div class="text-center">
+                                <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-primary" })</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+        }
+            </div>*@
+
 
 </body>
