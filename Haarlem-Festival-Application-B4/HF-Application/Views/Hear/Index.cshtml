@@ -4,7 +4,7 @@
     ViewBag.Title = "Jazz at Patronaat";
 }
 
-<body id="Jazz">
+<body id="JazzBody">
     <div class="container">
 
         <div class="col-md-8 offset-md-2 col-12 welcomediv">
@@ -32,7 +32,7 @@
                     <div class="jazzDiv">
 
                         <div class="col-md-12">
-                            <img class="jazzImage" src="@Url.Content("~/Content/images/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
+                            <img class="jazzImage" src="@Url.Content("~/Content/images/events/"+jazzEvent.imagePath)" alt="Image of @jazzEvent.Band" />
                         </div>
 
                         <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.Band</h1></div>
