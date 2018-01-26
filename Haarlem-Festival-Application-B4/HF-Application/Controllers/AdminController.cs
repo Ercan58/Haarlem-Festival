@@ -20,9 +20,19 @@ namespace HF_Application.Controllers
 
         public ActionResult Taste()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllTasteEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddTaste()
+        {
+            return View();
         }
 
         // Get
@@ -41,22 +51,36 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditTaste(Models.Events.Diner festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetTasteLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTasteEvent(festivalEvent);
-                return RedirectToAction("Index");
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
+                return RedirectToAction("Taste");
             }
 
+            ViewBag.Locations = eventRepository.GetTasteLocations();
             return View(festivalEvent);
         }
 
         public ActionResult Hear()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllHearEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddHear()
+        {
+            return View();
         }
 
         // Get
@@ -75,22 +99,36 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditHear(Models.Events.Jazz festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetHearLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateHearEvent(festivalEvent);
-                return RedirectToAction("Index");
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
+                return RedirectToAction("Hear");
             }
 
+            ViewBag.Locations = eventRepository.GetHearLocations();
             return View(festivalEvent);
         }
 
         public ActionResult See()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllSeeEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddSee()
+        {
+            return View();
         }
 
         // Get
@@ -109,21 +147,35 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult See(Models.Events.Historic festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetSeeLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateSeeEvent(festivalEvent);
-                return RedirectToAction("Index");
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
+                return RedirectToAction("See");
             }
 
+            ViewBag.Locations = eventRepository.GetSeeLocations();
             return View(festivalEvent);
         }
         public ActionResult Talk()
         {
+            if (TempData["message"] != null)
+            {
+                ViewBag.Message = TempData["message"].ToString();
+            }
+
             var events = eventRepository.GetAllTalkEvents();
 
             return View(events);
+        }
+
+        public ActionResult AddTalk()
+        {
+            return View();
         }
 
         // Get
@@ -142,15 +194,35 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditTalk(Models.Events.Talk festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetTalkLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTalkEvent(festivalEvent);
-                return RedirectToAction("Index");
+                TempData["message"] = String
+                    .Format("'{0}' on '{1}' has been saved successfully",
+                    festivalEvent.CartTitle,
+                    festivalEvent.StartDate
+                    .ToShortDateString());
+                return RedirectToAction("Talk");
             }
 
+            ViewBag.Locations = eventRepository.GetTalkLocations();
             return View(festivalEvent);
+        }
+
+        public ActionResult Sales()
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents();
+            ViewBag.TotalSold = eventRepository.GetTotalSales();
+            ViewBag.TotalRevenue = eventRepository.GetTotalRevenue();
+
+            return View(salesList);
+        }
+
+        public ActionResult DaySales()
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents();
+
+            return View(salesList);
         }
 
         public ActionResult Photos()

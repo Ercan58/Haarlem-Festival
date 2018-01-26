@@ -39,24 +39,24 @@ namespace HF_Application.Repositories
             return JazzEvent;
         }
 
-        public List<Diner> GetSuggestions(DateTime date)
+        public List<Restaurant> CrossSellingRestaurauntList()
         {
-            List<Diner> AllDinersByDate = new List<Diner>();
-            List<Diner> SelctionForDisplay = new List<Diner>();
-            AllDinersByDate = db.Diners.Where(s => s.StartDate.Year == date.Year && s.StartDate.Day == date.Day && s.StartDate.Month == date.Month).ToList();
+            List<Restaurant> allRest = db.Restaurants.ToList();
 
             Random rnd = new Random();
+            List<Restaurant> CrossSellingList = new List<Restaurant>();
 
-            for (int i = 0; i > 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                int random = rnd.Next(0, AllDinersByDate.Count());
-                SelctionForDisplay.Add(AllDinersByDate[random]);
+                int random = rnd.Next(0, allRest.Count());
 
-
+                if(CrossSellingList.Contains(allRest[random]))
+                { i--; } else {CrossSellingList.Add(allRest[random]); }
+                
             }
-            
 
-            return SelctionForDisplay;
+            return CrossSellingList;
         }
+
     }
 }

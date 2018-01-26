@@ -4,7 +4,7 @@
     padding-left: 34px;
     padding-top: 50px;
     padding-bottom: 20px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     color: #e0e0e0;
     /* gradient gaat over in transparant om een grafische bug te omzeilen*/
     background: linear-gradient(#3f3f3f 0%, transparent 15rem);
@@ -13,7 +13,7 @@
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 a {
@@ -25,13 +25,13 @@ a {
 }
 
 .brand, .brand:hover {
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', sans-serif;
     font-size: 3rem;
     color: #e0e0e0;
 }
 
 .breadcrumb {
-    font-family: 'Roboto Slab';
+    font-family: 'Roboto Slab', sans-serif;
     font-size: 1.5rem;
     background-color: transparent;
     padding: 0;
@@ -43,7 +43,6 @@ a {
     }
 
 .menu-admin {
-    padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
@@ -93,7 +92,7 @@ a {
     overflow: hidden;
 }
 
-    .admin-btn:hover {
+    .admin-btn:hover, .admin-btn-current {
         color: #e0e0e0;
         background-color: #3f3f3f;
     }

@@ -3,8 +3,6 @@
     ViewBag.Title = "Add New Photo";
 }
 
-<h2>Add a New Photo</h2>
-<br />
 @if (ViewBag.Message != null)
 {
     <div class="row">
@@ -36,7 +34,7 @@
                                 <input class="btn admin-btn admin-btn-light" type="submit" value="Upload Photo" />
                             </div>
                             <div class="col-lg-6">
-                                @Html.ActionLink("Cancel and Return", "Photos", "", new { @class = "btn admin-btn admin-btn-light" })
+                                @Html.ActionLink("Cancel and Return", "Photos", new { controller = "Admin" }, new { @class = "btn admin-btn admin-btn-light" })
                             </div>
                         </div>
                     }
