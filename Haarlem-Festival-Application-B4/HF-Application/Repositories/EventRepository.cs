@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MoreLinq;
 using System.Web;
 using System.Data.Entity;
 using System.Data;
@@ -13,7 +14,7 @@ namespace HF_Application.Models
 {
     public class EventRepository : IEventRepository
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext(); 
+        private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
         // Hear events
         public List<DateList> GetAllHearEvents()
@@ -245,7 +246,51 @@ namespace HF_Application.Models
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
         }
-        
+
+        public List<SalesItem> GetAllEvents()
+        {
+            List<SalesItem> salesList = db.OrderItems
+                .Include(x => x.Item)
+                .GroupBy(x => x.Item.ID)
+                .Select(o =>
+                new SalesItem
+                {
+                    Id = o.FirstOrDefault().Item.ID,
+                    CartTitle = o.FirstOrDefault().Item.CartTitle,
+                    CartDescription = o.FirstOrDefault().Item.CartDescription,
+                    StartDate = o.FirstOrDefault().Item.StartDate,
+                    TicketPrice = o.FirstOrDefault().Item.TicketPrice,
+                    Revenue = o.Sum(t => t.Prijs * t.Aantal),
+                    Seats = o.FirstOrDefault().Item.Seats,
+                    FreeSeats = o.FirstOrDefault().Item.Seats - o.Sum(t => t.Aantal),
+                    SeatsSold = o.Sum(t => t.Aantal)
+                })
+                .OrderBy(i => i.StartDate)
+                .ToList();
+
+            return salesList;
+
+        }
+        public int GetTotalSales()
+        {
+            int total = db.OrderItems
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => t.Aantal))
+                .SingleOrDefault();
+
+            return total;
+        }
+
+        public double GetTotalRevenue()
+        {
+            int total = db.OrderItems
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => (t.Prijs * t.Aantal)))
+                .SingleOrDefault();
+
+            return total;
+        }
+
         //implementeren als er een db tabel is aangemaakt
 
         //public List<TalkQuestion> GetAllTalkQuestions() {
@@ -257,24 +302,5 @@ namespace HF_Application.Models
 
         //    return questions;
         //}
-
-        public List<Photo> GetAllPhotos(string directory)
-        {
-            List<Photo> imageList = new List<Photo>();
-            foreach (var item in Directory.GetFiles(directory).Select(path => Path.GetFileName(path)))
-            {
-                Photo photo = new Photo(item, "~/Content/images/events/" + item);
-                imageList.Add(photo);
-            }
-
-            return imageList;
-        }
-
-        public Photo GetPhoto(string fileName)
-        {
-            Photo photo = new Photo(fileName, "~/Content/images/events/" + fileName);
-
-            return photo;
-        }
     }
 }

@@ -4,51 +4,52 @@
     ViewBag.Title = "DeleteItem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Your cart</h2>
-<table id="cartTable" class="table">
-    <thead>
-        <tr>
-            <th>Quantity</th>
-            <th>Item</th>
-            <th>Event</th>
-            <th>Question</th>
-            <th class="text-right">Price</th>
-            <th class="text-right">Subtotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
-            {
+<div class="text-center">  <h1 style="color:black">Your Cart!</h1> </div>
+<div class="panel panel-default">
+    <table id="cartTable" class="table"  style="color:black">
+        <thead>
             <tr>
-                <td class="text-center">@item.Aantal</td>
-                <td class="text-left">@item.Item.CartDescription</td>
-                <td>@item.Item.CartTitle</td>
-                <td>@item.Opmerking</td>
+                <th>Quantity</th>
+                <th>Item</th>
+                <th>Event</th>
+                <th>Question</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AllOrderitems)
+            {
+                <tr>
+                    <td class="text-center">@item.Aantal</td>
+                    <td class="text-left">@item.Item.CartTitle</td>
+                    <td>@item.Item.CartDescription</td>
+                    <td>@item.Opmerking</td>
+                    <td class="text-right">
+                        @item.Prijs.ToString("c")
+                    </td>
+                    <td class="text-right">
+                        @((item.Aantal * item.Prijs).ToString("c"))
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-info login" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
                 <td class="text-right">
-                    @item.Prijs.ToString("c")
-                </td>
-                <td class="text-right">
-                    @((item.Aantal * item.Prijs).ToString("c"))
-                </td>
-                <td>
-                    @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-primary" })
+                    0:00 euro
                 </td>
             </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Total:</td>
-            <td class="text-right">
-                0:00 euro
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<div class="text-center">
-    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Continue shopping</a>
+        </tfoot>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-info login" href="@Url.Action("Index","Home")">Continue shopping</a>
 
-    <a class="btn btn-primary" href="@Url.Action("Index","Home")">Checkout now</a>
+        <a class="btn btn-info login" href="@Url.Action("PlaceOrder","Cart")">Checkout now</a>
+    </div>
+
 </div>
-

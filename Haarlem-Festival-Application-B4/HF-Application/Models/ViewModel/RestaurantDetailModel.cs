@@ -18,7 +18,9 @@ namespace HF_Application.Models.ViewModel
         public List<SelectListItem> DinerEvents { get; set; }
         public List<SelectListItem> NumberPersons { get; set; }
         public List<FestivalEvent> SuggestionEvents { get; set; }
-    
+        public List<Talk> CrossTalkEvents { get; set; }
+        public List<Jazz> HearCrossEvents { get; set; }
+
 
     }
 }

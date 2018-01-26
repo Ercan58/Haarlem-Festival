@@ -10,7 +10,6 @@ namespace HF_Application.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int ItemId { get; set; }
         public int statusId { get; set;}
         public string Remark { get; set; }
         public int Invoice { get; set; }
@@ -18,6 +17,21 @@ namespace HF_Application.Models
         public DateTime OrderPayed { get; set; }
         public User User { get; set; }
         public Status status { get; set; }
+
+        public Order(int userid, int statusid, string remark, int invoice, DateTime orderdate, DateTime orderpayed)
+        {
+            UserId = userid;
+            statusId = statusid;
+            Remark = remark;
+            Invoice = invoice;
+            OrderDate = orderdate;
+            OrderPayed = orderpayed;
+
+
+        }
+        public Order()
+        {
+        }
 
     }  
 }

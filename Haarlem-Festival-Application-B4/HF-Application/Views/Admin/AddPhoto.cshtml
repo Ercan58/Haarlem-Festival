@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Add New Photo";
+}
+
+@if (ViewBag.Message != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+                @ViewBag.Message
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-6" style="margin-left: auto; margin-right: auto;">
+        <div class="card card-big">
+            <h4 class="card-title text-center">Select the photo you want to upload</h4>
+            <div class="card-body card-big">
+                @using (Html.BeginForm("AddPhoto",
+                    "Admin",
+                    FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+                {
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="col-xl-9">
+                            <input type="file" name="file" id="file" class="form-control-file" accept=".png,.jpg,.jpeg" /><br><br>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input class="btn admin-btn admin-btn-light" type="submit" value="Upload Photo" />
+                            </div>
+                            <div class="col-lg-6">
+                                @Html.ActionLink("Cancel and Return", "Photos", new { controller = "Admin" }, new { @class = "btn admin-btn admin-btn-light" })
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,54 +13,58 @@ namespace HF_Application.Controllers
 {
     public class CartController : Controller
     {
+        CartRepository cartRepository = new CartRepository();
         // GET: Cart
         public ActionResult Index()
         {
             CartModel CartModel = new CartModel();
 
-            List<OrderItem> Old = new List<OrderItem>();
-            Old = Session["CurrentWishlist"] as List<OrderItem>;
+            CartModel = Session["CurrentWishlist"] as CartModel;
 
-            Session["CurrentWishlist"] = Old;
 
-            CartModel.AllOrderitems = Old;
 
             return View();
         }
 
         public ActionResult AddToCart(int eventid, int userid, string Question, int aantal)
         {
-            CartRepository cartRepository = new CartRepository();
-            CartModel CartModel = new CartModel();
+           
+            CartModel cartModel = new CartModel();
             if (Session["CurrentWishlist"] != null)
             {
+                cartModel = Session["CurrentWishlist"] as CartModel;
+
                 List<OrderItem> Old = new List<OrderItem>();
-                Old = Session["CurrentWishlist"] as List<OrderItem>;
+                Old = cartModel.AllOrderitems; 
 
                 List<OrderItem> New = new List<OrderItem>();
-                FestivalEvent talk1 = cartRepository.GetbesteldEvent(eventid);
-                New = cartRepository.Additem(eventid, aantal, Question, talk1);
+                FestivalEvent curentevent = cartRepository.GetbesteldEvent(eventid);
+                New = cartRepository.Additem(eventid, aantal, Question, curentevent);
                 New.AddRange(Old);
+            
 
-
-                CartModel.AllOrderitems = New;
-                Session["CurrentWishlist"] = CartModel.AllOrderitems;
-                return View(CartModel);
+                cartModel.AllOrderitems = New;
+                Session["CurrentWishlist"] = cartModel;
+                return View(cartModel);
             }
-            FestivalEvent talk = cartRepository.GetbesteldEvent(eventid);
-            CartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question, talk);
 
-            Session["CurrentWishlist"] = CartModel.AllOrderitems;
+            FestivalEvent talk1 = cartRepository.GetbesteldEvent(eventid);
+            cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,talk1 );
+            cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question);
 
-            return View(CartModel);
+            Session["CurrentWishlist"] = cartModel;
+
+            return View(cartModel);
         }
 
         public ActionResult DeleteItem(int id)
         {
-            CartModel CartModel = new CartModel();
+            CartModel cartModel = new CartModel();
+
+            cartModel = Session["CurrentWishlist"] as CartModel;
 
             List<OrderItem> Old = new List<OrderItem>();
-            Old = Session["CurrentWishlist"] as List<OrderItem>;
+            Old = cartModel.AllOrderitems;
 
             foreach (var item in Old.ToList())
             {
@@ -71,13 +75,40 @@ namespace HF_Application.Controllers
 
             }
 
-            Session["CurrentWishlist"] = Old;
+            cartModel.AllOrderitems = Old;
 
 
-            CartModel.AllOrderitems = Old;
+            Session["CurrentWishlist"] = cartModel;
 
+            return View(cartModel);
+        }
 
-            return View(CartModel);
+        public ActionResult PlaceOrder()
+        {
+            int userid;
+            if (Session["UserId"] != null)
+            {
+                userid = Convert.ToInt32(Session["UserId"]);
+            }
+            else
+            {
+                userid = 3; // Guest in de db 
+            }
+
+            int orderid = cartRepository.PlaceOrder(userid);  // maak order en get zjn id voor toevoegen items 
+
+            CartModel cartModel = new CartModel();
+            cartModel = Session["CurrentWishlist"] as CartModel;
+
+            foreach (var item111 in cartModel.AllOrderdetailtodb)
+            {
+                item111.OrderId = orderid;
+                cartRepository.Additemsdb(item111);
+
+            }
+           
+
+            return View();
         }
     }
 }

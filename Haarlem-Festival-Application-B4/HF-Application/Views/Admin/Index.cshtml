@@ -1,11 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Admin";
+    ViewBag.Title = "Home";
 }
-<h2>Select a category to edit its events</h2>
+<h2 align="center">Select a category to edit its events</h2>
 @Html.Partial("_AdminMenu")
 <div class="row">
     <div class="col-sm-6">
-        <a class="btn admin-btn" href="@Url.Action("Dashboard", "Admin")">
+        <a class="btn admin-btn" href="@Url.Action("Sales", "Admin")">
             <h3>Sales Dashboard</h3>
         </a>
     </div>

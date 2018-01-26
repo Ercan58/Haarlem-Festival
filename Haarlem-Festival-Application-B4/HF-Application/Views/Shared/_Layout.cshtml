@@ -62,43 +62,47 @@
 
                                 @if (Session["CurrentWishlist"] != null)
                                 {
-
-                                    <table id="cartTable" class="table" style="color:black">
-                                        <thead>
-                                            <tr>
-                                                <th>Quantity</th>
-                                                <th>Event</th>
-                                                <th class="text-right">Price</th>
-                                                <th class="text-right">Subtotal</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var item in Session["CurrentWishlist"] as List<HF_Application.Models.OrderItem>)
-                                            {
+                                    HF_Application.Models.ViewModel.CartModel cart = new HF_Application.Models.ViewModel.CartModel();
+                                    //   List<HF_Application.Models.OrderItem> list = new List<HF_Application.Models.OrderItem>();
+                                    cart = Session["CurrentWishlist"] as HF_Application.Models.ViewModel.CartModel;
+                                    <div class="panel panel-default">
+                                        <table id="cartTable" class="table" style="color:black">
+                                            <thead>
                                                 <tr>
-                                                    <td class="text-center">@item.Aantal</td>
-
-                                                    <td>@item.Item.CartTitle</td>
-
-                                                    <td class="text-right">
-                                                        @item.Prijs.ToString("c")
-                                                    </td>
-                                                    <td class="text-right">
-                                                        @((item.Aantal * item.Prijs).ToString("c"))
-                                                    </td>
-
+                                                    <th>Quantity</th>
+                                                    <th>Event</th>
+                                                    <th class="text-right">Price</th>
+                                                    <th class="text-right">Subtotal</th>
                                                 </tr>
-                                            }
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="3" class="text-right">Total:</td>
-                                                <td class="text-right">
-                                                    0:00 euro
-                                                </td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in cart.AllOrderitems)
+                                                {
+                                                    <tr>
+                                                        <td class="text-center">@item.Aantal</td>
+
+                                                        <td>@item.Item.CartTitle</td>
+
+                                                        <td class="text-right">
+                                                            @item.Prijs.ToString("c")
+                                                        </td>
+                                                        <td class="text-right">
+                                                            @((item.Aantal * item.Prijs).ToString("c"))
+                                                        </td>
+
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="3" class="text-right">Total:</td>
+                                                    <td class="text-right">
+                                                        0:00 euro
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
 
                                 }
 
@@ -107,10 +111,10 @@
 
 
                         <div class="text-center">
-                            <a class="btn btn-primary" href="@Url.Action("Index", "Cart")">Go to your Cart</a>
+                            <a class="btn btn-info login" href="@Url.Action("Index", "Cart")">Go to your Cart</a>
 
                         </div>
-                       
+
                     </div>
 
                 </div>

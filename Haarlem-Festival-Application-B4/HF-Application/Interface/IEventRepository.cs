@@ -24,7 +24,8 @@ namespace HF_Application.Models
         void UpdateTalkEvent(Events.Talk festivalEvent);
         List<Location> GetTalkLocations();
 
-        List<Photo> GetAllPhotos(string directory);
-        Photo GetPhoto(string fileName);
+        List<SalesItem> GetAllEvents();
+        int GetTotalSales();
+        double GetTotalRevenue();
     }
 }

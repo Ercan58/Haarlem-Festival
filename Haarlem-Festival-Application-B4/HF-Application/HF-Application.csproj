@@ -60,6 +60,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq, Version=2.10.21623.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\packages\morelinq.2.10.0\lib\net40\MoreLinq.dll</HintPath>
+    </Reference>
     <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
       <HintPath>..\packages\MvcSiteMapProvider.MVC5.Core.4.6.22\lib\net45\MvcSiteMapProvider.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +75,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\PhotoModel.cs" />
     <Compile Include="Controllers\TasteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HearController.cs" />
@@ -193,8 +200,7 @@
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
-    <Compile Include="Models\HearDateList.cs" />
-    <Compile Include="Models\ViewModel\JazzDetail.cs" />
+    <Compile Include="Models\JazzDetail.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
@@ -211,6 +217,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
+    <Compile Include="Models\SalesItem.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\CartModel.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
@@ -237,6 +244,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\events\aa_testplaatje.jpg" />
     <Content Include="Content\images\events\achtergrond_talk.png" />
     <Content Include="Content\images\events\achtergrond_talk3.jpg" />
     <Content Include="Content\images\cart.png" />
@@ -490,6 +498,11 @@
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Cart\DeleteItem.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Admin\AddPhoto.cshtml" />
+    <Content Include="Views\Cart\PlaceOrder.cshtml" />
+    <Content Include="Views\Admin\Sales.cshtml" />
+    <Content Include="Views\Admin\_SalesMenu.cshtml" />
+    <Content Include="Views\Admin\DaySales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

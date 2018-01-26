@@ -17,16 +17,31 @@ namespace HF_Application.Repositories
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        public List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent orderitem)
+        public List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent)
         {
             int Orderid = -1;
             int prijs = 0;
             List<OrderItem> items = new List<OrderItem>();
-            OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, prijs, orderitem);
+            
+            OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, prijs, festivalEvent);
 
             items.Add(items1);
 
             return items;
+        }
+
+        public List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question)
+        {
+            int Orderid = -1;
+            int prijs = 0;
+            List<OrderItem> items = new List<OrderItem>();
+
+            OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, prijs);
+
+            items.Add(items1);
+
+            return items;
+
         }
 
         public FestivalEvent GetbesteldEvent(int eventid)
@@ -34,6 +49,28 @@ namespace HF_Application.Repositories
             FestivalEvent talk = db.FestivalEvent.Where(a => a.ID == eventid).SingleOrDefault();
 
             return talk;
+        }
+
+        public int PlaceOrder(int userid)
+        {
+            int statusid = 1;
+            string remark = "betaald";
+            int invoice = 1;
+            DateTime datebesteld = DateTime.Now;
+            DateTime datepayed = DateTime.Now;
+            Order order = new Order(userid, statusid, remark,invoice, datebesteld, datepayed);
+            db.Orders.Add(order);
+            db.SaveChanges();
+
+            int lastorderid = db.Orders.OrderByDescending(o => o.Id).FirstOrDefault().Id;
+
+            return lastorderid;
+        }
+
+        public void Additemsdb(OrderItem item)
+        {
+            db.OrderItems.Add(item);
+            db.SaveChanges();
         }
     }
 }
