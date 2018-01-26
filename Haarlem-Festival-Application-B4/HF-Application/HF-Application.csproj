@@ -200,7 +200,6 @@
     <Compile Include="Models\Events\JazzModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
-    <Compile Include="Models\JazzDetail.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Models\Enum\TicketType.cs" />
@@ -220,6 +219,7 @@
     <Compile Include="Models\SalesItem.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\CartModel.cs" />
+    <Compile Include="Models\ViewModel\JazzDetail.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />

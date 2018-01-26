@@ -10,6 +10,7 @@ using HF_Application.Models;
 using HF_Application.Models.Events;
 using HF_Application.Models.ViewModel;
 using HF_Application.Repositories;
+using HF_Application.Interface;
 
 
 
@@ -18,6 +19,7 @@ namespace HF_Application.Controllers
     public class HearController : Controller
     {
         private IJazzRepository IJazzRepository = new JazzRepository();
+        private IDinerRepository IDinerRepository = new DinerRepository();
         private List<Jazz> AllJazzEvents;
 
 
@@ -55,7 +57,7 @@ namespace HF_Application.Controllers
         {
             JazzDetail JazzEventDetail = new JazzDetail();
             JazzEventDetail.JazzEvent = IJazzRepository.GetJazzEventById(id);
-            JazzEventDetail.DinerEventsList = IJazzRepository.GetSuggestions(JazzEventDetail.JazzEvent.StartDate);
+            JazzEventDetail.CrossSellingRestaurauntList = IJazzRepository.CrossSellingRestaurauntList();
 
 
             return View(JazzEventDetail);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using HF_Application.Models.Events;
+using HF_Application.Models;
 
 namespace HF_Application.Repositories
 {
@@ -11,6 +12,6 @@ namespace HF_Application.Repositories
         List<Jazz> GetAllJazzEvents();
         List<Jazz> GetJazzEvents(DateTime date);
         Jazz GetJazzEventById(int id);
-        List<Diner> GetSuggestions(DateTime date);
+        List<Restaurant> CrossSellingRestaurauntList();
     }
 }

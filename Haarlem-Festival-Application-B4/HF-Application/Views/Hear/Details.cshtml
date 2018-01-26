@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="co-md-8">
-                    <img src="@Url.Content("~/Content/images/events/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
+                    <img class="jazzDetailImage" src="@Url.Content("~/Content/images/events/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
                 </div>
                 <div class="text-left titelText">
                     @Model.JazzEvent.Band.ToString() at Patronaat
@@ -60,19 +60,25 @@
             </div>
 
 
-            <div class="col-md-10 cross-talk">
+            <div class="col-md-12 cross-talk">
                 <div class="text-center">
-                    <h3> Take a look to other events</h3>
+                    <h3> Take a look at other events!</h3>
 
 
-                    @foreach (var diner in Model.DinerEventsList)
+                    @foreach (var resto in Model.CrossSellingRestaurauntList)
                     {
-                        <div class="col-md-4">
-                            <div class="lblText">
-                                <img src="@Url.Content("~/Content/images/events/" + diner.Restaurant.imagePath)" alt="Image of @diner.Restaurant.RestaurantName.ToString()" />
-                                @diner.Restaurant.RestaurantName.ToString();
-                            </div>
+                            
+                    <div class="col-md-4 crossSeelItem">
+                        <div class="crossSellName">
+                            @resto.RestaurantName.ToString()
                         </div>
+                        <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName.ToString()" />
+
+                        <div class="text-center" style="margin-bottom:5px;">
+                            <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "btn btn-info login" })</a>
+                        </div>
+
+                    </div>
                     }
 
 
