@@ -41,14 +41,13 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditTaste(Models.Events.Diner festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetTasteLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTasteEvent(festivalEvent);
-                return RedirectToAction("Index");
+                return RedirectToAction("Taste");
             }
 
+            ViewBag.Locations = eventRepository.GetTasteLocations();
             return View(festivalEvent);
         }
 
@@ -75,14 +74,13 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditHear(Models.Events.Jazz festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetHearLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateHearEvent(festivalEvent);
-                return RedirectToAction("Index");
+                return RedirectToAction("Hear");
             }
 
+            ViewBag.Locations = eventRepository.GetHearLocations();
             return View(festivalEvent);
         }
 
@@ -109,14 +107,13 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult See(Models.Events.Historic festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetSeeLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateSeeEvent(festivalEvent);
-                return RedirectToAction("Index");
+                return RedirectToAction("See");
             }
 
+            ViewBag.Locations = eventRepository.GetSeeLocations();
             return View(festivalEvent);
         }
         public ActionResult Talk()
@@ -142,14 +139,13 @@ namespace HF_Application.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditTalk(Models.Events.Talk festivalEvent)
         {
-            ViewBag.Locations = eventRepository.GetTalkLocations();
-
             if (ModelState.IsValid)
             {
                 eventRepository.UpdateTalkEvent(festivalEvent);
-                return RedirectToAction("Index");
+                return RedirectToAction("Talk");
             }
 
+            ViewBag.Locations = eventRepository.GetTalkLocations();
             return View(festivalEvent);
         }
 
