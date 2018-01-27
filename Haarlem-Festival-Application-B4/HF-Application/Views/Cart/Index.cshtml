@@ -8,19 +8,19 @@
 
 @if (Session["CurrentWishlist"] == null)
 {
-<div class="text-center" style="color:black">
-    <h1>Your Cart</h1>
+    <div class="text-center" style="color:black">
+        <h1>Your Cart</h1>
 
 
-    <h2>Your cart is empty !!!!!!!</h2>
+        <h2>Your cart is empty !!!!!!!</h2>
 
-    <div class="text-center">
+        <div class="text-center">
 
 
-        <a class="btn btn-info login" href="@Url.Action("Index","Home")">Go To The Home page</a>
+            <a class="btn btn-info login" href="@Url.Action("Index","Home")">Go To The Home page</a>
+        </div>
+
     </div>
-
-</div>
 }
 
 else
@@ -45,28 +45,34 @@ else
 
                 @foreach (var item in cart.AllOrderitems)
                 {
+
+                    int totaalitem = (item.Prijs * item.Aantal);
+                    int totaal = +totaalitem;
                     <tr>
                         <td class="text-center">@item.Aantal</td>
                         <td class="text-left">@item.Item.CartTitle</td>
                         <td>@item.Item.CartDescription</td>
                         <td>@item.Opmerking</td>
                         <td class="text-right">
-                            @item.Prijs.ToString("c")
+                            @item.Prijs.ToString() euro
                         </td>
                         <td class="text-right">
-                            @((item.Aantal * item.Prijs).ToString("c"))
+                            @((item.Aantal * item.Prijs).ToString()) euro
                         </td>
                         <td>
                             @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-info login" })
                         </td>
                     </tr>
+
                 }
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="3" class="text-right">Total:</td>
                     <td class="text-right">
-                        0:00 euro
+                
+                           @*@Model.totaal euro!;*@
+
                     </td>
                 </tr>
             </tfoot>

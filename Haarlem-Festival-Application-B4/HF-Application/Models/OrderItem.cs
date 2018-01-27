@@ -21,12 +21,12 @@ namespace HF_Application.Models
 
 
 
-        public OrderItem(int itemid, int orderid, int aantal,  string question , int prijs, FestivalEvent festivalEvent)
+        public OrderItem(int itemid, int orderid, int aantal,  string question , FestivalEvent festivalEvent, int prijs)
         {
             ItemId = itemid;
             OrderId = orderid;
             Aantal = aantal;
-            Prijs = Prijs;
+            Prijs = prijs;
             Opmerking = question;
             Item = festivalEvent;
 
@@ -37,7 +37,7 @@ namespace HF_Application.Models
             ItemId = itemid;
             OrderId = orderid;
             Aantal = aantal;
-            Prijs = Prijs;
+            Prijs = prijs;
             Opmerking = question;
            
 

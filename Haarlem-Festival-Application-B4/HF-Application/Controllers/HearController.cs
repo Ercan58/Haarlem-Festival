@@ -58,6 +58,7 @@ namespace HF_Application.Controllers
             JazzDetail JazzEventDetail = new JazzDetail();
             JazzEventDetail.JazzEvent = IJazzRepository.GetJazzEventById(id);
             JazzEventDetail.CrossSellingRestaurauntList = IJazzRepository.CrossSellingRestaurauntList();
+            JazzEventDetail.CrossSellingTalk = IJazzRepository.CrossSellingTalk();
 
 
             return View(JazzEventDetail);
