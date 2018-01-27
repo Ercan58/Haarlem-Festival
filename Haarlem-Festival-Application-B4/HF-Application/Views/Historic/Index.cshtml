@@ -1,0 +1,65 @@
+﻿@model HF_Application.Models.ViewModel.HistoricModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Historic Haarlem!</h1>
+    </div>
+
+    <div class="row restaurantnavigation">
+        <div class="col-sm-12 align-content-sm-center text-center">
+
+            @Html.ActionLink("All", "Index", new { date = "" }, new { @class = "DinerNavigationButton" })
+            @Html.ActionLink("26-07-2018", "Index", new { date = "2018-07-26" }, new { @class = "DinerNavigationButton" })
+            @Html.ActionLink("27-07-2018", "Index", new { date = "2018-07-27" }, new { @class = "DinerNavigationButton" })
+            @Html.ActionLink("28-07-2018", "Index", new { date = "2018-07-28" }, new { @class = "DinerNavigationButton" })
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var jazzEvent in Model.AllHistoricEvents)
+        {
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                <div class="jazzDiv">
+
+                    <div class="col-md-12">
+                        <img class="jazzImage" src="@Url.Content("/Content/images/events/Haarlemcentrum.jpg")" alt="Image of @jazzEvent.tourGuid.GuidName" />
+                    </div>
+
+                    <div class="col-md-12 text-center"><h1 class="jazzName">@jazzEvent.tourGuid.GuidName</h1></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Date</h2>
+                            </div>
+                            @jazzEvent.StartDate.ToShortDateString()
+                        </div>
+
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Time</h2>
+                            </div>
+                            @jazzEvent.StartDate.ToShortTimeString() - @jazzEvent.EndDate.ToShortTimeString()
+                        </div>
+
+                        <div class="col-md-12 col-12 text-center tastebuttoncol">
+
+                            @Html.ActionLink("More information", "Details", new { id = jazzEvent.ID }, new { @class = "btn btn-info btn-block login" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
