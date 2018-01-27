@@ -19,7 +19,7 @@ namespace HF_Application.Controllers
     public class HearController : Controller
     {
         private IJazzRepository IJazzRepository = new JazzRepository();
-        private IDinerRepository IDinerRepository = new DinerRepository();
+        private HaarlemFestivalContext db = new HaarlemFestivalContext();
         private List<Jazz> AllJazzEvents;
 
 
@@ -57,7 +57,8 @@ namespace HF_Application.Controllers
         {
             JazzDetail JazzEventDetail = new JazzDetail();
             JazzEventDetail.JazzEvent = IJazzRepository.GetJazzEventById(id);
-            JazzEventDetail.CrossSellingRestaurauntList = IJazzRepository.CrossSellingRestaurauntList();
+            JazzEventDetail.CrossSellingRestaurauntList = db.Restaurants.OrderBy(d => Guid.NewGuid()).Take(3).ToList();
+            JazzEventDetail.CrossSellDinerList = db.Diners.Take(3).ToList();
 
 
             return View(JazzEventDetail);

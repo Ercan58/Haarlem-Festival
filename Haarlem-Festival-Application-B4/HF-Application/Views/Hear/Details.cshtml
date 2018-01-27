@@ -62,24 +62,24 @@
 
             <div class="col-md-12 cross-talk">
                 <div class="text-center">
-                    <h3> Take a look at other events!</h3>
+                    <h3>Make your day complete with a diner!</h3>
 
 
-                    @foreach (var resto in Model.CrossSellingRestaurauntList)
-                    {
-                            
-                    <div class="col-md-4 crossSeelItem">
-                        <div class="crossSellName">
-                            @resto.RestaurantName.ToString()
-                        </div>
-                        <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName.ToString()" />
+                    @foreach (var diner in Model.CrossSellingRestaurauntList)
+    {
 
-                        <div class="text-center" style="margin-bottom:5px;">
-                            <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "btn btn-info login" })</a>
-                        </div>
-
+                <div class="col-md-4 crossSeelItem">
+                    <div class="crossSellName">
+                        @diner.RestaurantName.ToString()
                     </div>
-                    }
+                    <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + diner.imagePath)" alt="Image of @diner.RestaurantName.ToString()" />
+
+                    <div class="text-center" style="margin-bottom:5px;">
+                        <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = diner.Id }, new { @class = "btn btn-info login" })</a>
+                    </div>
+
+                </div>
+}
 
 
                 </div>
@@ -91,11 +91,3 @@
 
 
 </body>
-<script>
-    function myFunction() {
-        var x = document.getElementById("value");
-        var y = document.getElementById("value");
-        document.getElementById("demo").innerHTML = x;
-
-
-</script>
