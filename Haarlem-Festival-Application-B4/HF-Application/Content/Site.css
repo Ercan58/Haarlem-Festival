@@ -258,7 +258,7 @@ text-decoration:underline;
 /*Jazz CSS*/
 
 #JazzBody {
-    background-image: url(images/events/bg-music.png);
+    background-image: url(images/events/achtergrond_talk3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -343,6 +343,17 @@ text-decoration:underline;
     max-width: 31%;
 }
 
+.crosselling{
+    padding:0px;
+
+}
+
+.crossellinginner{
+    padding-left:2px;
+}
+
+
+
 .crossSellName {
     font-size: 20px;
 }
@@ -370,7 +381,6 @@ text-decoration:underline;
 .talkImage1
 {
     width: 90%;
-    border-left: 5px solid #f79f06;
     margin-bottom:1%;
     
 }
@@ -378,7 +388,6 @@ text-decoration:underline;
 .talkImage2 {
     width: 95%;
     height:190px;
-    border-left: 5px solid #f79f06;
     margin-bottom: 2%;
 }
 
@@ -1939,6 +1948,10 @@ button.close {
     }
 }
 
+.container-full {
+    width: 100%;
+    margin: 0 auto;
+}
 .clearfix:before,
 .clearfix:after,
 .dl-horizontal dd:before,
@@ -1973,6 +1986,10 @@ button.close {
 .modal-footer:after {
     display: table;
     content: " ";
+}
+
+.dinerpanel {
+    border-left: 4px solid #910000;
 }
 
 .clearfix:after,
@@ -2446,7 +2463,7 @@ a.urunthumbnail.active {
 .card {
     margin-top: 50px;
     background: #eee;
-    padding: 3em;
+    padding: 15px;
     line-height: 1.5em;
 }
 
@@ -2620,11 +2637,22 @@ a.urunthumbnail.active {
     opacity: 0;
 }
 
-    .overlay:target {
-        visibility: visible;
-        opacity: 1;
-        width:90%;
-    }
+.detailcategorie {
+    color: white;
+    padding: 4px;
+    margin-right: 2px;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    font-size: 25px;
+    font-weight: 500;
+    background-color: #910000;
+} 
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+    width: 90%;
+}
 
 .popup2 {
     margin: 70px auto;

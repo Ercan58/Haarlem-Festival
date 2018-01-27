@@ -9,7 +9,7 @@
     <div class="text-center">
         <h1 style="color:black"><strong>@Model.CurrentTalk.Interview</strong></h1>
     </div>
-    @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]) }))
+    @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]), prijs =Model.CurrentTalk.TicketPrice }))
     {
 
 

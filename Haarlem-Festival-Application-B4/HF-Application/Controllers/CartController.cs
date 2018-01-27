@@ -26,9 +26,9 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        public ActionResult AddToCart(int eventid, int userid, string Question, int aantal)
+        public ActionResult AddToCart(int eventid, int userid, string Question, int aantal, int prijs )
         {
-           
+            int totaal = 0;
             CartModel cartModel = new CartModel();
             if (Session["CurrentWishlist"] != null)
             {
@@ -39,19 +39,30 @@ namespace HF_Application.Controllers
 
                 List<OrderItem> New = new List<OrderItem>();
                 FestivalEvent curentevent = cartRepository.GetbesteldEvent(eventid);
-                New = cartRepository.Additem(eventid, aantal, Question, curentevent);
+                New = cartRepository.Additem(eventid, aantal, Question, curentevent, prijs);
                 New.AddRange(Old);
-            
-
+                foreach (var item in New)
+                {
+                    int subtotaal = (item.Aantal * item.Prijs);
+                    totaal = totaal + subtotaal;
+                }
+                cartModel.totaal = totaal;
                 cartModel.AllOrderitems = New;
                 Session["CurrentWishlist"] = cartModel;
                 return View(cartModel);
             }
 
-            FestivalEvent talk1 = cartRepository.GetbesteldEvent(eventid);
-            cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,talk1 );
-            cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question);
+            FestivalEvent eventi = cartRepository.GetbesteldEvent(eventid);
+            // prijs hier = 0 ?
+            cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,eventi, prijs );
+            cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question, prijs);
 
+            foreach (var item in cartModel.AllOrderitems)
+            {
+               int subtotaal = (item.Aantal * item.Prijs);
+                totaal = totaal + subtotaal;
+            }
+            cartModel.totaal = totaal;
             Session["CurrentWishlist"] = cartModel;
 
             return View(cartModel);
@@ -76,8 +87,6 @@ namespace HF_Application.Controllers
             }
 
             cartModel.AllOrderitems = Old;
-
-
             Session["CurrentWishlist"] = cartModel;
 
             return View(cartModel);
@@ -106,8 +115,8 @@ namespace HF_Application.Controllers
                 cartRepository.Additemsdb(item111);
 
             }
-           
 
+            Session["CurrentWishlist"] = null;
             return View();
         }
     }

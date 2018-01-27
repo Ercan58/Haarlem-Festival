@@ -17,23 +17,21 @@ namespace HF_Application.Repositories
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        public List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent)
+        public List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent, int prijs)
         {
             int Orderid = -1;
-            int prijs = 0;
             List<OrderItem> items = new List<OrderItem>();
             
-            OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, prijs, festivalEvent);
+            OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, festivalEvent, prijs);
 
             items.Add(items1);
 
             return items;
         }
 
-        public List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question)
+        public List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question, int prijs)
         {
             int Orderid = -1;
-            int prijs = 0;
             List<OrderItem> items = new List<OrderItem>();
 
             OrderItem items1 = new OrderItem(itemid, Orderid, aantal, Question, prijs);

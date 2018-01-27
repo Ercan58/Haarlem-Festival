@@ -37,7 +37,7 @@ namespace HF_Application.Controllers
 
             RestaurantDetailModel restaurantDetailModel = new RestaurantDetailModel();
             restaurantDetailModel.restaurant = dinerrp.GetRestaurant(id);
-            dinersevenements = db.Diners.Where(d => d.RestaurantId == id).ToList();
+            dinersevenements = db.Diners.Where(d => d.RestaurantId == id && d.Seats!=0).ToList();
             restaurantDetailModel.diner = db.Diners.FirstOrDefault(d => d.RestaurantId == id);
 
             foreach (Diner diner in dinersevenements)
