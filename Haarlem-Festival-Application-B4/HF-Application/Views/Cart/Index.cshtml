@@ -35,8 +35,9 @@ else
                 <tr>
                     <th>Quantity</th>
                     <th>Item</th>
-                    <th>Event</th>
-                    <th>Question</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Comment</th>
                     <th class="text-right">Price</th>
                     <th class="text-right">Subtotal</th>
                 </tr>
@@ -51,6 +52,7 @@ else
                     <tr>
                         <td class="text-center">@item.Aantal</td>
                         <td class="text-left">@item.Item.CartTitle</td>
+                        <td>@item.Item.StartDate</td>
                         <td>@item.Item.CartDescription</td>
                         <td>@item.Opmerking</td>
                         <td class="text-right">
