@@ -12,8 +12,5 @@ namespace HF_Application.Repositories
         List<Jazz> GetAllJazzEvents();
         List<Jazz> GetJazzEvents(DateTime date);
         Jazz GetJazzEventById(int id);
-        List<Restaurant> CrossSellingRestaurauntList();
-        List<Talk> CrossSellingTalk();
-
     }
 }

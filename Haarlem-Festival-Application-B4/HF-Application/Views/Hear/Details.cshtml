@@ -2,243 +2,134 @@
 
 
 @{
-    ViewBag.Title = "Talk1";
+    ViewBag.Title = "Jazz @ Patronaat";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 style="color:black"><strong>@Model.JazzEvent.Band</strong></h1>
-</div>
-@using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.JazzEvent.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = Model.JazzEvent.TicketPrice }))
-{
 
+<body id="JazzBody">
+    @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.JazzEvent.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = Model.JazzEvent.TicketPrice }))
+    {
+        <div class="container">
 
-    <div class="container">
-
-        <div class="card">
-            <div class="container-fliud">
-                <div class="wrapper row">
-                    <div class="preview col-md-6">
-                        <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.imagePath" /></div>
-
-                            <Strong class="text_form" style="color:#808080">You can ask our guests questions here: </Strong><br />
-                            <input style="height:100px; color:#808080" class="form-control" type="text" name="Question" placeholder="if you would note something....." />
-                        </div>
-                    </div>
-                    <div class="details col-md-6">
-                        <div class="panel panel-default text-center">
-                            <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Price</div>
-                            <hr>
-                            <h4 style="color:black">@Model.JazzEvent.TicketPrice euro</h4>
-                        </div>
-                        <div class="panel panel-default text-center">
-                            <div class="rating">
-                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>  Category</div>
-                                <hr>
-                                <h4 style="color:black">@Model.JazzEvent.CartTitle at patronaat</h4>
-                            </div>
-                        </div>
-                        <div class="panel panel-default text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div>
-                            <hr>
-                            <h6 class="text-left" style="color:black ; white-space:pre-line">@Model.JazzEvent.CartDescription</h6>
-                        </div>
-                        <div class="panel panel-default text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Money</div>
-                            <hr>
-                            <font color="purple"> @Model.JazzEvent.TicketPrice Euro </font>
-                        </div>
-                        <div class="panel panel-default text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Aantal Teckits:</div>
-                            <hr>
-                            <span style="color:#808080" class="input-group-addon">
-                                <select id="beden" class="form-control" name="aantal">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-
-                                </select>
-                            </span>
-                            <br>
-                        </div>
-                        <div class="text-center">
-                            <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
-                            <a href="#popup1" class="btn btn-info btn-block login">Buy Direct</a>
-                            @*<a>@Html.ActionLink("Buy Direct", "PlaceOrder", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>*@
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-}
-
-<br>
-<br>
-@*cross selling van hier!*@
-<div class="container">
-    <div class="text-center" style="color:black"> <h3>Take A Look To Our Other Events!</h3></div>
-    <div class="card">
-
-        <div class="row">
-            <div class="col-md-6">
-
-                @foreach (var talkEvent in Model.CrossSellingTalk)
-                {<div class="col-lg-6 " style="float:left; width:100%">
-
-                        <div style="background-color:#9C6910">
-
-
-                            <div class="text-center">  <h5>@talkEvent.Interview</h5></div>
-
-                            <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-
-
-                            <div class="text-center" style="margin-bottom:5px;">  <a>@Html.ActionLink("More Information", "Talk1","Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
-
-
-
-
-                        </div>
-                    </div>
-                }
-
-            </div>
-            <div class="col-md-6">
-
-                @foreach (var resto in Model.CrossSellingRestaurauntList)
-                {<div class="col-lg-6 " style="float:left; width:100%; height:110%">
-
-                        <div style="background-color: rgba(189, 23, 23, 0.91)">
-                            <div class="text-center">  <h5 class="text-center">@resto.RestaurantName </h5>  </div>
-
-
-                            <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName" />
-
-
-                            <div class="text-center" style="margin-bottom:5px;">
-                                <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "btn btn-info login" })</a>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                }
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<br />
-<br />
-
-
-
-
-
-
-
-
-
-
-
-@*============================================================*@
-
-@*<body id="JazzBody">
-        <div class="container jazzDetailDiv">
-            <div class="col-md-10 detailTitelText">
-                <h1 class="text-center detailTitelText"> @Model.JazzEvent.Band.ToString() </h1>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="co-md-8">
-                        <img class="jazzDetailImage" src="@Url.Content("~/Content/images/events/" + @Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.Band.ToString()" />
-                    </div>
-                    <div class="text-left titelText">
-                        @Model.JazzEvent.Band.ToString() at Patronaat
-
-                        <div class="text-left lblText" style="margin-left:2%;">
-                            Date: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortDateString()</p>
-                            Time: <p class="lblBodyText">@Model.JazzEvent.StartDate.ToShortTimeString() - @Model.JazzEvent.EndDate.ToShortTimeString()</p>
-                            Location: <p class="lblBodyText">@Model.JazzEvent.Location.Address.ToString()</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form_reservering">
-                        <div class="form-group">
-                            <h3 class="lblTocketPrice">Ticket price: @string.Format("{0,00:C}", @Model.JazzEvent.TicketPrice.ToString()) euro</h3>
-                            <div class="col-sm-auto">
-
-                                Amount: <select>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-
-                            </div>
-
-                            <div class="col-sm-4">
-                                Total: @ToString();
-                            </div>
-
-                            <div class="custom-controls-stacked">
-                            </div>
-
-                            <div class="text-center">
-                                <a>@Html.ActionLink("Buy", "Details", 0, new { @class = "btn btn-info" })</a>
-                                <a>@Html.ActionLink("Add to WishList", "Details", 0, new { @class = "btn btn-info" })</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-12 cross-talk">
-                    <div class="text-center">
-                        <h3> Take a look at other events!</h3>
-
-
-                        @foreach (var resto in Model.CrossSellingRestaurauntList)
-                        {
-
-                            <div class="col-md-4 crossSeelItem">
-                                <div class="crossSellName">
-                                    @resto.RestaurantName.ToString()
+            <div class="card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.imagePath" /></div>
+                                <div>
+                                    <div>
+                                        <h4 style="color:black">
+                                            <br /><strong>@Model.JazzEvent.Band at Patronaat!</strong>
+                                            <br /><strong>Date:</strong> @Model.JazzEvent.StartDate.ToShortDateString()
+                                            <br /><strong>Time:</strong> @Model.JazzEvent.StartDate.ToShortTimeString() - @Model.JazzEvent.EndDate.ToShortTimeString()
+                                        </h4>
+                                    </div>
                                 </div>
-                                <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName.ToString()" />
+                            </div>
+                        </div>
+                        <div class="details col-md-6">
+                            <div class="panel panel-default text-center">
+                                <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Ticket Price:</div>
+                                <hr>
+                                <h4 style="color:black">@Model.JazzEvent.TicketPrice euro</h4>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div>
+                                <hr>
+                                <h6 class="text-left" style="color:black ; white-space:pre-line">@Model.JazzEvent.CartDescription</h6>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>Price</div>
+                                <hr>
+                                <font color="purple"> @Model.JazzEvent.TicketPrice Euro </font>
+                            </div>
+                            <div class="panel panel-default text-center">
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount Teckits:</div>
+                                <hr>
+                                <span style="color:#808080" class="input-group-addon">
+                                    <select id="beden" class="form-control" name="Amount">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+
+                                    </select>
+                                </span>
+                                <br>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
+                                <a href="#popup1" class="btn btn-info btn-block login">Buy Direct</a>
+                                @*<a>@Html.ActionLink("Buy Direct", "PlaceOrder", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+
+    <br>
+    <br>
+    @*cross selling van hier!*@
+    <div class="container">
+        <div class="text-center" style="color:black"> <h3>Take A Look To Our Other Events!</h3></div>
+        <div class="card">
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    @foreach (var talkEvent in Model.CrossSellingTalk)
+                    {<div class="col-lg-6 " style="float:left; width:100%">
+
+                            <div style="background-color:#9C6910">
+
+
+                                <div class="text-center">  <h5>@talkEvent.Interview</h5></div>
+
+                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+
+
+                                <div class="text-center" style="margin-bottom:5px;">  <a>@Html.ActionLink("More Information", "Talk1", "Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
+
+
+
+
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="col-md-6">
+
+                    @foreach (var resto in Model.CrossSellingRestaurauntList)
+                    {<div class="col-lg-6 " style="float:left; width:100%; height:110%">
+
+                            <div style="background-color: rgba(189, 23, 23, 0.91)">
+                                <div class="text-center">  <h5 class="text-center">@resto.RestaurantName </h5>  </div>
+
+
+                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName" />
+
 
                                 <div class="text-center" style="margin-bottom:5px;">
                                     <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "btn btn-info login" })</a>
                                 </div>
 
+
+
                             </div>
-                        }
-
-
-                    </div>
+                        </div>
+                    }
 
                 </div>
-
             </div>
         </div>
-
-
-    </body>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("value");
-            var y = document.getElementById("value");
-            document.getElementById("demo").innerHTML = x;
-
-
-    </script>*@
+    </div>
+</body>
