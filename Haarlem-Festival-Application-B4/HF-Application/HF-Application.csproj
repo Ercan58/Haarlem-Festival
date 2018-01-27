@@ -252,7 +252,7 @@
     <Content Include="Content\images\events\FamilyXL.jpg" />
     <Content Include="Content\images\events\femke-halsema.jpg" />
     <Content Include="Content\images\events\Femke_Jop.png" />
-    <Content Include="Content\images\events\grandcafebrinkmann.jpg" />
+    <Content Include="Content\images\events\grand_cafe_brinkmann.jpg" />
     <Content Include="Content\images\events\hometalk1.jpg" />
     <Content Include="Content\images\events\restaurantfrishaarlem.jpg" />
     <Content Include="Content\images\events\restaurantmlhaarlem.jpg" />
@@ -266,7 +266,6 @@
     <Content Include="Content\images\events\GareDuNord.jpg" />
     <Content Include="Content\images\events\giel-beelen.jpg" />
     <Content Include="Content\images\events\Giel_Rop.png" />
-    <Content Include="Content\images\events\grand_cafe_brinkmann.jpg" />
     <Content Include="Content\images\events\GumboKings.jpg" />
     <Content Include="Content\images\events\Haarlemcentrum.jpg" />
     <Content Include="Content\images\events\Haarlem_diner_Background.jpg" />

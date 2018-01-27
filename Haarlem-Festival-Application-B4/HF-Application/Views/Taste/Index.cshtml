@@ -32,28 +32,29 @@
                             <img class="restaurantImage" src="@Url.Content("~/Content/images/events/"+restaurant.imagePath)" alt="IMAGES" />
                         </div>
                         <div class="col-md-12 text-center"><h1 class="RestaurantName">@restaurant.RestaurantName</h1></div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="col-md-12 text-center">
+                        <div class="row" style="padding-top:15px;">
+                            <div class="col-md-6 text-center">
+                                <div class="col-md-12">
                                     <h2>Foodtypes</h2>
                                 </div>
-                                <ul>
+                                <div>
                                     @foreach (var foodtypes in restaurant.FoodTypes)
                                     {
-                                        IHtmlString tekst = new HtmlString("<li class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</li>");
+                                        IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant text-center'>" + foodtypes.Foodtype.Naam + "</text>");
                                         @Html.Raw(tekst)
                                     }
-                                </ul>
+                                </div>
+                          
                             </div>
                             <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <h2 style="float:left;">Address</h2>
+                                <div class="col-md-12 text-center">
+                                    <h2>Address</h2>
                                 </div>
                                 @restaurant.Location.Address
                             </div>
-                            <div class="col-md-12 col-12 text-center">
+                            <div class="col-md-12 col-12 text-center tastebuttoncol">
   
-                                    @Html.ActionLink("Meer informatie", "Details", new { id = restaurant.Id }, new { @class = "btn btn-info login" })
+                                    @Html.ActionLink("Meer informatie", "Details", new { id = restaurant.Id }, new { @class = "btn btn-info btn-block login " })
 
                             </div>
                         </div>
