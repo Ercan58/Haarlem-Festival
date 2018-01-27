@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HistoricController.cs" />
     <Compile Include="Controllers\TasteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HearController.cs" />
@@ -166,6 +167,7 @@
     </Compile>
     <Compile Include="Interface\ICartRepository.cs" />
     <Compile Include="Interface\IDinerRepository.cs" />
+    <Compile Include="Interface\IHistoricRepository.cs" />
     <Compile Include="Interface\ITalkRepository.cs" />
     <Compile Include="Migrations\201712121718479_ini1.cs" />
     <Compile Include="Migrations\201712121718479_ini1.Designer.cs">
@@ -218,6 +220,7 @@
     <Compile Include="Models\SalesItem.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\CartModel.cs" />
+    <Compile Include="Models\ViewModel\HistoricModel.cs" />
     <Compile Include="Models\ViewModel\JazzDetail.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
@@ -230,6 +233,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Interface\IJazzRepository.cs" />
+    <Compile Include="Repositories\HistoricRepository.cs" />
     <Compile Include="Repositories\JazzRepository.cs" />
     <Compile Include="Repositories\TalkRepository.cs" />
   </ItemGroup>
@@ -506,6 +510,7 @@
     <Content Include="Views\Admin\AddSee.cshtml" />
     <Content Include="Views\Admin\AddTalk.cshtml" />
     <Content Include="Views\Admin\AddTaste.cshtml" />
+    <Content Include="Views\Historic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
