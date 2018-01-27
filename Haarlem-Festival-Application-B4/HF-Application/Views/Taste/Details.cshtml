@@ -32,7 +32,7 @@
                             <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Price</div>
                             <hr>
                             <h4 style="color:black">Price p.p. @Model.diner.TicketPrice euro</h4>
-                            <h5 style="color:black;">Pay here 10 euro p.p. and pay the rest in the @Model.restaurant.RestaurantName</h5>
+                            <h5 style="color:black;">Pay here 10 euro p.p. and pay the rest at the @Model.restaurant.RestaurantName</h5>
                         </div>
                         <div class="panel panel-default dinerpanel text-center">
                             <div class="rating">
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="panel panel-default dinerpanel text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div>
+                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Location</div>
                             <hr>
                             <h6 class="text-center" style="color:black ; white-space:pre-line"> Adres: @Model.restaurant.Location.Address</h6>
                         </div>
@@ -92,7 +92,7 @@
 <br>
 @*cross selling van hier!*@
 <div class="container">
-    <div class="text-center" style="color:black"> <h3>Take A Look To Our Other Events!</h3></div>
+    <div class="text-center" style="color:black"> <h3>Take A Look at Our Other Events!</h3></div>
     <div class="card">
 
         <div class="row container-full">
@@ -101,14 +101,12 @@
                 @foreach (var talkEvent in Model.CrossTalkEvents)
                 {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%">
 
-                        <div style="background-color:#9C6910">
-
-
-                            <div class="text-center">  <h5>@talkEvent.Interview</h5></div>
+                        <div style="background-color:rgba(8, 19, 7, 0.64);">
+                            <div class="text-center" style="height:70px;">  <h5>@talkEvent.Interview</h5></div>
 
                             <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
 
-                            <div class="text-center" style="margin-bottom:5px;">  <a>@Html.ActionLink("More Information", "Talk1","Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
+                            <div class="text-center" style="padding:5px;">  <a>@Html.ActionLink("More information", "Talk1","Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
 
                         </div>
                     </div>
@@ -120,18 +118,16 @@
                 @foreach (var resto in Model.HearCrossEvents)
                 {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%; height:100%">
 
-                        <div style="background-color: rgba(189, 23, 23, 0.91)">
-                            <div class="text-center">  <h5 class="text-center">@resto.Band</h5>  </div>
+                        <div style="background-color: rgba(8, 19, 7, 0.64)">
+                            <div class="text-center" style="height:70px;">  <h5 class="text-center">@resto.Band</h5>  </div>
 
 
                             <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.Band" />
 
 
-                            <div class="text-center" style="margin-bottom:5px;">
-                                <a>@Html.ActionLink("More Information", "Details", "Hear", new { id = resto.ID }, new { @class = "btn btn-info login" })</a>
+                            <div class="text-center" style="padding:5px;">
+                                <a>@Html.ActionLink("More information", "Details", "Hear", new { id = resto.ID }, new { @class = "btn btn-info login" })</a>
                             </div>
-
-
 
                         </div>
                     </div>

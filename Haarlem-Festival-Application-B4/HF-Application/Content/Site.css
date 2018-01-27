@@ -357,6 +357,7 @@ text-decoration:underline;
 
 .crossellinginner{
     padding-left:2px;
+    padding-right:15px;
 }
 
 
@@ -372,12 +373,15 @@ text-decoration:underline;
     margin-bottom: 10px;
     opacity: 0.95;
     padding: 2% 1% 2% 1%;
+    margin-left:50px;
+    margin-right:50px;
+
 }
 
 .interviewName 
 {
     color: white;
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
     border-bottom-color: white;
     font:bold;
     margin-left:3%;

@@ -18,7 +18,8 @@
         <div class="row" style="margin-left:3%; margin-right:3%;">
 
             @foreach (var talkEvent in Model.AllTalkEvents)
-            {<div class="col-lg-4 ">
+            {
+                <div class="col-lg-4 ">
 
                     <div class="Talkdiv">
 
@@ -34,7 +35,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a>@Html.ActionLink("More Information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info btn-block login" })</a>
+                            <a>@Html.ActionLink("More information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info btn-block login" })</a>
                         </div>
 
                         @*<div class="text-center">
