@@ -6,129 +6,123 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<body class="DinerdetailsBody">
+    <div class="text-center">
+        <h1 style="color:black"><strong>@Model.diner.CartTitle</strong></h1>
+    </div>
+    @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.diner.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = 10 }))
+    {
 
-<div class="text-center">
-    <h1 style="color:black"><strong>@Model.diner.CartTitle</strong></h1>
-</div>
-@using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.diner.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = 10 }))
-{
 
+        <div class="container">
 
-    <div class="container">
-
-        <div class="card">
-            <div class="container-fliud">
-                <div class="wrapper row">
-                    <div class="preview col-md-6">
-                        <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.restaurant.imagePath)" alt="Image of @Model.restaurant.imagePath" /></div>
-                            <hr />
-                            <Strong class="text_form" style="color:#808080">Do you have any comments for us, let us know! </Strong><br />
-                            <input style="height:100px; color:#808080" class="form-control" type="text" name="Question" placeholder="Type Comments here!" />
-                        </div>
-                    </div>
-                    <div class="details col-md-6">
-                        <div class="panel panel-default dinerpanel text-center">
-                            <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Price</div>
-                            <hr>
-                            <h4 style="color:black">Price p.p. @Model.diner.TicketPrice euro</h4>
-                            <h5 style="color:black;">Pay here 10 euro p.p. and pay the rest at the @Model.restaurant.RestaurantName</h5>
-                        </div>
-                        <div class="panel panel-default dinerpanel text-center">
-                            <div class="rating">
-                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>  Category</div>
-                                <hr>
-                                @foreach (var foodtypes in @Model.restaurant.FoodTypes)
-                                {
-                                    IHtmlString tekst = new HtmlString("<text class='detailcategorie'>" + foodtypes.Foodtype.Naam + "</text>");
-                                     @Html.Raw(tekst)
-                                }
+            <div class="card">
+                <div class="container-fliud">
+                    <div class="wrapper row">
+                        <div class="preview col-md-6">
+                            <div class="preview-pic tab-content">
+                                <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.restaurant.imagePath)" alt="Image of @Model.restaurant.imagePath" /></div>
+                                <hr />
+                                <Strong class="text_form" style="color:#808080">Do you have any comments for us, let us know! </Strong><br />
+                                <input style="height:100px; color:#808080" class="form-control" type="text" name="Question" placeholder="Type Comments here!" />
                             </div>
                         </div>
-                        <div class="panel panel-default dinerpanel text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Location</div>
-                            <hr>
-                            <h6 class="text-center" style="color:black ; white-space:pre-line"> Adres: @Model.restaurant.Location.Address</h6>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-8 col-12">
+                        <div class="details col-md-6">
                             <div class="panel panel-default dinerpanel text-center">
-                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Choose date and time</div>
+                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Address</div>
                                 <hr>
-                                <span style="color:#808080" class="input-group-addon">
-                                    @Html.DropDownListFor(b => b.selectDinerId, Model.DinerEvents, new { @class = "dropdownrest" })
-                                </span>
+                                <h4 style="color:black;"> Adres: @Model.restaurant.Location.Address</h4>
                             </div>
+
+                            <div class="panel panel-default dinerpanel text-center">
+                                <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>Price P.P.</div>
+                                <hr>
+                                <h4 style="color:black">Price p.p. @Model.diner.TicketPrice euro</h4>
+                                <h5 style="color:black;">Pay here 10 euro p.p. and pay the rest at the @Model.restaurant.RestaurantName</h5>
                             </div>
-                            <div class="col-md-4 col-12">
-                         <div class="panel panel-default dinerpanel text-center">
-                            <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount</div>
-                            <hr>
-                            <span style="color:#808080" class="input-group-addon">
-                                <select id="beden" class="dropdownrest" name="aantal">
-                                    @for(int a=1; a<=10;a++)
+                            <div class="panel panel-default dinerpanel text-center">
+                                <div class="rating">
+                                    <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-info-sign"></span>  Category</div>
+                                    <hr>
+                                    @foreach (var foodtypes in @Model.restaurant.FoodTypes)
                                     {
-                                        <option value="@a">@a</option>
+                                        IHtmlString tekst = new HtmlString("<text class='detailcategorie'>" + foodtypes.Foodtype.Naam + "</text>");
+                                        @Html.Raw(tekst)
                                     }
-                                </select>
-                            </span>
-                        </div>
+                                </div>
                             </div>
-                        </div>
-                 
-                        <div class="text-center">
-                            <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
-                            <a href="#popup1" class="btn btn-info btn-block login">Buy Direct</a>
-                            @*<a>@Html.ActionLink("Buy Direct", "PlaceOrder", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>*@
+                            <div class="row">
+                                <div class="col-md-8 col-12">
+                                    <div class="panel panel-default dinerpanel text-center">
+                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Choose date and time</div>
+                                        <hr>
+                                        <span style="color:#808080" class="input-group-addon">
+                                            @Html.DropDownListFor(b => b.selectDinerId, Model.DinerEvents, new { @class = "dropdownrest" })
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="panel panel-default dinerpanel text-center">
+                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount</div>
+                                        <hr>
+                                        <span style="color:#808080" class="input-group-addon">
+                                            <select id="beden" class="dropdownrest" name="aantal">
+                                                @for (int a = 1; a <= 10; a++)
+                                                {
+                                                    <option value="@a">@a</option>
+                                                }
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
+                                <a href="#popup1" class="btn btn-info btn-block login">Buy Direct</a>
+                                @*<a>@Html.ActionLink("Buy Direct", "PlaceOrder", new { id = @Model.CurrentTalk.ID }, new { @class = "btn btn-info" })</a>*@
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-}
+    }
 
-<br>
-<br>
-@*cross selling van hier!*@
-<div class="container">
-    <div class="text-center" style="color:black"> <h3>Take A Look at Our Other Events!</h3></div>
-    <div class="card">
+    <br>
+    <br>
+    @*cross selling van hier!*@
+    <div class="container">
+        <div class="text-center crossellingTitel">Take A Look To Our Other Events!</div>
+        <div class="card">
 
-        <div class="row container-full">
-            <div class="col-md-6 crosselling">
-
+            <div class="row container-full">
                 @foreach (var talkEvent in Model.CrossTalkEvents)
-                {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%">
-
-                        <div style="background-color:rgba(8, 19, 7, 0.64);">
-                            <div class="text-center" style="height:70px;">  <h5>@talkEvent.Interview</h5></div>
-
-                            <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
-
-                            <div class="text-center" style="padding:5px;">  <a>@Html.ActionLink("More information", "Talk1","Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a></div>
-
+                {
+                    <div class="col-sm-3 text-center" style="float:left; width:100%;">
+                        <div style="background-color:#9C6910">
+                            <div style="height:70px; padding-top:5%">
+                                <h5>@talkEvent.Interview</h5>
+                            </div>
+                            <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
+                            <div style="padding-bottom:5%; margin-bottom:5%; padding-top:5%;">
+                                <a>@Html.ActionLink("More Information", "Talk1", "Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a>
+                            </div>
                         </div>
                     </div>
                 }
 
-            </div>
-            <div class="col-md-6">
+                @foreach (var hear in Model.HearCrossEvents)
+                {<div class="col-sm-3 text-center" style="float:left; width:100%;">
 
-                @foreach (var resto in Model.HearCrossEvents)
-                {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%; height:100%">
-
-                        <div style="background-color: rgba(8, 19, 7, 0.64)">
-                            <div class="text-center" style="height:70px;">  <h5 class="text-center">@resto.Band</h5>  </div>
-
-
-                            <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.Band" />
-
-
-                            <div class="text-center" style="padding:5px;">
-                                <a>@Html.ActionLink("More information", "Details", "Hear", new { id = resto.ID }, new { @class = "btn btn-info login" })</a>
+                        <div style="background-color:#0D8C10">
+                            <div style="height:70px; padding-top:5%">
+                                <h5 class="text-center">@hear.CartTitle</h5>
                             </div>
-
+                            <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + hear.imagePath)" alt="Image of @hear.CartTitle" />
+                            <div style="margin-bottom:5%; padding-bottom:5%; padding-top:5%;">
+                                <a>@Html.ActionLink("More Information", "Details", "Hear", new { id = hear.ID }, new { @class = "btn btn-info login" })</a>
+                            </div>
                         </div>
                     </div>
                 }
@@ -136,10 +130,7 @@
             </div>
         </div>
     </div>
-</div>
-
-<br />
-<br />
+</body>
 
 
 
