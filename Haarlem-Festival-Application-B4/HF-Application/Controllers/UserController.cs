@@ -6,12 +6,18 @@ using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
 using HF_Application.Models.ViewModel;
+using HF_Application.Interface;
+using HF_Application.Controllers;
+using HF_Application.Models.Events;
+using System.Data;
+
 
 namespace HF_Application.Controllers
 {
+
     public class UserController : Controller
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
+     
         // GET: User
         public ActionResult Index()
         {
@@ -85,22 +91,6 @@ namespace HF_Application.Controllers
                 return RedirectToAction("login");
             }
         }
-
-        //public ActionResult Orders()
-        //{
-        //    User user = Session["User"] as User;
-        //    OrdersModel ordersModel = new OrdersModel();
-
-        //    ordersModel.Orders = db.OrderItems.ToList();
-
-        //    //foreach (OrderItem item in ordersModel.Orders)
-        //    //{
-        //    //    ordersmodel.Add(item);
-        //    //}
-
-        //    return View(ordersModel);
-        //}
-
 
     }
 }

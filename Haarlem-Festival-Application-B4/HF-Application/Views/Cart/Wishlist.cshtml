@@ -1,19 +1,38 @@
-﻿@model HF_Application.Models.ViewModel.OrdersModel
+﻿
+@model HF_Application.Models.ViewModel.OrdersModel
 @{
-    ViewBag.Title = "Orders";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Orders";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 
 @if (Model.orderitems != null)
 {
+
+
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Your Wishlist!</h1>
+
+
+        <div class="text-center">
+            <h4>Orders that you have saved</h4>
+        
+
+        </div>
+
+    </div>
+
+
+
     <div class="panel panel-default">
         <table id="cartTable" class="table" style="color:black">
             <thead>
                 <tr>
                     <th>Quantity</th>
                     <th>Item</th>
-                    <th>Date</th>
-                    <th>Details</th>
                     <th>Comment</th>
                     <th class="text-right">Price</th>
                     <th class="text-right">Subtotal</th>
@@ -28,16 +47,14 @@
                     int totaal = +totaalitem;
                     <tr>
                         <td class="text-center">@item.Aantal</td>
-                        <td class="text-left">@item.Opmerking</td>
-                        <td>@item.Prijs</td>
-                        @*<td>@item.Item.CartDescription</td>
+                        <td class="text-left">@item.Item.CartDescription</td>
                         <td>@item.Opmerking</td>
-                        <td class="text-right">*@
-                            @item.Prijs.ToString() euro
-                      
-                        @*<td class="text-right">
+
+                        @item.Prijs.ToString() euro
+
+                        <td class="text-right">
                             @((item.Aantal * item.Prijs).ToString()) euro
-                        </td>*@
+                        </td>
 
                     </tr>
 

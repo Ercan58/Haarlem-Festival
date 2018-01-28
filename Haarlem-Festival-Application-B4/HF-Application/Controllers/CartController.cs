@@ -161,5 +161,25 @@ namespace HF_Application.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Orders()
+        {
+            int statusid = 1;
+            int userid = Convert.ToInt32(Session["UserId"]);
+            OrdersModel orders = new OrdersModel();
+           orders.orderitems =  cartRepository.GetOrders(userid, statusid);
+
+            return View(orders);
+        }
+
+        public ActionResult Wishlist()
+        {
+            int statusid = 0;
+            int userid = Convert.ToInt32(Session["UserId"]);
+            OrdersModel orders = new OrdersModel();
+            orders.orderitems = cartRepository.GetOrders(userid, statusid);
+
+            return View(orders);
+        }
     }
 }
