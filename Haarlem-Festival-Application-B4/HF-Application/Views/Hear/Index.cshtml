@@ -14,11 +14,11 @@
         <div class="row restaurantnavigation">
             <div class="col-sm-12 align-content-sm-center text-center">
 
-                @Html.ActionLink("All", "Index", new { date = "" }, new { @class = "DinerNavigationButton" })
-                @Html.ActionLink("26-07-2018", "Index", new { date = "2018-07-26" }, new { @class = "DinerNavigationButton" })
-                @Html.ActionLink("27-07-2018", "Index", new { date = "2018-07-27" }, new { @class = "DinerNavigationButton" })
-                @Html.ActionLink("28-07-2018", "Index", new { date = "2018-07-28" }, new { @class = "DinerNavigationButton" })
-                @Html.ActionLink("29-07-2018", "Index", new { date = "2018-07-29" }, new { @class = "DinerNavigationButton" })
+                @Html.ActionLink("All", "Index", new { date = "" }, new { @class = "jazzBtn btn btn-info" })
+                @Html.ActionLink("26-07-2018", "Index", new { date = "2018-07-26" }, new { @class = "jazzBtn btn btn-info" })
+                @Html.ActionLink("27-07-2018", "Index", new { date = "2018-07-27" }, new { @class = "jazzBtn btn btn-info" })
+                @Html.ActionLink("28-07-2018", "Index", new { date = "2018-07-28" }, new { @class = "jazzBtn btn btn-info" })
+                @Html.ActionLink("29-07-2018", "Index", new { date = "2018-07-29" }, new { @class = "jazzBtn btn btn-info" })
 
             </div>
         </div>
@@ -54,7 +54,7 @@
 
                             <div class="col-md-12 col-12 text-center tastebuttoncol">
 
-                                @Html.ActionLink("More information", "Details", new { id = jazzEvent.ID }, new { @class = "btn btn-info btn-block login" })
+                                @Html.ActionLink("More information", "Details", new { id = jazzEvent.ID }, new { @class = "jazzBtn btn btn-info" })
 
                             </div>
 

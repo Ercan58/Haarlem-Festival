@@ -255,6 +255,9 @@
     <Content Include="Content\images\events\achtergrond_talk3.jpg" />
     <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\events\Chris Allen.jpg" />
+    <Content Include="Content\images\events\day26.png" />
+    <Content Include="Content\images\events\day27.png" />
+    <Content Include="Content\images\events\day28.png" />
     <Content Include="Content\images\events\Envolve.jpg" />
     <Content Include="Content\images\events\FamilyXL.jpg" />
     <Content Include="Content\images\events\femke-halsema.jpg" />
