@@ -7,11 +7,10 @@
 }
 
 
-<body id="JazzBody">
+<body class="JazzBody">
     @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.JazzEvent.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = Model.JazzEvent.TicketPrice }))
     {
         <div class="container">
-
             <div class="card">
                 <div class="container-fliud">
                     <div class="wrapper row">
@@ -19,7 +18,7 @@
                             <div class="preview-pic tab-content">
                                 <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.JazzEvent.imagePath)" alt="Image of @Model.JazzEvent.imagePath" /></div>
                                 <div>
-                                    <div>
+                                    <div class="panel-title">
                                         <h4 style="color:black">
                                             <br /><strong>@Model.JazzEvent.Band at Patronaat!</strong>
                                             <br /><strong>Date:</strong> @Model.JazzEvent.StartDate.ToShortDateString()
@@ -34,9 +33,6 @@
                                 <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>   Ticket Price:</div>
                                 <hr>
                                 <h4 style="color:black">@Model.JazzEvent.TicketPrice euro</h4>
-                            </div>
-                            <div class="panel panel-default text-center">
-                                
                             </div>
                             <div class="panel panel-default text-center">
                                 <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-comment"></span>   Description</div>

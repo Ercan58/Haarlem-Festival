@@ -257,7 +257,7 @@ text-decoration:underline;
 
 /*Jazz CSS*/
 
-#JazzBody {
+.JazzBody {
     background-image: url(images/events/achtergrond_talk3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
