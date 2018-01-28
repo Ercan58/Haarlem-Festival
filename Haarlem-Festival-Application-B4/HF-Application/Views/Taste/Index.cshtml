@@ -10,11 +10,11 @@
         </div>
         <div class="row restaurantnavigation">
             <div class="col-md-12 col-12 text-center">
-                @Html.ActionLink("Summary", "index", new { id = (int?)null }, new { @class = "DinerNavigationButton" })
+                @Html.ActionLink("All", "index", new { id = (int?)null }, new { @class = "jazzBtn btn btn-info" })
 
                 @foreach (var foodtype in Model.ListOfFoodtypes)
                 {
-                    @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "DinerNavigationButton" })
+                    @Html.ActionLink(foodtype.Naam, "index", new { id = foodtype.Id }, new { @class = "jazzBtn btn btn-info" })
                 }
                 
             </div>
@@ -40,21 +40,21 @@
                                 <div>
                                     @foreach (var foodtypes in restaurant.FoodTypes)
                                     {
-                                        IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant text-center'>" + foodtypes.Foodtype.Naam + "</text>");
+                                        IHtmlString tekst = new HtmlString("<text class='foodtypesretaurant'>" + foodtypes.Foodtype.Naam + "</text>");
                                         @Html.Raw(tekst)
                                     }
                                 </div>
                           
                             </div>
                             <div class="col-md-6">
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-12" style="float:left;">
                                     <h2>Address</h2>
                                 </div>
-                                @*@restaurant.Location.Address*@
+                                @restaurant.Location.Address
                             </div>
                             <div class="col-md-12 col-12 text-center tastebuttoncol">
   
-                                    @Html.ActionLink("More information", "Details", new { id = restaurant.Id }, new { @class = "btn btn-info btn-block login " })
+                                    @Html.ActionLink("More information", "Details", new { id = restaurant.Id }, new { @class = "jazzBtn btn btn-info " })
 
                             </div>
                         </div>

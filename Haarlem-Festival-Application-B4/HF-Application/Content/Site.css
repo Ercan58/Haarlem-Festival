@@ -19,13 +19,21 @@ body{
     background:#910000;
 }
 
-#Diner{
-    background-image: url('images/events/achtergrond_talk3.jpg');
+#Diner {
+    background-image: url('images/events/haarlemcentrum.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+}
 
+.DinerdetailsBody {
+    background-image: url('images/events/haalem-portal.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
 }
 
 footer{
@@ -39,7 +47,7 @@ footer{
 }
 
 .taste {
-    background-color: #CC2828;
+    background-color: #910000;
 }
 
 .hear {
@@ -75,12 +83,16 @@ footer{
     background:#0a0a0a;
     height:100%;
     width: 100%;
-} 
+}
 
 .mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv {
     padding: 5%;
     border: 1px solid grey;
-    background: #CC2828;
+    background: #910000;
+}
+
+.mainpagejazzdiv {
+    background: #0D8C10;
 }
 
 .mainpagetalkdiv{
@@ -88,7 +100,7 @@ footer{
 }
 
 .mainpagetastediv {
-    background: #CC2828;
+    background: #910000;
 }
 
 .mainpagehistoricediv{
@@ -228,13 +240,16 @@ a:hover{
 }
 
 .foodtypesretaurant {
-    font-size: 15px;
-    color: floralwhite;
-    background-color:black;
-    padding:10px;
-    margin-left:3px;
-    float:left;
-    margin-top:3px;
+    background-color: #910000 !important;
+    color: white;
+    border-color: black;
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 5px;
+    float: left;
+    display: block;
+    margin-left: 5px;
+    margin-top:2px;
 }
 
 
@@ -319,6 +334,9 @@ text-decoration:underline;
     color: black;
     border-color: black;
 }
+
+
+
 
 .jazzBtn:hover {
     background-color: #333333 !important;
@@ -419,7 +437,7 @@ text-decoration:underline;
 
 
 #Talk {
-    background-image: url(images/events/achtergrond_talk3.jpg);
+    background-image: url(images/events/haarlemevening.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -489,11 +507,7 @@ color:black;
 
 
 
-
-
 /*Cart design voor ee popup*/
-
-
 #Cartbasket1 {
     position: absolute;
     float: left;
@@ -503,7 +517,7 @@ color:black;
     width: 390px;
     height: 616px;
     background-color: #413F4B;
-    display:block;
+    display: block;
 }
 
 #Cartbasket-inner-style {
@@ -2495,7 +2509,7 @@ a.urunthumbnail.active {
     }
 
 .card {
-    margin-top: 50px;
+    margin-top: 30px;
     background: #eee;
     padding: 15px;
     line-height: 1.5em;

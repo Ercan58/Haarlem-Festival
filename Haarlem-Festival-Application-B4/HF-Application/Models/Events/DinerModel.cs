@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HF_Application.Models.Events
 {
-    public class JazzModel
+    public class DinerModel
     {
         [Required(ErrorMessage = "A name for this event is required")]
         [MinLength(2, ErrorMessage = "The name should be at least two characters long")]
@@ -18,14 +18,9 @@ namespace HF_Application.Models.Events
         [Display(Name = "Event Description")]
         public string CartDescription { get; set; }
 
-        [Required(ErrorMessage = "The name of the band playing at this event is required")]
-        [MinLength(2, ErrorMessage = "The name should be at least two characters long")]
-        [Display(Name = "Band Name")]
-        public string Band { get; set; }
-
         [Required(ErrorMessage = "The event location is required")]
         [Display(Name = "Event Location")]
-        public Location Location { get; set; }
+        public int RestaurantId { get; set; }
 
         [Required(ErrorMessage = "A number of seats should be available")]
         [Display(Name = "Available Seats")]
@@ -34,6 +29,10 @@ namespace HF_Application.Models.Events
         [Required(ErrorMessage = "A price for this event is required")]
         [Display(Name = "Ticket Price")]
         public double TicketPrice { get; set; }
+
+        [Required(ErrorMessage = "A reduced price for this event is required")]
+        [Display(Name = "Reduced Price")]
+        public double ReducedPrice { get; set; }
 
         [Required(ErrorMessage = "A date for this event is required")]
         [Display(Name = "Start Date and Time")]
@@ -44,6 +43,6 @@ namespace HF_Application.Models.Events
         public DateTime EndDate { get; set; }
 
         [Display(Name = "Image URL")]
-        public string imagePath { get; set; }
+        public string ImagePath { get; set; }
     }
 }

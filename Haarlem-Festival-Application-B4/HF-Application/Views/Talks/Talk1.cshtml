@@ -21,7 +21,7 @@
                         <div class="preview col-md-6">
                             <div class="preview-pic tab-content">
                                 <div class="tab-pane active" id="pic-1"><img src="@Url.Content("~/Content/images/events/" + Model.CurrentTalk.ImagePath)" alt="Image of @Model.CurrentTalk.Interview" /></div>
-
+                                <hr />
                                 <Strong class="text_form" style="color:#808080">You can ask our guests questions here: </Strong><br />
                                 <input style="height:100px; color:#808080" class="form-control" type="text" name="Question" placeholder="Please Type Your Question Here And It Will Be Saved With Your Order....." />
                             </div>
@@ -44,22 +44,28 @@
                                 <hr>
                                 <h6 class="text-left" style="color:black; padding-left:8px; padding-right:8px; white-space:pre-line">@Model.CurrentTalk.ReservationInfo</h6>
                             </div>
-                            <div class="panel panel-default text-center">
-                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Price</div>
-                                <hr>
-                                <font color="black">Free tickets! </font>
-                            </div>
-                            <div class="panel panel-default text-center">
-                                <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount Tickets</div>
-                                <hr>
-                                <span style="color:#808080" class="input-group-addon">
-                                    <select id="beden" class="form-control" name="aantal">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <div class="panel panel-default text-center">
+                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount</div>
+                                        <hr>
+                                        <span style="color:#808080" class="input-group-addon">
+                                            <select id="beden" class="form-control" name="aantal">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
 
-                                    </select>
-                                </span>
-                                <br>
+                                            </select>
+                                        </span>
+                               
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <div class="panel panel-default text-center">
+                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-credit-card"></span>  Price</div>
+                                        <hr>
+                                        <h4 style="color:black;padding-top: 16px;">Free tickets! </h4>
+                                    </div>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <input type="submit" value="Add to Cart" class="btn btn-info btn-block login">
@@ -154,48 +160,40 @@
     <br>
     @*cross selling van hier!*@
     <div class="container">
-        <div class="text-center" style="color:black"> <h3>Take A Look at Our Other Events!</h3></div>
+        <div class="text-center crossellingTitel">Take A Look To Our Other Events!</div>
         <div class="card">
 
             <div class="row container-full">
-                <div class="col-md-6 crosselling">
-
-                    @foreach (var talkEvent in Model.RestaurantsCross)
-                    {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%">
-
-                            <div style="background-color:rgba(8, 19, 7, 0.64);">
-                                <div class="text-center" style="height:70px;">  <h5>@talkEvent.RestaurantName</h5></div>
-
-                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + talkEvent.imagePath)" alt="Image of @talkEvent.RestaurantName" />
-
-                                <div class="text-center" style="padding:5px;">  <a>@Html.ActionLink("More information", "Details", "Taste", new { id = talkEvent.Id }, new { @class = "btn btn-info login" })</a></div>
-
+                @foreach (var restaurant in Model.RestaurantsCross)
+                {
+                    <div class="col-sm-3 text-center" style="float:left; width:100%;">
+                        <div style="background-color:#910000">
+                            <div style="height:70px; padding-top:5%">
+                                <h5>@restaurant.RestaurantName</h5>
+                            </div>
+                            <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + restaurant.imagePath)" alt="Image of @restaurant.RestaurantName" />
+                            <div style="padding-bottom:5%; margin-bottom:5%; padding-top:5%;">
+                                <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = restaurant.Id }, new { @class = "jazzBtn btn btn-info login" })</a>
                             </div>
                         </div>
-                    }
+                    </div>
+                }
 
-                </div>
-                <div class="col-md-6">
+                @foreach (var jazz in Model.JazzCross)
+                {<div class="col-sm-3 text-center" style="float:left; width:100%;">
 
-                    @foreach (var jazz in Model.JazzCross)
-                    {<div class="col-lg-6 crossellinginner text-center" style="float:left; width:100%; height:100%">
-
-                            <div style="background-color: rgba(8, 19, 7, 0.64)">
-                                <div class="text-center" style="height:70px;">  <h5 class="text-center">@jazz.Band</h5>  </div>
-
-
-                                <img class="talkImage2" src="@Url.Content("~/Content/images/events/" + jazz.imagePath)" alt="Image of @jazz.Band" />
-
-
-                                <div class="text-center" style="padding:5px;">
-                                    <a>@Html.ActionLink("More information", "Details", "Hear", new { id = jazz.ID }, new { @class = "btn btn-info login" })</a>
-                                </div>
-
+                        <div style="background-color: #0D8C10">
+                            <div style="height:70px; padding-top:5%">
+                                <h5 class="text-center">@jazz.CartTitle</h5>
+                            </div>
+                            <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + jazz.imagePath)" alt="Image of @jazz.CartTitle" />
+                            <div style="margin-bottom:5%; padding-bottom:5%; padding-top:5%;">
+                                <a>@Html.ActionLink("More Information", "Details", "Hear", new { id = jazz.ID }, new { @class = "jazzBtn btn btn-info login" })</a>
                             </div>
                         </div>
-                    }
+                    </div>
+                }
 
-                </div>
             </div>
         </div>
     </div>
