@@ -18,7 +18,6 @@ namespace HF_Application.Controllers
     {
         IDinerRepository dinerrp = new DinerRepository();
         private List<FoodType> AllFoodTypes;
-        HaarlemFestivalContext db = new HaarlemFestivalContext();
 
         public TasteController()
         {
@@ -37,8 +36,8 @@ namespace HF_Application.Controllers
 
             RestaurantDetailModel restaurantDetailModel = new RestaurantDetailModel();
             restaurantDetailModel.restaurant = dinerrp.GetRestaurant(id);
-            dinersevenements = db.Diners.Where(d => d.RestaurantId == id && d.Seats!=0).ToList();
-            restaurantDetailModel.diner = db.Diners.FirstOrDefault(d => d.RestaurantId == id);
+            dinersevenements = dinerrp.GetAvailableDates(id);
+            restaurantDetailModel.diner = dinerrp.GetDinerEvent(id);
 
             foreach (Diner diner in dinersevenements)
             {
@@ -67,8 +66,8 @@ namespace HF_Application.Controllers
 
             restaurantDetailModel.DinerEvents = dinergroup;
             restaurantDetailModel.NumberPersons = aantalpersonen;
-            restaurantDetailModel.CrossTalkEvents = db.Talks.OrderBy(r => Guid.NewGuid()).Take(2).ToList();
-            restaurantDetailModel.HearCrossEvents = db.Jazzs.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
+            restaurantDetailModel.CrossTalkEvents = dinerrp.GetRandomTalksEvent(2);
+            restaurantDetailModel.HearCrossEvents = dinerrp.GetRandomJazzEvent(2);
 
             return View(restaurantDetailModel);
         }

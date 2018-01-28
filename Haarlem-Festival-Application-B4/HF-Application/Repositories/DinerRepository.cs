@@ -7,7 +7,7 @@ using HF_Application.Controllers;
 using HF_Application.Models;
 using System.Data;
 using System.Data.Entity;
-
+using HF_Application.Models.Events;
 
 namespace HF_Application.Repositories
 {
@@ -18,6 +18,26 @@ namespace HF_Application.Repositories
         {
             List<FoodType> FoodTypes = db.Foodtypes.ToList();
             return FoodTypes;
+        }
+
+        public List<Diner> GetAvailableDates(int id)
+        {
+            return db.Diners.Where(d => d.RestaurantId == id && d.Seats != 0).ToList();
+        }
+
+        public Diner GetDinerEvent(int id)
+        {
+            return db.Diners.FirstOrDefault(d => d.RestaurantId == id);
+        }
+
+        public List<Talk> GetRandomTalksEvent(int aantal)
+        {
+           return db.Talks.OrderBy(r => Guid.NewGuid()).Take(aantal).ToList();
+        }
+
+        public List<Jazz> GetRandomJazzEvent(int aantal)
+        {
+            return db.Jazzs.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
         }
 
         public List<Restaurant> GetAllRestaurants()
