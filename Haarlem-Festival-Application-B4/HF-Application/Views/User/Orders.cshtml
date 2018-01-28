@@ -28,13 +28,13 @@
                     int totaal = +totaalitem;
                     <tr>
                         <td class="text-center">@item.Aantal</td>
-                        <td class="text-left">@item.Item.CartTitle</td>
-                        <td>@item.Item.StartDate</td>
-                        <td>@item.Item.CartDescription</td>
+                        <td class="text-left">@item.Opmerking</td>
+                        <td>@item.Prijs</td>
+                        @*<td>@item.Item.CartDescription</td>
                         <td>@item.Opmerking</td>
-                        <td class="text-right">
+                        <td class="text-right">*@
                             @item.Prijs.ToString() euro
-                        </td>
+                      
                         <td class="text-right">
                             @((item.Aantal * item.Prijs).ToString()) euro
                         </td>

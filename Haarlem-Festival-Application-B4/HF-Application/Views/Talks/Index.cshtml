@@ -7,21 +7,9 @@
 
 <body id="Talk">
 
-    @*<h6>
-        @foreach (var item in Model.salesList)
-        {
-            if (item.Id == 174)
-            {
-                @item.Seats @item.SeatsSold
-
-            }
-
-        }
-    </h6>*@
-
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
         <h1 class="text-center">Talking Haarlem!</h1>
-        <h6 class="text-center">Free Tickets - You can only book two tickets & These talks will be in dutch! </h6>
+        <h5 class="text-center">Free Tickets You can only book two tickets & These talks will be in Dutch! </h5>
     </div>
 
     <div class="container-fluid">
@@ -30,7 +18,7 @@
 
             @foreach (var talkEvent in Model.AllTalkEvents)
             {
-                <div class="col-lg-4">
+                <div class="col-md-4">
 
                     <div class="Talkdiv">
 
@@ -38,14 +26,32 @@
                         <div class="text-center">
                             <img class="talkImage1" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
                         </div>
-                        <h6 class="text-center interviewName">@talkEvent.Interview</h6>
+                        <div class="text-center interviewName" style="height:60px;">
+                            <h4 class="text-center" style="color:white; font:bold; padding-left:8px; padding-right:8px;">@talkEvent.Interview</h4>
+                        </div>
+                        <br />
                         <div class="text-center">
-                            <div class="text-center">@talkEvent.StartDate.DayOfWeek</div>
+                            <h6 class="text-center" style="color:black; font:bold; padding-left:8px; padding-right:8px;">@talkEvent.StartDate.DayOfWeek</h6>
                         </div>
                         <div class="text-center">
-                            <h6> Date: @talkEvent.StartDate.ToShortDateString()  Time: @talkEvent.StartDate.ToShortTimeString()</h6>
+                            <h6 style="color:black"><span style="font:bold; color:white;">Date:</span>@talkEvent.StartDate.ToShortDateString()<span style=" font:bold; color:black;">  Time:</span>@talkEvent.StartDate.ToShortTimeString()</h6>
 
-                            <h6>Adres: @talkEvent.Location.Address</h6>
+                            <h6 style="color:black"><span style="color:white; font:bold;">Adres:</span>@talkEvent.Location.Address</h6>
+                        </div>
+                        <div class="text-center">
+                            @foreach (var item in Model.SalesList)
+                            {
+
+                                if (item.Id == talkEvent.ID)
+                                {
+
+                                    <h6 style="color:black"><span style="color:white; font:bold;">Seats left:</span> @(item.Seats - item.SeatsSold)</h6>
+
+                                }
+
+                            }
+
+
                         </div>
 
 

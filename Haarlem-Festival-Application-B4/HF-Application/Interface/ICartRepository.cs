@@ -16,7 +16,7 @@ namespace HF_Application.Interface
         FestivalEvent GetbesteldEvent(int eventid);
 
         int PlaceOrder(int userid);
-
+        int SaveOrder(int userid);
         void Additemsdb(OrderItem item);
     }
 }

@@ -58,6 +58,7 @@ namespace HF_Application.Controllers
                 {
                     Session["UserId"] = usr.Id.ToString();
                     Session["Name"] = usr.Email.ToString();
+                    Session["User"] = user;
                     return RedirectToAction("LoggedIn", usr);
           
                 }
@@ -87,19 +88,19 @@ namespace HF_Application.Controllers
 
         //public ActionResult Orders()
         //{
-        //    List<Order> ordersmodel = new List<Order>();
-        //    List<Order> ordersmodel1 = new List<Order>();
+        //    User user = Session["User"] as User;
+        //    OrdersModel ordersModel = new OrdersModel();
 
-        //    ordersmodel = db.Orders.ToList();
+        //    ordersModel.Orders = db.OrderItems.ToList();
 
-        //    foreach (Order item in ordersmodel)
-        //    {
-        //        ordersmodel1.Add(item);
-        //    }
-         
-        //    return View(ordersmodel);
+        //    //foreach (OrderItem item in ordersModel.Orders)
+        //    //{
+        //    //    ordersmodel.Add(item);
+        //    //}
+
+        //    return View(ordersModel);
         //}
 
-      
+
     }
 }

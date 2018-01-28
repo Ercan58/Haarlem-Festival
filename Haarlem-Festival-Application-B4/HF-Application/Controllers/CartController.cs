@@ -125,5 +125,34 @@ namespace HF_Application.Controllers
             Session["CurrentWishlist"] = null;
             return View();
         }
+
+        public ActionResult SaveOrder()
+        {
+            int userid;
+            if (Session["UserId"] != null)
+            {
+                userid = Convert.ToInt32(Session["UserId"]);
+            }
+            else
+            {
+                userid = 3; // Guest in de db 
+            }
+
+            int orderid = cartRepository.SaveOrder(userid);  // maak order en get zjn id voor toevoegen items 
+
+            CartModel cartModel = new CartModel();
+            cartModel = Session["CurrentWishlist"] as CartModel;
+
+            foreach (var item111 in cartModel.AllOrderdetailtodb)
+            {
+                item111.OrderId = orderid;
+                cartRepository.Additemsdb(item111);
+
+            }
+
+            Session["CurrentWishlist"] = null;
+            User user = Session["User"] as User;
+            return RedirectToAction("LoggedIn", "User", user);
+        }
     }
 }

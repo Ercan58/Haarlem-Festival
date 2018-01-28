@@ -17,12 +17,11 @@ namespace HF_Application.Controllers
     public class TalksController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
+        private ITalkRepository talkRepository = new TalkRepository();
         private IEventRepository eventRepository = new EventRepository();
 
         private List<Talk> AllTalkEvents;
-
-        ITalkRepository talkRepository = new TalkRepository();
-        IDinerRepository dinerRepository = new DinerRepository();
+       
 
         public TalksController()
         {
@@ -38,12 +37,13 @@ namespace HF_Application.Controllers
             if (startDate == null)
             {
                 talksModel.AllTalkEvents = AllTalkEvents;
+                talksModel.SalesList = eventRepository.GetAllEvents();
             }
             else
             {
                 DateTime selectieStartDate = startDate.GetValueOrDefault();
                 talksModel.AllTalkEvents = talkRepository.GetTalkEvents(selectieStartDate);
-                talksModel.salesList = eventRepository.GetAllEvents();
+                talksModel.SalesList = eventRepository.GetAllEvents();
 
             }
             return View(talksModel);
@@ -57,20 +57,11 @@ namespace HF_Application.Controllers
 
             talksModel.CurrentTalk = talkRepository.GetCurrentTalkEvent(id);
 
-            talksModel.CrossTalkEvents = talkRepository.GetCrossTalkEvents(id);
-            talksModel.RestaurantsCross = dinerRepository.GetAllRestaurants();
+            talksModel.JazzCross = talkRepository.GetCrossJazzEvents();
+            talksModel.RestaurantsCross = talkRepository.GetCrossDinerEvents();
 
             return View(talksModel);
         }
-
-        public ActionResult BuyDirect(int eventid, int userid, string question, int aantal)
-        {
-            TalksModel talksModel = new TalksModel();
-
-            return View(talksModel);
-        }
-
-
 
     }
 }
