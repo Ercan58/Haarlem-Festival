@@ -59,7 +59,7 @@
             @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new
                 { @class = "form-control"
                 , @id = "datetimepicker1"
-                , @Value = Model.StartDate } })
+                , @Value = Model.StartDate.ToString() } })
             @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -72,7 +72,7 @@
             @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new
                 { @class = "form-control"
                 , @id = "datetimepicker2"
-                , @Value = Model.EndDate} })
+                , @Value = Model.EndDate.ToString()} })
             @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
         </div>
     </div>

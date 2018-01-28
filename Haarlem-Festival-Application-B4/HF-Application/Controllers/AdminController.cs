@@ -209,6 +209,13 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+        public ActionResult AttendeeQuestions()
+        {
+            List<TalkQuestion> questionList = eventRepository.GetAllTalkQuestions();
+
+            return View(questionList);
+        }
+
         public ActionResult Sales()
         {
             List<SalesItem> salesList = eventRepository.GetAllEvents();
