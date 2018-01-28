@@ -227,9 +227,17 @@ a:hover{
     font-size:25px;
 }
 
-.foodtypesretaurant{
-    font-size:20px;
+.foodtypesretaurant {
+    font-size: 15px;
+    color: floralwhite;
+    background-color:black;
+    padding:10px;
+    margin-left:3px;
+    float:left;
+    margin-top:3px;
 }
+
+
 
 .textareataste {
     width:100%;
@@ -287,7 +295,6 @@ text-decoration:underline;
 
 .jazzName {
     border-bottom: 1px solid black;
-    border-radius: 25px;
     border-color: white;
     font-size: 25px;
 }
@@ -350,6 +357,7 @@ text-decoration:underline;
 
 .crossellinginner{
     padding-left:2px;
+    padding-right:15px;
 }
 
 
@@ -359,18 +367,22 @@ text-decoration:underline;
 }
 
 /*END Jazz*/
+
 .Talkdiv {
     background-color: #9C6910;
-    margin-top: 10px;
+    margin-top: x;
     margin-bottom: 10px;
     opacity: 0.95;
     padding: 2% 1% 2% 1%;
+    margin-left:7px;
+    margin-right:7px;
+
 }
 
 .interviewName 
 {
     color: white;
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid black;
     border-bottom-color: white;
     font:bold;
     margin-left:3%;
@@ -478,7 +490,6 @@ color:black;
     width: 390px;
     height: 616px;
     background-color: #413F4B;
-    opacity: 0.9;
     display:block;
 }
 
@@ -2036,6 +2047,9 @@ button.close {
 .invisible {
     visibility: hidden;
 }
+
+
+
 
 .text-hide {
     font: 0/0 a;

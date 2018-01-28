@@ -13,10 +13,10 @@ namespace HF_Application.Interface
         List<Talk> GetAllTalkEvents();
         List<Talk> GetTalkEvents(DateTime date);
         Talk GetCurrentTalkEvent(int id);
-        List<Talk> GetCrossTalkEvents(int id);
 
 
-
+        List<Jazz> GetCrossJazzEvents();
+        List<Restaurant> GetCrossDinerEvents();
 
     }
 }

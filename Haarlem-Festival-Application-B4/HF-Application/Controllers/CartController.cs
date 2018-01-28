@@ -44,7 +44,6 @@ namespace HF_Application.Controllers
                 foreach (var item in New)
                 {
                     int subtotaal = (item.Aantal * item.Prijs);
-                    totaal = totaal + subtotaal;
                 }
                 cartModel.totaal = totaal;
                 cartModel.AllOrderitems = New;
@@ -53,7 +52,6 @@ namespace HF_Application.Controllers
             }
 
             FestivalEvent eventi = cartRepository.GetbesteldEvent(eventid);
-            // prijs hier = 0 ?
             cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,eventi, prijs );
             cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question, prijs);
 
@@ -92,6 +90,14 @@ namespace HF_Application.Controllers
             return View(cartModel);
         }
 
+        public ActionResult Afrekenen()
+        {
+            CartModel cartModel = new CartModel();
+            cartModel = Session["CurrentWishlist"] as CartModel; 
+
+            return View(cartModel);
+        }
+
         public ActionResult PlaceOrder()
         {
             int userid;
@@ -118,6 +124,35 @@ namespace HF_Application.Controllers
 
             Session["CurrentWishlist"] = null;
             return View();
+        }
+
+        public ActionResult SaveOrder()
+        {
+            int userid;
+            if (Session["UserId"] != null)
+            {
+                userid = Convert.ToInt32(Session["UserId"]);
+            }
+            else
+            {
+                userid = 3; // Guest in de db 
+            }
+
+            int orderid = cartRepository.SaveOrder(userid);  // maak order en get zjn id voor toevoegen items 
+
+            CartModel cartModel = new CartModel();
+            cartModel = Session["CurrentWishlist"] as CartModel;
+
+            foreach (var item111 in cartModel.AllOrderdetailtodb)
+            {
+                item111.OrderId = orderid;
+                cartRepository.Additemsdb(item111);
+
+            }
+
+            Session["CurrentWishlist"] = null;
+            User user = Session["User"] as User;
+            return RedirectToAction("LoggedIn", "User", user);
         }
     }
 }

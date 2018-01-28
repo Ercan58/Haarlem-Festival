@@ -9,11 +9,19 @@ namespace HF_Application.Models.ViewModel
 {
     public class TalksModel
     {
+        // voor Talk pagina 
         public List<Talk> AllTalkEvents { get; set; }
+        // Talk pagina voor left seats
+        public List<SalesItem> SalesList { get; set; }
 
+        // detail pagina 1 event 
         public Talk CurrentTalk { get; set; }
-        public List<Talk> CrossTalkEvents { get; set; }
+
+        // cross selling andere events
+        public List<Jazz> JazzCross { get; set; }
         public List<Restaurant> RestaurantsCross { get; set; }
+
+       
 
 
     }

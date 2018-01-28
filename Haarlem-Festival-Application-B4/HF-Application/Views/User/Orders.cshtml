@@ -1,0 +1,73 @@
+﻿@model HF_Application.Models.ViewModel.OrdersModel
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Orders != null)
+{
+    <div class="panel panel-default">
+        <table id="cartTable" class="table" style="color:black">
+            <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Item</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Comment</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.Orders)
+                {
+
+                    int totaalitem = (item.Prijs * item.Aantal);
+                    int totaal = +totaalitem;
+                    <tr>
+                        <td class="text-center">@item.Aantal</td>
+                        <td class="text-left">@item.Opmerking</td>
+                        <td>@item.Prijs</td>
+                        @*<td>@item.Item.CartDescription</td>
+                        <td>@item.Opmerking</td>
+                        <td class="text-right">*@
+                            @item.Prijs.ToString() euro
+                      
+                        <td class="text-right">
+                            @((item.Aantal * item.Prijs).ToString()) euro
+                        </td>
+
+                    </tr>
+
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Total:</td>
+                    <td class="text-right"></td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+
+
+}
+
+else
+{
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Your Orders</h1>
+
+
+        <div class="text-center">
+            <h4>NO THING TO SHOW</h4>
+
+            <a class="btn btn-info login" href="@Url.Action("Index","Home")">Go To The Home page</a>
+        </div>
+
+    </div>
+}
+}

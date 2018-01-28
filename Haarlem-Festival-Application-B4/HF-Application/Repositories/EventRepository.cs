@@ -273,6 +273,21 @@ namespace HF_Application.Models
             db.Entry(festivalEvent).State = EntityState.Modified;
             db.SaveChanges();
         }
+        public List<TalkQuestion> GetAllTalkQuestions()
+        {
+            List<TalkQuestion> questions = db.OrderItems
+                .Include(x => x.Item)
+                .OrderBy(x => x.ItemId)
+                .Select(o =>
+                new TalkQuestion
+                {
+                    FestivalEvent = o.Item,
+                    Question = o.Opmerking
+                })
+                .ToList();
+
+            return questions;
+        }
 
         public List<SalesItem> GetAllEvents()
         {
@@ -317,17 +332,5 @@ namespace HF_Application.Models
 
             return total;
         }
-
-        //implementeren als er een db tabel is aangemaakt
-
-        //public List<TalkQuestion> GetAllTalkQuestions() {
-        //    List<TalkQuestion> questions = new List<TalkQuestion>();
-        //    foreach (var item in db.TalkQuestions)
-        //    {
-        //        questions.Add(item);
-        //    }
-
-        //    return questions;
-        //}
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
+using HF_Application.Models.ViewModel;
 
 namespace HF_Application.Controllers
 {
@@ -51,12 +53,13 @@ namespace HF_Application.Controllers
         {
             using (HaarlemFestivalContext db = new HaarlemFestivalContext())
             {
-                var usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
+                  User usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
                 if (usr != null)
                 {
                     Session["UserId"] = usr.Id.ToString();
                     Session["Name"] = usr.Email.ToString();
-                    return RedirectToAction("LoggedIn");
+                    Session["User"] = user;
+                    return RedirectToAction("LoggedIn", usr);
           
                 }
                 else
@@ -71,11 +74,11 @@ namespace HF_Application.Controllers
         }
 
 
-        public ActionResult LoggedIn()
+        public ActionResult LoggedIn(User user)
         {
-            if(Session["UserId"] != null)
+            if(user != null)
             {
-                return View();
+                return View(user);
             }
             else
             {
@@ -83,6 +86,21 @@ namespace HF_Application.Controllers
             }
         }
 
-      
+        //public ActionResult Orders()
+        //{
+        //    User user = Session["User"] as User;
+        //    OrdersModel ordersModel = new OrdersModel();
+
+        //    ordersModel.Orders = db.OrderItems.ToList();
+
+        //    //foreach (OrderItem item in ordersModel.Orders)
+        //    //{
+        //    //    ordersmodel.Add(item);
+        //    //}
+
+        //    return View(ordersModel);
+        //}
+
+
     }
 }

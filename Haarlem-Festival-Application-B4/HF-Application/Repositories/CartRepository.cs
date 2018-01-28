@@ -64,6 +64,21 @@ namespace HF_Application.Repositories
 
             return lastorderid;
         }
+        public int SaveOrder(int userid)
+        {
+            int statusid = 0;
+            string remark = "Saved";
+            int invoice = 0;
+            DateTime datebesteld = DateTime.Now;
+            DateTime datepayed = DateTime.Now;
+            Order order = new Order(userid, statusid, remark, invoice, datebesteld, datepayed);
+            db.Orders.Add(order);
+            db.SaveChanges();
+
+            int lastorderid = db.Orders.OrderByDescending(o => o.Id).FirstOrDefault().Id;
+
+            return lastorderid;
+        }
 
         public void Additemsdb(OrderItem item)
         {
