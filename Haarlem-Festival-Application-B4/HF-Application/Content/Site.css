@@ -266,7 +266,7 @@ text-decoration:underline;
 /*Jazz CSS*/
 
 .JazzBody {
-    background-image: url(images/events/achtergrond_talk3.jpg);
+    background-image: url(images/events/bg-music.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -335,10 +335,9 @@ text-decoration:underline;
 }
 
 .crossSellImage {
-    width: 95%;
-    height: 190px;
-    border-left: 5px solid #910000;
-    margin-bottom: 2%;
+    width: 90%;
+    height: 190px !important;
+
 }
 
 .crossSeelItem {
@@ -350,8 +349,10 @@ text-decoration:underline;
     max-width: 31%;
 }
 
-.crosselling{
-    padding:0px;
+.crossellingTitel{
+    font-size:x-large;
+    font-weight: bolder;
+    background-color: rgba(0,0,0,0.8);
 
 }
 
@@ -1050,6 +1051,13 @@ html, body {
 .panel-default {
     border-color: #ddd;
     border-left-color: #f79f06;
+    border-left-style: groove;
+    border-left-width: 10px;
+}
+
+.panel-defaultJazz {
+    border-color: #ddd;
+    border-left-color: #0D8C10;
     border-left-style: groove;
     border-left-width: 10px;
 }
@@ -2356,8 +2364,8 @@ button.close {
 }
 
 .magazaresim {
-    height: 250;
-    width: 350;
+    /*height: 250;
+    width: 350;*/
 }
 
 .urunthumbnail {
