@@ -218,6 +218,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\RestaurantFoodtype.cs" />
     <Compile Include="Models\SalesItem.cs" />
+    <Compile Include="Models\TalkQuestion.cs" />
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\CartModel.cs" />
     <Compile Include="Models\ViewModel\HistoricModel.cs" />
@@ -510,6 +511,7 @@
     <Content Include="Views\Admin\AddTalk.cshtml" />
     <Content Include="Views\Admin\AddTaste.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
+    <Content Include="Views\Admin\AttendeeQuestions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

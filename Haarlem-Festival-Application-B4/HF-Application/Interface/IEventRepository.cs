@@ -27,6 +27,7 @@ namespace HF_Application.Models
         void AddTalkEvent(Events.Talk festivalEvent);
         void UpdateTalkEvent(Events.Talk festivalEvent);
         List<Location> GetTalkLocations();
+        List<TalkQuestion> GetAllTalkQuestions();
 
         List<SalesItem> GetAllEvents();
         int GetTotalSales();
