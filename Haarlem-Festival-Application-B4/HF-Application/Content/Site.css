@@ -314,6 +314,18 @@ text-decoration:underline;
     margin-left: 5%;
 }
 
+.jazzBtn{
+    background-color: #f2f2f2 !important;
+    color: black;
+    border-color: black;
+}
+
+.jazzBtn:hover {
+    background-color: #333333 !important;
+    color: white;
+    border-color: white;
+}
+
 .titelText{
     margin-left:3%;
     font-weight: bolder;
