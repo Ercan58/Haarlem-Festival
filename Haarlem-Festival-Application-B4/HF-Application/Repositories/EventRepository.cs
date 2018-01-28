@@ -277,12 +277,12 @@ namespace HF_Application.Models
         {
             List<TalkQuestion> questions = db.OrderItems
                 .Include(x => x.Item)
-                .GroupBy(x => x.ItemId)
+                .OrderBy(x => x.ItemId)
                 .Select(o =>
                 new TalkQuestion
                 {
-                    FestivalEvent = o.FirstOrDefault().Item,
-                    Question = o.FirstOrDefault().Opmerking
+                    FestivalEvent = o.Item,
+                    Question = o.Opmerking
                 })
                 .ToList();
 

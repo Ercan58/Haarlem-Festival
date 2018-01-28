@@ -10,14 +10,16 @@
     {
         if (!item.Question.IsEmpty())
         {
+            if (!festivalIDs.Contains(item.FestivalEvent.ID)){<br />}
+
             <div class="event-list-body">
                 @if (!festivalIDs.Contains(item.FestivalEvent.ID))
                 {
-                <div class="row">
-                    <div class="col-sm-3"><span class="event-item item-dark">@Convert.ToString(item.FestivalEvent.StartDate.ToShortDateString())</span></div>
-                    <div class="col-sm-5"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.FestivalEvent.CartDescription)</span></div>
-                </div>
-
+                    <div class="row">
+                        <div class="col-sm-3"><span class="event-item item-dark">@Convert.ToString(item.FestivalEvent.StartDate.ToShortDateString())</span></div>
+                        <div class="col-sm-5"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.FestivalEvent.CartDescription)</span></div>
+                    </div>
+                    festivalIDs.Add(item.FestivalEvent.ID);
                 }
                 <hr />
                 <div class="row">
