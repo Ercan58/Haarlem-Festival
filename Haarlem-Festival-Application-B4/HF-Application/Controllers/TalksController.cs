@@ -17,6 +17,7 @@ namespace HF_Application.Controllers
     public class TalksController : Controller
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
+        private IEventRepository eventRepository = new EventRepository();
 
         private List<Talk> AllTalkEvents;
 
@@ -42,10 +43,12 @@ namespace HF_Application.Controllers
             {
                 DateTime selectieStartDate = startDate.GetValueOrDefault();
                 talksModel.AllTalkEvents = talkRepository.GetTalkEvents(selectieStartDate);
+                talksModel.salesList = eventRepository.GetAllEvents();
 
             }
             return View(talksModel);
         }
+
 
         public ActionResult Talk1(int id)
         {

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
+using HF_Application.Models.ViewModel;
 
 namespace HF_Application.Controllers
 {
@@ -51,12 +53,12 @@ namespace HF_Application.Controllers
         {
             using (HaarlemFestivalContext db = new HaarlemFestivalContext())
             {
-                var usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
+                  User usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
                 if (usr != null)
                 {
                     Session["UserId"] = usr.Id.ToString();
                     Session["Name"] = usr.Email.ToString();
-                    return RedirectToAction("LoggedIn");
+                    return RedirectToAction("LoggedIn", usr);
           
                 }
                 else
@@ -71,17 +73,32 @@ namespace HF_Application.Controllers
         }
 
 
-        public ActionResult LoggedIn()
+        public ActionResult LoggedIn(User user)
         {
-            if(Session["UserId"] != null)
+            if(user != null)
             {
-                return View();
+                return View(user);
             }
             else
             {
                 return RedirectToAction("login");
             }
         }
+
+        //public ActionResult Orders()
+        //{
+        //    List<Order> ordersmodel = new List<Order>();
+        //    List<Order> ordersmodel1 = new List<Order>();
+
+        //    ordersmodel = db.Orders.ToList();
+
+        //    foreach (Order item in ordersmodel)
+        //    {
+        //        ordersmodel1.Add(item);
+        //    }
+         
+        //    return View(ordersmodel);
+        //}
 
       
     }

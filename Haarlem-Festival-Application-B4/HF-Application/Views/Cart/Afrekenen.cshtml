@@ -4,139 +4,156 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model != null)
+{
 
-<div class="col-md-8 offset-md-2 col-12 welcomediv">
-    <h1 class="text-center">Checkout Page</h1>
-</div>
-
-
-<div class="container" style="background-color:#808080; margin-bottom:20px;">
-    <div class="text-center row">
-
-        <div class="panel panel-default col-lg-6">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Almost Done!
-                </h3>
-                <div class="checkbox pull-right">
-                    <label>
-                        <input type="checkbox" />
-                        Remember
-                    </label>
-                </div>
-            </div>
-            <div class="panel-body">
-                <form role="form">
-                    <select class="text-center">
-                        <option>Visa Cart</option>
-                        <option>Ideal</option>
-                        <option>PayPal</option>
-
-                    </select>
-                    <div class="form-group">
-                        <label>
-                            Email Adress
-                        </label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Email Adres"
-                                   required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        </div>
-                        <label>
-                            Cart Number
-                        </label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                   required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        </div>
-                        <label>
-                            Cart Number
-                        </label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="cardNumber" placeholder="Enter Your PinCode"
-                                   required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        </div>
-                    </div>
-                    
-
-                    @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Pay</a>*@
-                    <a class="btn btn-success btn-lg btn-block" href="@Url.Action("PlaceOrder","Cart")">Pay</a>
-                </form>
-            </div>
-
-        </div>
-
-        <br />
-
-        <div class="panel panel-default col-lg-6">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    Order Details
-                </h3>
-            </div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <h6>Total to Pay: @Model.totaal euro </h6>
-                    <table id="cartTable" class="table" style="color:black">
-                        <thead>
-                            <tr>
-                                <th>Quantity</th>
-                                <th>Item</th>
-                                <th class="text-right">Price</th>
-                                <th class="text-right">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach (var item in Model.AllOrderitems)
-                            {
-
-                                int totaalitem = (item.Prijs * item.Aantal);
-                                int totaal = +totaalitem;
-                                <tr>
-                                    <td class="text-center">@item.Aantal</td>
-                                    <td class="text-left">@item.Item.CartTitle</td>
-                                    <td class="text-right">
-                                        @item.Prijs.ToString() euro
-                                    </td>
-                                    <td class="text-right">
-                                        @((item.Aantal * item.Prijs).ToString()) euro
-                                    </td>
-                                </tr>
-
-                            }
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-            @if (Session["UserId"] == null)
-            {
-
-                <3>Log in</3>
-
-                @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Log In To Save</a>*@
-                <a class="btn btn-success btn-lg btn-block" href="@Url.Action("Login","User")">Log In To Save</a>
-
-
-            }
-            else
-            {
-
-                <h3>Save</h3>
-
-
-                @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Save</a>*@
-                <a class="btn btn-success btn-lg btn-block" href="@Url.Action("Login","User")">Save Your Order</a>
-
-
-            }
-
-
-        </div>
-
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Checkout Page</h1>
     </div>
-</div>
 
+
+    <div class="container" style="background-color:#808080; margin-bottom:20px;">
+        <div class="text-center row">
+
+            <div class="panel panel-default col-lg-6">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Almost Done!
+                    </h3>
+                    <div class="checkbox pull-right">
+                        <label>
+                            <input type="checkbox" />
+                            Remember
+                        </label>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <select class="text-center">
+                            <option>Visa Cart</option>
+                            <option>Ideal</option>
+                            <option>PayPal</option>
+
+                        </select>
+                        <div class="form-group">
+                            <label>
+                                Email Adress
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Email Adres"
+                                       required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                            <label>
+                                Cart Number
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                       required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                            <label>
+                                Cart Number
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="cardNumber" placeholder="Enter Your PinCode"
+                                       required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                        </div>
+
+
+                        @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Pay</a>*@
+                        <a class="btn btn-success btn-lg btn-block" href="@Url.Action("PlaceOrder","Cart")">Pay</a>
+                    </form>
+                </div>
+
+            </div>
+
+            <br />
+
+            <div class="panel panel-default col-lg-6">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Order Details
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <h6>Total to Pay: @Model.totaal euro </h6>
+                        <table id="cartTable" class="table" style="color:black">
+                            <thead>
+                                <tr>
+                                    <th>Quantity</th>
+                                    <th>Item</th>
+                                    <th class="text-right">Price</th>
+                                    <th class="text-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (var item in Model.AllOrderitems)
+                                {
+
+                                    int totaalitem = (item.Prijs * item.Aantal);
+                                    int totaal = +totaalitem;
+                                    <tr>
+                                        <td class="text-center">@item.Aantal</td>
+                                        <td class="text-left">@item.Item.CartTitle</td>
+                                        <td class="text-right">
+                                            @item.Prijs.ToString() euro
+                                        </td>
+                                        <td class="text-right">
+                                            @((item.Aantal * item.Prijs).ToString()) euro
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                @if (Session["UserId"] == null)
+                {
+
+                    <3>Log in</3>
+
+                    @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Log In To Save</a>*@
+                    <a class="btn btn-success btn-lg btn-block" href="@Url.Action("Login","User")">Log In To Save</a>
+
+
+                }
+                else
+                {
+
+                    <h3>Save</h3>
+
+
+                    @*<a href="#" class="btn btn-success btn-lg btn-block" role="button">Save</a>*@
+                    <a class="btn btn-success btn-lg btn-block" href="@Url.Action("Login","User")">Save Your Order</a>
+
+
+                }
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+}
+
+else
+{
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Checkout Page</h1>
+        <h4>You dont Have anything in your cart</h4>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-info login" href="@Url.Action("Index","Home")">Shopping</a>
+    </div>
+
+}

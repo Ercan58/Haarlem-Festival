@@ -1,153 +1,45 @@
-﻿
+﻿@model HF_Application.Models.User
+
 @{
     ViewBag.Title = "LoggedIn";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<body>
+    @if (Model != null)
+    {
+        <div class="col-md-8 offset-md-2 col-12 welcomediv">
+            <h1 class="text-center">Welcome @Model.Email</h1>
+        </div>
 
-<h2>LoggedIn</h2>
-@*@if (Session["UserId"] != null)
-{
-    <h4>Hello @Session["Name"].ToString()</h4>
-}*@
-
-
-
-    <a class="button" href="#popup1">Let me Pop up</a>
-
-
-
-<div id="popup1" class="overlay">
-    <div class="popup2">
-        <h2>Almost Done!</h2>
-        <a class="close" href="#">&times;</a>
-
-            <div class="container text-center" style="background-color:#808080; width:60%;">
-                <div class="row">
-                    <div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Payment Details
-                                </h3>
-                                <div class="checkbox pull-right">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Remember
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="cardNumber">
-                                            CARD NUMBER
-                                        </label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                                   required autofocus />
-                                            <input type="text" class="form-control" id="cardNumber" placeholder="Enter your Email Adress"
-                                                   required autofocus />
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-7 col-md-7">
-                                            <div class="form-group">
-                                                <label for="expityMonth">
-                                                    EXPIRY DATE
-                                                </label>
-                                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
-                                                </div>
-                                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-5 col-md-5 pull-right">
-                                            <div class="form-group">
-                                                <label for="cvCode">
-                                                    CV CODE
-                                                </label>
-                                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <br />
-                        <a href="#" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
-                    </div>
+        <div class="form-control-lg">
+            <div class="row menu-admin">
+                <div class="col-sm">
+                    <a class="btn menu-admin-btn" href="@Url.Action("Wishlist", "User")" style="background-color:aliceblue">
+                        <h1>Your Wishlist</h1>
+                        <h4>Orders that you have saved</h4>
+                    </a>
+                </div>
+                <div class="col-sm">
+                    <a class="btn menu-admin-btn" href="@Url.Action("Afrekenen", "Cart")" style="background-color:aliceblue">
+                        <h1>CheckOut Page</h1>
+                        <h4>If you want to Save your Order</h4>
+                    </a>
+                </div>
+                <div class="w-100 d-lg-block d-xl-none"></div>
+                <div class="col-sm">
+                    <a class="btn menu-admin-btn" style="background-color:aliceblue">
+                          <h1>@Html.ActionLink("Your Orders", "Orders","User")</h1>
+                          <h4>Orders that you have purchased</h4>
+                    </a>
+                  
                 </div>
             </div>
-
         </div>
-    </div>
 
+    }
+    else
+    {
+        <h1>fout</h1>
+    }
 
-
-
-
-
-
-@*<div class="container text-center" style="background-color:#808080; width:20%;">
-    <div class="row">
-        <div class="col-xs-12 col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Payment Details
-                    </h3>
-                    <div class="checkbox pull-right">
-                        <label>
-                            <input type="checkbox" />
-                            Remember
-                        </label>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="cardNumber">
-                                CARD NUMBER
-                            </label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                       required autofocus />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-7 col-md-7">
-                                <div class="form-group">
-                                    <label for="expityMonth">
-                                        EXPIRY DATE
-                                    </label>
-                                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                                        <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
-                                    </div>
-                                    <div class="col-xs-6 col-lg-6 pl-ziro">
-                                        <input type="text" class="form-control" id="expityYear" placeholder="YY" required />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-5 col-md-5 pull-right">
-                                <div class="form-group">
-                                    <label for="cvCode">
-                                        CV CODE
-                                    </label>
-                                    <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <br />
-            <a href="#" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
-        </div>
-    </div>
-</div>*@
+</body>

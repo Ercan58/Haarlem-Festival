@@ -223,9 +223,11 @@
     <Compile Include="Models\ViewModel\HistoricModel.cs" />
     <Compile Include="Models\ViewModel\JazzDetail.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
+    <Compile Include="Models\ViewModel\OrdersModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantDetailModel.cs" />
     <Compile Include="Models\ViewModel\RestaurantModel.cs" />
     <Compile Include="Models\ViewModel\TalksModel.cs" />
+    <Compile Include="Models\ViewModel\UserModel.cs" />
     <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DinerRepository.cs" />
     <Compile Include="Repositories\EventRepository.cs" />
@@ -511,6 +513,7 @@
     <Content Include="Views\Admin\AddTaste.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
     <Content Include="Views\Cart\Afrekenen.cshtml" />
+    <Content Include="Views\User\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

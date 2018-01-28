@@ -367,14 +367,15 @@ text-decoration:underline;
 }
 
 /*END Jazz*/
+
 .Talkdiv {
     background-color: #9C6910;
-    margin-top: 10px;
+    margin-top: x;
     margin-bottom: 10px;
     opacity: 0.95;
     padding: 2% 1% 2% 1%;
-    margin-left:50px;
-    margin-right:50px;
+    margin-left:7px;
+    margin-right:7px;
 
 }
 
