@@ -47,7 +47,7 @@ footer{
 }
 
 .taste {
-    background-color: #CC2828;
+    background-color: #910000;
 }
 
 .hear {
@@ -83,12 +83,16 @@ footer{
     background:#0a0a0a;
     height:100%;
     width: 100%;
-} 
+}
 
 .mainpagejazzdiv, .mainpagetastediv, .mainpagehistoricediv, .mainpagetalkdiv {
     padding: 5%;
     border: 1px solid grey;
-    background: #CC2828;
+    background: #910000;
+}
+
+.mainpagejazzdiv {
+    background: #0D8C10;
 }
 
 .mainpagetalkdiv{
@@ -96,7 +100,7 @@ footer{
 }
 
 .mainpagetastediv {
-    background: #CC2828;
+    background: #910000;
 }
 
 .mainpagehistoricediv{

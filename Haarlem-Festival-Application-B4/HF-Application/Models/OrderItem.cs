@@ -42,5 +42,9 @@ namespace HF_Application.Models
            
 
         }
+        public OrderItem()
+        {
+
+        }
     }
 }

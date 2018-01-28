@@ -18,5 +18,7 @@ namespace HF_Application.Interface
         int PlaceOrder(int userid);
         int SaveOrder(int userid);
         void Additemsdb(OrderItem item);
+
+        List<OrderItem> GetOrders(int userid, int statusid);
     }
 }
