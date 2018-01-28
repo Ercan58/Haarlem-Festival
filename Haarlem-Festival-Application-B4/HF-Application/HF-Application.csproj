@@ -198,6 +198,7 @@
       <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DateTimeModel.cs" />
     <Compile Include="Models\Events\DinerModel.cs" />
     <Compile Include="Models\Events\HistoricModel.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
@@ -266,6 +267,7 @@
     <Content Include="Content\images\events\femke-halsema.jpg" />
     <Content Include="Content\images\events\Femke_Jop.png" />
     <Content Include="Content\images\events\grand_cafe_brinkmann.jpg" />
+    <Content Include="Content\images\events\grote-markt-haarlem-buurt-centrum.jpg" />
     <Content Include="Content\images\events\haalem-portal.jpg" />
     <Content Include="Content\images\events\haarlemevening.jpg" />
     <Content Include="Content\images\events\hometalk1.jpg" />
@@ -528,6 +530,7 @@
     <Content Include="Views\User\Orders.cshtml" />
     <Content Include="Views\Cart\Orders.cshtml" />
     <Content Include="Views\Cart\Wishlist.cshtml" />
+    <Content Include="Views\Admin\_SalesDayPicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

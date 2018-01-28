@@ -60,6 +60,8 @@ namespace HF_Application.Controllers
             talksModel.JazzCross = talkRepository.GetCrossJazzEvents();
             talksModel.RestaurantsCross = talkRepository.GetCrossDinerEvents();
 
+
+
             return View(talksModel);
         }
 
