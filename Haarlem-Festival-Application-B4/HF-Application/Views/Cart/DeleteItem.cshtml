@@ -4,7 +4,10 @@
     ViewBag.Title = "DeleteItem";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="text-center">  <h1 style="color:black">Your Cart!</h1> </div>
+<div class="col-md-8 offset-md-2 col-12 welcomediv">
+    <h1 class="text-center">Your Cart</h1>
+</div>
+
 <div class="panel panel-default">
     <table id="cartTable" class="table" style="color:black">
         <thead>
@@ -21,27 +24,27 @@
         <tbody>
 
             @foreach (var item in Model.AllOrderitems)
-        {
+            {
 
-            int totaalitem = (item.Prijs * item.Aantal);
-            int totaal = +totaalitem;
-            <tr>
-                <td class="text-center">@item.Aantal</td>
-                <td class="text-left">@item.Item.CartTitle</td>
-                <td>@item.Item.StartDate</td>
-                <td>@item.Item.CartDescription</td>
-                <td>@item.Opmerking</td>
-                <td class="text-right">
-                    @item.Prijs.ToString("c")
-                </td>
-                <td class="text-right">
-                    @((item.Aantal * item.Prijs).ToString("c"))
-                </td>
-                <td>
-                    @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-info login" })
-                </td>
-            </tr>
-    }
+                int totaalitem = (item.Prijs * item.Aantal);
+                int totaal = +totaalitem;
+                <tr>
+                    <td class="text-center">@item.Aantal</td>
+                    <td class="text-left">@item.Item.CartTitle</td>
+                    <td>@item.Item.StartDate</td>
+                    <td>@item.Item.CartDescription</td>
+                    <td>@item.Opmerking</td>
+                    <td class="text-right">
+                        @item.Prijs.ToString("c")
+                    </td>
+                    <td class="text-right">
+                        @((item.Aantal * item.Prijs).ToString("c"))
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete Item", "DeleteItem", new { id = @item.ItemId }, new { @class = "btn btn-info login" })
+                    </td>
+                </tr>
+            }
         </tbody>
         <tfoot>
             <tr>
@@ -55,7 +58,7 @@
     <div class="text-center">
         <a class="btn btn-info login" href="@Url.Action("Index","Home")">Continue shopping</a>
 
-        <a class="btn btn-info login" href="@Url.Action("PlaceOrder","Cart")">Checkout now</a>
+        <a class="btn btn-info login" href="@Url.Action("Afrekenen","Cart")">Checkout now</a>
     </div>
 
 </div>

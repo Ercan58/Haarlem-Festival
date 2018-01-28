@@ -44,7 +44,6 @@ namespace HF_Application.Controllers
                 foreach (var item in New)
                 {
                     int subtotaal = (item.Aantal * item.Prijs);
-                    totaal = totaal + subtotaal;
                 }
                 cartModel.totaal = totaal;
                 cartModel.AllOrderitems = New;
@@ -53,7 +52,6 @@ namespace HF_Application.Controllers
             }
 
             FestivalEvent eventi = cartRepository.GetbesteldEvent(eventid);
-            // prijs hier = 0 ?
             cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,eventi, prijs );
             cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question, prijs);
 
@@ -88,6 +86,14 @@ namespace HF_Application.Controllers
 
             cartModel.AllOrderitems = Old;
             Session["CurrentWishlist"] = cartModel;
+
+            return View(cartModel);
+        }
+
+        public ActionResult Afrekenen()
+        {
+            CartModel cartModel = new CartModel();
+            cartModel = Session["CurrentWishlist"] as CartModel; 
 
             return View(cartModel);
         }
