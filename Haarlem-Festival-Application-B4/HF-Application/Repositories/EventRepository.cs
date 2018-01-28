@@ -79,7 +79,8 @@ namespace HF_Application.Models
 
         public void AddHearEvent(Jazz festivalEvent)
         {
-            //add
+            db.Jazzs.Add(festivalEvent);
+            db.SaveChanges();
         }
 
         public void UpdateHearEvent(Jazz festivalEvent)
@@ -132,6 +133,13 @@ namespace HF_Application.Models
             return restaurants;
         }
 
+        public Restaurant GetRestaurant(int id)
+        {
+            Restaurant restaurant = db.Restaurants.Find(id);
+
+            return restaurant;
+        }
+
         public Diner GetTasteEvent(int? id)
         {
             Diner festivalEvent = db.Diners
@@ -144,7 +152,8 @@ namespace HF_Application.Models
 
         public void AddTasteEvent(Diner festivalEvent)
         {
-            // add
+            db.Diners.Add(festivalEvent);
+            db.SaveChanges();
         }
         public void UpdateTasteEvent(Diner festivalEvent)
         {
@@ -205,7 +214,8 @@ namespace HF_Application.Models
 
         public void AddSeeEvent(Historic festivalEvent)
         {
-            // add
+            db.Historics.Add(festivalEvent);
+            db.SaveChanges();
         }
         public void UpdateSeeEvent(Historic festivalEvent)
         {
@@ -266,7 +276,8 @@ namespace HF_Application.Models
 
         public void AddTalkEvent(Talk festivalEvent)
         {
-            // add
+            db.Talks.Add(festivalEvent);
+            db.SaveChanges();
         }
         public void UpdateTalkEvent(Talk festivalEvent)
         {
@@ -287,6 +298,13 @@ namespace HF_Application.Models
                 .ToList();
 
             return questions;
+        }
+
+        public Location GetLocation(int id)
+        {
+            Location location = db.Locations.Find(id);
+
+            return location;
         }
 
         public List<SalesItem> GetAllEvents()
@@ -332,5 +350,10 @@ namespace HF_Application.Models
 
             return total;
         }
+
+		public void Dispose()
+		{
+			db.Dispose();
+		}
     }
 }

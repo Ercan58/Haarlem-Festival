@@ -15,11 +15,12 @@ namespace HF_Application.Models
         void AddTasteEvent(Events.Diner festivalEvent);
         void UpdateTasteEvent(Events.Diner festivalEvent);
         List<Restaurant> GetTasteLocations();
+        Restaurant GetRestaurant(int id);
 
         List<DateList> GetAllSeeEvents();
         Events.Historic GetSeeEvent(int? id);
-        void UpdateSeeEvent(Events.Historic festivalEvent);
         void AddSeeEvent(Events.Historic festivalEvent);
+        void UpdateSeeEvent(Events.Historic festivalEvent);
         List<Location> GetSeeLocations();
 
         List<DateList> GetAllTalkEvents();
@@ -29,8 +30,11 @@ namespace HF_Application.Models
         List<Location> GetTalkLocations();
         List<TalkQuestion> GetAllTalkQuestions();
 
+        Location GetLocation(int id);
         List<SalesItem> GetAllEvents();
         int GetTotalSales();
         double GetTotalRevenue();
+
+        void Dispose();
     }
 }

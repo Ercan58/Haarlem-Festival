@@ -32,7 +32,37 @@ namespace HF_Application.Controllers
 
         public ActionResult AddTaste()
         {
+            ViewBag.Locations = eventRepository.GetTasteLocations();
             return View();
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTaste(Models.Events.DinerModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Models.Events.Diner festivalEvent = new Models.Events.Diner
+                {
+                    CartDescription = model.CartDescription,
+                    CartTitle = model.CartTitle,
+                    TicketPrice = model.TicketPrice,
+                    ReducedPrice = model.ReducedPrice,
+                    RestaurantId = model.RestaurantId,
+                    Restaurant = eventRepository.GetRestaurant(model.RestaurantId),
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    Seats = model.Seats
+                };
+                eventRepository.AddTasteEvent(festivalEvent);
+
+                ViewBag.Locations = eventRepository.GetTasteLocations();
+                return RedirectToAction("Taste");
+            }
+
+            //return if invalid entry
+            return View(model);
         }
 
         // Get
@@ -53,6 +83,7 @@ namespace HF_Application.Controllers
         {
             if (ModelState.IsValid)
             {
+                festivalEvent.Restaurant = eventRepository.GetRestaurant(festivalEvent.RestaurantId);
                 eventRepository.UpdateTasteEvent(festivalEvent);
                 TempData["message"] = String
                     .Format("'{0}' on '{1}' has been saved successfully",
@@ -80,6 +111,7 @@ namespace HF_Application.Controllers
 
         public ActionResult AddHear()
         {
+            ViewBag.Locations = eventRepository.GetHearLocations();
             return View();
         }
 
@@ -101,6 +133,7 @@ namespace HF_Application.Controllers
         {
             if (ModelState.IsValid)
             {
+                festivalEvent.Location = eventRepository.GetLocation(festivalEvent.Location.Id);
                 eventRepository.UpdateHearEvent(festivalEvent);
                 TempData["message"] = String
                     .Format("'{0}' on '{1}' has been saved successfully",
@@ -128,6 +161,7 @@ namespace HF_Application.Controllers
 
         public ActionResult AddSee()
         {
+            ViewBag.Locations = eventRepository.GetSeeLocations();
             return View();
         }
 
@@ -175,6 +209,7 @@ namespace HF_Application.Controllers
 
         public ActionResult AddTalk()
         {
+            ViewBag.Locations = eventRepository.GetTalkLocations();
             return View();
         }
 
@@ -305,6 +340,14 @@ namespace HF_Application.Controllers
                 ViewBag.Message = "ERROR:" + ex.Message.ToString();
             }
             return View(fileName);
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                eventRepository.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
