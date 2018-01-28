@@ -1,15 +1,14 @@
-﻿
-@model HF_Application.Models.ViewModel.OrdersModel
+﻿@model HF_Application.Models.ViewModel.CartModel
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Orders";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
-@if (Model.orderitems != null)
+@if (Model.AllOrderitems != null)
 {
 
 
@@ -19,7 +18,7 @@
 
         <div class="text-center">
             <h4>Orders that you have saved</h4>
-        
+
 
         </div>
 
@@ -40,7 +39,7 @@
             </thead>
             <tbody>
 
-                @foreach (var item in Model.orderitems)
+                @foreach (var item in Model.AllOrderitems)
                 {
 
                     int totaalitem = (item.Aantal * item.Prijs);
@@ -60,14 +59,13 @@
 
                 }
             </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="3" class="text-right">Total:</td>
-                    <td class="text-right"></td>
-                </tr>
-            </tfoot>
+
+
         </table>
 
+    </div>
+    <div>
+        @Html.ActionLink("Checkout and pay", "AfrekenenWishlist", new { cartModel = Model }, new { @class = "btn btn-info login" })
     </div>
 
 
