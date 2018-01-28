@@ -198,6 +198,7 @@
       <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DateTimeModel.cs" />
     <Compile Include="Models\Events\DinerModel.cs" />
     <Compile Include="Models\Events\HistoricModel.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
@@ -529,6 +530,7 @@
     <Content Include="Views\User\Orders.cshtml" />
     <Content Include="Views\Cart\Orders.cshtml" />
     <Content Include="Views\Cart\Wishlist.cshtml" />
+    <Content Include="Views\Admin\_SalesDayPicker.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

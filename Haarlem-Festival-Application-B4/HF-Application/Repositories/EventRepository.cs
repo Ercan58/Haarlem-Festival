@@ -329,8 +329,34 @@ namespace HF_Application.Models
                 .ToList();
 
             return salesList;
-
         }
+
+        public List<SalesItem> GetAllEvents(DateTime dateTime)
+        {
+            List<SalesItem> salesList = db.OrderItems
+                .Include(x => x.Item)
+                .Include(x => x.Order)
+                .Where(x => DbFunctions.TruncateTime(x.Order.OrderPayed) == dateTime.Date)
+                .GroupBy(x => x.Item.ID)
+                .Select(o =>
+                new SalesItem
+                {
+                    Id = o.FirstOrDefault().Item.ID,
+                    CartTitle = o.FirstOrDefault().Item.CartTitle,
+                    CartDescription = o.FirstOrDefault().Item.CartDescription,
+                    StartDate = o.FirstOrDefault().Item.StartDate,
+                    TicketPrice = o.FirstOrDefault().Item.TicketPrice,
+                    Revenue = o.Sum(t => t.Prijs * t.Aantal),
+                    Seats = o.FirstOrDefault().Item.Seats,
+                    FreeSeats = o.FirstOrDefault().Item.Seats - o.Sum(t => t.Aantal),
+                    SeatsSold = o.Sum(t => t.Aantal)
+                })
+                .OrderBy(i => i.StartDate)
+                .ToList();
+
+            return salesList;
+        }
+
         public int GetTotalSales()
         {
             int total = db.OrderItems
