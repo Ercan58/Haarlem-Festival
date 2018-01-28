@@ -36,23 +36,21 @@
                                 <h4 style="color:black">@Model.JazzEvent.Location.Address</h4>
                             </div>
                             <div class="row">
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-4 col-12">
                                     <div class="panel panel-defaultJazz text-center">
-                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Amount:</div>
+                                        <div style="color:#808080" class="panel-title"><span class="glyphicon glyphicon-scissors"></span>Select amount:</div>
                                         <hr>
-                                        <span class="input-group-addon text-center" style="color:#424242; width:100px;">
+                                        <div class="text-center" style="position: center center;">
                                             <select id="beden" class="form-control" name="aantal">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                                 <option value="4">4</option>
 
-                                            </select>
-                                        </span>
-                                        <br>
+                                            </select></div>
                                     </div>
                                     </div>
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-8 col-12">
                                     <div class="panel panel-defaultJazz text-center">
                                         <div class="panel-title" style="color:#808080; "><span class="glyphicon glyphicon-list-alt"></span>Ticket price:</div>
                                         <hr>
@@ -72,12 +70,12 @@
             </div>
             </div>
     }
-    <br>
+    <br />
+
     @*crossSelling*@
     <div class="container">
         <div class="text-center crossellingTitel">Take A Look To Our Other Events!</div>
         <div class="card">
-
             <div class="row container-full">
                     @foreach (var talkEvent in Model.CrossSellingTalk)
                     {
@@ -88,7 +86,7 @@
                                     </div>
                                     <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
                                     <div style="padding-bottom:5%; margin-bottom:5%; padding-top:5%;">  
-                                        <a>@Html.ActionLink("More Information", "Talk1", "Talks", new { id = talkEvent.ID }, new { @class = "btn btn-info login" })</a>
+                                        <a>@Html.ActionLink("More Information", "Talk1", "Talks", new { id = talkEvent.ID }, new { @class = "jazzBtn btn btn-info login" })</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +101,7 @@
                             </div>
                             <img class="crossSellImage" src="@Url.Content("~/Content/images/events/" + resto.imagePath)" alt="Image of @resto.RestaurantName" />
                             <div style="margin-bottom:5%; padding-bottom:5%; padding-top:5%;">
-                                    <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "btn btn-info login" })</a>
+                                    <a>@Html.ActionLink("More Information", "Details", "Taste", new { id = resto.Id }, new { @class = "jazzBtn btn btn-info login" })</a>
                              </div>
                             </div>
                         </div>
