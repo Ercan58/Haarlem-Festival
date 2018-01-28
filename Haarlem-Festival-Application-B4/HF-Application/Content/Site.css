@@ -433,7 +433,7 @@ text-decoration:underline;
 
 
 #Talk {
-    background-image: url(images/events/achtergrond_talk3.jpg);
+    background-image: url(images/events/haarlemevening.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -2505,7 +2505,7 @@ a.urunthumbnail.active {
     }
 
 .card {
-    margin-top: 50px;
+    margin-top: 30px;
     background: #eee;
     padding: 15px;
     line-height: 1.5em;

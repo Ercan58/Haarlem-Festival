@@ -26,37 +26,36 @@
                         <div class="text-center">
                             <img class="talkImage1" src="@Url.Content("~/Content/images/events/" + talkEvent.ImagePath)" alt="Image of @talkEvent.Interview" />
                         </div>
-                        <div class="text-center interviewName" style="height:60px;">
+                        <div class="text-center interviewName">
                             <h4 class="text-center" style="color:white; font:bold; padding-left:8px; padding-right:8px;">@talkEvent.Interview</h4>
                         </div>
-                        <br />
-                        <div class="text-center">
-                            <h6 class="text-center" style="color:black; font:bold; padding-left:8px; padding-right:8px;">@talkEvent.StartDate.DayOfWeek</h6>
-                        </div>
-                        <div class="text-center">
-                            <h6 style="color:black"><span style="font:bold; color:white;">Date:</span>@talkEvent.StartDate.ToShortDateString()<span style=" font:bold; color:black;">  Time:</span>@talkEvent.StartDate.ToShortTimeString()</h6>
-
-                            <h6 style="color:black"><span style="color:white; font:bold;">Adres:</span>@talkEvent.Location.Address</h6>
-                        </div>
-                        <div class="text-center">
-                            @foreach (var item in Model.SalesList)
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col-md-4 text-center">
+                                <h2>Date</h2>
+                                @talkEvent.StartDate.DayOfWeek @talkEvent.StartDate.ToString()
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <h2>Address</h2>
+                                @talkEvent.Location.Address
+                            </div>
+                            <div class="col-md-4 text-center">
+                             @foreach (var item in Model.SalesList)
                             {
 
                                 if (item.Id == talkEvent.ID)
                                 {
 
-                                    <h6 style="color:black"><span style="color:white; font:bold;">Seats left:</span> @(item.Seats - item.SeatsSold)</h6>
+                                    <h2 style="color:white"><span style="color:white; font:bold;">Seats left<br /></span> @(item.Seats - item.SeatsSold)</h2>
 
                                 }
 
                             }
 
-
+                            </div>
                         </div>
 
-
-                        <div class="text-center">
-                            <a>@Html.ActionLink("More information", "Talk1", new { id = talkEvent.ID }, new { @class = "btn btn-info btn-block login" })</a>
+                        <div class="text-center" style="padding:10px;">
+                            <a>@Html.ActionLink("More information", "Talk1", new { id = talkEvent.ID }, new { @class = "jazzBtn btn btn-info" })</a>
                         </div>
 
                     </div>
