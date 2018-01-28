@@ -13,6 +13,11 @@ namespace HF_Application.Models.Events
         [Display(Name = "Event Name")]
         public string CartTitle { get; set; }
 
+        [Required(ErrorMessage = "A title for this event is required")]
+        [MinLength(2, ErrorMessage = "The title should be at least two characters long")]
+        [Display(Name = "Inteview Title")]
+        public string Interview { get; set; }
+
         [Required(ErrorMessage = "A description for this event is required")]
         [MinLength(2, ErrorMessage = "The description should be at least two characters long")]
         [Display(Name = "Event Description")]

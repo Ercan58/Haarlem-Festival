@@ -8,6 +8,7 @@ using HF_Application.Models;
 
 namespace HF_Application.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IEventRepository eventRepository = new EventRepository();
@@ -57,11 +58,11 @@ namespace HF_Application.Controllers
                 };
                 eventRepository.AddTasteEvent(festivalEvent);
 
-                ViewBag.Locations = eventRepository.GetTasteLocations();
                 return RedirectToAction("Taste");
             }
 
             //return if invalid entry
+            ViewBag.Locations = eventRepository.GetTasteLocations();
             return View(model);
         }
 
@@ -115,6 +116,35 @@ namespace HF_Application.Controllers
             return View();
         }
 
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddHear(Models.Events.JazzModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Models.Events.Jazz festivalEvent = new Models.Events.Jazz
+                {
+                    CartDescription = model.CartDescription,
+                    CartTitle = model.CartTitle,
+                    Band = model.Band,
+                    imagePath = model.imagePath,
+                    TicketPrice = model.TicketPrice,
+                    Location = eventRepository.GetLocation(model.Location.Id),
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    Seats = model.Seats
+                };
+                eventRepository.AddHearEvent(festivalEvent);
+
+                return RedirectToAction("Hear");
+            }
+
+            //return if invalid entry
+            ViewBag.Locations = eventRepository.GetHearLocations();
+            return View(model);
+        }
+
         // Get
         public ActionResult EditHear(int? id)
         {
@@ -165,6 +195,35 @@ namespace HF_Application.Controllers
             return View();
         }
 
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddSee(Models.Events.HistoricModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Models.Events.Historic festivalEvent = new Models.Events.Historic
+                {
+                    CartDescription = model.CartDescription,
+                    CartTitle = model.CartTitle,
+                    TicketPrice = model.TicketPrice,
+                    FamilyPrice = (int)model.FamilyPrice, // tijdelijke fix, model heeft int ipv double....
+                    tourGuid = model.TourGuide,
+                    Location = eventRepository.GetLocation(model.Location.Id),
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    Seats = model.Seats
+                };
+                eventRepository.AddSeeEvent(festivalEvent);
+
+                return RedirectToAction("See");
+            }
+
+            //return if invalid entry
+            ViewBag.Locations = eventRepository.GetSeeLocations();
+            return View(model);
+        }
+
         // Get
         public ActionResult EditSee(int? id)
         {
@@ -211,6 +270,35 @@ namespace HF_Application.Controllers
         {
             ViewBag.Locations = eventRepository.GetTalkLocations();
             return View();
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTalk(Models.Events.TalkModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Models.Events.Talk festivalEvent = new Models.Events.Talk
+                {
+                    CartDescription = model.CartDescription,
+                    Interview = model.Interview,
+                    CartTitle = model.CartTitle,
+                    TicketPrice = model.TicketPrice,
+                    Location = eventRepository.GetLocation(model.Location.Id),
+                    StartDate = model.StartDate,
+                    EndDate = model.EndDate,
+                    Seats = model.Seats,
+                    ImagePath = model.ImagePath
+                };
+                eventRepository.AddTalkEvent(festivalEvent);
+
+                return RedirectToAction("Talk");
+            }
+
+            //return if invalid entry
+            ViewBag.Locations = eventRepository.GetTalkLocations();
+            return View(model);
         }
 
         // Get
