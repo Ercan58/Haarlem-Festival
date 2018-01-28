@@ -511,6 +511,7 @@
     <Content Include="Views\Admin\AddTalk.cshtml" />
     <Content Include="Views\Admin\AddTaste.cshtml" />
     <Content Include="Views\Historic\Index.cshtml" />
+    <Content Include="Views\Cart\Afrekenen.cshtml" />
     <Content Include="Views\Admin\AttendeeQuestions.cshtml" />
   </ItemGroup>
   <ItemGroup>

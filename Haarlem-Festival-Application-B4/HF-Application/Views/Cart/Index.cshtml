@@ -1,6 +1,8 @@
 ﻿@model HF_Application.Models.ViewModel.CartModel
 
 @{
+    /**/
+
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,14 +10,13 @@
 
 @if (Session["CurrentWishlist"] == null)
 {
-    <div class="text-center" style="color:black">
-        <h1>Your Cart</h1>
 
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Your Cart</h1>
 
-        <h2>Your cart is empty !!!!!!!</h2>
 
         <div class="text-center">
-
+            <h4>Your Cart is empty!</h4>
 
             <a class="btn btn-info login" href="@Url.Action("Index","Home")">Go To The Home page</a>
         </div>
@@ -25,18 +26,23 @@
 
 else
 {
+    <div class="col-md-8 offset-md-2 col-12 welcomediv">
+        <h1 class="text-center">Your Cart</h1>
+
+    </div>
 
     HF_Application.Models.ViewModel.CartModel cart = new HF_Application.Models.ViewModel.CartModel();
     cart = Session["CurrentWishlist"] as HF_Application.Models.ViewModel.CartModel;
-    <div class="text-center">  <h1 style="color:black">Your Cart!</h1> </div>
+
     <div class="panel panel-default">
         <table id="cartTable" class="table" style="color:black">
             <thead>
                 <tr>
                     <th>Quantity</th>
                     <th>Item</th>
-                    <th>Event</th>
-                    <th>Question</th>
+                    <th>Date</th>
+                    <th>Details</th>
+                    <th>Comment</th>
                     <th class="text-right">Price</th>
                     <th class="text-right">Subtotal</th>
                 </tr>
@@ -51,6 +57,7 @@ else
                     <tr>
                         <td class="text-center">@item.Aantal</td>
                         <td class="text-left">@item.Item.CartTitle</td>
+                        <td>@item.Item.StartDate</td>
                         <td>@item.Item.CartDescription</td>
                         <td>@item.Opmerking</td>
                         <td class="text-right">
@@ -70,8 +77,8 @@ else
                 <tr>
                     <td colspan="3" class="text-right">Total:</td>
                     <td class="text-right">
-                
-                           @cart.totaal euro!;
+
+                        @cart.totaal euro!;
 
                     </td>
                 </tr>
@@ -80,7 +87,7 @@ else
         <div class="text-center">
             <a class="btn btn-info login" href="@Url.Action("Index","Home")">Continue shopping</a>
 
-            <a class="btn btn-info login" href="@Url.Action("PlaceOrder","Cart")">Checkout now</a>
+            <a class="btn btn-info login" href="@Url.Action("Afrekenen","Cart")">Checkout now</a>
         </div>
     </div>
 
