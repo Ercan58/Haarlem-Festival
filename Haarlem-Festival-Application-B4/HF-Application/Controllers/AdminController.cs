@@ -8,7 +8,7 @@ using HF_Application.Models;
 
 namespace HF_Application.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         private IEventRepository eventRepository = new EventRepository();
@@ -350,7 +350,16 @@ namespace HF_Application.Controllers
 
         public ActionResult DaySales()
         {
-            List<SalesItem> salesList = eventRepository.GetAllEvents();
+            List<SalesItem> salesList = eventRepository.GetAllEvents(new DateTime(2018, 1 , 1));
+
+            return View(salesList);
+        }
+
+        // Post
+        [HttpPost]
+        public ActionResult DaySales(DateTime dateTime)
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
 
             return View(salesList);
         }
