@@ -31,7 +31,7 @@ namespace HF_Application.Controllers
         public ActionResult Index(string date)
         {
 
-            HistoricModel HistModel = new HistoricModel();
+            Models.ViewModel.HistoricModel HistModel = new Models.ViewModel.HistoricModel();
 
             if (date == null)
             {

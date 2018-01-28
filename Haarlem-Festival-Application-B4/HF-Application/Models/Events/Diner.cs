@@ -14,6 +14,7 @@ namespace HF_Application.Models.Events
         public int RestaurantId { get; set; }
         public int Session { get; set; }
 
+        [System.ComponentModel.DisplayName("Reduced Price")]
         public double ReducedPrice { get; set; }
 
         public Restaurant Restaurant { get; set; }

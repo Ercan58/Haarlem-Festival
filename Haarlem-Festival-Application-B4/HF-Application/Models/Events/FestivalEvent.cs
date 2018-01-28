@@ -31,6 +31,7 @@ namespace HF_Application.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddThh:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
+        [DisplayName("Available Seats")]
         public int Seats { get; set; }
          
 

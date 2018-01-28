@@ -1,0 +1,31 @@
+﻿
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            sideBySide: true,
+            format: 'DD/MM/YYYY HH:mm',
+            useCurrent: false,
+            defaultDate: new Date(
+                @Model.StartDate.Year,
+                @(Model.StartDate.Month - 1),
+                @Model.StartDate.Day,
+                @Model.StartDate.Hour,
+                @Model.StartDate.Minute),
+            minDate:  new Date(2018, 6, 26),
+            maxDate: new Date(2018, 6, 29)
+        });
+        $('#datetimepicker2').datetimepicker({
+            sideBySide: true,
+            format: 'DD/MM/YYYY HH:mm',
+            useCurrent: false,
+            defaultDate: new Date(
+                @Model.EndDate.Year,
+                @(Model.EndDate.Month - 1),
+                @Model.EndDate.Day,
+                @Model.EndDate.Hour,
+                @Model.EndDate.Minute),
+            minDate: new Date(2018, 6, 26),
+            maxDate: new Date(2018, 6, 29)
+        });
+    });
+</script>

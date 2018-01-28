@@ -198,7 +198,10 @@
       <DependentUpon>201801221705188_OrderItemaangepast.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Events\DinerModel.cs" />
+    <Compile Include="Models\Events\HistoricModel.cs" />
     <Compile Include="Models\Events\JazzModel.cs" />
+    <Compile Include="Models\Events\TalkModel.cs" />
     <Compile Include="Models\FoodType.cs" />
     <Compile Include="Models\DateList.cs" />
     <Compile Include="Models\Photo.cs" />
@@ -405,6 +408,8 @@
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Views\Admin\_DateTimePickerScriptEdit.cshtml" />
+    <None Include="Views\Admin\_DateTimePickerScriptAdd.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />

@@ -18,7 +18,6 @@ namespace HF_Application.Models.Events
         public int eventDayID { get; set; }
 
         [DisplayName("Event Location")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Location Location { get; set; }
     }
 }
