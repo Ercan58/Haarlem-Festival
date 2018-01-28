@@ -26,7 +26,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        public ActionResult AddToCart(int eventid, int userid, string Question, int aantal, int prijs )
+        public ActionResult AddToCart(int eventid, int userid, string Question, int aantal, int prijs)
         {
             int totaal = 0;
             CartModel cartModel = new CartModel();
@@ -35,7 +35,7 @@ namespace HF_Application.Controllers
                 cartModel = Session["CurrentWishlist"] as CartModel;
 
                 List<OrderItem> Old = new List<OrderItem>();
-                Old = cartModel.AllOrderitems; 
+                Old = cartModel.AllOrderitems;
 
                 List<OrderItem> New = new List<OrderItem>();
                 FestivalEvent curentevent = cartRepository.GetbesteldEvent(eventid);
@@ -52,12 +52,12 @@ namespace HF_Application.Controllers
             }
 
             FestivalEvent eventi = cartRepository.GetbesteldEvent(eventid);
-            cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question,eventi, prijs );
+            cartModel.AllOrderitems = cartRepository.Additem(eventid, aantal, Question, eventi, prijs);
             cartModel.AllOrderdetailtodb = cartRepository.Additemzonderevent(eventid, aantal, Question, prijs);
 
             foreach (var item in cartModel.AllOrderitems)
             {
-               int subtotaal = (item.Aantal * item.Prijs);
+                int subtotaal = (item.Aantal * item.Prijs);
                 totaal = totaal + subtotaal;
             }
             cartModel.totaal = totaal;
@@ -93,7 +93,7 @@ namespace HF_Application.Controllers
         public ActionResult Afrekenen()
         {
             CartModel cartModel = new CartModel();
-            cartModel = Session["CurrentWishlist"] as CartModel; 
+            cartModel = Session["CurrentWishlist"] as CartModel;
 
             return View(cartModel);
         }
@@ -153,6 +153,13 @@ namespace HF_Application.Controllers
             Session["CurrentWishlist"] = null;
             User user = Session["User"] as User;
             return RedirectToAction("LoggedIn", "User", user);
+        }
+
+        public ActionResult ClearCart()
+        {
+            Session["CurrentWishlist"] = null;
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
