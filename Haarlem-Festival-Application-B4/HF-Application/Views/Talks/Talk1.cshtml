@@ -5,10 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body>
-    <div class="text-center">
-        <h1 style="color:black"><strong>@Model.CurrentTalk.Interview</strong></h1>
-    </div>
+<body id="TalksbodyDetails">
     @using (Html.BeginForm("AddToCart", "Cart", new { eventid = Model.CurrentTalk.ID, userid = Convert.ToInt32(Session["UserId"]), prijs = Model.CurrentTalk.TicketPrice }))
     {
 

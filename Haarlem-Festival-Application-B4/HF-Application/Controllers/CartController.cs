@@ -176,10 +176,18 @@ namespace HF_Application.Controllers
         {
             int statusid = 0;
             int userid = Convert.ToInt32(Session["UserId"]);
-            OrdersModel orders = new OrdersModel();
-            orders.orderitems = cartRepository.GetOrders(userid, statusid);
+            //OrdersModel orders = new OrdersModel();
+            CartModel cartModel = new CartModel();
+            cartModel.AllOrderitems = cartRepository.GetOrders(userid, statusid);
 
-            return View(orders);
+            return View(cartModel);
+        }
+
+        public ActionResult AfrekenenWishlist(CartModel cartModel)
+        {
+            Session["CurrentWishlist"] = cartModel as CartModel;
+
+            return RedirectToAction("Afrekenen");
         }
     }
 }
