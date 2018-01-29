@@ -35,7 +35,9 @@ namespace HF_Application.Models
         List<SalesItem> GetAllEvents();
         List<SalesItem> GetAllEvents(DateTime dateTime);
         int GetTotalSales();
+        int GetTotalSales(DateTime dateTime);
         double GetTotalRevenue();
+        double GetTotalRevenue(DateTime dateTime);
 
         void Dispose();
     }

@@ -45,16 +45,6 @@ namespace HF_Application.Models
             return events;
         }
 
-        public List<Jazz> festivalEvents()
-        {
-            List<Jazz> festivalEvents = db.Jazzs
-                .OrderBy(i => i.Location)
-                .Include(i => i.Location)
-                .ToList();
-
-            return festivalEvents;
-        }
-
         public List<Location> GetHearLocations()
         {
             List<Location> locations = new List<Location>();
@@ -307,6 +297,7 @@ namespace HF_Application.Models
             return location;
         }
 
+        //Get all events with sales data
         public List<SalesItem> GetAllEvents()
         {
             List<SalesItem> salesList = db.OrderItems
@@ -331,6 +322,7 @@ namespace HF_Application.Models
             return salesList;
         }
 
+        //Get all events with sales on given day
         public List<SalesItem> GetAllEvents(DateTime dateTime)
         {
             List<SalesItem> salesList = db.OrderItems
@@ -367,6 +359,19 @@ namespace HF_Application.Models
             return total;
         }
 
+        public int GetTotalSales(DateTime dateTime)
+        {
+            int total = db.OrderItems
+                .Include(x => x.Item)
+                .Include(x => x.Order)
+                .Where(x => DbFunctions.TruncateTime(x.Order.OrderPayed) == dateTime.Date)
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => t.Aantal))
+                .SingleOrDefault();
+
+            return total;
+        }
+
         public double GetTotalRevenue()
         {
             int total = db.OrderItems
@@ -377,7 +382,20 @@ namespace HF_Application.Models
             return total;
         }
 
-		public void Dispose()
+        public double GetTotalRevenue(DateTime dateTime)
+        {
+            int total = db.OrderItems
+                .Include(x => x.Item)
+                .Include(x => x.Order)
+                .Where(x => DbFunctions.TruncateTime(x.Order.OrderPayed) == dateTime.Date)
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => (t.Prijs * t.Aantal)))
+                .SingleOrDefault();
+
+            return total;
+        }
+
+        public void Dispose()
 		{
 			db.Dispose();
 		}
