@@ -18,7 +18,7 @@ namespace HF_Application.Controllers
     {
 
         // TODO: Repository aanmaken 
-        private ITalkRepository talkRepository = new TalkRepository();     
+            
         private ITalkRepository talkRepository = new TalkRepository();
         private IEventRepository eventRepository = new EventRepository();
 

@@ -24,6 +24,7 @@ namespace HF_Application.Controllers
         {
             AllFoodTypes = new List<FoodType>();
 
+            //Vraag alle foodtypes en sla dit op
             this.AllFoodTypes = dinerrp.GetAllFoodtypes();
         }
 
