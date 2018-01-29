@@ -7,9 +7,13 @@
 @if (Model != null)
 {
 
-    <div class="col-md-8 offset-md-2 col-12 welcomediv">
-        <h1 class="text-center">Checkout Page</h1>
-    </div>
+<div class="col-md-8 offset-md-2 col-12 welcomediv">
+    <h1 class="text-center">Checkout Page</h1>
+
+        <a class="btn btn-outline-success" href="@Url.Action("ExportOrder", "Cart")">Export Order</a>
+
+
+</div>
 
 
     <div class="container" style="background-color:#808080; margin-bottom:20px;">
@@ -29,7 +33,7 @@
                 </div>
                 <div class="panel-body">
                     <form role="form">
-                       <p> Choose a payment method:</p> <select class="text-center">
+                        <p> Choose a payment method:</p> <select class="text-center">
                             <option>Visa Cart</option>
                             <option>Ideal</option>
                             <option>PayPal</option>
@@ -81,11 +85,15 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <h6>Total to Pay: @Model.totaal euro </h6>
-                        <table id="cartTable" class="table" style="color:black">
+                        <table id ="cartTable" class="table" style="color:black">
                             <thead>
+                                <tr>
+                                    Your Order Details
+                                </tr>
                                 <tr>
                                     <th>Quantity</th>
                                     <th>Item</th>
+                                    <th>ItemDetails</th>
                                     <th class="text-right">Price</th>
                                     <th class="text-right">Subtotal</th>
                                 </tr>
@@ -100,6 +108,7 @@
                                     <tr>
                                         <td class="text-center">@item.Aantal</td>
                                         <td class="text-left">@item.Item.CartTitle</td>
+                                        <td>@item.Item.CartDescription</td>
                                         <td class="text-right">
                                             @item.Prijs.ToString() euro
                                         </td>
@@ -142,6 +151,7 @@
         </div>
     </div>
 
+  
 
 
 }

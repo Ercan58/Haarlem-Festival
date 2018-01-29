@@ -17,27 +17,15 @@ namespace HF_Application.Repositories
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
 
-        // alle events halen 
+        //Todo: Repository alle events halen methode 
         public List<Talk> GetAllTalkEvents()
         {
+            //TODO: list Talk en LinQ query
             List<Talk> TalkEvents = new List<Talk>();
             return TalkEvents = db.Talks.Include(a => a.Location).ToList();
         }
 
-        // alle events halen
-        public List<Talk> GetTalkEvents(DateTime date)
-        {
-            List<Talk> talkEvents = new List<Talk>();
-
-            var selectionByStartDate = db.Talks.Where(d => d.StartDate == date).Include(l => l.Location).ToList();
-            foreach (Talk TalkEvent in selectionByStartDate)
-            {
-                talkEvents.Add(TalkEvent);
-            }
-            return talkEvents;
-        }
-
-        // Voor detail pagina
+        //TODO: Current Talk event Voor detail pagina
         public Talk GetCurrentTalkEvent(int id)
         {
             Talk talkEvent = db.Talks.Where(a => a.ID == id).Include(n => n.Location).SingleOrDefault();
@@ -45,19 +33,18 @@ namespace HF_Application.Repositories
             return talkEvent;
         }
 
-        // voor cross selling 
+        // Get 2 Diner events voor Cross selling voor cross selling
         public List<Restaurant> GetCrossDinerEvents()
         {
             List<Restaurant> diners = new List<Restaurant>();
-           var diners1 =  db.Restaurants.OrderBy(r => Guid.NewGuid()).Take(2).ToList();
+            var diners1 =  db.Restaurants.OrderBy(r => Guid.NewGuid()).Take(2).ToList();
             foreach (var item in diners1)
             {
                 diners.Add(item);
             }
             return diners;
         }
-
-        // voor cross selling 
+        
         public List<Jazz> GetCrossJazzEvents()
         {
             List<Jazz> jazz = new List<Jazz>();

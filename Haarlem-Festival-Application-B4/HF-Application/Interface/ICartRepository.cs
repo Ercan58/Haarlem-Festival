@@ -12,13 +12,10 @@ namespace HF_Application.Interface
     {
         List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent, int prijs);
         List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question, int prijs);
-
         FestivalEvent GetbesteldEvent(int eventid);
-
         int PlaceOrder(int userid);
         int SaveOrder(int userid);
         void Additemsdb(OrderItem item);
-
         List<OrderItem> GetOrders(int userid, int statusid);
     }
 }

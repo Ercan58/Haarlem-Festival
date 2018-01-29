@@ -11,10 +11,7 @@ namespace HF_Application.Interface
     interface ITalkRepository
     {
         List<Talk> GetAllTalkEvents();
-        List<Talk> GetTalkEvents(DateTime date);
         Talk GetCurrentTalkEvent(int id);
-
-
         List<Jazz> GetCrossJazzEvents();
         List<Restaurant> GetCrossDinerEvents();
 
