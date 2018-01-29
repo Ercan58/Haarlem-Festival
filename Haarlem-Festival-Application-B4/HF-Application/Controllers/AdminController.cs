@@ -363,6 +363,8 @@ namespace HF_Application.Controllers
             DateTime dateTime = DateTime.Now; // default date is today
             List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
             ViewBag.DateTime = dateTime;
+            ViewBag.TotalSold = eventRepository.GetTotalSales(dateTime);
+            ViewBag.TotalRevenue = eventRepository.GetTotalRevenue(dateTime);
             return View(salesList);
         }
 
@@ -372,6 +374,8 @@ namespace HF_Application.Controllers
         {
             List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
             ViewBag.DateTime = dateTime;
+            ViewBag.TotalSold = eventRepository.GetTotalSales(dateTime);
+            ViewBag.TotalRevenue = eventRepository.GetTotalRevenue(dateTime);
             return View(salesList);
         }
 

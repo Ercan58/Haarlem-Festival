@@ -359,6 +359,19 @@ namespace HF_Application.Models
             return total;
         }
 
+        public int GetTotalSales(DateTime dateTime)
+        {
+            int total = db.OrderItems
+                .Include(x => x.Item)
+                .Include(x => x.Order)
+                .Where(x => DbFunctions.TruncateTime(x.Order.OrderPayed) == dateTime.Date)
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => t.Aantal))
+                .SingleOrDefault();
+
+            return total;
+        }
+
         public double GetTotalRevenue()
         {
             int total = db.OrderItems
@@ -369,7 +382,20 @@ namespace HF_Application.Models
             return total;
         }
 
-		public void Dispose()
+        public double GetTotalRevenue(DateTime dateTime)
+        {
+            int total = db.OrderItems
+                .Include(x => x.Item)
+                .Include(x => x.Order)
+                .Where(x => DbFunctions.TruncateTime(x.Order.OrderPayed) == dateTime.Date)
+                .GroupBy(i => 1)
+                .Select(o => o.Sum(t => (t.Prijs * t.Aantal)))
+                .SingleOrDefault();
+
+            return total;
+        }
+
+        public void Dispose()
 		{
 			db.Dispose();
 		}
