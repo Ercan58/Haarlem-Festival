@@ -13,18 +13,16 @@ namespace HF_Application.Controllers
 {
 	public class HomeController : Controller
 	{
-
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
-
+        private IHomeRepository rp = new HomeRepository();
         public HomeController()
         {
         }
 		public ActionResult Index()
 		{
             HomeViewModel home = new HomeViewModel();
-            home.jazzEvents = db.Jazzs.OrderBy(j => Guid.NewGuid()).Take(4).ToList();
-            home.restoList = db.Diners.OrderBy(s => Guid.NewGuid()).Take(4).ToList();
-            home.talkList = db.Talks.OrderBy(t => Guid.NewGuid()).Take(3).ToList();
+            home.jazzEvents = rp.jazzList();
+            home.restoList = rp.restoList();
+            home.talkList = rp.talkList();
 
 
             return View(home);

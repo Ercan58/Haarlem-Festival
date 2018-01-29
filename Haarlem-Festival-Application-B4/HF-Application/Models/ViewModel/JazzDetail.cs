@@ -12,8 +12,6 @@ namespace HF_Application.Models
     {
         public Jazz JazzEvent { get; set; }
         public List<Restaurant> CrossSellingRestaurauntList { get; set; }
-        public List<Diner> CrossSellDinerList { get; set; }
-
         public List<Talk> CrossSellingTalk { get; set; }
 
     }

@@ -39,5 +39,16 @@ namespace HF_Application.Repositories
             return JazzEvent;
         }
 
+        public List<Restaurant> restoCrossSellList()
+        {
+            List<Restaurant> list = db.Restaurants.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
+            return list;
+        }
+
+        public List<Talk> talkCrossSell()
+        {
+            List<Talk> list = db.Talks.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
+            return list;
+        }
     }
 }
