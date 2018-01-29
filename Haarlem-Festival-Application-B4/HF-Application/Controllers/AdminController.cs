@@ -15,12 +15,12 @@ namespace HF_Application.Controllers
     {
         private IEventRepository eventRepository = new EventRepository();
 
-        // GET: Admin
         public ActionResult Index()
         {
             return View();
         }
 
+        // List of Taste events
         public ActionResult Taste()
         {
             if (TempData["message"] != null)
@@ -39,7 +39,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        // Post
+        // Post new Taste event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddTaste(Models.Events.DinerModel model)
@@ -68,7 +68,7 @@ namespace HF_Application.Controllers
             return View(model);
         }
 
-        // Get
+        // Get Taste event
         public ActionResult EditTaste(int? id)
         {
             var festivalEvent = eventRepository.GetTasteEvent(id);
@@ -79,7 +79,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
-        // Post
+        // Post Taste event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditTaste(Models.Events.Diner festivalEvent)
@@ -100,6 +100,8 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+
+        // List of Hear events
         public ActionResult Hear()
         {
             if (TempData["message"] != null)
@@ -118,7 +120,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        // Post
+        // Post new Hear event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddHear(Models.Events.JazzModel model)
@@ -147,7 +149,7 @@ namespace HF_Application.Controllers
             return View(model);
         }
 
-        // Get
+        // Get Hear event
         public ActionResult EditHear(int? id)
         {
             var festivalEvent = eventRepository.GetHearEvent(id);
@@ -158,7 +160,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
-        // Post
+        // Post Hear event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditHear(Models.Events.Jazz festivalEvent)
@@ -179,6 +181,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+        // List of See events
         public ActionResult See()
         {
             if (TempData["message"] != null)
@@ -197,7 +200,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        // Post
+        // Post new See event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddSee(Models.Events.HistoricModel model)
@@ -226,7 +229,7 @@ namespace HF_Application.Controllers
             return View(model);
         }
 
-        // Get
+        // Get See event
         public ActionResult EditSee(int? id)
         {
             var festivalEvent = eventRepository.GetSeeEvent(id);
@@ -237,10 +240,10 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
-        // Post
+        // Post See event
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult See(Models.Events.Historic festivalEvent)
+        public ActionResult EditSee(Models.Events.Historic festivalEvent)
         {
             if (ModelState.IsValid)
             {
@@ -256,6 +259,8 @@ namespace HF_Application.Controllers
             ViewBag.Locations = eventRepository.GetSeeLocations();
             return View(festivalEvent);
         }
+
+        // List of Talk events
         public ActionResult Talk()
         {
             if (TempData["message"] != null)
@@ -274,7 +279,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        // Post
+        // Post new Talk event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddTalk(Models.Events.TalkModel model)
@@ -303,7 +308,7 @@ namespace HF_Application.Controllers
             return View(model);
         }
 
-        // Get
+        // Get Talk event
         public ActionResult EditTalk(int? id)
         {
             var festivalEvent = eventRepository.GetTalkEvent(id);
@@ -314,7 +319,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
-        // Post
+        // Post Talk event
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditTalk(Models.Events.Talk festivalEvent)
@@ -334,6 +339,7 @@ namespace HF_Application.Controllers
             return View(festivalEvent);
         }
 
+        // List of attendee questions
         public ActionResult AttendeeQuestions()
         {
             List<TalkQuestion> questionList = eventRepository.GetAllTalkQuestions();
@@ -341,6 +347,7 @@ namespace HF_Application.Controllers
             return View(questionList);
         }
 
+        // Total sales page
         public ActionResult Sales()
         {
             List<SalesItem> salesList = eventRepository.GetAllEvents();
@@ -350,15 +357,16 @@ namespace HF_Application.Controllers
             return View(salesList);
         }
 
+        // Sales per day page
         public ActionResult DaySales()
         {
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = DateTime.Now; // default date is today
             List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
             ViewBag.DateTime = dateTime;
             return View(salesList);
         }
 
-        // Post
+        // Sales per given day
         [HttpPost]
         public ActionResult DaySales(DateTime dateTime)
         {
@@ -367,6 +375,7 @@ namespace HF_Application.Controllers
             return View(salesList);
         }
 
+        // Export total sales to Excel sheet
         public ActionResult ExportToExcel()
         {
             var gv = new GridView();
@@ -386,7 +395,7 @@ namespace HF_Application.Controllers
             return RedirectToAction("Sales");
         }
 
-        
+        // Export sales for given day to Excel sheet
         public ActionResult ExportToExcelByDate(DateTime dateTime)
         {
             var gv = new GridView();
@@ -406,6 +415,7 @@ namespace HF_Application.Controllers
             return RedirectToAction("DaySales", dateTime);
         }
 
+        // Photo manager
         public ActionResult Photos()
         {
             if (TempData["message"] != null)
@@ -430,7 +440,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
-        // Post
+        // Post new photo
         [HttpPost]
         public ActionResult AddPhoto(HttpPostedFileBase file)
         {
@@ -454,6 +464,7 @@ namespace HF_Application.Controllers
             return View();
         }
 
+        // Delete photo
         public ActionResult DeletePhoto(string fileName)
         {
             if (fileName == null)
@@ -463,7 +474,7 @@ namespace HF_Application.Controllers
             return View(photo);
         }
 
-        // Post
+        // Delete photo confirmation
         [HttpPost, ActionName("DeletePhoto")]
         [ValidateAntiForgeryToken]
         public ActionResult DeletePhotoConfirmed(string fileName)
