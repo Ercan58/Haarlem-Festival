@@ -17,15 +17,6 @@ namespace HF_Application.Controllers
 
     public class UserController : Controller
     {
-     
-        // GET: User
-        public ActionResult Index()
-        {
-            using (HaarlemFestivalContext db = new HaarlemFestivalContext())
-            {
-                return View(db.Users.ToList());
-            }
-        }
 
         public ActionResult Registration()
         {
@@ -59,18 +50,26 @@ namespace HF_Application.Controllers
         {
             using (HaarlemFestivalContext db = new HaarlemFestivalContext())
             {
-                  User usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
+                User usr = db.Users.Single(u => u.Mail == user.Mail && u.Password == user.Password);
                 if (usr != null)
                 {
-                    Session["UserId"] = usr.Id.ToString();
-                    Session["Name"] = usr.Email.ToString();
-                    Session["User"] = user;
-                    return RedirectToAction("LoggedIn", usr);
+                    if (user.Admin == true)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else if(user.Admin == false)
+                    {
+                        Session["UserId"] = usr.Id.ToString();
+                        Session["Name"] = usr.Email.ToString();
+                        Session["User"] = user;
+                        return RedirectToAction("LoggedIn", usr);
+                    }
+                
           
                 }
                 else
                 {
-                    ModelState.AddModelError(" ", "UserName or Pssword is wrong");
+                    return RedirectToAction("login", "User");
                 }
 
 

@@ -35,19 +35,20 @@
                         {
                             <div>
                                 <h6>Hey Guest!</h6>
-                                <a class="nav-link" href="@Url.Action("Login", "User")">Log In Here</a>
+                                @*<a class="nav-link" href="@Url.Action("Login", "User")">Log In Here</a>*@
                             </div>
                         }
 
                         else
                         {
                             <h6 style="float:left">Hello @Session["Name"].ToString()!</h6>
+                            <a class="nav-link" href="@Url.Action("LoggedIn", "User")">Your profile</a>
                         }
                     </li>
                 </ul>
 
                 <div class="navrightbar">
-                    <a href="@Url.Action("Index", "Admin")"><img class="profileicon" src="~/Content/images/profile.png" /></a>
+                    <a href="@Url.Action("login", "User")"><img class="profileicon" src="~/Content/images/profile.png" /></a>
 
                     <a href="#Cartbasket1" data-toggle="overlay"><img class="profileicon" src="~/Content/images/cart.png" /></a>
 
@@ -91,14 +92,14 @@
                                                         </td>
 
                                                     </tr>
-                                                  
+
                                                 }
                                             </tbody>
                                             <tfoot>
                                                 <tr>
                                                     <td colspan="3" class="text-right">Total:</td>
                                                     <td class="text-right">
-                                                       @cart.totaal Euro
+                                                        @cart.totaal Euro
                                                     </td>
                                                 </tr>
                                             </tfoot>
