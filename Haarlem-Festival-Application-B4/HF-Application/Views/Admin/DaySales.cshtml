@@ -1,4 +1,58 @@
-﻿@{
+﻿@model List<HF_Application.Models.SalesItem>
+@{
     ViewBag.Title = "Sales per Day";
+    if (ViewBag.TotalSold == null)
+    {
+        ViewBag.TotalSold = 0;
+        ViewBag.TotalRevenue = 0;
+    }
 }
 @Html.Partial("_SalesMenu")
+<div class="row">
+    <div class="col-sm-6">
+        @Html.Partial("_SalesDayPicker", new HF_Application.Models.DateTimeModel(ViewBag.DateTime))
+    </div>
+    <div class="col-sm-4 offset-8">
+        @Html.ActionLink("Export to Excel", "ExportToExcelByDate", new { dateTime = ViewBag.DateTime }, new { @class = "btn admin-btn" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2"><span class="event-item item-dark event-list-header">Date</span></div>
+    <div class="col-sm-2 offset-6"><span class="event-item item-dark event-list-header">Tickets Sold</span></div>
+    <div class="col-sm-2"><span class="event-item item-dark event-list-header">Revenue</span></div>
+</div>
+<div class="event-list-body">
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-sm-2"><span class="event-item item-dark">@item.StartDate.ToShortDateString()</span></div>
+                <div class="col-sm-2"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartTitle)</span></div>
+                <div class="col-sm-4"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.CartDescription)</span></div>
+                <div class="col-sm-2" align="center"><span class="event-item item-light">@Html.DisplayFor(modelItem => item.SeatsSold)</span></div>
+                <div class="col-sm-2" align="center"><span class="event-item item-light">€@Html.DisplayFor(modelItem => item.Revenue)</span></div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-2"><span class="event-item item-dark"></span></div>
+            <div class="col-sm-10"><span class="event-item item-light">No sales found for this day</span></div>
+
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/datetimepicker")
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepickerSales').datetimepicker({
+                sideBySide: true,
+                format: 'DD/MM/YYYY',
+            });
+        });
+    </script>
+}

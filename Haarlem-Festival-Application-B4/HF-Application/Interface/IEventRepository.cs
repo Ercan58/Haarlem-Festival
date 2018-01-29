@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace HF_Application.Models
 {
@@ -32,6 +33,7 @@ namespace HF_Application.Models
 
         Location GetLocation(int id);
         List<SalesItem> GetAllEvents();
+        List<SalesItem> GetAllEvents(DateTime dateTime);
         int GetTotalSales();
         double GetTotalRevenue();
 

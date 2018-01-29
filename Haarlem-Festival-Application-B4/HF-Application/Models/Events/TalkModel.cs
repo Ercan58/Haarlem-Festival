@@ -45,5 +45,7 @@ namespace HF_Application.Models.Events
 
         [Display(Name = "Image URL")]
         public string ImagePath { get; set; }
+
+        
     }
 }

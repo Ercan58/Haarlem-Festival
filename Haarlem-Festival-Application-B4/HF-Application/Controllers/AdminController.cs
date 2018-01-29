@@ -5,10 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HF_Application.Models;
+using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace HF_Application.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         private IEventRepository eventRepository = new EventRepository();
@@ -350,9 +352,58 @@ namespace HF_Application.Controllers
 
         public ActionResult DaySales()
         {
-            List<SalesItem> salesList = eventRepository.GetAllEvents();
-
+            DateTime dateTime = DateTime.Now;
+            List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
+            ViewBag.DateTime = dateTime;
             return View(salesList);
+        }
+
+        // Post
+        [HttpPost]
+        public ActionResult DaySales(DateTime dateTime)
+        {
+            List<SalesItem> salesList = eventRepository.GetAllEvents(dateTime);
+            ViewBag.DateTime = dateTime;
+            return View(salesList);
+        }
+
+        public ActionResult ExportToExcel()
+        {
+            var gv = new GridView();
+            gv.DataSource = eventRepository.GetAllEvents();
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=Haarlem-Festival-Sales.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+            gv.RenderControl(objHtmlTextWriter);
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+            return RedirectToAction("Sales");
+        }
+
+        
+        public ActionResult ExportToExcelByDate(DateTime dateTime)
+        {
+            var gv = new GridView();
+            gv.DataSource = eventRepository.GetAllEvents(dateTime);
+            gv.DataBind();
+            Response.ClearContent();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=Haarlem-Festival-Sales-Day.xls");
+            Response.ContentType = "application/ms-excel";
+            Response.Charset = "";
+            StringWriter objStringWriter = new StringWriter();
+            HtmlTextWriter objHtmlTextWriter = new HtmlTextWriter(objStringWriter);
+            gv.RenderControl(objHtmlTextWriter);
+            Response.Output.Write(objStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+            return RedirectToAction("DaySales", dateTime);
         }
 
         public ActionResult Photos()

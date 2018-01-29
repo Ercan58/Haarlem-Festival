@@ -85,5 +85,29 @@ namespace HF_Application.Repositories
             db.OrderItems.Add(item);
             db.SaveChanges();
         }
+
+        public List<OrderItem> GetOrders(int userid, int statusid)
+        {
+            List<Order> ordersids = new List<Order>();
+            List<OrderItem> orderites = new List<OrderItem>();
+            //var orders1 = db.Orders.Where(o => o.UserId == 1).ToList();
+
+            foreach (Order item in db.Orders.Where(o => o.UserId == userid && o.statusId == statusid).ToList())
+            {
+                ordersids.Add(item);
+           
+            }
+
+            foreach (var item in ordersids)
+            {
+                foreach (OrderItem orderitem in db.OrderItems.Where(b => b.OrderId == item.Id).Include(b => b.Item).ToList())
+                {
+                    orderites.Add(orderitem);
+                }
+
+            }
+
+            return orderites;
+        }
     }
 }

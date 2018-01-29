@@ -1,0 +1,28 @@
+﻿@model  HF_Application.Models.DateTimeModel
+
+@Styles.RenderFormat("<link rel=\"stylesheet\" href=\"{0}\" async>", "~/Content/bootstrap-datetimepicker-build.min.css")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group row">
+        <div class="col-xl-4" align="right">
+            <h3>Select a day</h3>
+        </div>
+        <div class="w-100 d-lg-block d-xl-none"></div>
+        <div class="col-xl-5">
+            @Html.EditorFor(model => model.DateTime, new
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control"
+              ,
+               @id = "datetimepickerSales"
+           }
+       })
+        </div>
+        <div class="w-100 d-lg-block d-xl-none"></div>
+        <div class="col-xl-3">
+            <input type="submit" value="Submit" class="btn admin-btn" style="height: 2.5rem;"/>
+        </div>
+    </div>
+}

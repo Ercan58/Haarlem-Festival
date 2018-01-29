@@ -52,6 +52,13 @@ body{
     background-position: center center;
     background-attachment: fixed;
 }
+
+#TalksbodyDetails {
+    background-image: url('images/events/Haarlemcentrum.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 footer{
@@ -2052,7 +2059,8 @@ button.close {
 }
 
 .dinerpanel {
-    border-left: 4px solid #910000;
+    border-left: 10px groove #910000;
+
 }
 
 .clearfix:after,

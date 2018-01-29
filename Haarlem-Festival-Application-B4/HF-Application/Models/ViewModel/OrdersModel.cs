@@ -8,7 +8,8 @@ namespace HF_Application.Models.ViewModel
 {
     public class OrdersModel
     {
-        public List<OrderItem> Orders { get; set; }
+        //public List<Order> Orders { get; set; }
+        public List<OrderItem> orderitems { get; set; } 
 
     }
 }

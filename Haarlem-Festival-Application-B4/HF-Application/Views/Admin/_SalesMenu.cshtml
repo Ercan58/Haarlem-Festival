@@ -5,4 +5,8 @@
     <div class="col-lg-3">
         <a class="btn admin-btn @(ViewContext.RouteData.Values["action"].ToString() == "DaySales" ? "admin-btn-current" : "")" href="@Url.Action("DaySales", "Admin")">Sales per Day</a>
     </div>
+    <div class="col-lg-5 offset-1">
+        <h2>Tickets Sold: @ViewBag.TotalSold</h2>
+        <h2>Total Revenue: €@ViewBag.TotalRevenue</h2><br />
+    </div>
 </div>
