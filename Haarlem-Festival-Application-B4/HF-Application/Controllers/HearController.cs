@@ -20,14 +20,11 @@ namespace HF_Application.Controllers
     {
         private IJazzRepository IJazzRepository = new JazzRepository();
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
-        private List<Jazz> AllJazzEvents;
 
 
 
         public HearController()
         {
-            AllJazzEvents = new List<Jazz>();
-            this.AllJazzEvents = IJazzRepository.GetAllJazzEvents();
 
         }
 

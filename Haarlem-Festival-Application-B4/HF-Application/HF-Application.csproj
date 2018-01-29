@@ -225,6 +225,7 @@
     <Compile Include="Models\TourGuid.cs" />
     <Compile Include="Models\ViewModel\CartModel.cs" />
     <Compile Include="Models\ViewModel\HistoricModel.cs" />
+    <Compile Include="Models\ViewModel\HomeViewModel.cs" />
     <Compile Include="Models\ViewModel\JazzDetail.cs" />
     <Compile Include="Models\ViewModel\JazzsModel.cs" />
     <Compile Include="Models\ViewModel\OrdersModel.cs" />
@@ -267,6 +268,7 @@
     <Content Include="Content\images\events\Femke_Jop.png" />
     <Content Include="Content\images\events\grand_cafe_brinkmann.jpg" />
     <Content Include="Content\images\events\haalem-portal.jpg" />
+    <Content Include="Content\images\events\haalemBG.png" />
     <Content Include="Content\images\events\haarlemevening.jpg" />
     <Content Include="Content\images\events\hometalk1.jpg" />
     <Content Include="Content\images\events\restaurantfrishaarlem.jpg" />

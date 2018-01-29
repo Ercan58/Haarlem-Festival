@@ -16,8 +16,26 @@ p{
     font-size:12px;
 }
 body{
-    background:#910000;
+    background-color: white;
 }
+
+#homePage {
+    background-image: url('images/events/haalemBG.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.homePageDiv{
+    float: left;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.homeJazzRow {
+    background-color: rgba(0, 0, 0, .6);
+    padding:10px 0px 0px 10px;
+} 
 
 #Diner {
     background-image: url('images/events/haarlemcentrum.jpg');
