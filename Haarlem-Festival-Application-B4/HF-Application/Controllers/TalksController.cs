@@ -16,7 +16,6 @@ namespace HF_Application.Controllers
 {
     public class TalksController : Controller
     {
-        private HaarlemFestivalContext db = new HaarlemFestivalContext();
         private ITalkRepository talkRepository = new TalkRepository();
         private IEventRepository eventRepository = new EventRepository();
 
