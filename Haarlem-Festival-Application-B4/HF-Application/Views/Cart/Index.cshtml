@@ -1,5 +1,4 @@
 ﻿@model HF_Application.Models.ViewModel.CartModel
-
 @{
     /**/
 
@@ -8,7 +7,7 @@
 }
 
 
-@if (Session["CurrentWishlist"] == null)
+@if (Model == null)
 {
 
     <div class="col-md-8 offset-md-2 col-12 welcomediv">
@@ -31,9 +30,6 @@ else
 
     </div>
 
-    HF_Application.Models.ViewModel.CartModel cart = new HF_Application.Models.ViewModel.CartModel();
-    cart = Session["CurrentWishlist"] as HF_Application.Models.ViewModel.CartModel;
-
     <div class="panel panel-default">
         <table id="cartTable" class="table" style="color:black">
             <thead>
@@ -49,7 +45,7 @@ else
             </thead>
             <tbody>
 
-                @foreach (var item in cart.AllOrderitems)
+                @foreach (var item in Model.AllOrderitems)
                 {
 
                     int totaalitem = (item.Prijs * item.Aantal);
@@ -78,7 +74,7 @@ else
                     <td colspan="3" class="text-right">Total:</td>
                     <td class="text-right">
 
-                        @cart.totaal euro!;
+                        @Model.totaal euro!;
 
                     </td>
                 </tr>

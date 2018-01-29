@@ -16,7 +16,8 @@ namespace HF_Application.Repositories
     public class CartRepository : ICartRepository
     {
         private HaarlemFestivalContext db = new HaarlemFestivalContext();
-
+        //TODO: CART Repository 
+        //todo: add item to list via constr
         public List<OrderItem> Additem(int itemid, int aantal, string Question, FestivalEvent festivalEvent, int prijs)
         {
             int Orderid = -1;
@@ -29,6 +30,7 @@ namespace HF_Application.Repositories
             return items;
         }
 
+        //todo: andere lis t zonder festivalevent object voor db toevoegen 
         public List<OrderItem> Additemzonderevent(int itemid, int aantal, string Question, int prijs)
         {
             int Orderid = -1;
@@ -42,6 +44,7 @@ namespace HF_Application.Repositories
 
         }
 
+        //todo: getevnt met id in 
         public FestivalEvent GetbesteldEvent(int eventid)
         {
             FestivalEvent talk = db.FestivalEvent.Where(a => a.ID == eventid).SingleOrDefault();
@@ -49,6 +52,7 @@ namespace HF_Application.Repositories
             return talk;
         }
 
+        //todo: add order to db betaald 
         public int PlaceOrder(int userid)
         {
             int statusid = 1;
@@ -64,6 +68,8 @@ namespace HF_Application.Repositories
 
             return lastorderid;
         }
+
+        //todo: add order to db wishlist
         public int SaveOrder(int userid)
         {
             int statusid = 0;
@@ -80,12 +86,15 @@ namespace HF_Application.Repositories
             return lastorderid;
         }
 
+        //todo: add order items to db 
         public void Additemsdb(OrderItem item)
         {
             db.OrderItems.Add(item);
             db.SaveChanges();
         }
 
+
+        //todo: get alle orders die je gekocht hebt 
         public List<OrderItem> GetOrders(int userid, int statusid)
         {
             List<Order> ordersids = new List<Order>();
