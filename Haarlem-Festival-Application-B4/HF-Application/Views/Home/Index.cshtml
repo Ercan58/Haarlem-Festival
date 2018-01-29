@@ -1,124 +1,257 @@
-﻿@{
+﻿@model HF_Application.Models.ViewModel.HomeViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="mainpageimage">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 col-12 welcomediv">
-            <h1 class="text-center">Welcome to Haarlem Festivals!</h1>
-            <p class="welcometext">
-                The Haarlem Festival has a wider palette to inspire an even more diverse audience. The Haarlem Festival will be summer festival, held in july/august (dates to be announced) and especially targeted
-                (although not exclusively) towards an international audience (tourists coming over for Holiday in the Netherlands).
-            </p>
+@*<body id="homePage">
+    <div class="mainpageimage">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-12 welcomediv">
+                    <h1 class="text-center">Welcome to Haarlem Festivals!</h1>
+                    <p class="welcometext">
+                        The Haarlem Festival has a wider palette to inspire an even more diverse audience. The Haarlem Festival will be summer festival, held in july/august (dates to be announced) and especially targeted
+                        (although not exclusively) towards an international audience (tourists coming over for Holiday in the Netherlands).
+                    </p>
+                </div>
+            </div>
+            <div class="row homepagefirstline">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3 ">
+                    <div class="mainpagetastediv">
+                        <h1 class="text-center">Taste</h1>
+                        <img class="img-fluid" src="~/Content/images/events/restaurantfrishaarlem.jpg" />
+                        <h2>Restaurant Fris Haarlem</h2>
+                        <p>
+                            Speciality in Dutch, French and European Food.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagejazzdiv">
+                        <h1 class="text-center">Hear</h1>
+                        <img class="img-fluid" src="~/Content/images/events/jazz.jpg" />
+                        <h2>The Family XL</h2>
+                        <p>
+                            Modern Jazz and more. Date: 27-7-2018
+                            Time: 20.00 - 21.00
+                            Price:  10.00 euro
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagehistoricediv">
+                        <h1 class="text-center">See</h1>
+                        <img class="img-fluid" src="~/Content/images/events/historic_haarlem.jpg" />
+                        <h2>Historic Tour</h2>
+                        <p>
+                            A guided tour available in Dutch, English and Chinees.
+                            Start times: 10.00, 13.00 and 16.00.
+                            Date: 27-7-2017
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagetalkdiv">
+                        <h1 class="text-center">Talk</h1>
+                        <img class="img-fluid" src="~/Content/images/events/talkhome2.jpg" />
+                        <h2>Giel Beelen meets Rob Trip</h2>
+                        <p>
+                            In a three night special the Toneelschuur will bring
+                            several of them together to talk about their relation with Haarlem and the impact it had/has on their careers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row homepagesecondline">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagejazzdiv">
+                        <h1 class="text-center">Hear</h1>
+                        <img class="img-fluid" src="~/Content/images/events/jazz.jpg" />
+                        <h2>The Family XL</h2>
+                        <p>
+                            Modern Jazz and more. Date: 27-7-2018
+                            Time: 20.00 - 21.00
+                            Price:  10.00 euro
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagetastediv">
+                        <h1 class="text-center">Taste</h1>
+                        <img class="img-fluid" src="~/Content/images/events/restaurant_mr_en_mrs.jpg" />
+                        <h2>Restaurant Mr. & Mrs. ****</h2>
+                        <p>
+                            Dutch, European, fish and seafood.
+                            Avalible times each day at 18.00, 19.30 and 21.00.
+                            Price: 45.00 euro p.p.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagetalkdiv">
+                        <h1 class="text-center">Talk</h1>
+                        <img class="img-fluid" src="~/Content/images/events/hometalk1.jpg" />
+                        <h2>Femke Halsema meets Job Cohen</h2>
+                        <p>
+                            In a three night special the Toneelschuur will bring
+                            several of them together to talk about their relation with Haarlem and the impact it had/has on their careers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
+                    <div class="mainpagehistoricediv">
+                        <h1 class="text-center">See</h1>
+                        <img class="img-fluid" src="~/Content/images/events/historic_haarlem.jpg" />
+                        <h2>Historic Tour</h2>
+                        <p>
+                            A guided tour available in Dutch, English and Chinees.
+                            Start times: 10.00, 13.00 and 16.00.
+                            Date: 27-7-2017
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
-    <div class="row homepagefirstline">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3 ">
-            <div class="mainpagetastediv">
-                <h1 class="text-center">Taste</h1>
-                <img class="img-fluid" src="~/Content/images/events/restaurantfrishaarlem.jpg" />
-                <h2>Restaurant Fris Haarlem</h2>
-                <p>
-                    Speciality in Dutch, French and European Food.
-                </p>
-            </div>
-        </div>
+</body>*@
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagejazzdiv">
-                <h1 class="text-center">Hear</h1>
-                <img class="img-fluid" src="~/Content/images/events/jazz.jpg" />
-                <h2>The Family XL</h2>
-                <p>
-                    Modern Jazz and more. Date: 27-7-2018
-                    Time: 20.00 - 21.00
-                    Price:  10.00 euro
-                </p>
-            </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagehistoricediv">
-                <h1 class="text-center">See</h1>
-                <img class="img-fluid" src="~/Content/images/events/historic_haarlem.jpg" />
-                <h2>Historic Tour</h2>
-                <p>
-                    A guided tour available in Dutch, English and Chinees.
-                    Start times: 10.00, 13.00 and 16.00.
-                    Date: 27-7-2017
-                </p>
-            </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagetalkdiv">
-                <h1 class="text-center">Talk</h1>
-                <img class="img-fluid" src="~/Content/images/events/talkhome2.jpg" />
-                <h2>Giel Beelen meets Rob Trip</h2>
-                <p>
-                    In a three night special the Toneelschuur will bring
-                    several of them together to talk about their relation with Haarlem and the impact it had/has on their careers.
+
+<body id="homePage">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-12 welcomediv">
+                <h1 class="text-center">Welcome to Haarlem Festivals!</h1>
+                <p class="welcometext">
+                    The Haarlem Festival has a wider palette to inspire an even more diverse audience. The Haarlem Festival will be summer festival, held in july/august (dates to be announced) and especially targeted
+                    (although not exclusively) towards an international audience (tourists coming over for Holiday in the Netherlands).
                 </p>
             </div>
         </div>
     </div>
-    <div class="row homepagesecondline">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagejazzdiv">
-                <h1 class="text-center">Hear</h1>
-                <img class="img-fluid" src="~/Content/images/events/jazz.jpg" />
-                <h2>The Family XL</h2>
-                <p>
-                    Modern Jazz and more. Date: 27-7-2018
-                    Time: 20.00 - 21.00
-                    Price:  10.00 euro
-                </p>
-            </div>
-        </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagetastediv">
-                <h1 class="text-center">Taste</h1>
-                <img class="img-fluid" src="~/Content/images/events/restaurant_mr_en_mrs.jpg" />
-                <h2>Restaurant Mr. & Mrs. ****</h2>
-                <p>
-                    Dutch, European, fish and seafood.
-                    Avalible times each day at 18.00, 19.30 and 21.00.
-                    Price: 45.00 euro p.p.
-                </p>
-            </div>
-        </div>
+    <div class="container-fluid">
+        <div class="row homeJazzRow">
+            <div class="text-center col-12" style="font-weight:bolder; font-size:4rem;">HEAR</div>
+            @foreach (var events in Model.jazzEvents)
+        {
+            <div class="col-sm-3">
+                <div class="jazzDiv">
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagetalkdiv">
-                <h1 class="text-center">Talk</h1>
-                <img class="img-fluid" src="~/Content/images/events/hometalk1.jpg" />
-                <h2>Femke Halsema meets Job Cohen</h2>
-                <p>
-                    In a three night special the Toneelschuur will bring
-                    several of them together to talk about their relation with Haarlem and the impact it had/has on their careers.
-                </p>
-            </div>
-        </div>
+                    <div class="col-md-12">
+                        <img class="jazzImage" src="@Url.Content("~/Content/images/events/" + events.imagePath)" alt="Image of @events.Band" />
+                    </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xl-3">
-            <div class="mainpagehistoricediv">
-                <h1 class="text-center">See</h1>
-                <img class="img-fluid" src="~/Content/images/events/historic_haarlem.jpg" />
-                <h2>Historic Tour</h2>
-                <p>
-                    A guided tour available in Dutch, English and Chinees.
-                    Start times: 10.00, 13.00 and 16.00.
-                    Date: 27-7-2017
-                </p>
-            </div>
-        </div>
+                    <div class="col-md-12 text-center"><h1 class="jazzName">@events.Band</h1></div>
 
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Date</h2>
+                            </div>
+                            @events.StartDate.ToShortDateString()
+                        </div>
+
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Time</h2>
+                            </div>
+                            @events.StartDate.ToShortTimeString() - @events.EndDate.ToShortTimeString()
+                        </div>
+
+                        <div class="col-md-12 col-12 text-center tastebuttoncol">
+
+                            @Html.ActionLink("More information", "Details", new { id = events.ID }, new { @class = "jazzBtn btn btn-info" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    }
+        </div>
+        <br />
+
+        <div class="row homeJazzRow">
+            <div class="text-center col-12" style="font-weight:bolder; font-size:4rem;">Taste</div>
+            @foreach (var events in Model.jazzEvents)
+        {
+            <div class="col-sm-3">
+                <div class="jazzDiv"style="background-color: #910000 !important;">
+
+                    <div class="col-md-12">
+                        <img class="jazzImage" src="@Url.Content("~/Content/images/events/" + events.imagePath)" alt="Image of @events.Band" />
+                    </div>
+
+                    <div class="col-md-12 text-center"><h1 class="jazzName">@events.Band</h1></div>
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div>
+                                <h2>Foodtypes</h2>
+                            </div>
+                            @events.StartDate.ToShortDateString()
+                        </div>
+
+                        <div class="col-md-12 col-12 text-center tastebuttoncol">
+
+                            @Html.ActionLink("More information", "Details", new { id = events.ID }, new { @class = "jazzBtn btn btn-info" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    }
+        </div>
+        <br />
+
+        <div class="row homeJazzRow">
+            <div class="text-center col-12" style="font-weight:bolder; font-size:4rem;">TALK</div>
+            @foreach (var events in Model.talkList)
+        {
+            <div class="col-sm-3">
+                <div class="jazzDiv" style="background-color: #B28523 !important;">
+
+                    <div class="col-md-12">
+                        <img class="jazzImage" src="@Url.Content("~/Content/images/events/" + events.ImagePath)" alt="Image of @events.Interview" />
+                    </div>
+
+                    <div class="col-md-12 text-center"><h1 class="jazzName">@events.Interview</h1></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Date</h2>
+                            </div>
+                            @events.StartDate.ToShortDateString()
+                        </div>
+
+                        <div class="col-sm-6 text-center">
+                            <div>
+                                <h2>Time</h2>
+                            </div>
+                            @events.StartDate.ToShortTimeString() - @events.EndDate.ToShortTimeString()
+                        </div>
+
+                        <div class="col-md-12 col-12 text-center tastebuttoncol">
+
+                            @Html.ActionLink("More information", "Details", new { id = events.ID }, new { @class = "jazzBtn btn btn-info" })
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    }
+        </div>
     </div>
-
-    </div>
-
-
-</div>
-
+</body>
