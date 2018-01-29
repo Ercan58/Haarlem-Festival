@@ -13,5 +13,6 @@ namespace HF_Application.Interface
     {
        List<Historic> GetAllHistoryEvents();
        List<Historic> GetHistoricEvents(DateTime datetime);
+       Historic GetJazzEventById(int id);
     }
 }

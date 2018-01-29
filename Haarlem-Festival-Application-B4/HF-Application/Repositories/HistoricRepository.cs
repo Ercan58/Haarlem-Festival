@@ -27,5 +27,11 @@ namespace HF_Application.Repositories
 
                 return JazzEventByDate = (db.Historics.Where(s=> s.StartDate.Year == datetime.Year && s.StartDate.Day==datetime.Day && s.StartDate.Month == datetime.Month).Include(a=>a.Location).ToList());
         }
+
+        public Historic GetJazzEventById(int id)
+        {
+            Historic JazzEvent = db.Historics.Where(a => a.ID == id).Include(n => n.Location).SingleOrDefault();
+            return JazzEvent;
+        }
     }
 }

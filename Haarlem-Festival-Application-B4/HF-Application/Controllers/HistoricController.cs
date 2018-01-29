@@ -15,6 +15,7 @@ namespace HF_Application.Controllers
     {
 
         private IHistoricRepository historyRepository = new HistoricRepository();
+        private HaarlemFestivalContext db = new HaarlemFestivalContext();
         private List<Historic> AllHistoricEvents;
 
 
@@ -27,7 +28,7 @@ namespace HF_Application.Controllers
         }
 
 
-        // GET: Jazzs
+        // GET: HISTORC
         public ActionResult Index(string date)
         {
 
@@ -47,6 +48,20 @@ namespace HF_Application.Controllers
             return View(HistModel);
 
         }
+
+
+        public ActionResult Details(int id)
+        {
+            HistoricDetails hisEventDetail = new HistoricDetails();
+            hisEventDetail.HistoicEvent = historyRepository.GetJazzEventById(id);
+            hisEventDetail.CrossSellingRestaurauntList = db.Restaurants.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
+            hisEventDetail.CrossSellingTalk = db.Talks.OrderBy(j => Guid.NewGuid()).Take(2).ToList();
+
+
+            return View(hisEventDetail);
+        }
+
+
 
 
     }
