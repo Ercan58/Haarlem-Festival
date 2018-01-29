@@ -3,11 +3,9 @@
     ViewBag.Title = "Total Sales";
 }
 @Html.Partial("_SalesMenu")
-
 <div class="row">
-    <div class="col-sm-12">
-        <h1>Tickets Sold: @ViewBag.TotalSold</h1>
-        <h1>Total Revenue: €@ViewBag.TotalRevenue</h1><br />
+    <div class="col-sm-5 offset-7">
+        <a class="btn admin-btn" href="@Url.Action("ExportToExcel", "Admin")">Export to Excel</a>
     </div>
 </div>
 <div class="row">

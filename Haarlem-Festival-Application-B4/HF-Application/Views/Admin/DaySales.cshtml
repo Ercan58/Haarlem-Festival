@@ -8,12 +8,12 @@
     }
 }
 @Html.Partial("_SalesMenu")
-@Html.Partial("_SalesDayPicker", new HF_Application.Models.DateTimeModel(new DateTime(2018, 1, 1)))
-
 <div class="row">
-    <div class="col-sm-12">
-        <h1>Tickets Sold: @ViewBag.TotalSold</h1>
-        <h1>Total Revenue: €@ViewBag.TotalRevenue</h1><br />
+    <div class="col-sm-6">
+        @Html.Partial("_SalesDayPicker", new HF_Application.Models.DateTimeModel(ViewBag.DateTime))
+    </div>
+    <div class="col-sm-4 offset-8">
+        @Html.ActionLink("Export to Excel", "ExportToExcelByDate", new { dateTime = ViewBag.DateTime }, new { @class = "btn admin-btn" })
     </div>
 </div>
 <div class="row">
