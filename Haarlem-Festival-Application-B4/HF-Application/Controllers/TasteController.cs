@@ -16,6 +16,7 @@ namespace HF_Application.Controllers
 {
     public class TasteController : Controller
     {
+        //Aanmaken van repositorys
         IDinerRepository dinerrp = new DinerRepository();
         private List<FoodType> AllFoodTypes;
 
