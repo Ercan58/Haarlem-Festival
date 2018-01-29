@@ -25,27 +25,25 @@
         <div class="avatar"></div>
         <div class="form-box">
             @using (Html.BeginForm())
-            {
-                @*<form>*@
-                <div class="divlogininput">
-                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "user", placeholder = "username" } })
-                    @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+    {
+        @*<form>*@
+        <div class="divlogininput">
+            @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "user", placeholder = "username" } })
+            @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
 
-                </div>
+        </div>
 
-                <div class="divlogininput">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "user", placeholder = "password" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        <div class="divlogininput">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "user", placeholder = "password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
 
-                </div>
+        </div>
 
+        <input type="submit" value="Log In" class="btn btn-info btn-block login" />
+        @Html.ActionLink("Register here!", "Registration", new { @class = "btn btn-info btn-block login" })
 
-                @*<input name="user" type="text" placeholder="username">
-                    <input type="password" placeholder="password">*@
-                @*<button class="btn btn-info btn-block login" type="submit">Login</button>*@
-                <input type="submit" value="Log In" class="btn btn-info btn-block login" />
-                @*</form>*@
-            }
+        @*</form>*@
+}
         </div>
     </div>
 
